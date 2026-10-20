@@ -150,6 +150,7 @@
       return `<button class="tab" role="tab" data-group="${g.id}" aria-selected="${ui.group === g.id}">
         <b>${g.tab}</b><span>${n}/${list.length} · ${pct}%</span><i class="meter"><i style="width:${pct}%"></i></i></button>`;
     }).join('');
+    requestAnimationFrame(() => document.querySelector('.tab[aria-selected="true"]')?.scrollIntoView({ block: 'nearest', inline: 'nearest' }));
   }
   function renderSync() {
     $('#dirtyDot').hidden = !dirty;
@@ -887,6 +888,16 @@
     document.documentElement.classList.toggle('standalone', !!standalone);
   }
   measureSafeArea();
+  (async () => {
+    try {
+      const mine = (document.querySelector('script[src^="app.js"]')?.getAttribute('src').match(/v=(\d+)/) || [])[1];
+      const html = await fetch('./?check=' + Date.now(), { cache: 'no-store' }).then(r => r.text());
+      const live = (html.match(/app\.js\?v=(\d+)/) || [])[1];
+      if (mine && live && live !== mine && sessionStorage.getItem('pdx.reloaded') !== live) {
+        sessionStorage.setItem('pdx.reloaded', live); location.reload();
+      }
+    } catch {}
+  })();
   window.addEventListener('orientationchange', () => setTimeout(measureSafeArea, 300));
 
   load().catch(err => { $('#content').innerHTML = `<p class="empty">Impossibile caricare i dati (${esc(err.message)}). Apri il sito tramite GitHub Pages o un server locale.</p>`; });

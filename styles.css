@@ -554,3 +554,8 @@ body.on-bubi #faceSeg, body.on-bubi #viewSeg, body.on-bubi #filterSeg [data-filt
 }
 
 @media (max-width: 820px) { .pages { padding-block: 18px; margin-block: -10px; } .page { backface-visibility: hidden; } }
+
+/* desktop: every tab visible (wrap onto two rows instead of hiding off-screen) */
+@media (min-width: 821px) and (hover: hover) {
+  .tabs { flex-wrap: wrap; overflow: visible; row-gap: 0; }
+}
