@@ -495,3 +495,6 @@ main { padding-bottom: 110px; }
 .brand { min-width: 0; flex: 1 1 auto; }
 .brand > div { min-width: 0; }
 .sub { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* home-screen app: keep the cover clear of the iPhone notch */
+.cover-inner { padding-top: max(14px, env(safe-area-inset-top, 0px)); }
