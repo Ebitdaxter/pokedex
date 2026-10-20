@@ -265,7 +265,7 @@
   }
 
   /* ---------------- targets ---------------- */
-  let tFilter = 'todo', tEdit = null, tReplace = null;
+  let tFilter = 'todo', tEdit = null, tReplace = null, targetQuick = false;
   function renderTargets() {
     const all = targets(), q = (ui.q || '').toLowerCase();
     const taken = all.filter(isTaken).length;
@@ -811,7 +811,7 @@
     x.img = x.imgOwn ?? null; delete x.imgOwn; delete x.imgFrom;
     persist(); renderMine(); fillForm(); refreshAfterEdit(); toast('Foto originale ripristinata');
   });
-  dlg.addEventListener('close', () => { setPhotoMode(false); if (tReplace) { tReplace = null; ui.tap = 'col'; syncControls(); } });
+  dlg.addEventListener('close', () => { setPhotoMode(false); if (tReplace || targetQuick) { tReplace = null; targetQuick = false; ui.tap = 'col'; syncControls(); if (ui.group === 'target') renderTargets(); } });
   form.addEventListener('change', readForm);
   form.addEventListener('submit', ev => ev.preventDefault());
   $('#catGrid').addEventListener('click', ev => { const b = ev.target.closest('.cand'); if (b) pickCatalog(b.dataset.cid); });
@@ -866,13 +866,18 @@
         <span class="q-n">${n ? n + (n > 1 ? ' carte' : ' carta') : 'Mancante'}</span></button>`;
     }).join('') : `<p class="hint">Nessun Pokémon trovato per “${esc(q)}”.</p>`;
   }
-  $('#fab').addEventListener('click', () => { $('#qInput').value = ''; renderQuick(); quick.showModal(); setTimeout(() => $('#qInput').focus(), 50); });
+  $('#fab').addEventListener('click', () => {
+    $('#qTitle').textContent = ui.group === 'target' ? 'Aggiungi un target' : 'Aggiungi una carta';
+    $('#qInput').value = ''; renderQuick(); quick.showModal(); setTimeout(() => $('#qInput').focus(), 50);
+  });
   $('#qInput').addEventListener('input', renderQuick);
   quick.addEventListener('click', ev => {
     if (ev.target === quick) { quick.close(); return; }
     const it = ev.target.closest('.q-item'); if (!it) return;
     const e = BY_ID.get(it.dataset.id); quick.close();
-    if (ui.group !== e.group) { ui.group = e.group; renderTabs(); renderContent(); syncControls(); }
+    if (ui.group === 'target') {        // from the Target tab: cards you pick go to the target list, not to your collection
+      targetQuick = true; ui.tap = 'target'; syncControls();
+    } else if (ui.group !== e.group) { ui.group = e.group; renderTabs(); renderContent(); syncControls(); }
     openDetail(e.id);
     setTimeout(() => $('.finder').scrollIntoView({ behavior: 'smooth', block: 'start' }), 350);
     toast(`${e.name}: pagina ${e.page}, tasca ${e.pos}`);
