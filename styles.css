@@ -567,3 +567,11 @@ body.on-bubi #faceSeg, body.on-bubi #viewSeg, body.on-bubi #filterSeg [data-filt
 .bubi-grid.nine { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 720px; margin: 16px auto 0; gap: 14px; }
 #bubiShuffle { margin-top: 6px; }
 @media (max-width: 560px) { .bubi-grid.nine { gap: 8px; } .bcard .cand-info span { font-size: .62rem; } }
+
+/* phones: the page itself never moves sideways; only the tab bar, the album and the card strips scroll horizontally */
+html, body { max-width: 100%; overflow-x: hidden; overscroll-behavior-x: none; }
+@supports (overflow: clip) { html, body { overflow-x: clip; } }
+body { touch-action: pan-y pinch-zoom; }
+.tabs, .pages, .mine-list, .q-list, .finder-grid { touch-action: pan-x pan-y; }
+dialog { touch-action: pan-y pinch-zoom; }
+.bg { contain: strict; }
