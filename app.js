@@ -247,7 +247,7 @@
       pages.forEach((p, i) => {
         const d = Math.max(-1, Math.min(1, (i * w - x) / w));   // -1 left .. 0 centre .. 1 right
         p.style.transformOrigin = d < 0 ? 'right center' : 'left center';
-        p.style.transform = `perspective(1400px) rotateY(${d * -38}deg) scale(${1 - Math.abs(d) * .06})`;
+        p.style.transform = `perspective(1400px) rotateY(${d * -38}deg)`;   // rotate only: no scaling, so the page never moves up or down
         p.style.filter = `brightness(${1 - Math.abs(d) * .25})`;
       });
     };
