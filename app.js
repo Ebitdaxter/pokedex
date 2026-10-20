@@ -238,7 +238,7 @@
   }
 
   /* ---------------- targets ---------------- */
-  let tFilter = 'todo';
+  let tFilter = 'todo', tEdit = null, tReplace = null;
   function renderTargets() {
     const all = targets(), q = (ui.q || '').toLowerCase();
     const taken = all.filter(isTaken).length;
@@ -260,12 +260,47 @@
         <div class="t-side">
           <span class="price" data-price="${esc(t.cid || '')}">${p ? (p.p != null ? eur(p.p) : '—') : (t.cid ? '' : '—')}</span>
           <span class="t-state">${done ? '✓ Presa' : 'Da prendere'}</span>
-          <button type="button" class="btn quiet small" data-act="del" aria-label="Togli dai target">Togli</button>
-        </div></li>`;
+          <span class="t-btns"><button type="button" class="btn quiet small" data-act="edit" aria-expanded="${tEdit === t.uid}">Modifica</button><button type="button" class="btn quiet small" data-act="del" aria-label="Togli dai target">Togli</button></span>
+        </div>${tEdit === t.uid ? targetForm(t) : ''}</li>`;
     }).join('')}</ul>`;
     loadPrices(list.filter(t => t.cid && !isTaken(t)).map(t => { const [src, ...r] = t.cid.split(':'); return { src, id: r.join(':'), tdx: t.tdx }; }));
   }
+  const opts = (list, v) => list.map(([k, l]) => `<option value="${esc(k)}"${k === (v || '') ? ' selected' : ''}>${esc(l)}</option>`).join('');
+  function targetForm(t) {
+    const L = ['', 'ITA', 'JPN', 'ENG', 'KOR', 'FRA', 'DEU', 'ESP', 'POR', 'CHN'].map(x => [x, x || '—']);
+    const RC = ['', 'Common', 'Uncommon', 'Rare', 'RR', 'RRR', 'AR', 'SAR', 'SR', 'UR', 'MA', 'MUR', 'CHR', 'CSR', 'S', 'SSR', 'ACE', 'PR'].map(x => [x, x || '—']);
+    return `<form class="t-edit card-form" data-uid="${t.uid}" autocomplete="off">
+      <label>Desiderio<select name="desire">${opts([['Strong', 'Tanto'], ['Medium', 'Medio'], ['Weak', 'Poco']], t.desire)}</select></label>
+      <label>Lingua<select name="lang">${opts(L, t.lang)}</select></label>
+      <label>Rarità<select name="rc">${opts(RC, t.rc)}</select></label>
+      <label class="wide">Espansione<input name="set" list="setList" value="${esc(t.set || '')}"></label>
+      <label>Numero<input name="number" value="${esc(t.number || '')}"></label>
+      <label>Anno<input name="year" inputmode="numeric" value="${esc(t.year || '')}"></label>
+      <label>Variante<input name="variant" value="${esc(t.variant || '')}"></label>
+      <label class="wide">Note<input name="note" value="${esc(t.note || '')}" placeholder="es. solo PSA 10, max 50 €"></label>
+      <label class="wide">Immagine (URL)<input name="img" value="${esc(t.img || '')}"></label>
+      <label class="check wide"><input type="checkbox" name="taken"${t.taken ? ' checked' : ''}> Segna come presa anche se non è nella collezione</label>
+      <div class="row wide"><button type="button" class="btn quiet small" data-act="swap">Scegli un'altra carta dal catalogo</button><button type="button" class="btn primary small" data-act="close">Fatto</button></div>
+    </form>`;
+  }
+  function saveTargetForm(f) {
+    const t = targets().find(z => z.uid === f.dataset.uid); if (!t) return;
+    for (const el of f.elements) {
+      if (!el.name) continue;
+      if (el.type === 'checkbox') { if (el.checked) t.taken = true; else delete t.taken; }
+      else if (el.value.trim()) t[el.name] = el.value.trim(); else delete t[el.name];
+    }
+    persist(); renderTabs();
+  }
   function addTarget(c) {
+    if (tReplace) {   // swapping the card of an existing target
+      const t = targets().find(z => z.uid === tReplace); tReplace = null;
+      if (t) Object.assign(t, { name: current.name, eid: current.id, cid: c.src + ':' + c.id, src: c.src, tdx: c.tdx, img: c.img || null,
+        set: c.set, number: c.no + (c.tot ? '/' + c.tot : ''), rc: c.rc, year: (c.date || '').slice(0, 4) });
+      ui.tap = 'col'; syncControls(); persist(); dlg.close();
+      ui.group = 'target'; tEdit = t?.uid; renderTabs(); renderContent();
+      toast('Carta del target aggiornata'); return;
+    }
     const cid = c.src + ':' + c.id;
     if (targets().some(t => t.cid === cid)) { toast('È già tra i target'); return; }
     targets().push({ uid: uid(), name: current.name, eid: current.id, cid, src: c.src, tdx: c.tdx, img: c.img || null,
@@ -649,8 +684,17 @@
     const t = targets().find(z => z.uid === row.dataset.uid); if (!t) return;
     const act = ev.target.closest('[data-act]')?.dataset.act;
     if (act === 'del') { col.targets = targets().filter(z => z !== t); persist(); renderTargets(); renderTabs(); toast('Tolta dai target'); }
+    else if (act === 'edit' || act === 'close') { tEdit = tEdit === t.uid || act === 'close' ? null : t.uid; renderTargets(); }
+    else if (act === 'swap') {
+      if (!t.eid) { toast('Questo target non è collegato a un Pokémon'); return; }
+      tReplace = t.uid; ui.tap = 'target'; syncControls(); openDetail(t.eid);
+      setTimeout(() => $('.finder').scrollIntoView({ behavior: 'smooth', block: 'start' }), 350);
+      toast('Tocca la carta che vuoi come target');
+    }
     else if (act === 'open' && t.eid) openDetail(t.eid);
   });
+  $('#content').addEventListener('change', ev => { const f = ev.target.closest('.t-edit'); if (f) saveTargetForm(f); });
+  $('#content').addEventListener('submit', ev => { if (ev.target.closest('.t-edit')) ev.preventDefault(); });
   $('#sectionHead').addEventListener('click', ev => { const tb = ev.target.closest('#tSeg button'); if (tb) { tFilter = tb.dataset.t; renderTargets(); } });
   $('#faceSeg').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; ui.face = b.dataset.face; syncControls(); renderContent(); });
   $('#viewSeg').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; ui.view = b.dataset.view; syncControls(); renderContent(); });
@@ -676,7 +720,7 @@
     x.img = x.imgOwn ?? null; delete x.imgOwn; delete x.imgFrom;
     persist(); renderMine(); fillForm(); refreshAfterEdit(); toast('Foto originale ripristinata');
   });
-  dlg.addEventListener('close', () => setPhotoMode(false));
+  dlg.addEventListener('close', () => { setPhotoMode(false); if (tReplace) { tReplace = null; ui.tap = 'col'; syncControls(); } });
   form.addEventListener('change', readForm);
   form.addEventListener('submit', ev => ev.preventDefault());
   $('#catGrid').addEventListener('click', ev => { const b = ev.target.closest('.cand'); if (b) pickCatalog(b.dataset.cid); });
