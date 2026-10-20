@@ -11,10 +11,15 @@
   const LS = { col: 'pdx.collection.v3', gh: 'pdx.github.v1', ui: 'pdx.ui.v3', price: 'pdx.prices.v2' };
   const GROUPS = [
     ...[1, 2, 3, 4, 5, 6, 7, 8, 9].map(g => ({ id: 'g' + g, tab: 'Gen ' + ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'][g - 1],
-      title: ['Kanto', 'Johto', 'Hoenn', 'Sinnoh', 'Unima', 'Kalos', 'Alola', 'Galar', 'Paldea'][g - 1], cols: 4 })),
-    { id: 'mega', tab: 'Mega', title: 'Megaevoluzioni', cols: 3 },
-    { id: 'regional', tab: 'Regionali', title: 'Forme regionali', cols: 3 },
+      title: ['Kanto', 'Johto', 'Hoenn', 'Sinnoh', 'Unima', 'Kalos', 'Alola', 'Galar', 'Paldea'][g - 1], cols: 4,
+      // version colours of each generation's pair of games, used for the waves and the cover
+      theme: [['#e3350d', '#3b6fd8', '#f2b807'], ['#d4a017', '#9aa7b8', '#4bb3c7'], ['#c8102e', '#1f5fbf', '#2fae63'], ['#5b8fd9', '#d98bb3', '#a77bd1'],
+        ['#2b2b2b', '#e9e9e9', '#3fb6a8'], ['#1f76d2', '#e0283a', '#2fae63'], ['#f28a1a', '#7a4fd6', '#1fb5a6'], ['#14a3d9', '#d6267a', '#f2b807'], ['#e3350d', '#7b3fd1', '#f29e0d']][g - 1] })),
+    { id: 'mega', tab: 'Mega', title: 'Megaevoluzioni', cols: 3, theme: ['#7b3fd1', '#e0479e', '#38c6d9'] },
+    { id: 'regional', tab: 'Regionali', title: 'Forme regionali', cols: 3, theme: ['#2fae63', '#1f76d2', '#f2b807'] },
+    { id: 'target', tab: 'Target', title: 'Carte target', cols: 0, theme: ['#f2b807', '#e3350d', '#1f5fbf'] },
   ];
+  const DESIRE = { Strong: { l: 'Tanto', o: 0 }, Medium: { l: 'Medio', o: 1 }, Weak: { l: 'Poco', o: 2 } };
   const TYPE_COLORS = { Normal: '#9a9a6e', Fire: '#e5662c', Water: '#4a7fe0', Electric: '#e6b412', Grass: '#4fa83d', Ice: '#5bbdbd',
     Fighting: '#b8322a', Poison: '#9640a0', Ground: '#c9a14a', Flying: '#8a74d8', Psychic: '#e9466f', Bug: '#8fa31a',
     Rock: '#a8902f', Ghost: '#62508c', Dragon: '#5c34e8', Dark: '#5a4638', Steel: '#8e8eaa', Fairy: '#d9709a' };
@@ -48,14 +53,14 @@
 
   let ENTRIES = [], BY_ID = new Map(), SETS = [], META = {};
   let remote = null, col = { version: 2, updated: null, cards: {} }, dirty = false;
-  const ui = Object.assign({ group: 'g1', filter: 'all', view: 'grid', face: 'card', q: '', src: 'all', rf: 'all', langInt: 'ITA', langJp: 'JPN' }, store.get(LS.ui, {}));
+  const ui = Object.assign({ group: 'g1', filter: 'all', view: 'grid', face: 'card', tap: 'col', q: '', src: 'all', rf: 'all', langInt: 'ITA', langJp: 'JPN' }, store.get(LS.ui, {}));
   const priceCache = store.get(LS.price, {});   // cid -> {p, t}
   let current = null, selUid = null, photoMode = false;
 
   /* ---------------- collection model ---------------- */
   // col.cards[entryId] = { cover: <uid>, list: [ {uid, cid?, src?, set, sid?, number, rarity, rc, lang, variant, year, img, price, value, art} ] }
   function migrate(c) {
-    const out = { version: 2, updated: c.updated || null, cards: {} };
+    const out = { version: 2, updated: c.updated || null, pricesUpdated: c.pricesUpdated, cards: {}, targets: (c.targets || []).map(t => Object.assign({ uid: uid() }, t)) };
     for (const [k, v] of Object.entries(c.cards || {})) {
       if (v && Array.isArray(v.list)) {
         v.list.forEach(x => { x.uid = x.uid || uid(); });
@@ -85,7 +90,10 @@
   const mine = id => col.cards[id]?.list || [];
   const isOwned = id => mine(id).length > 0;
   const cover = id => { const e = col.cards[id]; return e && (e.list.find(x => x.uid === e.cover) || e.list[0]); };
-  const spriteFace = id => ui.face === 'sprite' || col.cards[id]?.cover === 'sprite';
+  const spriteFace = id => ui.face !== 'card' || col.cards[id]?.cover === 'sprite';
+  const targets = () => col.targets || (col.targets = []);
+  const isTaken = t => !!t.taken || (t.eid && mine(t.eid).some(x => (t.cid && x.cid === t.cid) ||
+    (x.set && t.set && x.number && t.number && x.set.toLowerCase() === t.set.toLowerCase() && x.number.split('/')[0].replace(/^0+/, '') === t.number.split('/')[0].replace(/^0+/, ''))));
   const cardValue = x => +(x.value ?? x.price ?? 0) || 0;
   const isArt = x => x.art ?? ART_RC.has(x.rc);
 
@@ -124,6 +132,11 @@
   }
   function renderTabs() {
     $('#tabs').innerHTML = GROUPS.map(g => {
+      if (g.id === 'target') {
+        const t = targets(), n = t.filter(isTaken).length, pct = t.length ? Math.round(n / t.length * 100) : 0;
+        return `<button class="tab tab-target" role="tab" data-group="target" aria-selected="${ui.group === 'target'}">
+          <b>Target</b><span>${n}/${t.length} presi</span><i class="meter"><i style="width:${pct}%"></i></i></button>`;
+      }
       const list = ENTRIES.filter(e => e.group === g.id), n = list.filter(e => isOwned(e.id)).length;
       const pct = list.length ? Math.round(n / list.length * 100) : 0;
       return `<button class="tab" role="tab" data-group="${g.id}" aria-selected="${ui.group === g.id}">
@@ -156,20 +169,23 @@
     const label = e.group === 'regional' ? `${e.name} di ${e.region}` : e.name;
     const no = e.group.startsWith('g') ? dexStr(e.dex) : (e.region || dexStr(e.dex));
     if (!c) {
-      return `<button class="pocket missing" data-id="${e.id}" aria-label="${esc(label)}, mancante">
+      return `<button class="pocket missing${ui.face === 'bw' ? ' bw' : ''}" data-id="${e.id}" aria-label="${esc(label)}, mancante">
         <span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span><span class="nm">${esc(e.name)}</span></button>`;
     }
     const meta = [c.rc, c.lang, c.set].filter(Boolean).join(' · ');
     const img = !spriteFace(e.id) && c.img && !badImg.has(c.img) ? `<img class="card" loading="lazy" decoding="async" alt="" src="${esc(c.img)}">` : '';
     const art = mine(e.id).some(isArt) ? '<span class="badge-art" title="Art rare">A</span>' : '';
     const count = n > 1 ? `<span class="badge-n" title="${n} carte">${n}</span>` : '';
-    return `<button class="pocket owned${img ? ' has-img' : ''}" style="${typeVars(e)}" data-id="${e.id}" aria-label="${esc(label)}, ${n} ${n > 1 ? 'carte' : 'carta'}">
+    return `<button class="pocket owned${img ? ' has-img' : ''}${ui.face === 'bw' ? ' bw' : ''}" style="${typeVars(e)}" data-id="${e.id}" aria-label="${esc(label)}, ${n} ${n > 1 ? 'carte' : 'carta'}">
       <span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span>
       <span class="meta">${esc(meta)}</span><span class="nm">${esc(e.name)}</span>${img}${art}${count}</button>`;
   }
 
   function renderContent() {
     const g = GROUPS.find(x => x.id === ui.group) || GROUPS[0];
+    applyTheme(g);
+    document.body.classList.toggle('on-target', g.id === 'target');
+    if (g.id === 'target') { renderTargets(); return; }
     const all = ENTRIES.filter(e => e.group === g.id), list = all.filter(matches);
     const n = all.filter(e => isOwned(e.id)).length;
     const range = g.id.startsWith('g') ? `${dexStr(all[0].dex)}–${dexStr(all[all.length - 1].dex)}` : `${all.length} forme`;
@@ -181,11 +197,79 @@
     if (ui.view === 'grid' || ui.q) { $('#content').innerHTML = `<div class="grid">${list.map(pocket).join('')}</div>`; return; }
     const per = g.cols * g.cols, pages = new Map();
     for (const e of list) { if (!pages.has(e.page)) pages.set(e.page, new Array(per).fill(null)); pages.get(e.page)[e.pos - 1] = e; }
-    $('#content').innerHTML = `<div class="pages">${[...pages.entries()].sort((a, b) => a[0] - b[0]).map(([p, slots]) => {
+    const sorted = [...pages.entries()].sort((a, b) => a[0] - b[0]);
+    $('#content').innerHTML = `<div class="album-nav" id="albumNav"><button type="button" class="btn quiet small" data-turn="-1" aria-label="Pagina precedente">‹</button><span id="albumPos"></span><button type="button" class="btn quiet small" data-turn="1" aria-label="Pagina successiva">›</button></div><div class="pages" id="pages">${sorted.map(([p, slots]) => {
       const inPage = all.filter(e => e.page === p), own = inPage.filter(e => isOwned(e.id)).length;
       return `<section class="page" aria-label="Pagina ${p}"><div class="page-label"><b>Pagina ${p}</b><span>${own}/${inPage.length}</span></div>
         <div class="pockets c${g.cols}">${slots.map(e => e ? pocket(e) : '<div class="pocket void" aria-hidden="true"></div>').join('')}</div></section>`;
     }).join('')}</div>`;
+    initAlbum();
+  }
+
+  /* ---------------- album: swipe pages like a real binder (phones) ---------------- */
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function initAlbum() {
+    const box = $('#pages'); if (!box) return;
+    const pages = [...box.children];
+    const paint = () => {
+      const w = box.clientWidth || 1, x = box.scrollLeft;
+      const idx = Math.round(x / w);
+      $('#albumPos').textContent = `Pagina ${pages[idx]?.getAttribute('aria-label').replace('Pagina ', '') || ''} · ${idx + 1} di ${pages.length}`;
+      if (reduceMotion || !matchMedia('(max-width: 820px)').matches) { pages.forEach(p => p.style.transform = ''); return; }
+      pages.forEach((p, i) => {
+        const d = Math.max(-1, Math.min(1, (i * w - x) / w));   // -1 left .. 0 centre .. 1 right
+        p.style.transformOrigin = d < 0 ? 'right center' : 'left center';
+        p.style.transform = `perspective(1400px) rotateY(${d * -38}deg) scale(${1 - Math.abs(d) * .06})`;
+        p.style.filter = `brightness(${1 - Math.abs(d) * .25})`;
+      });
+    };
+    box.addEventListener('scroll', () => requestAnimationFrame(paint), { passive: true });
+    window.addEventListener('resize', paint);
+    $('#albumNav').addEventListener('click', ev => { const b = ev.target.closest('[data-turn]'); if (b) box.scrollBy({ left: +b.dataset.turn * box.clientWidth, behavior: 'smooth' }); });
+    paint();
+  }
+
+  /* ---------------- theme: version-coloured waves ---------------- */
+  function applyTheme(g) {
+    const [a, b, c] = g.theme || GROUPS[0].theme, r = document.documentElement.style;
+    r.setProperty('--w1', a); r.setProperty('--w2', b); r.setProperty('--w3', c);
+  }
+
+  /* ---------------- targets ---------------- */
+  let tFilter = 'todo';
+  function renderTargets() {
+    const all = targets(), q = (ui.q || '').toLowerCase();
+    const taken = all.filter(isTaken).length;
+    $('#sectionHead').innerHTML = `<h2>Carte target</h2><p>${taken} prese su ${all.length} · aggiungine dal catalogo di un Pokémon scegliendo “Target”</p>
+      <div class="seg small" role="radiogroup" aria-label="Mostra" id="tSeg">${[['todo', 'Da prendere'], ['done', 'Prese'], ['all', 'Tutte']].map(([k, l]) => `<button role="radio" data-t="${k}" aria-checked="${tFilter === k}">${l}</button>`).join('')}</div>`;
+    let list = all.filter(t => (tFilter === 'all' || (tFilter === 'done') === isTaken(t)) && (!q || `${t.name} ${t.set}`.toLowerCase().includes(q)));
+    list.sort((a, b) => (DESIRE[a.desire]?.o ?? 3) - (DESIRE[b.desire]?.o ?? 3) || (a.year || '').localeCompare(b.year || '') || a.name.localeCompare(b.name));
+    if (!list.length) { $('#content').innerHTML = `<p class="empty">${tFilter === 'done' ? 'Nessun target preso, per ora.' : 'Nessun target da prendere. Aggiungine uno dal catalogo di un Pokémon.'}</p>`; return; }
+    $('#content').innerHTML = `<ul class="tlist">${list.map(t => {
+      const e = BY_ID.get(t.eid), done = isTaken(t), p = t.cid ? priceCache[t.cid] : null;
+      const where = e ? `Pagina ${e.page} · tasca ${e.pos}${e.group === 'mega' ? ' (Mega)' : e.group === 'regional' ? ' (Regionali)' : ''}` : '';
+      return `<li class="trow${done ? ' done' : ''}" data-uid="${t.uid}">
+        <button type="button" class="t-img" data-act="open" aria-label="Apri ${esc(t.name)}">${t.img && !badImg.has(t.img) ? `<img loading="lazy" alt="" src="${esc(t.img)}" data-ph="${esc(t.set || t.name)}">` : spritePh(t.set || t.name, e)}</button>
+        <div class="t-main">
+          <b>${esc(t.name)}</b>
+          <span>${esc(t.set || '—')}${t.number ? ' · ' + esc(t.number) : ''}${t.year ? ' · ' + esc(t.year) : ''}</span>
+          <span class="t-tags">${rcBadge(t.rc)}${t.lang ? `<span class="lang">${esc(t.lang)}</span>` : ''}${t.desire ? `<span class="desire d-${esc(t.desire)}">${DESIRE[t.desire]?.l || esc(t.desire)}</span>` : ''}${where ? `<span class="where-t">${where}</span>` : ''}</span>
+        </div>
+        <div class="t-side">
+          <span class="price" data-price="${esc(t.cid || '')}">${p ? (p.p != null ? eur(p.p) : '—') : (t.cid ? '' : '—')}</span>
+          <span class="t-state">${done ? '✓ Presa' : 'Da prendere'}</span>
+          <button type="button" class="btn quiet small" data-act="del" aria-label="Togli dai target">Togli</button>
+        </div></li>`;
+    }).join('')}</ul>`;
+    loadPrices(list.filter(t => t.cid && !isTaken(t)).map(t => { const [src, ...r] = t.cid.split(':'); return { src, id: r.join(':'), tdx: t.tdx }; }));
+  }
+  function addTarget(c) {
+    const cid = c.src + ':' + c.id;
+    if (targets().some(t => t.cid === cid)) { toast('È già tra i target'); return; }
+    targets().push({ uid: uid(), name: current.name, eid: current.id, cid, src: c.src, tdx: c.tdx, img: c.img || null,
+      set: c.set, number: c.no + (c.tot ? '/' + c.tot : ''), rc: c.rc, year: (c.date || '').slice(0, 4), lang: c.src === 'jp' ? ui.langJp : ui.langInt, desire: 'Medium' });
+    persist(); renderCatalog(); refreshAfterEdit();
+    toast(`Aggiunta ai target: ${c.set} ${c.no}`);
   }
   function renderAll() { renderTotals(); renderTabs(); renderContent(); renderSync(); syncControls(); }
   function syncControls() {
@@ -286,6 +370,8 @@
     if (!entry.cover || entry.list.length === 1) entry.cover = x.uid;
     selUid = x.uid;
     persist(); fillPoke(); renderMine(); fillForm(); renderCatalog(); refreshAfterEdit();
+    const hit = targets().find(t => t.eid === current.id && !t.taken && isTaken(t) && (t.cid === x.cid || !t.cid));
+    if (hit) setTimeout(() => toast(`🎯 Target preso: ${hit.set || hit.name}`), 900);
   }
   function removeCard(u) {
     const entry = col.cards[current.id]; if (!entry) return;
@@ -345,14 +431,15 @@
     if (!current) return;
     document.querySelectorAll('#srcSeg button').forEach(b => b.setAttribute('aria-checked', b.dataset.src === ui.src));
     $('#rarityFilter').value = ui.rf;
-    const list = filteredCatalog(), ownedC = new Set(mine(current.id).map(x => x.cid).filter(Boolean));
+    const list = filteredCatalog(), ownedC = new Set(mine(current.id).map(x => x.cid).filter(Boolean)), targC = new Set(targets().map(t => t.cid));
+    document.querySelectorAll('#tapSeg button').forEach(b => b.setAttribute('aria-checked', b.dataset.tap === ui.tap));
     const nInt = catalog.filter(c => c.src === 'int').length, nJp = catalog.length - nInt;
     $('#catNote').textContent = catalog.length ? `${list.length} di ${catalog.length} carte (${nInt} internazionali, ${nJp} giapponesi), dalla più vecchia alla più nuova. Tocca una carta per aggiungerla.` : 'Nessuna carta in catalogo per questo Pokémon.';
     $('#catGrid').innerHTML = list.slice(0, catLimit).map(c => {
       const cid = c.src + ':' + c.id, p = priceCache[cid];
       const tot = c.tot ? `/${c.tot}` : '';
       return `<button type="button" class="cand${ownedC.has(cid) ? ' have' : ''}" data-cid="${esc(cid)}">
-        <span class="cand-img">${thumb(c.sm, `${c.set} ${c.no}`)}${c.alt ? '<i class="alt" title="Foto della versione internazionale">EN</i>' : ''}${ownedC.has(cid) ? '<i class="tick" aria-label="Già nella collezione">✓</i>' : ''}</span>
+        <span class="cand-img">${thumb(c.sm, `${c.set} ${c.no}`)}${c.alt ? '<i class="alt" title="Foto della versione internazionale">EN</i>' : ''}${ownedC.has(cid) ? '<i class="tick" aria-label="Già nella collezione">✓</i>' : ''}${targC.has(cid) ? '<i class="tgt" title="Tra i target">◎</i>' : ''}</span>
         <span class="cand-info"><b>${esc(c.set)}</b><span>${esc(c.no)}${tot} · ${esc((c.date || '').slice(0, 4))} · ${c.src === 'jp' ? 'JP' : 'INT'}</span>
         <span class="cand-row">${rcBadge(c.rc)}<span class="price" data-price="${esc(cid)}">${p ? (p.p != null ? eur(p.p) : '—') : ''}</span></span></span></button>`;
     }).join('');
@@ -420,6 +507,7 @@
   function pickCatalog(cid) {
     const c = catalog.find(x => x.src + ':' + x.id === cid); if (!c) return;
     if (photoMode) { borrowPhoto(c); return; }
+    if (ui.tap === 'target') { addTarget(c); return; }
     const lang = c.src === 'jp' ? ui.langJp : ui.langInt;
     const x = { uid: uid(), cid, src: c.src, tdx: c.tdx, set: c.set + (c.src === 'jp' && !/\(/.test(c.set) ? ` (${c.sid})` : ''), sid: c.sid,
       number: c.no + (c.tot ? '/' + c.tot : ''), rarity: c.r, rc: c.rc, lang, year: (c.date || '').slice(0, 4), img: c.img || null,
@@ -551,12 +639,22 @@
   /* ---------------- events ---------------- */
   $('#tabs').addEventListener('click', ev => { const b = ev.target.closest('.tab'); if (!b) return; ui.group = b.dataset.group; renderTabs(); renderContent(); syncControls(); window.scrollTo({ top: 0 }); });
   $('#filterSeg').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; ui.filter = b.dataset.filter; syncControls(); renderContent(); });
+  $('#tapSeg').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; ui.tap = b.dataset.tap; syncControls(); renderCatalog(); });
+  $('#content').addEventListener('click', ev => {
+    const tb = ev.target.closest('#tSeg button'); if (tb) { tFilter = tb.dataset.t; renderTargets(); return; }
+    const row = ev.target.closest('.trow'); if (!row) return;
+    const t = targets().find(z => z.uid === row.dataset.uid); if (!t) return;
+    const act = ev.target.closest('[data-act]')?.dataset.act;
+    if (act === 'del') { col.targets = targets().filter(z => z !== t); persist(); renderTargets(); renderTabs(); toast('Tolta dai target'); }
+    else if (act === 'open' && t.eid) openDetail(t.eid);
+  });
+  $('#sectionHead').addEventListener('click', ev => { const tb = ev.target.closest('#tSeg button'); if (tb) { tFilter = tb.dataset.t; renderTargets(); } });
   $('#faceSeg').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; ui.face = b.dataset.face; syncControls(); renderContent(); });
   $('#viewSeg').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; ui.view = b.dataset.view; syncControls(); renderContent(); });
   let qT; $('#search').addEventListener('input', ev => {
     clearTimeout(qT); qT = setTimeout(() => {
       ui.q = ev.target.value.trim();
-      if (ui.q && !ENTRIES.some(e => e.group === ui.group && matches(e))) { const hit = ENTRIES.find(matches); if (hit) { ui.group = hit.group; renderTabs(); syncControls(); } }
+      if (ui.q && ui.group !== 'target' && !ENTRIES.some(e => e.group === ui.group && matches(e))) { const hit = ENTRIES.find(matches); if (hit) { ui.group = hit.group; renderTabs(); syncControls(); } }
       renderContent();
     }, 140);
   });
@@ -615,6 +713,49 @@
   $('#langInt').innerHTML = LANGS.int.map(l => `<option${l === ui.langInt ? ' selected' : ''}>${l}</option>`).join('');
   $('#langJp').innerHTML = LANGS.jp.map(l => `<option${l === ui.langJp ? ' selected' : ''}>${l}</option>`).join('');
   $('#rarityFilter').innerHTML = RFILTERS.map(([k, l]) => `<option value="${k}">${l}</option>`).join('');
+
+  /* ---------------- quick add (+) ---------------- */
+  const quick = $('#quick');
+  function renderQuick() {
+    const q = $('#qInput').value.trim().toLowerCase().replace(/^#0*/, '');
+    if (!q) { $('#qList').innerHTML = '<p class="hint">Inizia a scrivere un nome o un numero del Pokédex.</p>'; return; }
+    const hits = ENTRIES.filter(e => e.name.toLowerCase().includes(q) || String(e.dex) === q || (e.region || '').toLowerCase().includes(q))
+      .sort((a, b) => (a.name.toLowerCase().startsWith(q) ? 0 : 1) - (b.name.toLowerCase().startsWith(q) ? 0 : 1) || a.dex - b.dex).slice(0, 30);
+    $('#qList').innerHTML = hits.length ? hits.map(e => {
+      const g = GROUPS.find(x => x.id === e.group), n = mine(e.id).length;
+      return `<button type="button" class="q-item" data-id="${e.id}"><span class="q-spr${n ? '' : ' ghost'}">${sprite(e)}</span>
+        <span class="q-txt"><b>${esc(e.name)}${e.region ? ' · ' + esc(e.region) : ''}</b><span>${dexStr(e.dex)} · ${g.tab} · Pagina ${e.page}, tasca ${e.pos}</span></span>
+        <span class="q-n">${n ? n + (n > 1 ? ' carte' : ' carta') : 'Mancante'}</span></button>`;
+    }).join('') : `<p class="hint">Nessun Pokémon trovato per “${esc(q)}”.</p>`;
+  }
+  $('#fab').addEventListener('click', () => { $('#qInput').value = ''; renderQuick(); quick.showModal(); setTimeout(() => $('#qInput').focus(), 50); });
+  $('#qInput').addEventListener('input', renderQuick);
+  quick.addEventListener('click', ev => {
+    if (ev.target === quick) { quick.close(); return; }
+    const it = ev.target.closest('.q-item'); if (!it) return;
+    const e = BY_ID.get(it.dataset.id); quick.close();
+    if (ui.group !== e.group) { ui.group = e.group; renderTabs(); renderContent(); syncControls(); }
+    openDetail(e.id);
+    setTimeout(() => $('.finder').scrollIntoView({ behavior: 'smooth', block: 'start' }), 350);
+    toast(`${e.name}: pagina ${e.page}, tasca ${e.pos}`);
+  });
+
+  /* ---------------- personal background ---------------- */
+  const BG_KEY = 'pdx.bg.v1';
+  function applyBg() { let d = null; try { d = localStorage.getItem(BG_KEY); } catch {} $('#bgPhoto').style.backgroundImage = d ? `url("${d}")` : ''; document.body.classList.toggle('has-photo', !!d); }
+  $('#bgFile').addEventListener('change', ev => {
+    const f = ev.target.files[0]; if (!f) return;
+    const img = new Image();
+    img.onload = () => {
+      const k = Math.min(1, 1600 / Math.max(img.width, img.height)), c = document.createElement('canvas');
+      c.width = Math.round(img.width * k); c.height = Math.round(img.height * k); c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+      try { localStorage.setItem(BG_KEY, c.toDataURL('image/jpeg', .8)); applyBg(); toast('Sfondo aggiornato'); } catch { toast('Immagine troppo grande per questo browser'); }
+      URL.revokeObjectURL(img.src);
+    };
+    img.src = URL.createObjectURL(f); ev.target.value = '';
+  });
+  $('#bgClear').addEventListener('click', () => { try { localStorage.removeItem(BG_KEY); } catch {} applyBg(); toast('Sfondo rimosso'); });
+  applyBg();
 
   load().catch(err => { $('#content').innerHTML = `<p class="empty">Impossibile caricare i dati (${esc(err.message)}). Apri il sito tramite GitHub Pages o un server locale.</p>`; });
 })();

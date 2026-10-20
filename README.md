@@ -22,3 +22,4 @@ Il workflow `.github/workflows/update.yml` ricostruisce il catalogo (`tools/buil
 - `data/pokedex.json` — elenco Pokémon, pagina/tasca, sprite (generato dal foglio Google)
 - `data/collection.json` — le mie carte
 - `data/sets.json` — espansioni per l'autocompletamento
+- `data/collection.json` → `targets`: le carte target (lista desideri), segnate come prese quando la stessa carta entra nella collezione

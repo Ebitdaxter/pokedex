@@ -9,9 +9,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202610201626">
+<link rel="stylesheet" href="styles.css?v=202610201651">
 </head>
 <body>
+<div class="bg" aria-hidden="true">
+  <div class="bg-photo" id="bgPhoto"></div>
+  <svg class="waves" viewBox="0 0 1440 900" preserveAspectRatio="none">
+    <path class="w1" d="M0 120 C 240 40 480 200 720 130 S 1200 40 1440 120 V0 H0Z"/>
+    <path class="w2" d="M0 640 C 260 560 520 720 780 650 S 1220 560 1440 640 V900 H0Z"/>
+    <path class="w3" d="M0 730 C 300 660 560 800 860 740 S 1260 680 1440 750 V900 H0Z"/>
+    <path class="w4" d="M0 820 C 240 780 520 870 820 820 S 1240 780 1440 830 V900 H0Z"/>
+  </svg>
+</div>
 <header class="cover">
   <div class="cover-inner">
     <div class="brand">
@@ -47,6 +56,7 @@
     <div class="seg" role="radiogroup" aria-label="Cosa mostrare" id="faceSeg">
       <button role="radio" data-face="card" aria-checked="true">Carte</button>
       <button role="radio" data-face="sprite" aria-checked="false">Sprite</button>
+      <button role="radio" data-face="bw" aria-checked="false">B/N</button>
     </div>
     <div class="seg" role="radiogroup" aria-label="Vista" id="viewSeg">
       <button role="radio" data-view="grid" aria-checked="true">Griglia</button>
@@ -112,6 +122,12 @@
             <button role="radio" data-src="jp" aria-checked="false">Giapponesi</button>
           </div>
         </div>
+        <div class="tap-mode"><span>Tocca una carta per aggiungerla a</span>
+          <div class="seg small" role="radiogroup" aria-label="Aggiungi a" id="tapSeg">
+            <button role="radio" data-tap="col" aria-checked="true">Collezione</button>
+            <button role="radio" data-tap="target" aria-checked="false">Target</button>
+          </div>
+        </div>
         <div class="finder-tools">
           <input id="catFilter" type="search" placeholder="Filtra per set o numero" aria-label="Filtra carte">
           <select id="rarityFilter" aria-label="Rarità"></select>
@@ -125,6 +141,19 @@
       </div>
     </section>
   </div>
+</dialog>
+
+<button class="fab" id="fab" type="button" aria-label="Aggiungi una carta"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+
+<dialog id="quick" class="sheet narrow" aria-labelledby="qTitle">
+  <form method="dialog" class="sheet-close"><button class="icon-btn" aria-label="Chiudi">✕</button></form>
+  <h2 id="qTitle">Aggiungi una carta</h2>
+  <p class="lede">Scrivi il nome del Pokémon: ti mostro dove va nel raccoglitore e tutte le sue carte tra cui scegliere.</p>
+  <label class="search q-search">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input id="qInput" type="search" placeholder="es. Charizard, Pikachu, Mega Gengar" autocomplete="off">
+  </label>
+  <div class="q-list" id="qList"></div>
 </dialog>
 
 <!-- Settings -->
@@ -155,6 +184,14 @@
     <p class="status" id="priceStatus" role="status"></p>
   </div>
   <div class="settings-block">
+    <h3>Sfondo</h3>
+    <p class="hint">Puoi mettere una tua immagine come sfondo del sito. Resta solo in questo browser.</p>
+    <div class="row">
+      <label class="btn quiet file-btn">Scegli immagine<input type="file" id="bgFile" accept="image/*"></label>
+      <button class="btn quiet" id="bgClear" type="button">Togli sfondo</button>
+    </div>
+  </div>
+  <div class="settings-block">
     <h3>File</h3>
     <div class="row">
       <button class="btn quiet" id="exportJson" type="button">Esporta JSON</button>
@@ -168,6 +205,6 @@
 <datalist id="setList"></datalist>
 <datalist id="rarityList"><option>Common</option><option>Uncommon</option><option>Rare</option><option>RR</option><option>RRR</option><option>AR</option><option>SAR</option><option>SR</option><option>UR</option><option>MA</option><option>FR</option><option>Promo</option></datalist>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="app.js?v=202610201626"></script>
+<script src="app.js?v=202610201651"></script>
 </body>
 </html>
