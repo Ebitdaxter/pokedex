@@ -552,3 +552,5 @@ body.on-bubi #faceSeg, body.on-bubi #viewSeg, body.on-bubi #filterSeg [data-filt
   .pages { overflow-y: hidden; touch-action: pan-x pan-y; overscroll-behavior: contain; padding-top: 2px; }
   .page { overflow: hidden; }
 }
+
+@media (max-width: 820px) { .pages { padding-block: 18px; margin-block: -10px; } .page { backface-visibility: hidden; } }

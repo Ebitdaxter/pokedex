@@ -247,11 +247,11 @@
       pages.forEach((p, i) => {
         const d = Math.max(-1, Math.min(1, (i * w - x) / w));   // -1 left .. 0 centre .. 1 right
         p.style.transformOrigin = d < 0 ? 'right center' : 'left center';
-        p.style.transform = `perspective(1400px) rotateY(${d * -38}deg)`;   // rotate only: no scaling, so the page never moves up or down
+        p.style.transform = `perspective(1400px) rotateY(${d * -24}deg)`;   // rotate only: no scaling, so the page never moves up or down
         p.style.filter = `brightness(${1 - Math.abs(d) * .25})`;
       });
     };
-    box.addEventListener('scroll', () => requestAnimationFrame(paint), { passive: true });
+    box.addEventListener('scroll', () => { if (box.scrollTop) box.scrollTop = 0; requestAnimationFrame(paint); }, { passive: true });
     albumPaint = paint;
     $('#albumNav').addEventListener('click', ev => { const b = ev.target.closest('[data-turn]'); if (b) box.scrollBy({ left: +b.dataset.turn * box.clientWidth, behavior: 'smooth' }); });
     paint();
