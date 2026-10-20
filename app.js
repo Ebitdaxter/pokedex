@@ -166,19 +166,28 @@
   const typeVars = e => { const a = TYPE_COLORS[e.types[0]] || '#888', b = TYPE_COLORS[e.types[1]] || a; return `--t1:${a};--t2:${b}`; };
   const badImg = new Set();
 
+  // best full-art rarity owned for a Pokémon, shown as the badge in the top-right corner
+  const ART_ORDER = ['MA', 'SAR', 'CSR', 'AR', 'CHR'];
+  function artBadge(id) {
+    const arts = mine(id).filter(isArt);
+    if (!arts.length) return '';
+    const best = ART_ORDER.find(r => arts.some(x => x.rc === r)) || 'AR';
+    return `<span class="badge-art" title="${esc(RC_LABEL[best] || 'Full art')}">${best}</span>`;
+  }
   function pocket(e) {
     const c = cover(e.id), n = mine(e.id).length;
     const label = e.group === 'regional' ? `${e.name} di ${e.region}` : e.name;
     const no = e.group.startsWith('g') ? dexStr(e.dex) : (e.region || dexStr(e.dex));
-    if (!c || bwFace(e.id)) {   // missing, or owned but shown "as if missing" by choice
-      return `<button class="pocket missing" data-id="${e.id}" aria-label="${esc(label)}, ${c ? 'presente, mostrato come mancante' : 'mancante'}">
-        <span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span><span class="nm">${esc(e.name)}</span></button>`;
+    const art = c ? artBadge(e.id) : '';
+    if (!c || bwFace(e.id)) {   // missing, or owned but shown "as if missing" by choice: badges still say you have it
+      const count = c ? `<span class="badge-n" title="${n} ${n > 1 ? 'carte' : 'carta'}">${n}</span>` : '';
+      return `<button class="pocket missing${c ? ' as-missing' : ''}" data-id="${e.id}" aria-label="${esc(label)}, ${c ? `${n} ${n > 1 ? 'carte' : 'carta'}, mostrato come mancante` : 'mancante'}">
+        <span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span><span class="nm">${esc(e.name)}</span>${art}${count}</button>`;
     }
     const meta = [c.rc, c.lang, c.set].filter(Boolean).join(' · ');
     const img = !spriteFace(e.id) && c.img && !badImg.has(c.img) ? `<img class="card" loading="lazy" decoding="async" alt="" src="${esc(c.img)}">` : '';
-    const art = mine(e.id).some(isArt) ? '<span class="badge-art" title="Art rare">A</span>' : '';
     const count = n > 1 ? `<span class="badge-n" title="${n} carte">${n}</span>` : '';
-    return `<button class="pocket owned${img ? ' has-img' : ''}${bwFace(e.id) ? ' bw' : ''}" style="${typeVars(e)}" data-id="${e.id}" aria-label="${esc(label)}, ${n} ${n > 1 ? 'carte' : 'carta'}">
+    return `<button class="pocket owned${img ? ' has-img' : ''}" style="${typeVars(e)}" data-id="${e.id}" aria-label="${esc(label)}, ${n} ${n > 1 ? 'carte' : 'carta'}">
       <span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span>
       <span class="meta">${esc(meta)}</span><span class="nm">${esc(e.name)}</span>${img}${art}${count}</button>`;
   }
