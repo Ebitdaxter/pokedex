@@ -28,7 +28,9 @@ jobs:
           git -C _src/tcgdex sparse-checkout set data data-asia
           curl -sSfL -o _src/species_names.csv https://raw.githubusercontent.com/PokeAPI/pokeapi/master/data/v2/csv/pokemon_species_names.csv
       - name: Ricostruisci il catalogo carte
-        run: python tools/build_cards.py
+        run: |
+          python tools/build_cards.py
+          python tools/build_bubi.py
       - name: Aggiorna i prezzi della collezione
         run: python tools/update_prices.py
       - name: Salva

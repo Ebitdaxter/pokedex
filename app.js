@@ -18,6 +18,7 @@
     { id: 'mega', tab: 'Mega', title: 'Megaevoluzioni', cols: 3, theme: ['#7b3fd1', '#e0479e', '#38c6d9'] },
     { id: 'regional', tab: 'Regionali', title: 'Forme regionali', cols: 3, theme: ['#2fae63', '#1f76d2', '#f2b807'] },
     { id: 'target', tab: 'Target', title: 'Carte target', cols: 0, theme: ['#f2b807', '#e3350d', '#1f5fbf'] },
+    { id: 'bubi', tab: 'Sezione Bubi', title: 'Sezione Bubi', cols: 0, theme: ['#4a7fe0', '#e9466f', '#5bbdbd'] },
   ];
   const DESIRE = { Strong: { l: 'Tanto', o: 0 }, Medium: { l: 'Medio', o: 1 }, Weak: { l: 'Poco', o: 2 } };
   const TYPE_COLORS = { Normal: '#9a9a6e', Fire: '#e5662c', Water: '#4a7fe0', Electric: '#e6b412', Grass: '#4fa83d', Ice: '#5bbdbd',
@@ -60,7 +61,7 @@
   /* ---------------- collection model ---------------- */
   // col.cards[entryId] = { cover: <uid>, list: [ {uid, cid?, src?, set, sid?, number, rarity, rc, lang, variant, year, img, price, value, art} ] }
   function migrate(c) {
-    const out = { version: 2, updated: c.updated || null, pricesUpdated: c.pricesUpdated, cards: {}, targets: (c.targets || []).map(t => Object.assign({ uid: uid() }, t)) };
+    const out = { version: 2, updated: c.updated || null, pricesUpdated: c.pricesUpdated, cards: {}, targets: (c.targets || []).map(t => Object.assign({ uid: uid() }, t)), bubi: c.bubi || {} };
     for (const [k, v] of Object.entries(c.cards || {})) {
       if (v && Array.isArray(v.list)) {
         v.list.forEach(x => { x.uid = x.uid || uid(); });
@@ -134,6 +135,11 @@
   }
   function renderTabs() {
     $('#tabs').innerHTML = GROUPS.map(g => {
+      if (g.id === 'bubi') {
+        const n = BUBI ? BUBI.cards.filter(bubiOwned).length : Object.keys(col.bubi || {}).length, tot = BUBI ? BUBI.cards.length : 0;
+        const pct = tot ? Math.round(n / tot * 100) : 0;
+        return `<button class="tab" role="tab" data-group="bubi" aria-selected="${ui.group === 'bubi'}"><b>Sezione Bubi</b><span>${tot ? `${n}/${tot}` : `${n} carte`}</span><i class="meter"><i style="width:${pct}%"></i></i></button>`;
+      }
       if (g.id === 'target') {
         const t = targets(), n = t.filter(isTaken).length, pct = t.length ? Math.round(n / t.length * 100) : 0;
         return `<button class="tab tab-target" role="tab" data-group="target" aria-selected="${ui.group === 'target'}">
@@ -196,7 +202,9 @@
     const g = GROUPS.find(x => x.id === ui.group) || GROUPS[0];
     applyTheme(g);
     document.body.classList.toggle('on-target', g.id === 'target');
+    document.body.classList.toggle('on-bubi', g.id === 'bubi');
     if (g.id === 'target') { renderTargets(); return; }
+    if (g.id === 'bubi') { renderBubi(); return; }
     const all = ENTRIES.filter(e => e.group === g.id), list = all.filter(matches);
     const n = all.filter(e => isOwned(e.id)).length;
     const range = g.id.startsWith('g') ? `${dexStr(all[0].dex)}–${dexStr(all[all.length - 1].dex)}` : `${all.length} forme`;
@@ -309,6 +317,43 @@
       else if (el.value.trim()) t[el.name] = el.value.trim(); else delete t[el.name];
     }
     persist(); renderTabs();
+  }
+  /* ---------------- Sezione Bubi ---------------- */
+  let BUBI = null, bubiLoading = null;
+  const bubiKey = c => c.src + ':' + c.id;
+  // owned if ticked here, or (for Pokémon cards) already in the collection
+  const bubiOwned = c => !!col.bubi?.[bubiKey(c)] || (c.src !== 'pocket' && ENTRIES.some(e => (e.dex === 134 || e.dex === 282) && mine(e.id).some(x => x.cid === bubiKey(c))));
+  async function renderBubi() {
+    if (!BUBI) {
+      $('#sectionHead').innerHTML = '<h2>Sezione Bubi</h2><p>Carico l’album…</p>'; $('#content').innerHTML = '';
+      bubiLoading = bubiLoading || fetch('data/bubi.json').then(r => r.json()).then(j => { BUBI = j; renderTabs(); });
+      await bubiLoading; if (ui.group !== 'bubi') return;
+    }
+    const q = (ui.q || '').toLowerCase();
+    const cards = BUBI.cards.filter(c => (ui.filter !== 'owned' || bubiOwned(c)) && (ui.filter !== 'missing' || !bubiOwned(c)) &&
+      (!q || `${BUBI.labels[c.k]} ${c.n} ${c.set}`.toLowerCase().includes(q)));
+    const own = BUBI.cards.filter(bubiOwned).length;
+    $('#sectionHead').innerHTML = `<h2>Sezione Bubi</h2><p>${own} di ${BUBI.cards.length} full art · tocca una carta per segnarla come tua</p>`;
+    const groups = BUBI.order.map(k => [k, cards.filter(c => c.k === k)]).filter(([, l]) => l.length);
+    if (!groups.length) { $('#content').innerHTML = '<p class="empty">Niente da mostrare con questo filtro.</p>'; return; }
+    $('#content').innerHTML = groups.map(([k, l]) => {
+      const all = BUBI.cards.filter(c => c.k === k), n = all.filter(bubiOwned).length;
+      return `<section class="bubi-sec"><h3>${esc(BUBI.labels[k])} <span>${n}/${all.length}</span></h3><div class="bubi-grid">${l.map(c => {
+        const key = bubiKey(c), o = bubiOwned(c), p = c.src === 'pocket' ? null : priceCache[key];
+        return `<button type="button" class="bcard${o ? ' have' : ''}" data-key="${esc(key)}" aria-pressed="${o}">
+          <span class="cand-img">${thumb(c.sm, `${c.set} ${c.no}`)}${o ? '<i class="tick">✓</i>' : ''}</span>
+          <span class="cand-info"><b>${esc(c.set)}</b><span>${esc(c.no)}${c.tot ? '/' + c.tot : ''} · ${esc((c.date || '').slice(0, 4))} · ${c.src === 'jp' ? 'JP' : c.src === 'pocket' ? 'Pocket' : 'INT'}</span>
+          <span class="cand-row">${rcBadge(c.rc)}<span class="price" data-price="${esc(key)}">${c.src === 'pocket' ? 'digitale' : p ? (p.p != null ? eur(p.p) : '—') : ''}</span></span></span></button>`;
+      }).join('')}</div></section>`;
+    }).join('');
+    loadPrices(cards.filter(c => c.src !== 'pocket').slice(0, 120).map(c => ({ src: c.src, id: c.id, tdx: c.tdx })));
+  }
+  function toggleBubi(key) {
+    const c = BUBI.cards.find(z => bubiKey(z) === key); if (!c) return;
+    col.bubi = col.bubi || {};
+    if (col.bubi[key]) { delete col.bubi[key]; toast('Tolta dalla Sezione Bubi'); }
+    else { col.bubi[key] = { at: new Date().toISOString(), lang: c.src === 'jp' ? 'JPN' : c.src === 'pocket' ? 'Pocket' : ui.langInt, price: priceCache[key]?.p ?? null }; toast(`✓ ${c.n} · ${c.set}`); }
+    const y = window.scrollY; persist(); renderBubi(); renderTabs(); window.scrollTo(0, y);
   }
   function addTarget(c) {
     if (tReplace) {   // swapping the card of an existing target
@@ -698,6 +743,7 @@
   /* ---------------- events ---------------- */
   $('#tabs').addEventListener('click', ev => { const b = ev.target.closest('.tab'); if (!b) return; ui.group = b.dataset.group; renderTabs(); renderContent(); syncControls(); window.scrollTo({ top: 0 }); });
   $('#filterSeg').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; ui.filter = b.dataset.filter; syncControls(); renderContent(); });
+  $('#content').addEventListener('click', ev => { const b = ev.target.closest('.bcard'); if (b) toggleBubi(b.dataset.key); });
   $('#tapSeg').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; ui.tap = b.dataset.tap; syncControls(); renderCatalog(); });
   $('#content').addEventListener('click', ev => {
     const tb = ev.target.closest('#tSeg button'); if (tb) { tFilter = tb.dataset.t; renderTargets(); return; }
@@ -722,7 +768,7 @@
   let qT; $('#search').addEventListener('input', ev => {
     clearTimeout(qT); qT = setTimeout(() => {
       ui.q = ev.target.value.trim();
-      if (ui.q && ui.group !== 'target' && !ENTRIES.some(e => e.group === ui.group && matches(e))) { const hit = ENTRIES.find(matches); if (hit) { ui.group = hit.group; renderTabs(); syncControls(); } }
+      if (ui.q && ui.group !== 'target' && ui.group !== 'bubi' && !ENTRIES.some(e => e.group === ui.group && matches(e))) { const hit = ENTRIES.find(matches); if (hit) { ui.group = hit.group; renderTabs(); syncControls(); } }
       renderContent();
     }, 140);
   });
