@@ -498,3 +498,14 @@ main { padding-bottom: 110px; }
 
 /* home-screen app: keep the cover clear of the iPhone notch */
 .cover-inner { padding-top: max(14px, env(safe-area-inset-top, 0px)); }
+
+/* full-screen sheets on phones: stay clear of the notch / status bar and the home indicator */
+@media (max-width: 560px) {
+  dialog.sheet { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); box-sizing: border-box; }
+  dialog.sheet.narrow { padding: calc(20px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) calc(24px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); overflow-y: auto; }
+  .sheet-close { top: calc(10px + env(safe-area-inset-top, 0px)); right: max(10px, env(safe-area-inset-right, 0px)); position: fixed; }
+  .detail-grid { max-height: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)); }
+  .form-2 input, .finder-tools input, .finder-tools select { min-width: 0; max-width: 100%; }
+  dialog.sheet.narrow .row { flex-wrap: wrap; }
+}
+dialog.sheet .sheet-close .icon-btn { box-shadow: 0 2px 8px rgba(10,16,30,.25); }
