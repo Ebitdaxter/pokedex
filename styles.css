@@ -575,3 +575,5 @@ body { touch-action: pan-y pinch-zoom; }
 .tabs, .pages, .mine-list, .q-list, .finder-grid { touch-action: pan-x pan-y; }
 dialog { touch-action: pan-y pinch-zoom; }
 .bg { contain: strict; }
+/* Sezione Bubi: only the pictures */
+.bcard .cand-info { display: none; }

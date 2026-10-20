@@ -346,12 +346,11 @@
     if (!cards.length) { $('#content').innerHTML = '<p class="empty">Niente da mostrare con questo filtro.</p>'; return; }
     $('#content').innerHTML = `<div class="bubi-grid nine">${cards.map(c => {
       const key = bubiKey(c), o = bubiOwned(c), p = c.src === 'pocket' ? null : priceCache[key];
-      return `<button type="button" class="bcard${o ? ' have' : ''}" data-key="${esc(key)}" aria-pressed="${o}">
+      return `<button type="button" class="bcard${o ? ' have' : ''}" data-key="${esc(key)}" aria-pressed="${o}" aria-label="${esc(BUBI.labels[c.k])}${o ? ', nella collezione' : ''}">
         <span class="cand-img"><img class="bimg" loading="lazy" alt="" src="${esc(c.img)}">${o ? '<i class="tick">✓</i>' : ''}</span>
         <span class="cand-info"><b>${esc(BUBI.labels[c.k])}</b><span>${esc(c.set)} · ${esc(c.no)}${c.tot ? '/' + c.tot : ''} · ${esc((c.date || '').slice(0, 4))}</span>
         <span class="cand-row">${rcBadge(c.rc)}<span class="price" data-price="${esc(key)}">${c.src === 'pocket' ? 'TCG Pocket' : p ? (p.p != null ? eur(p.p) : '—') : ''}</span></span></span></button>`;
     }).join('')}</div>`;
-    loadPrices(cards.filter(c => c.src !== 'pocket').map(c => ({ src: c.src, id: c.id, tdx: c.tdx })));
   }
   function toggleBubi(key) {
     const c = BUBI.cards.find(z => bubiKey(z) === key); if (!c) return;
