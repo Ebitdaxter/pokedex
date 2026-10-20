@@ -324,37 +324,41 @@
   const bubiKey = c => c.src + ':' + c.id;
   // owned if ticked here, or (for Pokémon cards) already in the collection
   const bubiOwned = c => !!col.bubi?.[bubiKey(c)] || (c.src !== 'pocket' && ENTRIES.some(e => (e.dex === 134 || e.dex === 282) && mine(e.id).some(x => x.cid === bubiKey(c))));
-  async function renderBubi() {
+  let bubiPick = null;                       // the 9 cards on screen, re-drawn with "Rimescola"
+  function drawBubi() {
+    const q = (ui.q || '').toLowerCase();
+    const pool = BUBI.cards.filter(c => !badImg.has(c.sm) && (ui.filter !== 'owned' || bubiOwned(c)) && (ui.filter !== 'missing' || !bubiOwned(c)) &&
+      (!q || `${BUBI.labels[c.k]} ${c.n} ${c.set}`.toLowerCase().includes(q)));
+    for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+    bubiPick = pool.slice(0, 9).map(bubiKey);
+  }
+  async function renderBubi(reshuffle) {
     if (!BUBI) {
       $('#sectionHead').innerHTML = '<h2>Sezione Bubi</h2><p>Carico l’album…</p>'; $('#content').innerHTML = '';
       bubiLoading = bubiLoading || fetch('data/bubi.json').then(r => r.json()).then(j => { BUBI = j; renderTabs(); });
       await bubiLoading; if (ui.group !== 'bubi') return;
     }
-    const q = (ui.q || '').toLowerCase();
-    const cards = BUBI.cards.filter(c => (ui.filter !== 'owned' || bubiOwned(c)) && (ui.filter !== 'missing' || !bubiOwned(c)) &&
-      (!q || `${BUBI.labels[c.k]} ${c.n} ${c.set}`.toLowerCase().includes(q)));
+    if (reshuffle || !bubiPick) drawBubi();
     const own = BUBI.cards.filter(bubiOwned).length;
-    $('#sectionHead').innerHTML = `<h2>Sezione Bubi</h2><p>${own} di ${BUBI.cards.length} full art · tocca una carta per segnarla come tua</p>`;
-    const groups = BUBI.order.map(k => [k, cards.filter(c => c.k === k)]).filter(([, l]) => l.length);
-    if (!groups.length) { $('#content').innerHTML = '<p class="empty">Niente da mostrare con questo filtro.</p>'; return; }
-    $('#content').innerHTML = groups.map(([k, l]) => {
-      const all = BUBI.cards.filter(c => c.k === k), n = all.filter(bubiOwned).length;
-      return `<section class="bubi-sec"><h3>${esc(BUBI.labels[k])} <span>${n}/${all.length}</span></h3><div class="bubi-grid">${l.map(c => {
-        const key = bubiKey(c), o = bubiOwned(c), p = c.src === 'pocket' ? null : priceCache[key];
-        return `<button type="button" class="bcard${o ? ' have' : ''}" data-key="${esc(key)}" aria-pressed="${o}">
-          <span class="cand-img">${thumb(c.sm, `${c.set} ${c.no}`)}${o ? '<i class="tick">✓</i>' : ''}</span>
-          <span class="cand-info"><b>${esc(c.set)}</b><span>${esc(c.no)}${c.tot ? '/' + c.tot : ''} · ${esc((c.date || '').slice(0, 4))} · ${c.src === 'jp' ? 'JP' : c.src === 'pocket' ? 'Pocket' : 'INT'}</span>
-          <span class="cand-row">${rcBadge(c.rc)}<span class="price" data-price="${esc(key)}">${c.src === 'pocket' ? 'digitale' : p ? (p.p != null ? eur(p.p) : '—') : ''}</span></span></span></button>`;
-      }).join('')}</div></section>`;
-    }).join('');
-    loadPrices(cards.filter(c => c.src !== 'pocket').slice(0, 120).map(c => ({ src: c.src, id: c.id, tdx: c.tdx })));
+    $('#sectionHead').innerHTML = `<h2>Sezione Bubi</h2><p>${own} di ${BUBI.cards.length} full art nella tua collezione · tocca una carta per segnarla come tua</p>
+      <button type="button" class="btn primary small" id="bubiShuffle">↻ Rimescola</button>`;
+    const cards = bubiPick.map(k => BUBI.cards.find(c => bubiKey(c) === k)).filter(Boolean);
+    if (!cards.length) { $('#content').innerHTML = '<p class="empty">Niente da mostrare con questo filtro.</p>'; return; }
+    $('#content').innerHTML = `<div class="bubi-grid nine">${cards.map(c => {
+      const key = bubiKey(c), o = bubiOwned(c), p = c.src === 'pocket' ? null : priceCache[key];
+      return `<button type="button" class="bcard${o ? ' have' : ''}" data-key="${esc(key)}" aria-pressed="${o}">
+        <span class="cand-img"><img class="bimg" loading="lazy" alt="" src="${esc(c.img)}">${o ? '<i class="tick">✓</i>' : ''}</span>
+        <span class="cand-info"><b>${esc(BUBI.labels[c.k])}</b><span>${esc(c.set)} · ${esc(c.no)}${c.tot ? '/' + c.tot : ''} · ${esc((c.date || '').slice(0, 4))}</span>
+        <span class="cand-row">${rcBadge(c.rc)}<span class="price" data-price="${esc(key)}">${c.src === 'pocket' ? 'TCG Pocket' : p ? (p.p != null ? eur(p.p) : '—') : ''}</span></span></span></button>`;
+    }).join('')}</div>`;
+    loadPrices(cards.filter(c => c.src !== 'pocket').map(c => ({ src: c.src, id: c.id, tdx: c.tdx })));
   }
   function toggleBubi(key) {
     const c = BUBI.cards.find(z => bubiKey(z) === key); if (!c) return;
     col.bubi = col.bubi || {};
     if (col.bubi[key]) { delete col.bubi[key]; toast('Tolta dalla Sezione Bubi'); }
     else { col.bubi[key] = { at: new Date().toISOString(), lang: c.src === 'jp' ? 'JPN' : c.src === 'pocket' ? 'Pocket' : ui.langInt, price: priceCache[key]?.p ?? null }; toast(`✓ ${c.n} · ${c.set}`); }
-    const y = window.scrollY; persist(); renderBubi(); renderTabs(); window.scrollTo(0, y);
+    const y = window.scrollY; persist(); renderBubi(false); renderTabs(); window.scrollTo(0, y);
   }
   function addTarget(c) {
     if (tReplace) {   // swapping the card of an existing target
@@ -763,6 +767,14 @@
   });
   $('#content').addEventListener('change', ev => { const f = ev.target.closest('.t-edit'); if (f) saveTargetForm(f); });
   $('#content').addEventListener('submit', ev => { if (ev.target.closest('.t-edit')) ev.preventDefault(); });
+  $('#sectionHead').addEventListener('click', ev => { if (ev.target.closest('#bubiShuffle')) renderBubi(true); });
+  document.addEventListener('error', ev => {
+    const img = ev.target; if (!img.classList?.contains('bimg')) return;
+    const key = img.closest('.bcard')?.dataset.key; const c = BUBI?.cards.find(z => bubiKey(z) === key); if (!c) return;
+    badImg.add(c.sm); badImg.add(c.img);
+    const next = BUBI.cards.find(z => !badImg.has(z.img) && !bubiPick.includes(bubiKey(z)));
+    bubiPick = bubiPick.map(k => k === key ? (next ? bubiKey(next) : null) : k).filter(Boolean); renderBubi(false);
+  }, true);
   $('#sectionHead').addEventListener('click', ev => { const tb = ev.target.closest('#tSeg button'); if (tb) { tFilter = tb.dataset.t; renderTargets(); } });
   $('#faceSeg').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; ui.face = b.dataset.face; syncControls(); renderContent(); });
   $('#viewSeg').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; ui.view = b.dataset.view; syncControls(); renderContent(); });

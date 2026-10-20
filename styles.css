@@ -559,3 +559,11 @@ body.on-bubi #faceSeg, body.on-bubi #viewSeg, body.on-bubi #filterSeg [data-filt
 @media (min-width: 821px) and (hover: hover) {
   .tabs { flex-wrap: wrap; overflow: visible; row-gap: 0; }
 }
+
+/* Sezione Bubi: 9 cards in colour */
+.bcard .cand-img img, .bcard .cand-img .img-ph { filter: none !important; opacity: 1 !important; width: 100%; aspect-ratio: 63/88; object-fit: cover; border-radius: 8px; }
+.bcard:hover .cand-img img { box-shadow: 0 8px 20px rgba(10,16,30,.3); }
+.bcard.have .cand-img img { outline: 3px solid #2fae63; outline-offset: -3px; }
+.bubi-grid.nine { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 720px; margin: 16px auto 0; gap: 14px; }
+#bubiShuffle { margin-top: 6px; }
+@media (max-width: 560px) { .bubi-grid.nine { gap: 8px; } .bcard .cand-info span { font-size: .62rem; } }
