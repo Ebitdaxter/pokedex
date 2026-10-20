@@ -65,7 +65,7 @@
       if (v && Array.isArray(v.list)) {
         v.list.forEach(x => { x.uid = x.uid || uid(); });
         if (typeof v.cover === 'number') v.cover = v.list[v.cover]?.uid;
-        if (v.cover !== 'sprite' && !v.list.some(x => x.uid === v.cover)) v.cover = v.list[0]?.uid;
+        if (!String(v.cover).startsWith('sprite') && !v.list.some(x => x.uid === v.cover)) v.cover = v.list[0]?.uid;
         if (v.list.length) out.cards[k] = v;
       } else if (v) {
         const x = Object.assign({ uid: uid(), rc: v.rarity }, v);
@@ -90,7 +90,9 @@
   const mine = id => col.cards[id]?.list || [];
   const isOwned = id => mine(id).length > 0;
   const cover = id => { const e = col.cards[id]; return e && (e.list.find(x => x.uid === e.cover) || e.list[0]); };
-  const spriteFace = id => ui.face !== 'card' || col.cards[id]?.cover === 'sprite';
+  const spriteFace = id => ui.face === 'sprite' || String(col.cards[id]?.cover).startsWith('sprite');
+  const bwFace = id => col.cards[id]?.cover === 'sprite-bw';
+  if (ui.face === 'bw') ui.face = 'card';
   const targets = () => col.targets || (col.targets = []);
   const isTaken = t => !!t.taken || (t.eid && mine(t.eid).some(x => (t.cid && x.cid === t.cid) ||
     (x.set && t.set && x.number && t.number && x.set.toLowerCase() === t.set.toLowerCase() && x.number.split('/')[0].replace(/^0+/, '') === t.number.split('/')[0].replace(/^0+/, ''))));
@@ -169,14 +171,14 @@
     const label = e.group === 'regional' ? `${e.name} di ${e.region}` : e.name;
     const no = e.group.startsWith('g') ? dexStr(e.dex) : (e.region || dexStr(e.dex));
     if (!c) {
-      return `<button class="pocket missing${ui.face === 'bw' ? ' bw' : ''}" data-id="${e.id}" aria-label="${esc(label)}, mancante">
+      return `<button class="pocket missing" data-id="${e.id}" aria-label="${esc(label)}, mancante">
         <span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span><span class="nm">${esc(e.name)}</span></button>`;
     }
     const meta = [c.rc, c.lang, c.set].filter(Boolean).join(' · ');
     const img = !spriteFace(e.id) && c.img && !badImg.has(c.img) ? `<img class="card" loading="lazy" decoding="async" alt="" src="${esc(c.img)}">` : '';
     const art = mine(e.id).some(isArt) ? '<span class="badge-art" title="Art rare">A</span>' : '';
     const count = n > 1 ? `<span class="badge-n" title="${n} carte">${n}</span>` : '';
-    return `<button class="pocket owned${img ? ' has-img' : ''}${ui.face === 'bw' ? ' bw' : ''}" style="${typeVars(e)}" data-id="${e.id}" aria-label="${esc(label)}, ${n} ${n > 1 ? 'carte' : 'carta'}">
+    return `<button class="pocket owned${img ? ' has-img' : ''}${bwFace(e.id) ? ' bw' : ''}" style="${typeVars(e)}" data-id="${e.id}" aria-label="${esc(label)}, ${n} ${n > 1 ? 'carte' : 'carta'}">
       <span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span>
       <span class="meta">${esc(meta)}</span><span class="nm">${esc(e.name)}</span>${img}${art}${count}</button>`;
   }
@@ -316,14 +318,15 @@
   const rcBadge = rc => rc ? `<span class="rc rc-${esc(rc)}${ART_RC.has(rc) ? ' art' : ''}" title="${esc(RC_LABEL[rc] || rc)}">${esc(rc)}</span>` : '';
 
   function renderMine() {
-    const l = mine(current.id), spr = col.cards[current.id]?.cover === 'sprite', cv = spr ? null : cover(current.id);
+    const l = mine(current.id), cvKey = col.cards[current.id]?.cover, spr = String(cvKey).startsWith('sprite'), cv = spr ? null : cover(current.id);
     $('#mineCount').textContent = l.length ? `${l.length} ${l.length > 1 ? 'carte' : 'carta'} · ${eur(l.reduce((s, x) => s + cardValue(x), 0))}` : '';
-    const sprTile = l.length ? `
-      <div class="own sprite-opt" data-uid="sprite">
-        <button type="button" class="own-pick" data-act="cover" aria-label="Mostra lo sprite nel Pokédex">${spritePh('Sprite')}</button>
-        <button type="button" class="star${spr ? ' on' : ''}" data-act="cover" aria-pressed="${spr}" title="${spr ? 'Nel Pokédex vedi lo sprite' : 'Mostra lo sprite nel Pokédex'}">★</button>
-        <span class="own-meta">Sprite<br>al posto della carta</span>
-      </div>` : '';
+    const opt = (key, label, sub, bw) => `
+      <div class="own sprite-opt${bw ? ' bw' : ''}" data-uid="${key}">
+        <button type="button" class="own-pick" data-act="cover" aria-label="Mostra ${label} nel Pokédex">${spritePh(label)}</button>
+        <button type="button" class="star${cvKey === key ? ' on' : ''}" data-act="cover" aria-pressed="${cvKey === key}" title="${cvKey === key ? 'Nel Pokédex vedi questo' : 'Mostra questo nel Pokédex'}">★</button>
+        <span class="own-meta">${sub}</span>
+      </div>`;
+    const sprTile = l.length ? opt('sprite', 'Sprite', 'Sprite a colori', false) + opt('sprite-bw', 'Sprite B/N', 'Sprite in bianco e nero', true) : '';
     $('#mineList').innerHTML = l.length ? sprTile + l.map(x => `
       <div class="own${x.uid === selUid ? ' sel' : ''}" data-uid="${x.uid}">
         <button type="button" class="own-pick" data-act="select" aria-label="Modifica ${esc(x.set || 'carta')}">${thumb(x.img, x.set || 'Carta')}</button>
@@ -382,7 +385,7 @@
     persist(); fillPoke(); renderMine(); fillForm(); renderCatalog(); refreshAfterEdit();
     toast('Carta rimossa');
   }
-  function setCover(u) { col.cards[current.id].cover = u; persist(); renderMine(); refreshAfterEdit(); toast(u === 'sprite' ? 'Nel Pokédex vedrai lo sprite' : 'Anteprima aggiornata'); }
+  function setCover(u) { col.cards[current.id].cover = u; persist(); renderMine(); refreshAfterEdit(); toast(u === 'sprite' ? 'Nel Pokédex vedrai lo sprite a colori' : u === 'sprite-bw' ? 'Nel Pokédex vedrai lo sprite in bianco e nero' : 'Anteprima aggiornata'); }
 
   function step(dir) {
     const list = ENTRIES.filter(e => e.group === current.group && matches(e));
@@ -622,7 +625,7 @@
     for (const e of ENTRIES) {
       const g = GROUPS.find(x => x.id === e.group), l = mine(e.id), cv = cover(e.id);
       if (!l.length) rows.push([g.tab, e.dex, e.name, e.region, e.gen, e.page, e.pos, '', '', '', '', '', '', '', '', '', '', '']);
-      for (const x of l) rows.push([g.tab, e.dex, e.name, e.region, e.gen, e.page, e.pos, x.uid === cv?.uid && col.cards[e.id].cover !== 'sprite' ? 'TRUE' : 'FALSE', isArt(x) ? 'TRUE' : 'FALSE', x.rc, x.lang, x.variant, x.set, x.year, x.number, num(x.value), num(x.price), x.img]);
+      for (const x of l) rows.push([g.tab, e.dex, e.name, e.region, e.gen, e.page, e.pos, x.uid === cv?.uid && !String(col.cards[e.id].cover).startsWith('sprite') ? 'TRUE' : 'FALSE', isArt(x) ? 'TRUE' : 'FALSE', x.rc, x.lang, x.variant, x.set, x.year, x.number, num(x.value), num(x.price), x.img]);
     }
     download('pokedex.csv', '﻿' + [head, ...rows].map(r => r.map(q).join(';')).join('\r\n'), 'text/csv;charset=utf-8');
   }
@@ -663,7 +666,7 @@
     const own = ev.target.closest('.own'); if (!own) return;
     const act = ev.target.closest('[data-act]')?.dataset.act;
     if (act === 'cover') setCover(own.dataset.uid);
-    else if (own.dataset.uid !== 'sprite') { selUid = own.dataset.uid; renderMine(); fillForm(); }
+    else if (!own.dataset.uid.startsWith('sprite')) { selUid = own.dataset.uid; renderMine(); fillForm(); }
   });
   $('#removeCard').addEventListener('click', () => { if (selUid) removeCard(selUid); });
   $('#photoFrom').addEventListener('click', () => setPhotoMode(true));

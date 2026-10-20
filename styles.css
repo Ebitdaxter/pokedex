@@ -455,3 +455,6 @@ main { padding-bottom: 110px; }
   .pages .pocket.owned .meta { display: none; }
 }
 @media (max-width: 560px) { dialog.sheet.narrow { width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; margin: 0; border-radius: 0; padding: 20px 16px; } }
+
+.sprite-opt.bw .sprite-ph { background: linear-gradient(160deg, #3a3f4b, #9aa0ab); }
+.sprite-opt.bw .sp { filter: grayscale(1); }
