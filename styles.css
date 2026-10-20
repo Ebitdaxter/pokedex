@@ -462,3 +462,17 @@ main { padding-bottom: 110px; }
 .t-btns { display: flex; gap: 6px; }
 .t-edit { grid-column: 1 / -1; border-top: 1px dashed var(--line); padding-top: 10px; margin-top: 2px; }
 .t-edit .row { margin: 4px 0 0; }
+/* "Fatto" in target editing: green, not the alarm red */
+.t-edit .btn.primary { background: #2fae63; color: #fff; }
+.t-edit .btn.primary:hover { background: #24914f; }
+
+/* binder pages on wide screens: each page fits the window height, two pages side by side like an open album */
+@media (min-width: 821px) {
+  :root { --pw: min(600px, calc((100vh - 230px) * .74 + 44px)); }
+  .pages { grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--pw)), var(--pw))); justify-content: center; gap: 22px; }
+  .page { width: 100%; }
+}
+.pocket.void { background: transparent; border: 1px dashed var(--line); opacity: .45; }
+.pocket.void::after { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pocket.missing::after { opacity: .35; } }
+:root[data-theme="dark"] .pocket.missing::after { opacity: .35; }
