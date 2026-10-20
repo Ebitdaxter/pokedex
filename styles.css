@@ -338,3 +338,12 @@ details.more .card-form { margin-top: 8px; }
 dialog .toast { position: fixed; bottom: calc(22px + env(safe-area-inset-bottom, 0px)); max-width: calc(100vw - 32px); text-align: center; z-index: 10; }
 .cand.just .cand-img::after { content: "✓ Aggiunta"; position: absolute; inset: 0; display: grid; place-items: center; background: rgba(227,53,13,.78); color: #fff; font: 800 .85rem/1 var(--display); border-radius: 6px; animation: flash 1.2s ease-out forwards; }
 @keyframes flash { 0%, 70% { opacity: 1; } 100% { opacity: 0; } }
+
+/* toast inside the open dialog: anchored to the dialog, above its content */
+dialog { position: fixed; }
+dialog .toast { position: absolute; left: 50%; bottom: 18px; z-index: 30; max-width: calc(100% - 32px); text-align: center; }
+.photo-banner { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 10px 0 4px; padding: 10px 12px; border-radius: 10px;
+  background: color-mix(in srgb, var(--gold) 22%, var(--sleeve)); border: 1px solid var(--gold); font-size: .85rem; }
+.photo-mode .cand .cand-img { outline: 2px dashed var(--gold); outline-offset: 2px; border-radius: 6px; }
+.photo-row { margin: 4px 0 0; }
+.photo-banner[hidden], [hidden] { display: none !important; }

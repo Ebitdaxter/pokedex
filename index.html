@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202610201624">
+<link rel="stylesheet" href="styles.css?v=202610201626">
 </head>
 <body>
 <header class="cover">
@@ -101,6 +101,7 @@
           <label class="check wide"><input type="checkbox" name="art"> Art rare (illustrazione a tutta carta)</label>
         </form>
         <p class="hint" id="priceNote"></p>
+        <div class="row photo-row"><button type="button" class="btn quiet small" id="photoFrom">Usa la foto di un'altra carta</button><button type="button" class="btn quiet small" id="photoReset" hidden>Ripristina foto originale</button></div>
       </div>
       <div class="finder">
         <div class="finder-head">
@@ -116,6 +117,7 @@
           <select id="rarityFilter" aria-label="Rarità"></select>
           <label class="lang-pick">Aggiungi come <select id="langInt" aria-label="Lingua carte internazionali"></select> / <select id="langJp" aria-label="Lingua carte giapponesi"></select></label>
         </div>
+        <p class="photo-banner" id="photoBanner" hidden>Tocca la carta da cui prendere la foto. Cambia solo l'immagine: set, numero e valore restano quelli della tua carta. <button type="button" class="btn quiet small" id="photoCancel">Annulla</button></p>
         <p class="finder-note" id="catNote"></p>
         <div class="finder-grid" id="catGrid"></div>
         <div class="row"><button class="btn quiet" id="catMore" type="button" hidden>Mostra altre</button><button class="btn quiet" id="addManual" type="button">Aggiungi carta non in elenco</button></div>
@@ -166,6 +168,6 @@
 <datalist id="setList"></datalist>
 <datalist id="rarityList"><option>Common</option><option>Uncommon</option><option>Rare</option><option>RR</option><option>RRR</option><option>AR</option><option>SAR</option><option>SR</option><option>UR</option><option>MA</option><option>FR</option><option>Promo</option></datalist>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="app.js?v=202610201624"></script>
+<script src="app.js?v=202610201626"></script>
 </body>
 </html>

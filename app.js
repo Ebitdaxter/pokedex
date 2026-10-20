@@ -50,7 +50,7 @@
   let remote = null, col = { version: 2, updated: null, cards: {} }, dirty = false;
   const ui = Object.assign({ group: 'g1', filter: 'all', view: 'grid', face: 'card', q: '', src: 'all', rf: 'all', langInt: 'ITA', langJp: 'JPN' }, store.get(LS.ui, {}));
   const priceCache = store.get(LS.price, {});   // cid -> {p, t}
-  let current = null, selUid = null;
+  let current = null, selUid = null, photoMode = false;
 
   /* ---------------- collection model ---------------- */
   // col.cards[entryId] = { cover: <uid>, list: [ {uid, cid?, src?, set, sid?, number, rarity, rc, lang, variant, year, img, price, value, art} ] }
@@ -210,6 +210,7 @@
 
   function openDetail(id) {
     current = BY_ID.get(id); if (!current) return;
+    if (photoMode) setPhotoMode(false);
     selUid = cover(id)?.uid || null;
     fillPoke(); renderMine(); fillForm();
     if (!dlg.open) dlg.showModal();
@@ -262,6 +263,8 @@
     const ls = form.elements.lang;
     $('#priceNote').textContent = x.price != null ? `Prezzo Cardmarket (trend): ${eur(x.price)}${x.priceAt ? ' · ' + new Date(x.priceAt).toLocaleDateString('it-IT') : ''}. Lascia vuoto “Valore” per usarlo.` : x.cid ? 'Prezzo Cardmarket non disponibile per questa carta.' : '';
     ls.value = x.lang || '';
+    $('#photoReset').hidden = !x.imgFrom;
+    $('#photoFrom').textContent = x.imgFrom ? 'Scegli un\'altra foto' : 'Usa la foto di un\'altra carta';
   }
 
   function readForm() {
@@ -401,8 +404,22 @@
     try { const p = await fetchPrice(c); priceCache[cid] = { p, t: Date.now() }; savePrices(); return p; } catch { return null; }
   }
 
+  function setPhotoMode(on) {
+    photoMode = on; $('#photoBanner').hidden = !on; dlg.classList.toggle('photo-mode', on);
+    if (on) { ui.src = 'all'; renderCatalog(); $('#photoBanner').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  }
+  function borrowPhoto(c) {
+    const x = mine(current.id).find(z => z.uid === selUid); if (!x) return;
+    if (!c.img) { toast('Questa carta non ha foto: scegline un\'altra'); return; }
+    if (!x.imgFrom) x.imgOwn = x.img ?? null;
+    x.img = c.img; x.imgFrom = c.src + ':' + c.id;
+    persist(); setPhotoMode(false); renderMine(); fillForm(); refreshAfterEdit();
+    toast(`Foto presa da ${c.set} ${c.no}`);
+    $('#mineList').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
   function pickCatalog(cid) {
     const c = catalog.find(x => x.src + ':' + x.id === cid); if (!c) return;
+    if (photoMode) { borrowPhoto(c); return; }
     const lang = c.src === 'jp' ? ui.langJp : ui.langInt;
     const x = { uid: uid(), cid, src: c.src, tdx: c.tdx, set: c.set + (c.src === 'jp' && !/\(/.test(c.set) ? ` (${c.sid})` : ''), sid: c.sid,
       number: c.no + (c.tot ? '/' + c.tot : ''), rarity: c.r, rc: c.rc, lang, year: (c.date || '').slice(0, 4), img: c.img || null,
@@ -551,6 +568,14 @@
     else if (own.dataset.uid !== 'sprite') { selUid = own.dataset.uid; renderMine(); fillForm(); }
   });
   $('#removeCard').addEventListener('click', () => { if (selUid) removeCard(selUid); });
+  $('#photoFrom').addEventListener('click', () => setPhotoMode(true));
+  $('#photoCancel').addEventListener('click', () => setPhotoMode(false));
+  $('#photoReset').addEventListener('click', () => {
+    const x = mine(current.id).find(z => z.uid === selUid); if (!x) return;
+    x.img = x.imgOwn ?? null; delete x.imgOwn; delete x.imgFrom;
+    persist(); renderMine(); fillForm(); refreshAfterEdit(); toast('Foto originale ripristinata');
+  });
+  dlg.addEventListener('close', () => setPhotoMode(false));
   form.addEventListener('change', readForm);
   form.addEventListener('submit', ev => ev.preventDefault());
   $('#catGrid').addEventListener('click', ev => { const b = ev.target.closest('.cand'); if (b) pickCatalog(b.dataset.cid); });
