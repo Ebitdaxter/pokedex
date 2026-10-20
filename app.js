@@ -222,12 +222,18 @@
 
   /* ---------------- album: swipe pages like a real binder (phones) ---------------- */
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const albumAt = {};          // group -> binder page currently open in the album, kept across re-renders
+  let albumPaint = null;
+  window.addEventListener('resize', () => albumPaint && albumPaint());
   function initAlbum() {
-    const box = $('#pages'); if (!box) return;
+    const box = $('#pages'); if (!box) { albumPaint = null; return; }
     const pages = [...box.children];
+    const want = pages.findIndex(p => p.getAttribute('aria-label') === `Pagina ${albumAt[ui.group]}`);
+    if (want > 0) box.scrollLeft = want * box.clientWidth;
     const paint = () => {
       const w = box.clientWidth || 1, x = box.scrollLeft;
       const idx = Math.round(x / w);
+      if (matchMedia('(max-width: 820px)').matches && pages[idx]) albumAt[ui.group] = pages[idx].getAttribute('aria-label').replace('Pagina ', '');
       $('#albumPos').textContent = `Pagina ${pages[idx]?.getAttribute('aria-label').replace('Pagina ', '') || ''} · ${idx + 1} di ${pages.length}`;
       if (reduceMotion || !matchMedia('(max-width: 820px)').matches) { pages.forEach(p => p.style.transform = ''); return; }
       pages.forEach((p, i) => {
@@ -238,7 +244,7 @@
       });
     };
     box.addEventListener('scroll', () => requestAnimationFrame(paint), { passive: true });
-    window.addEventListener('resize', paint);
+    albumPaint = paint;
     $('#albumNav').addEventListener('click', ev => { const b = ev.target.closest('[data-turn]'); if (b) box.scrollBy({ left: +b.dataset.turn * box.clientWidth, behavior: 'smooth' }); });
     paint();
   }
@@ -320,7 +326,7 @@
     persist(); renderCatalog(); refreshAfterEdit();
     toast(`Aggiunta ai target: ${c.set} ${c.no}`);
   }
-  function renderAll() { renderTotals(); renderTabs(); renderContent(); renderSync(); syncControls(); }
+  function renderAll() { const y = window.scrollY; renderTotals(); renderTabs(); renderContent(); renderSync(); syncControls(); window.scrollTo(0, y); }
   function syncControls() {
     document.querySelectorAll('#filterSeg button').forEach(b => b.setAttribute('aria-checked', b.dataset.filter === ui.filter));
     document.querySelectorAll('#viewSeg button').forEach(b => b.setAttribute('aria-checked', b.dataset.view === ui.view));
@@ -328,7 +334,10 @@
     const { q, ...keep } = ui; store.set(LS.ui, keep);
   }
   let refreshT;
-  function refreshAfterEdit() { clearTimeout(refreshT); refreshT = setTimeout(() => { renderTotals(); renderTabs(); renderContent(); }, 120); }
+  function refreshAfterEdit() {
+    clearTimeout(refreshT);
+    refreshT = setTimeout(() => { const y = window.scrollY; renderTotals(); renderTabs(); renderContent(); window.scrollTo(0, y); }, 120);
+  }
 
   document.addEventListener('error', ev => {
     const img = ev.target;
