@@ -21,7 +21,7 @@
    "year": "2025",
    "number": "065/063",
    "value": 6.12,
-   "img": "https://assets.tcgdex.net/ja/M/M1L/065/high.webp"
+   "img": "https://images.pokemontcg.io/me1/134_hires.png"
   },
   "n0004": {
    "art": false,
@@ -102,7 +102,7 @@
    "year": "2026",
    "number": "092/080",
    "value": 2.0,
-   "img": "https://assets.tcgdex.net/ja/M/M3/092/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me3-99/large"
   },
   "n0021": {
    "art": true,
@@ -112,7 +112,7 @@
    "year": "2025",
    "number": "074/063",
    "value": 1.68,
-   "img": "https://assets.tcgdex.net/ja/M/M1L/074/high.webp"
+   "img": "https://images.pokemontcg.io/me1/151_hires.png"
   },
   "n0024": {
    "art": false,
@@ -165,7 +165,7 @@
    "year": "2026",
    "number": "060/193",
    "value": 0.05,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/060/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-76/large"
   },
   "n0036": {
    "art": false,
@@ -213,7 +213,7 @@
    "year": "2025",
    "number": "091/080",
    "value": 2.07,
-   "img": "https://assets.tcgdex.net/ja/M/M2/091/high.webp"
+   "img": "https://images.pokemontcg.io/me2/105_hires.png"
   },
   "n0042": {
    "art": false,
@@ -223,8 +223,7 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "100/193",
-   "value": 0.03,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/100/high.webp"
+   "value": 0.03
   },
   "n0049": {
    "art": false,
@@ -245,7 +244,7 @@
    "year": "2026",
    "number": "206/193",
    "value": 1.5,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/206/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-239/large"
   },
   "n0052": {
    "art": true,
@@ -275,7 +274,7 @@
    "year": "2026",
    "number": "199/193",
    "value": 12.74,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/199/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-226/large"
   },
   "n0055": {
    "art": false,
@@ -367,7 +366,8 @@
    "set": "30esimo (30C)",
    "year": "2026",
    "number": "016/128",
-   "value": 1.0
+   "value": 1.0,
+   "img": "https://images.scrydex.com/pokemon/me55-16/large"
   },
   "n0082": {
    "art": false,
@@ -570,7 +570,8 @@
    "set": "30esimo (30C)",
    "year": "2026",
    "number": "157/128",
-   "value": 70.0
+   "value": 70.0,
+   "img": "https://images.scrydex.com/pokemon/me55-157/large"
   },
   "n0151": {
    "art": false,
@@ -589,8 +590,7 @@
    "set": "Mega Evolution Promo (MEP)",
    "year": "2025",
    "number": "69",
-   "value": 0.32,
-   "img": "https://assets.tcgdex.net/ja/M/M-P/069/high.webp"
+   "value": 0.32
   },
   "n0155": {
    "art": false,
@@ -630,8 +630,7 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "138/193",
-   "value": 0.05,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/138/high.webp"
+   "value": 0.05
   },
   "n0166": {
    "art": false,
@@ -702,7 +701,7 @@
    "year": "2025",
    "number": "066/080",
    "value": 0.03,
-   "img": "https://assets.tcgdex.net/ja/M/M2/066/high.webp"
+   "img": "https://images.pokemontcg.io/me2/78_hires.png"
   },
   "n0193": {
    "art": true,
@@ -732,7 +731,7 @@
    "year": "2026",
    "number": "202/193",
    "value": 1.0,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/202/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-233/large"
   },
   "n0201": {
    "art": false,
@@ -801,7 +800,7 @@
    "year": "2026",
    "number": "197/193",
    "value": 1.0,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/197/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-222/large"
   },
   "n0220": {
    "art": true,
@@ -881,7 +880,7 @@
    "year": "2026",
    "number": "020/193",
    "value": 0.05,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/020/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-25/large"
   },
   "n0245": {
    "art": false,
@@ -941,7 +940,7 @@
    "year": "2025",
    "number": "070/080",
    "value": 0.05,
-   "img": "https://assets.tcgdex.net/ja/M/M2/070/high.webp"
+   "img": "https://images.pokemontcg.io/me2/82_hires.png"
   },
   "n0270": {
    "art": false,
@@ -951,7 +950,7 @@
    "year": "2025",
    "number": "005/080",
    "value": 0.05,
-   "img": "https://assets.tcgdex.net/ja/M/M2/005/high.webp"
+   "img": "https://images.pokemontcg.io/me2/5_hires.png"
   },
   "n0272": {
    "art": true,
@@ -1052,7 +1051,7 @@
    "year": "2026",
    "number": "207/193",
    "value": 1.4,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/207/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-241/large"
   },
   "n0309": {
    "art": true,
@@ -1082,7 +1081,7 @@
    "year": "2026",
    "number": "198/193",
    "value": 2.0,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/198/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-223/large"
   },
   "n0330": {
    "art": true,
@@ -1092,7 +1091,7 @@
    "year": "2025",
    "number": "088/080",
    "value": 1.0,
-   "img": "https://assets.tcgdex.net/ja/M/M2/088/high.webp"
+   "img": "https://images.pokemontcg.io/me2/101_hires.png"
   },
   "n0334": {
    "art": true,
@@ -1111,8 +1110,7 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "087/193",
-   "value": 0.05,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/087/high.webp"
+   "value": 0.05
   },
   "n0349": {
    "art": true,
@@ -1162,7 +1160,7 @@
    "year": "2026",
    "number": "200/193",
    "value": 1.0,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/200/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-227/large"
   },
   "n0380": {
    "art": false,
@@ -1207,7 +1205,8 @@
    "set": "30esimo (30C)",
    "year": "2026",
    "number": "155/128",
-   "value": 40.0
+   "value": 40.0,
+   "img": "https://images.scrydex.com/pokemon/me55-155/large"
   },
   "n0386": {
    "art": false,
@@ -1286,7 +1285,7 @@
    "year": "2026",
    "number": "196/193",
    "value": 2.0,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/196/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-221/large"
   },
   "n0416": {
    "art": false,
@@ -1328,7 +1327,7 @@
    "year": "2025",
    "number": "097/080",
    "value": 1.35,
-   "img": "https://assets.tcgdex.net/ja/M/M2/097/high.webp"
+   "img": "https://images.pokemontcg.io/me2/112_hires.png"
   },
   "n0435": {
    "art": false,
@@ -1359,7 +1358,7 @@
    "year": "2026",
    "number": "208/193",
    "value": 1.0,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/208/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-244/large"
   },
   "n0445": {
    "art": false,
@@ -1420,7 +1419,7 @@
    "year": "2026",
    "number": "203/193",
    "value": 2.0,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/203/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-235/large"
   },
   "n0472": {
    "art": false,
@@ -1439,8 +1438,7 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "074/193",
-   "value": 0.05,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/074/high.webp"
+   "value": 0.05
   },
   "n0479": {
    "art": false,
@@ -1450,7 +1448,7 @@
    "year": "2025",
    "number": "029/080",
    "value": 0.1,
-   "img": "https://assets.tcgdex.net/ja/M/M2/029/high.webp"
+   "img": "https://images.pokemontcg.io/me2/29_hires.png"
   },
   "n0484": {
    "art": false,
@@ -1499,8 +1497,7 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "097/086",
-   "value": 10.28,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/097/high.webp"
+   "value": 10.28
   },
   "n0495": {
    "art": true,
@@ -1510,7 +1507,7 @@
    "year": "2025",
    "number": "087/086",
    "value": 8.28,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/087/high.webp"
+   "img": "https://images.pokemontcg.io/zsv10pt5/87_hires.png"
   },
   "n0497": {
    "art": false,
@@ -1520,7 +1517,7 @@
    "year": "2025",
    "number": "159/086",
    "value": 1.0,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/159/high.webp"
+   "img": "https://images.pokemontcg.io/zsv10pt5/156_hires.png"
   },
   "n0498": {
    "art": true,
@@ -1530,7 +1527,7 @@
    "year": "2025",
    "number": "096/086",
    "value": 10.72,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/096/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/96_hires.png"
   },
   "n0500": {
    "art": true,
@@ -1540,7 +1537,7 @@
    "year": "2025",
    "number": "098/086",
    "value": 4.51,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/098/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/98_hires.png"
   },
   "n0503": {
    "art": true,
@@ -1550,7 +1547,7 @@
    "year": "2025",
    "number": "104/086",
    "value": 7.42,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/104/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/107_hires.png"
   },
   "n0504": {
    "art": true,
@@ -1560,7 +1557,7 @@
    "year": "2025",
    "number": "151/086",
    "value": 3.0,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/151/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/152_hires.png"
   },
   "n0507": {
    "art": true,
@@ -1570,7 +1567,7 @@
    "year": "2025",
    "number": "154/086",
    "value": 3.57,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/154/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/155_hires.png"
   },
   "n0508": {
    "art": true,
@@ -1580,7 +1577,7 @@
    "year": "2025",
    "number": "155/086",
    "value": 3.78,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/155/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/156_hires.png"
   },
   "n0512": {
    "art": true,
@@ -1590,7 +1587,7 @@
    "year": "2025",
    "number": "090/086",
    "value": 3.0,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/090/high.webp"
+   "img": "https://images.pokemontcg.io/zsv10pt5/90_hires.png"
   },
   "n0517": {
    "art": true,
@@ -1600,7 +1597,7 @@
    "year": "2025",
    "number": "121/086",
    "value": 4.5,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/121/high.webp"
+   "img": "https://images.pokemontcg.io/zsv10pt5/116_hires.png"
   },
   "n0520": {
    "art": true,
@@ -1610,7 +1607,7 @@
    "year": "2025",
    "number": "154/086",
    "value": 2.88,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/154/high.webp"
+   "img": "https://images.pokemontcg.io/zsv10pt5/149_hires.png"
   },
   "n0523": {
    "art": true,
@@ -1620,7 +1617,7 @@
    "year": "2025",
    "number": "112/086",
    "value": 2.74,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/112/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/115_hires.png"
   },
   "n0525": {
    "art": true,
@@ -1630,7 +1627,7 @@
    "year": "2025",
    "number": "126/086",
    "value": 2.58,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/126/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/128_hires.png"
   },
   "n0528": {
    "art": true,
@@ -1640,7 +1637,7 @@
    "year": "2025",
    "number": "117/086",
    "value": 3.2,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/117/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/120_hires.png"
   },
   "n0530": {
    "art": false,
@@ -1650,7 +1647,7 @@
    "year": "2025",
    "number": "163/086",
    "value": 0.69,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/163/high.webp"
+   "img": "https://images.pokemontcg.io/zsv10pt5/160_hires.png"
   },
   "n0532": {
    "art": true,
@@ -1670,7 +1667,7 @@
    "year": "2025",
    "number": "133/086",
    "value": 3.85,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/133/high.webp"
+   "img": "https://images.pokemontcg.io/zsv10pt5/127_hires.png"
   },
   "n0536": {
    "art": true,
@@ -1680,7 +1677,7 @@
    "year": "2025",
    "number": "108/086",
    "value": 3.62,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/108/high.webp"
+   "img": "https://images.pokemontcg.io/zsv10pt5/104_hires.png"
   },
   "n0537": {
    "art": false,
@@ -1700,7 +1697,7 @@
    "year": "2025",
    "number": "128/086",
    "value": 2.37,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/128/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/130_hires.png"
   },
   "n0544": {
    "art": true,
@@ -1710,7 +1707,7 @@
    "year": "2025",
    "number": "139/086",
    "value": 2.8,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/139/high.webp"
+   "img": "https://images.pokemontcg.io/zsv10pt5/133_hires.png"
   },
   "n0547": {
    "art": false,
@@ -1720,7 +1717,7 @@
    "year": "2025",
    "number": "159/086",
    "value": 0.86,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/159/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/157_hires.png"
   },
   "n0556": {
    "art": true,
@@ -1730,7 +1727,7 @@
    "year": "2025",
    "number": "093/086",
    "value": 1.0,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/093/high.webp"
+   "img": "https://images.pokemontcg.io/zsv10pt5/93_hires.png"
   },
   "n0560": {
    "art": true,
@@ -1740,7 +1737,7 @@
    "year": "2025",
    "number": "137/086",
    "value": 3.59,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/137/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/139_hires.png"
   },
   "n0561": {
    "art": true,
@@ -1750,7 +1747,7 @@
    "year": "2025",
    "number": "118/086",
    "value": 3.0,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/118/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/121_hires.png"
   },
   "n0563": {
    "art": true,
@@ -1760,7 +1757,7 @@
    "year": "2025",
    "number": "120/086",
    "value": 3.0,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/120/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/123_hires.png"
   },
   "n0566": {
    "art": true,
@@ -1769,8 +1766,7 @@
    "set": "White Flare",
    "year": "2025",
    "number": "129/086",
-   "value": 3.0,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/129/high.webp"
+   "value": 3.0
   },
   "n0567": {
    "art": true,
@@ -1780,7 +1776,7 @@
    "year": "2025",
    "number": "130/086",
    "value": 3.0,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/130/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/132_hires.png"
   },
   "n0568": {
    "art": true,
@@ -1790,7 +1786,7 @@
    "year": "2025",
    "number": "138/086",
    "value": 2.76,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/138/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/140_hires.png"
   },
   "n0569": {
    "art": true,
@@ -1800,7 +1796,7 @@
    "year": "2025",
    "number": "139/086",
    "value": 2.42,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/139/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/141_hires.png"
   },
   "n0573": {
    "art": false,
@@ -1820,7 +1816,7 @@
    "year": "2025",
    "number": "121/086",
    "value": 4.68,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/121/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/124_hires.png"
   },
   "n0576": {
    "art": true,
@@ -1829,8 +1825,7 @@
    "set": "White Flare",
    "year": "2025",
    "number": "123/086",
-   "value": 2.95,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/123/high.webp"
+   "value": 2.95
   },
   "n0577": {
    "art": true,
@@ -1840,7 +1835,7 @@
    "year": "2025",
    "number": "123/086",
    "value": 11.65,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/123/high.webp"
+   "img": "https://images.pokemontcg.io/zsv10pt5/118_hires.png"
   },
   "n0579": {
    "art": true,
@@ -1849,8 +1844,7 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "125/086",
-   "value": 2.35,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/125/high.webp"
+   "value": 2.35
   },
   "n0585": {
    "art": true,
@@ -1860,7 +1854,7 @@
    "year": "2025",
    "number": "091/086",
    "value": 4.52,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/091/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/91_hires.png"
   },
   "n0590": {
    "art": true,
@@ -1870,7 +1864,7 @@
    "year": "2025",
    "number": "095/086",
    "value": 4.16,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/095/high.webp"
+   "img": "https://images.pokemontcg.io/zsv10pt5/95_hires.png"
   },
   "n0592": {
    "art": true,
@@ -1880,7 +1874,7 @@
    "year": "2025",
    "number": "124/086",
    "value": 4.67,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/124/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/126_hires.png"
   },
   "n0593": {
    "art": false,
@@ -1890,7 +1884,7 @@
    "year": "2025",
    "number": "162/086",
    "value": 0.62,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/162/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/160_hires.png"
   },
   "n0596": {
    "art": true,
@@ -1900,7 +1894,7 @@
    "year": "2025",
    "number": "114/086",
    "value": 3.5,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/114/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/117_hires.png"
   },
   "n0600": {
    "art": true,
@@ -1909,8 +1903,7 @@
    "set": "White Flare",
    "year": "2025",
    "number": "147/086",
-   "value": 2.26,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/147/high.webp"
+   "value": 2.26
   },
   "n0603": {
    "art": true,
@@ -1920,7 +1913,7 @@
    "year": "2025",
    "number": "118/086",
    "value": 2.94,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/118/high.webp"
+   "img": "https://images.pokemontcg.io/zsv10pt5/114_hires.png"
   },
   "n0609": {
    "art": true,
@@ -1929,8 +1922,7 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "102/086",
-   "value": 6.69,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/102/high.webp"
+   "value": 6.69
   },
   "n0615": {
    "art": true,
@@ -1940,7 +1932,7 @@
    "year": "2025",
    "number": "115/086",
    "value": 2.87,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/115/high.webp"
+   "img": "https://images.pokemontcg.io/zsv10pt5/111_hires.png"
   },
   "n0616": {
    "art": true,
@@ -1950,7 +1942,7 @@
    "year": "2025",
    "number": "093/086",
    "value": 2.62,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/093/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/93_hires.png"
   },
   "n0618": {
    "art": true,
@@ -1960,7 +1952,7 @@
    "year": "2025",
    "number": "115/086",
    "value": 2.0,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/115/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/118_hires.png"
   },
   "n0620": {
    "art": true,
@@ -1970,7 +1962,7 @@
    "year": "2025",
    "number": "132/086",
    "value": 3.35,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/132/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/134_hires.png"
   },
   "n0621": {
    "art": true,
@@ -1990,7 +1982,7 @@
    "year": "2025",
    "number": "148/086",
    "value": 3.02,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/148/high.webp"
+   "img": "https://images.pokemontcg.io/zsv10pt5/143_hires.png"
   },
   "n0626": {
    "art": true,
@@ -2000,7 +1992,7 @@
    "year": "2025",
    "number": "172/086",
    "value": 8.88,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/172/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/170_hires.png"
   },
   "n0627": {
    "art": true,
@@ -2009,8 +2001,7 @@
    "set": "White Flare",
    "year": "2025",
    "number": "156/086",
-   "value": 2.6,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/156/high.webp"
+   "value": 2.6
   },
   "n0629": {
    "art": true,
@@ -2019,8 +2010,7 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "144/086",
-   "value": 2.84,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/144/high.webp"
+   "value": 2.84
   },
   "n0633": {
    "art": true,
@@ -2030,7 +2020,7 @@
    "year": "2025",
    "number": "142/086",
    "value": 4.0,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/142/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/146_hires.png"
   },
   "n0634": {
    "art": true,
@@ -2040,7 +2030,7 @@
    "year": "2025",
    "number": "143/086",
    "value": 3.43,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/143/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/147_hires.png"
   },
   "n0636": {
    "art": true,
@@ -2070,7 +2060,7 @@
    "year": "2025",
    "number": "149/086",
    "value": 4.79,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/149/high.webp"
+   "img": "https://images.pokemontcg.io/zsv10pt5/144_hires.png"
   },
   "n0642": {
    "art": true,
@@ -2079,8 +2069,7 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "120/086",
-   "value": 2.21,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/120/high.webp"
+   "value": 2.21
   },
   "n0643": {
    "art": true,
@@ -2098,8 +2087,7 @@
    "lang": "JPN",
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
-   "number": "210/193",
-   "img": "https://assets.tcgdex.net/ja/M/M2a/210/high.webp"
+   "number": "210/193"
   },
   "n0646": {
    "art": false,
@@ -2109,7 +2097,7 @@
    "year": "2025",
    "number": "160/086",
    "value": 1.2,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11B/160/high.webp"
+   "img": "https://images.pokemontcg.io/zsv10pt5/157_hires.png"
   },
   "n0647": {
    "art": true,
@@ -2119,7 +2107,7 @@
    "year": "2025",
    "number": "169/086",
    "value": 20.99,
-   "img": "https://assets.tcgdex.net/ja/SV/SV11W/169/high.webp"
+   "img": "https://images.pokemontcg.io/rsv10pt5/167_hires.png"
   },
   "n0649": {
    "art": false,
@@ -2177,7 +2165,7 @@
    "year": "2026",
    "number": "113/193",
    "value": 0.1,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/113/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-140/large"
   },
   "n0687": {
    "art": false,
@@ -2197,7 +2185,7 @@
    "year": "2026",
    "number": "201/193",
    "value": 0.4,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/201/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-229/large"
   },
   "n0709": {
    "art": true,
@@ -2208,7 +2196,7 @@
    "year": "2026",
    "number": "204/193",
    "value": 1.11,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/204/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-237/large"
   },
   "n0711": {
    "art": false,
@@ -2249,7 +2237,7 @@
    "year": "2026",
    "number": "090/088",
    "value": 5.0,
-   "img": "https://assets.tcgdex.net/ja/M/M3/090/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me3-90/large"
   },
   "n0725": {
    "art": false,
@@ -2289,7 +2277,7 @@
    "year": "2025",
    "number": "075/063",
    "value": 1.0,
-   "img": "https://assets.tcgdex.net/ja/M/M1L/075/high.webp"
+   "img": "https://images.pokemontcg.io/me1/153_hires.png"
   },
   "n0740": {
    "art": true,
@@ -2459,7 +2447,7 @@
    "year": "2025",
    "number": "089/080",
    "value": 1.1,
-   "img": "https://assets.tcgdex.net/ja/M/M2/089/high.webp"
+   "img": "https://images.pokemontcg.io/me2/103_hires.png"
   },
   "n0851": {
    "art": true,
@@ -2490,7 +2478,7 @@
    "year": "2026",
    "number": "209/193",
    "value": 3.0,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/209/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-245/large"
   },
   "n0868": {
    "art": true,
@@ -2549,7 +2537,7 @@
    "year": "2025",
    "number": "062/080",
    "value": 0.1,
-   "img": "https://assets.tcgdex.net/ja/M/M2/062/high.webp"
+   "img": "https://images.pokemontcg.io/me2/74_hires.png"
   },
   "n0886": {
    "art": true,
@@ -2559,7 +2547,7 @@
    "year": "2026",
    "number": "212/193",
    "value": 0.5,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/212/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-248/large"
   },
   "n0888": {
    "art": true,
@@ -2569,7 +2557,7 @@
    "year": "2025",
    "number": "087/080",
    "value": 3.0,
-   "img": "https://assets.tcgdex.net/ja/M/M2/087/high.webp"
+   "img": "https://images.pokemontcg.io/me2/100_hires.png"
   },
   "n0889": {
    "art": true,
@@ -2588,8 +2576,7 @@
    "set": "Abyss Eye (M5)",
    "year": "2026",
    "number": "090/081",
-   "value": 3.0,
-   "img": "https://assets.tcgdex.net/ja/M/M5/090/high.webp"
+   "value": 3.0
   },
   "n0894": {
    "art": false,
@@ -2718,7 +2705,7 @@
    "year": "2025",
    "number": "070/063",
    "value": 3.0,
-   "img": "https://assets.tcgdex.net/ja/M/M1L/070/high.webp"
+   "img": "https://images.pokemontcg.io/me1/147_hires.png"
   },
   "n0935": {
    "art": true,
@@ -2727,8 +2714,7 @@
    "set": "Inferno X (M2)",
    "year": "2025",
    "number": "083/080",
-   "value": 1.27,
-   "img": "https://assets.tcgdex.net/ja/M/M2/083/high.webp"
+   "value": 1.27
   },
   "n0936": {
    "art": true,
@@ -3007,8 +2993,7 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "122/193",
-   "value": 0.05,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/122/high.webp"
+   "value": 0.05
   },
   "n1021": {
    "art": true,
@@ -3038,7 +3023,7 @@
    "year": "2026",
    "number": "145/193",
    "value": 0.1,
-   "img": "https://assets.tcgdex.net/ja/M/M2a/145/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-179/large"
   },
   "m001": {
    "art": false,
@@ -3047,7 +3032,7 @@
    "set": "Mega Brave (M1L)",
    "year": "2025",
    "number": "003/063",
-   "img": "https://assets.tcgdex.net/ja/M/M1L/003/high.webp"
+   "img": "https://images.pokemontcg.io/me1/3_hires.png"
   },
   "m002": {
    "art": true,
@@ -3056,7 +3041,7 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "223/193",
-   "img": "https://assets.tcgdex.net/ja/M/M2a/223/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-294/large"
   },
   "m005": {
    "art": false
@@ -3068,7 +3053,7 @@
    "set": "Nihil Zero (M3)",
    "year": "2026",
    "number": "031/088",
-   "img": "https://assets.tcgdex.net/ja/M/M3/031/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me3-31/large"
   },
   "m013": {
    "art": true,
@@ -3077,7 +3062,7 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "230/193",
-   "img": "https://assets.tcgdex.net/ja/M/M2a/230/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-284/large"
   },
   "m015": {
    "art": true,
@@ -3085,7 +3070,8 @@
    "lang": "ENG",
    "set": "Nihil Zero (M3)",
    "year": "2026",
-   "number": "118/088"
+   "number": "118/088",
+   "img": "https://images.scrydex.com/pokemon/me3-118/large"
   },
   "m019": {
    "art": false,
@@ -3094,7 +3080,7 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "126/193",
-   "img": "https://assets.tcgdex.net/ja/M/M2a/126/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-152/large"
   },
   "m027": {
    "art": false,
@@ -3103,7 +3089,7 @@
    "set": "Inferno X (M2)",
    "year": "2025",
    "number": "093/080",
-   "img": "https://assets.tcgdex.net/ja/M/M2/093/high.webp"
+   "img": "https://images.pokemontcg.io/me2/108_hires.png"
   },
   "m034": {
    "art": true,
@@ -3111,8 +3097,7 @@
    "lang": "JPN",
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
-   "number": "226/193",
-   "img": "https://assets.tcgdex.net/ja/M/M2a/226/high.webp"
+   "number": "226/193"
   },
   "m036": {
    "art": false,
@@ -3121,7 +3106,7 @@
    "set": "Mega Brave (M1L)",
    "year": "2025",
    "number": "046/063",
-   "img": "https://assets.tcgdex.net/ja/M/M1L/046/high.webp"
+   "img": "https://images.pokemontcg.io/me1/94_hires.png"
   },
   "m040": {
    "art": false,
@@ -3148,7 +3133,7 @@
    "set": "Mega Brave (M1L)",
    "year": "2025",
    "number": "038/063",
-   "img": "https://assets.tcgdex.net/ja/M/M1L/038/high.webp"
+   "img": "https://images.pokemontcg.io/me1/86_hires.png"
   },
   "m057": {
    "art": false,
@@ -3157,7 +3142,7 @@
    "set": "Mega Brave (M1L)",
    "year": "2025",
    "number": "029/063",
-   "img": "https://assets.tcgdex.net/ja/M/M1L/029/high.webp"
+   "img": "https://images.pokemontcg.io/me1/77_hires.png"
   },
   "m061": {
    "art": true,
@@ -3166,7 +3151,7 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "233/193",
-   "img": "https://assets.tcgdex.net/ja/M/M2a/233/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-275/large"
   },
   "m068": {
    "art": true,
@@ -3175,7 +3160,7 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "231/193",
-   "img": "https://assets.tcgdex.net/ja/M/M2a/231/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-285/large"
   },
   "m069": {
    "art": true,
@@ -3184,7 +3169,7 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "225/193",
-   "img": "https://assets.tcgdex.net/ja/M/M2a/225/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-278/large"
   },
   "m070": {
    "art": false,
@@ -3193,7 +3178,7 @@
    "set": "Abyss Eye (M5)",
    "year": "2026",
    "number": "097/081",
-   "img": "https://assets.tcgdex.net/ja/M/M5/097/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me5-99/large"
   },
   "m074": {
    "art": false,
@@ -3220,7 +3205,7 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "229/193",
-   "img": "https://assets.tcgdex.net/ja/M/M2a/229/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-283/large"
   },
   "m083": {
    "art": true,
@@ -3229,7 +3214,7 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "227/193",
-   "img": "https://assets.tcgdex.net/ja/M/M2a/227/high.webp"
+   "img": "https://images.scrydex.com/pokemon/me2pt5-282/large"
   },
   "r005": {
    "art": false,
