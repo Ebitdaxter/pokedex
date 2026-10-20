@@ -482,3 +482,8 @@ main { padding-bottom: 110px; }
 .pocket.dim .sp { filter: grayscale(1) !important; }
 .pocket.dim > img.card { filter: grayscale(1); }
 .pocket.dim.owned { background: linear-gradient(160deg, #3a3f4b, #9aa0ab); }
+
+/* "Come mancante" option tile: same look as a missing pocket */
+.sprite-opt.bw .sprite-ph { background: var(--sleeve); border: 1px solid var(--sleeve-edge); color: var(--muted); text-shadow: none; }
+.sprite-opt.bw .sprite-ph .spr { background: transparent; }
+.sprite-opt.bw .sp { filter: grayscale(1) contrast(.9); opacity: var(--ghost); }

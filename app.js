@@ -170,8 +170,8 @@
     const c = cover(e.id), n = mine(e.id).length;
     const label = e.group === 'regional' ? `${e.name} di ${e.region}` : e.name;
     const no = e.group.startsWith('g') ? dexStr(e.dex) : (e.region || dexStr(e.dex));
-    if (!c) {
-      return `<button class="pocket missing" data-id="${e.id}" aria-label="${esc(label)}, mancante">
+    if (!c || bwFace(e.id)) {   // missing, or owned but shown "as if missing" by choice
+      return `<button class="pocket missing" data-id="${e.id}" aria-label="${esc(label)}, ${c ? 'presente, mostrato come mancante' : 'mancante'}">
         <span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span><span class="nm">${esc(e.name)}</span></button>`;
     }
     const meta = [c.rc, c.lang, c.set].filter(Boolean).join(' · ');
@@ -364,7 +364,7 @@
         <button type="button" class="star${cvKey === key ? ' on' : ''}" data-act="cover" aria-pressed="${cvKey === key}" title="${cvKey === key ? 'Nel Pokédex vedi questo' : 'Mostra questo nel Pokédex'}">★</button>
         <span class="own-meta">${sub}</span>
       </div>`;
-    const sprTile = l.length ? opt('sprite', 'Sprite', 'Sprite a colori', false) + opt('sprite-bw', 'Sprite B/N', 'Sprite in bianco e nero', true) : '';
+    const sprTile = l.length ? opt('sprite', 'Sprite', 'Sprite a colori', false) + opt('sprite-bw', 'Come mancante', 'Sprite grigio, come se non avessi la carta', true) : '';
     $('#mineList').innerHTML = l.length ? sprTile + l.map(x => `
       <div class="own${x.uid === selUid ? ' sel' : ''}" data-uid="${x.uid}">
         <button type="button" class="own-pick" data-act="select" aria-label="Modifica ${esc(x.set || 'carta')}">${thumb(x.img, x.set || 'Carta')}</button>
@@ -423,7 +423,7 @@
     persist(); fillPoke(); renderMine(); fillForm(); renderCatalog(); refreshAfterEdit();
     toast('Carta rimossa');
   }
-  function setCover(u) { col.cards[current.id].cover = u; persist(); renderMine(); refreshAfterEdit(); toast(u === 'sprite' ? 'Nel Pokédex vedrai lo sprite a colori' : u === 'sprite-bw' ? 'Nel Pokédex vedrai lo sprite in bianco e nero' : 'Anteprima aggiornata'); }
+  function setCover(u) { col.cards[current.id].cover = u; persist(); renderMine(); refreshAfterEdit(); toast(u === 'sprite' ? 'Nel Pokédex vedrai lo sprite a colori' : u === 'sprite-bw' ? 'Nel Pokédex lo vedrai come se mancasse' : 'Anteprima aggiornata'); }
 
   function step(dir) {
     const list = ENTRIES.filter(e => e.group === current.group && matches(e));
