@@ -910,6 +910,9 @@
     document.documentElement.classList.toggle('standalone', !!standalone);
   }
   measureSafeArea();
+  // freeze the page behind an open sheet so a swipe inside the sheet never drags the page
+  const syncModal = () => document.documentElement.classList.toggle('modal-open', !!document.querySelector('dialog[open]'));
+  document.querySelectorAll('dialog').forEach(d => { d.addEventListener('close', syncModal); new MutationObserver(syncModal).observe(d, { attributes: true, attributeFilter: ['open'] }); });
   (async () => {
     try {
       const mine = (document.querySelector('script[src^="app.js"]')?.getAttribute('src').match(/v=(\d+)/) || [])[1];
