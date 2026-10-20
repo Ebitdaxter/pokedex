@@ -347,10 +347,10 @@
     $('#content').innerHTML = `<div class="bubi-grid nine">${cards.map(c => {
       const key = bubiKey(c), o = bubiOwned(c), p = c.src === 'pocket' ? null : priceCache[key];
       return `<button type="button" class="bcard${o ? ' have' : ''}" data-key="${esc(key)}" aria-pressed="${o}" aria-label="${esc(BUBI.labels[c.k])}${o ? ', nella collezione' : ''}">
-        <span class="cand-img"><img class="bimg" loading="lazy" alt="" src="${esc(c.img)}">${o ? '<i class="tick">✓</i>' : ''}</span>
+        <span class="cand-img"><img class="bimg" alt="" src="${esc(c.img)}">${o ? '<i class="tick">✓</i>' : ''}</span>
         <span class="cand-info"><b>${esc(BUBI.labels[c.k])}</b><span>${esc(c.set)} · ${esc(c.no)}${c.tot ? '/' + c.tot : ''} · ${esc((c.date || '').slice(0, 4))}</span>
         <span class="cand-row">${rcBadge(c.rc)}<span class="price" data-price="${esc(key)}">${c.src === 'pocket' ? 'TCG Pocket' : p ? (p.p != null ? eur(p.p) : '—') : ''}</span></span></span></button>`;
-    }).join('')}</div>`;
+    }).join('')}</div><div class="bubi-more"><button type="button" class="btn primary" data-shuffle>↻ Rimescola</button></div>`;
   }
   function toggleBubi(key) {
     const c = BUBI.cards.find(z => bubiKey(z) === key); if (!c) return;
@@ -766,7 +766,18 @@
   });
   $('#content').addEventListener('change', ev => { const f = ev.target.closest('.t-edit'); if (f) saveTargetForm(f); });
   $('#content').addEventListener('submit', ev => { if (ev.target.closest('.t-edit')) ev.preventDefault(); });
-  $('#sectionHead').addEventListener('click', ev => { if (ev.target.closest('#bubiShuffle')) renderBubi(true); });
+  $('#sectionHead').addEventListener('click', async ev => {
+    if (!ev.target.closest('#bubiShuffle')) return;
+    shuffleBubiKeepPlace();
+  });
+  async function shuffleBubiKeepPlace() {
+    const y = window.scrollY, box = $('#content');
+    box.style.minHeight = box.offsetHeight + 'px';          // keep the page height while the new cards load
+    await renderBubi(true);
+    window.scrollTo(0, y);
+    setTimeout(() => { box.style.minHeight = ''; }, 1500);
+  }
+  $('#content').addEventListener('click', ev => { if (ev.target.closest('[data-shuffle]')) shuffleBubiKeepPlace(); });
   document.addEventListener('error', ev => {
     const img = ev.target; if (!img.classList?.contains('bimg')) return;
     const key = img.closest('.bcard')?.dataset.key; const c = BUBI?.cards.find(z => bubiKey(z) === key); if (!c) return;
