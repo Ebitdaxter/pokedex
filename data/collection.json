@@ -1,6 +1,6 @@
 {
  "version": 2,
- "updated": "2026-10-20T14:35:30.072Z",
+ "updated": "2026-10-20T14:57:33.025Z",
  "cards": {
   "n0001": {
    "cover": "37612vb6",
@@ -17,6 +17,23 @@
      "number": "39/132",
      "value": 11.35,
      "img": "https://images.pokemontcg.io/gym2/39_hires.png"
+    },
+    {
+     "uid": "9kbvffe8",
+     "cid": "int:sv3pt5-166",
+     "src": "int",
+     "tdx": "sv03.5-166",
+     "set": "151",
+     "sid": "sv3pt5",
+     "number": "166/165",
+     "rarity": "Illustration Rare",
+     "rc": "AR",
+     "lang": "ITA",
+     "year": "2023",
+     "img": "https://images.pokemontcg.io/sv3pt5/166_hires.png",
+     "art": true,
+     "price": 69.34,
+     "priceAt": 1792507034559
     }
    ]
   },
@@ -84,6 +101,23 @@
      "number": "24/102",
      "value": 0.02,
      "img": "https://images.pokemontcg.io/base1/24_hires.png"
+    },
+    {
+     "uid": "zoes6rx7",
+     "cid": "int:sv3pt5-169",
+     "src": "int",
+     "tdx": "sv03.5-169",
+     "set": "151",
+     "sid": "sv3pt5",
+     "number": "169/165",
+     "rarity": "Illustration Rare",
+     "rc": "AR",
+     "lang": "ITA",
+     "year": "2023",
+     "img": "https://images.pokemontcg.io/sv3pt5/169_hires.png",
+     "art": true,
+     "price": 55.81,
+     "priceAt": 1792505758399
     }
    ]
   },
@@ -102,6 +136,23 @@
      "number": "066/108",
      "value": 1.61,
      "img": "https://assets.tcgdex.net/ja/SV/SV3/066/high.webp"
+    },
+    {
+     "uid": "grbvfojs",
+     "cid": "int:sv3pt5-199",
+     "src": "int",
+     "tdx": "sv03.5-199",
+     "set": "151",
+     "sid": "sv3pt5",
+     "number": "199/165",
+     "rarity": "Special Illustration Rare",
+     "rc": "SAR",
+     "lang": "ITA",
+     "year": "2023",
+     "img": "https://images.pokemontcg.io/sv3pt5/199_hires.png",
+     "art": true,
+     "price": 318,
+     "priceAt": 1792507180213
     }
    ]
   },
@@ -119,6 +170,23 @@
      "number": "009/165",
      "value": 2.79,
      "img": "https://images.pokemontcg.io/sv3pt5/9_hires.png"
+    },
+    {
+     "uid": "bztmrtp1",
+     "cid": "int:sv3pt5-200",
+     "src": "int",
+     "tdx": "sv03.5-200",
+     "set": "151",
+     "sid": "sv3pt5",
+     "number": "200/165",
+     "rarity": "Special Illustration Rare",
+     "rc": "SAR",
+     "lang": "ITA",
+     "year": "2023",
+     "img": "https://images.pokemontcg.io/sv3pt5/200_hires.png",
+     "art": true,
+     "price": 133.61,
+     "priceAt": 1792507218462
     }
    ]
   },
@@ -5676,6 +5744,72 @@
      "year": "2022",
      "number": "044/067",
      "img": "https://assets.tcgdex.net/ja/S/S9a/044/high.webp"
+    }
+   ]
+  },
+  "n0003": {
+   "cover": "sprite",
+   "list": [
+    {
+     "uid": "olwibg0t",
+     "cid": "int:sv3pt5-198",
+     "src": "int",
+     "tdx": "sv03.5-198",
+     "set": "151",
+     "sid": "sv3pt5",
+     "number": "198/165",
+     "rarity": "Special Illustration Rare",
+     "rc": "SAR",
+     "lang": "ITA",
+     "year": "2023",
+     "img": "https://images.pokemontcg.io/sv3pt5/198_hires.png",
+     "art": true,
+     "price": 109.9,
+     "priceAt": 1792507078047
+    }
+   ]
+  },
+  "n0007": {
+   "cover": "sprite",
+   "list": [
+    {
+     "uid": "v8zfdoqh",
+     "cid": "int:sv3pt5-170",
+     "src": "int",
+     "tdx": "sv03.5-170",
+     "set": "151",
+     "sid": "sv3pt5",
+     "number": "170/165",
+     "rarity": "Illustration Rare",
+     "rc": "AR",
+     "lang": "ITA",
+     "year": "2023",
+     "img": "https://images.pokemontcg.io/sv3pt5/170_hires.png",
+     "art": true,
+     "price": 72.56,
+     "priceAt": 1792507193279
+    }
+   ]
+  },
+  "n0008": {
+   "cover": "sprite",
+   "list": [
+    {
+     "uid": "zv7163yb",
+     "cid": "int:sv3pt5-171",
+     "src": "int",
+     "tdx": "sv03.5-171",
+     "set": "151",
+     "sid": "sv3pt5",
+     "number": "171/165",
+     "rarity": "Illustration Rare",
+     "rc": "AR",
+     "lang": "ITA",
+     "year": "2023",
+     "img": "https://images.pokemontcg.io/sv3pt5/171_hires.png",
+     "art": true,
+     "price": 55.12,
+     "priceAt": 1792507205743
     }
    ]
   }
