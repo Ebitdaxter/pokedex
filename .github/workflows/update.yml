@@ -1,0 +1,41 @@
+name: Aggiorna catalogo e prezzi
+
+on:
+  schedule:
+    - cron: '17 4 1,15 * *'   # il 1° e il 15 di ogni mese (circa ogni due settimane)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Scarica le fonti (pokemon-tcg-data, TCGdex, PokeAPI)
+        run: |
+          mkdir -p _src
+          git clone -q --depth 1 https://github.com/PokemonTCG/pokemon-tcg-data.git _src/ptcg
+          git clone -q --depth 1 --filter=blob:none --sparse https://github.com/tcgdex/cards-database.git _src/tcgdex
+          git -C _src/tcgdex sparse-checkout set data data-asia
+          curl -sSfL -o _src/species_names.csv https://raw.githubusercontent.com/PokeAPI/pokeapi/master/data/v2/csv/pokemon_species_names.csv
+      - name: Ricostruisci il catalogo carte
+        run: python tools/build_cards.py
+      - name: Aggiorna i prezzi della collezione
+        run: python tools/update_prices.py
+      - name: Salva
+        run: |
+          git config user.name "pokedex-bot"
+          git config user.email "pokedex-bot@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then echo "Niente da aggiornare"; exit 0; fi
+          git commit -q -m "Aggiornamento automatico catalogo e prezzi"
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q && break; sleep 5; done

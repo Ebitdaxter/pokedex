@@ -46,9 +46,9 @@
   const dexStr = n => '#' + String(n).padStart(4, '0');
   const uid = () => Math.random().toString(36).slice(2, 10);
 
-  let ENTRIES = [], BY_ID = new Map(), SETS = [];
+  let ENTRIES = [], BY_ID = new Map(), SETS = [], META = {};
   let remote = null, col = { version: 2, updated: null, cards: {} }, dirty = false;
-  const ui = Object.assign({ group: 'g1', filter: 'all', view: 'grid', q: '', src: 'all', rf: 'all', langInt: 'ITA', langJp: 'JPN' }, store.get(LS.ui, {}));
+  const ui = Object.assign({ group: 'g1', filter: 'all', view: 'grid', face: 'card', q: '', src: 'all', rf: 'all', langInt: 'ITA', langJp: 'JPN' }, store.get(LS.ui, {}));
   const priceCache = store.get(LS.price, {});   // cid -> {p, t}
   let current = null, selUid = null;
 
@@ -60,7 +60,7 @@
       if (v && Array.isArray(v.list)) {
         v.list.forEach(x => { x.uid = x.uid || uid(); });
         if (typeof v.cover === 'number') v.cover = v.list[v.cover]?.uid;
-        if (!v.list.some(x => x.uid === v.cover)) v.cover = v.list[0]?.uid;
+        if (v.cover !== 'sprite' && !v.list.some(x => x.uid === v.cover)) v.cover = v.list[0]?.uid;
         if (v.list.length) out.cards[k] = v;
       } else if (v) {
         const x = Object.assign({ uid: uid(), rc: v.rarity }, v);
@@ -69,14 +69,29 @@
     }
     return out;
   }
+  const ts = v => v ? new Date(v).getTime() || 0 : 0;
+  // copy newer prices (e.g. from the automatic update on GitHub) into a collection without touching anything else
+  function mergePrices(dst, src) {
+    for (const [k, e] of Object.entries(src.cards || {})) {
+      const d = dst.cards?.[k]; if (!d) continue;
+      for (const x of e.list || []) {
+        const y = d.list.find(z => z.uid === x.uid);
+        if (y && x.price != null && ts(x.priceAt) > ts(y.priceAt)) { y.price = x.price; y.priceAt = x.priceAt; if (x.tdx) y.tdx = x.tdx; }
+      }
+    }
+    if (ts(src.pricesUpdated) > ts(dst.pricesUpdated)) dst.pricesUpdated = src.pricesUpdated;
+    return dst;
+  }
   const mine = id => col.cards[id]?.list || [];
   const isOwned = id => mine(id).length > 0;
   const cover = id => { const e = col.cards[id]; return e && (e.list.find(x => x.uid === e.cover) || e.list[0]); };
+  const spriteFace = id => ui.face === 'sprite' || col.cards[id]?.cover === 'sprite';
   const cardValue = x => +(x.value ?? x.price ?? 0) || 0;
   const isArt = x => x.art ?? ART_RC.has(x.rc);
 
   /* ---------------- load ---------------- */
   async function load() {
+    fetch('data/meta.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : {}).then(m => { META = m; }).catch(() => {});
     const [p, c, s] = await Promise.all([
       fetch('data/pokedex.json').then(r => r.json()),
       fetch('data/collection.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).catch(() => null),
@@ -85,7 +100,7 @@
     ENTRIES = p; ENTRIES.forEach(e => BY_ID.set(e.id, e)); SETS = s;
     remote = migrate(c || {});
     const local = store.get(LS.col, null) || store.get('pdx.collection.v2', null);
-    if (local && local.dirty && (!remote.updated || local.updated >= remote.updated)) { col = migrate(local.data); dirty = true; }
+    if (local && local.dirty && (!remote.updated || local.updated >= remote.updated)) { col = mergePrices(migrate(local.data), remote); dirty = true; }
     else { col = structuredClone(remote); dirty = false; store.del(LS.col); }
     $('#setList').innerHTML = SETS.map(x => `<option value="${esc(x.name)}">${esc(x.year)}</option>`).join('');
     initGithubFields();
@@ -145,7 +160,7 @@
         <span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span><span class="nm">${esc(e.name)}</span></button>`;
     }
     const meta = [c.rc, c.lang, c.set].filter(Boolean).join(' · ');
-    const img = c.img && !badImg.has(c.img) ? `<img class="card" loading="lazy" decoding="async" alt="" src="${esc(c.img)}">` : '';
+    const img = !spriteFace(e.id) && c.img && !badImg.has(c.img) ? `<img class="card" loading="lazy" decoding="async" alt="" src="${esc(c.img)}">` : '';
     const art = mine(e.id).some(isArt) ? '<span class="badge-art" title="Art rare">A</span>' : '';
     const count = n > 1 ? `<span class="badge-n" title="${n} carte">${n}</span>` : '';
     return `<button class="pocket owned${img ? ' has-img' : ''}" style="${typeVars(e)}" data-id="${e.id}" aria-label="${esc(label)}, ${n} ${n > 1 ? 'carte' : 'carta'}">
@@ -176,6 +191,7 @@
   function syncControls() {
     document.querySelectorAll('#filterSeg button').forEach(b => b.setAttribute('aria-checked', b.dataset.filter === ui.filter));
     document.querySelectorAll('#viewSeg button').forEach(b => b.setAttribute('aria-checked', b.dataset.view === ui.view));
+    document.querySelectorAll('#faceSeg button').forEach(b => b.setAttribute('aria-checked', b.dataset.face === ui.face));
     const { q, ...keep } = ui; store.set(LS.ui, keep);
   }
   let refreshT;
@@ -208,7 +224,6 @@
     $('#dName').textContent = e.name;
     $('#dTypes').innerHTML = e.types.map(t => `<span class="type" style="--c:${TYPE_COLORS[t] || '#888'}">${TYPE_IT[t] || t}</span>`).join('');
     $('#dWhere').textContent = `Raccoglitore: pagina ${e.page}, tasca ${e.pos}`;
-    $('#dStats').innerHTML = e.stats ? e.stats.map((v, i) => `<span>${STAT_LABELS[i]}</span><b>${v ?? '–'}</b><i style="--w:${Math.min(100, (v || 0) / 180 * 100)}%"></i>`).join('') : '';
   }
 
   const spritePh = (ph, e = current) => `<div class="img-ph sprite-ph" style="${e ? typeVars(e) : ''}">${e ? `<span class="spr">${sprite(e)}</span>` : ''}<span class="ph-t">${esc(ph)}</span></div>`;
@@ -216,9 +231,15 @@
   const rcBadge = rc => rc ? `<span class="rc rc-${esc(rc)}${ART_RC.has(rc) ? ' art' : ''}" title="${esc(RC_LABEL[rc] || rc)}">${esc(rc)}</span>` : '';
 
   function renderMine() {
-    const l = mine(current.id), cv = cover(current.id);
+    const l = mine(current.id), spr = col.cards[current.id]?.cover === 'sprite', cv = spr ? null : cover(current.id);
     $('#mineCount').textContent = l.length ? `${l.length} ${l.length > 1 ? 'carte' : 'carta'} · ${eur(l.reduce((s, x) => s + cardValue(x), 0))}` : '';
-    $('#mineList').innerHTML = l.length ? l.map(x => `
+    const sprTile = l.length ? `
+      <div class="own sprite-opt" data-uid="sprite">
+        <button type="button" class="own-pick" data-act="cover" aria-label="Mostra lo sprite nel Pokédex">${spritePh('Sprite')}</button>
+        <button type="button" class="star${spr ? ' on' : ''}" data-act="cover" aria-pressed="${spr}" title="${spr ? 'Nel Pokédex vedi lo sprite' : 'Mostra lo sprite nel Pokédex'}">★</button>
+        <span class="own-meta">Sprite<br>al posto della carta</span>
+      </div>` : '';
+    $('#mineList').innerHTML = l.length ? sprTile + l.map(x => `
       <div class="own${x.uid === selUid ? ' sel' : ''}" data-uid="${x.uid}">
         <button type="button" class="own-pick" data-act="select" aria-label="Modifica ${esc(x.set || 'carta')}">${thumb(x.img, x.set || 'Carta')}</button>
         <button type="button" class="star${x.uid === cv?.uid ? ' on' : ''}" data-act="cover" aria-pressed="${x.uid === cv?.uid}" title="${x.uid === cv?.uid ? 'Anteprima nel raccoglitore' : 'Usa come anteprima'}">★</button>
@@ -268,11 +289,11 @@
     entry.list = entry.list.filter(x => x.uid !== u);
     if (!entry.list.length) delete col.cards[current.id];
     else if (entry.cover === u) entry.cover = entry.list[0].uid;
-    selUid = cover(current.id)?.uid || null;
+    selUid = entry.list?.length ? (entry.list.find(x => x.uid === entry.cover) || entry.list[0]).uid : null;
     persist(); fillPoke(); renderMine(); fillForm(); renderCatalog(); refreshAfterEdit();
     toast('Carta rimossa');
   }
-  function setCover(u) { col.cards[current.id].cover = u; persist(); renderMine(); refreshAfterEdit(); toast('Anteprima aggiornata'); }
+  function setCover(u) { col.cards[current.id].cover = u; persist(); renderMine(); refreshAfterEdit(); toast(u === 'sprite' ? 'Nel Pokédex vedrai lo sprite' : 'Anteprima aggiornata'); }
 
   function step(dir) {
     const list = ENTRIES.filter(e => e.group === current.group && matches(e));
@@ -396,19 +417,41 @@
   }
 
   /* ---------------- refresh all prices ---------------- */
+  function renderDataDates() {
+    const d = v => v ? new Date(v).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' }) : 'mai';
+    $('#dataDates').textContent = `Catalogo aggiornato: ${d(META.catalogUpdated)} · Prezzi aggiornati: ${d(col.pricesUpdated)}`;
+  }
+  async function dispatchUpdate() {
+    const c = saveGhFields();
+    if (!c.token || !c.owner || !c.repo) return 'Catalogo: per aggiornarlo subito serve il token GitHub (con permesso Actions). Altrimenti si aggiorna da solo il 1° e il 15 del mese.';
+    try {
+      const r = await fetch(`https://api.github.com/repos/${c.owner}/${c.repo}/actions/workflows/update.yml/dispatches`, {
+        method: 'POST', headers: { Accept: 'application/vnd.github+json', Authorization: `Bearer ${c.token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ref: c.branch || 'main' }) });
+      if (r.status === 204) return 'Catalogo: aggiornamento avviato su GitHub, pronto tra circa 5 minuti (ricarica la pagina).';
+      if (r.status === 403 || r.status === 404) return 'Catalogo: il token non può avviare l’aggiornamento. Aggiungi il permesso “Actions: Read and write” al token.';
+      return `Catalogo: GitHub ha risposto ${r.status}.`;
+    } catch { return 'Catalogo: GitHub non raggiungibile.'; }
+  }
   async function refreshPrices() {
     const btn = $('#refreshPrices'), out = $('#priceStatus'); btn.disabled = true;
+    const dispatched = dispatchUpdate();
     const todo = ENTRIES.flatMap(e => mine(e.id)).filter(x => x.cid);
-    let done = 0;
-    for (const x of todo) {
-      out.textContent = `Aggiorno ${++done} di ${todo.length}…`;
-      const [src, ...rest] = x.cid.split(':'); const id = rest.join(':');
-      delete priceCache[x.cid];
-      const p = await priceFor({ src, id, tdx: x.tdx });
-      if (p != null) { x.price = p; x.priceAt = Date.now(); }
-    }
-    persist(); renderAll();
-    out.textContent = `Prezzi aggiornati per ${todo.length} carte.`; btn.disabled = false;
+    let done = 0, i = 0;
+    const worker = async () => {
+      while (i < todo.length) {
+        const x = todo[i++];
+        const [src, ...rest] = x.cid.split(':'); const id = rest.join(':');
+        delete priceCache[x.cid];
+        const p = await priceFor({ src, id, tdx: x.tdx });
+        if (p != null) { x.price = p; x.priceAt = Date.now(); }
+        out.textContent = `Aggiorno i prezzi: ${++done} di ${todo.length}…`;
+      }
+    };
+    await Promise.all(Array.from({ length: 6 }, worker));
+    col.pricesUpdated = new Date().toISOString();
+    persist(); renderAll(); renderDataDates();
+    out.textContent = `Prezzi aggiornati per ${todo.length} carte. ${await dispatched}`; btn.disabled = false;
   }
 
   /* ---------------- GitHub sync ---------------- */
@@ -440,7 +483,7 @@
     if (!c.token) { st.textContent = 'Serve un token per salvare su GitHub.'; return; }
     $('#ghSave').disabled = true; st.textContent = 'Salvataggio in corso…';
     try {
-      let sha; try { sha = (await gh('data/collection.json')).sha; } catch (e) { if (!/non trovato/.test(e.message)) throw e; }
+      let sha; try { const f = await gh('data/collection.json'); sha = f.sha; try { mergePrices(col, migrate(JSON.parse(unb64(f.content)))); } catch {} } catch (e) { if (!/non trovato/.test(e.message)) throw e; }
       col.updated = new Date().toISOString();
       const n = ENTRIES.reduce((s, e) => s + mine(e.id).length, 0);
       await gh('data/collection.json', { method: 'PUT', headers: { 'Content-Type': 'application/json' },
@@ -472,7 +515,7 @@
     for (const e of ENTRIES) {
       const g = GROUPS.find(x => x.id === e.group), l = mine(e.id), cv = cover(e.id);
       if (!l.length) rows.push([g.tab, e.dex, e.name, e.region, e.gen, e.page, e.pos, '', '', '', '', '', '', '', '', '', '', '']);
-      for (const x of l) rows.push([g.tab, e.dex, e.name, e.region, e.gen, e.page, e.pos, x.uid === cv.uid ? 'TRUE' : 'FALSE', isArt(x) ? 'TRUE' : 'FALSE', x.rc, x.lang, x.variant, x.set, x.year, x.number, num(x.value), num(x.price), x.img]);
+      for (const x of l) rows.push([g.tab, e.dex, e.name, e.region, e.gen, e.page, e.pos, x.uid === cv?.uid && col.cards[e.id].cover !== 'sprite' ? 'TRUE' : 'FALSE', isArt(x) ? 'TRUE' : 'FALSE', x.rc, x.lang, x.variant, x.set, x.year, x.number, num(x.value), num(x.price), x.img]);
     }
     download('pokedex.csv', '﻿' + [head, ...rows].map(r => r.map(q).join(';')).join('\r\n'), 'text/csv;charset=utf-8');
   }
@@ -483,6 +526,7 @@
   /* ---------------- events ---------------- */
   $('#tabs').addEventListener('click', ev => { const b = ev.target.closest('.tab'); if (!b) return; ui.group = b.dataset.group; renderTabs(); renderContent(); syncControls(); window.scrollTo({ top: 0 }); });
   $('#filterSeg').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; ui.filter = b.dataset.filter; syncControls(); renderContent(); });
+  $('#faceSeg').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; ui.face = b.dataset.face; syncControls(); renderContent(); });
   $('#viewSeg').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; ui.view = b.dataset.view; syncControls(); renderContent(); });
   let qT; $('#search').addEventListener('input', ev => {
     clearTimeout(qT); qT = setTimeout(() => {
@@ -496,7 +540,7 @@
     const own = ev.target.closest('.own'); if (!own) return;
     const act = ev.target.closest('[data-act]')?.dataset.act;
     if (act === 'cover') setCover(own.dataset.uid);
-    else { selUid = own.dataset.uid; renderMine(); fillForm(); }
+    else if (own.dataset.uid !== 'sprite') { selUid = own.dataset.uid; renderMine(); fillForm(); }
   });
   $('#removeCard').addEventListener('click', () => { if (selUid) removeCard(selUid); });
   form.addEventListener('change', readForm);
@@ -513,7 +557,7 @@
   $('#dNext').addEventListener('click', () => step(1));
   dlg.addEventListener('keydown', ev => { if (ev.target.matches('input, select, textarea')) return; if (ev.key === 'ArrowRight') step(1); if (ev.key === 'ArrowLeft') step(-1); });
   dlg.addEventListener('click', ev => { if (ev.target === dlg) dlg.close(); });
-  $('#openSettings').addEventListener('click', () => { initGithubFields(); $('#settings').showModal(); });
+  $('#openSettings').addEventListener('click', () => { initGithubFields(); renderDataDates(); $('#settings').showModal(); });
   $('#settings').addEventListener('click', ev => { if (ev.target === $('#settings')) $('#settings').close(); });
   ['#ghOwner', '#ghRepo', '#ghBranch', '#ghToken'].forEach(s => $(s).addEventListener('change', saveGhFields));
   $('#ghSave').addEventListener('click', ghSave);

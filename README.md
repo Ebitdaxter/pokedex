@@ -15,6 +15,9 @@ Raccoglitore digitale delle mie carte Pokémon: 1025 Pokémon divisi per generaz
 ## Salvare le modifiche
 Le modifiche restano subito nel browser. Per renderle permanenti e visibili ovunque: **Salva & sync → Salva su GitHub**, con un token *fine-grained* limitato a questo repository (permesso *Contents: Read and write*). Il sito aggiorna `data/collection.json`.
 
+## Aggiornamenti automatici
+Il workflow `.github/workflows/update.yml` ricostruisce il catalogo (`tools/build_cards.py`) e aggiorna i prezzi della collezione (`tools/update_prices.py`) il 1° e il 15 di ogni mese. Si può avviare a mano da GitHub → Actions → “Aggiorna catalogo e prezzi” → Run workflow, oppure dal sito con “Aggiorna ora”.
+
 ## File
 - `data/pokedex.json` — elenco Pokémon, pagina/tasca, sprite (generato dal foglio Google)
 - `data/collection.json` — le mie carte

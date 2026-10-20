@@ -44,6 +44,10 @@
       <button role="radio" data-filter="missing" aria-checked="false">Mancanti</button>
       <button role="radio" data-filter="art" aria-checked="false">Art</button>
     </div>
+    <div class="seg" role="radiogroup" aria-label="Cosa mostrare" id="faceSeg">
+      <button role="radio" data-face="card" aria-checked="true">Carte</button>
+      <button role="radio" data-face="sprite" aria-checked="false">Sprite</button>
+    </div>
     <div class="seg" role="radiogroup" aria-label="Vista" id="viewSeg">
       <button role="radio" data-view="grid" aria-checked="true">Griglia</button>
       <button role="radio" data-view="binder" aria-checked="false">Pagine</button>
@@ -63,7 +67,6 @@
       <h2 id="dName"></h2>
       <p class="types" id="dTypes"></p>
       <p class="where" id="dWhere"></p>
-      <div class="stats" id="dStats"></div>
       <div class="nav-row">
         <button class="btn quiet" id="dPrev" type="button">‹ Precedente</button>
         <button class="btn quiet" id="dNext" type="button">Successivo ›</button>
@@ -133,9 +136,9 @@
       <label>Utente/organizzazione<input id="ghOwner"></label>
       <label>Repository<input id="ghRepo"></label>
       <label>Branch<input id="ghBranch" value="main"></label>
-      <label>Token (fine-grained, Contents: read &amp; write)<input id="ghToken" type="password" autocomplete="off"></label>
+      <label>Token (fine-grained: Contents e Actions in read &amp; write)<input id="ghToken" type="password" autocomplete="off"></label>
     </div>
-    <p class="hint">Il token resta solo in questo browser. Crealo su GitHub → Settings → Developer settings → Fine-grained tokens, limitato a questo repository.</p>
+    <p class="hint">Il token resta solo in questo browser. Crealo su GitHub → Settings → Developer settings → Fine-grained tokens, limitato a questo repository, con i permessi Contents e Actions su “Read and write”.</p>
     <div class="row">
       <button class="btn primary" id="ghSave" type="button">Salva su GitHub</button>
       <button class="btn quiet" id="ghPull" type="button">Ricarica da GitHub</button>
@@ -143,9 +146,10 @@
     <p class="status" id="ghStatus" role="status"></p>
   </div>
   <div class="settings-block">
-    <h3>Valore della collezione</h3>
-    <p class="hint">Aggiorna il prezzo Cardmarket (trend) di tutte le carte scelte dal catalogo. Le carte con un valore inserito a mano mantengono il tuo valore.</p>
-    <div class="row"><button class="btn quiet" id="refreshPrices" type="button">Aggiorna prezzi</button></div>
+    <h3>Catalogo e prezzi</h3>
+    <p class="hint" id="dataDates"></p>
+    <p class="hint">Catalogo carte (nuovi set) e prezzi Cardmarket si aggiornano da soli il 1° e il 15 di ogni mese. “Aggiorna ora” aggiorna subito i prezzi qui e, se hai inserito il token, avvia anche l'aggiornamento del catalogo su GitHub (pochi minuti).</p>
+    <div class="row"><button class="btn quiet" id="refreshPrices" type="button">Aggiorna ora</button></div>
     <p class="status" id="priceStatus" role="status"></p>
   </div>
   <div class="settings-block">
