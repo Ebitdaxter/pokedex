@@ -1,0 +1,2989 @@
+{
+ "version": 1,
+ "updated": "2026-10-20T13:12:22Z",
+ "cards": {
+  "n0001": {
+   "art": false,
+   "rarity": "Uncommon",
+   "lang": "ITA",
+   "variant": "Erika's",
+   "set": "Gym Challenge",
+   "year": "2000",
+   "number": "39/132",
+   "value": 11.35
+  },
+  "n0002": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "KOR",
+   "set": "Mega Brave (M1L)",
+   "year": "2025",
+   "number": "065/063",
+   "value": 6.12
+  },
+  "n0004": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "JPN",
+   "set": "20th Anniversary Base Set",
+   "year": "2016",
+   "number": "009/087",
+   "value": 2.38
+  },
+  "n0005": {
+   "art": false,
+   "rarity": "Uncommon",
+   "lang": "ITA",
+   "set": "Base",
+   "year": "1999",
+   "number": "24/102",
+   "value": 0.02
+  },
+  "n0006": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "KOR",
+   "variant": "Tetracrystal",
+   "set": "Ruler of the Black Flame (SV3)",
+   "year": "2023",
+   "number": "066/108",
+   "value": 1.61
+  },
+  "n0009": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "ITA",
+   "set": "151",
+   "year": "2023",
+   "number": "009/165",
+   "value": 2.79
+  },
+  "n0016": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "KOR",
+   "set": "Ruler of the Black Flame (SV3)",
+   "year": "2023",
+   "number": "118/108",
+   "value": 3.32
+  },
+  "n0018": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "set": "Jungle",
+   "year": "1999",
+   "number": "24/64",
+   "value": 2.0
+  },
+  "n0019": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "ITA",
+   "variant": "Lt. Surge's",
+   "set": "Gym Heroes",
+   "year": "2000",
+   "number": "82/132",
+   "value": 0.76
+  },
+  "n0020": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Nihil Zero (M3)",
+   "year": "2026",
+   "number": "092/080",
+   "value": 2.0
+  },
+  "n0021": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "KOR",
+   "set": "Mega Brave (M1L)",
+   "year": "2025",
+   "number": "074/063",
+   "value": 1.68
+  },
+  "n0024": {
+   "art": false,
+   "rarity": "Uncommon",
+   "lang": "ITA",
+   "variant": "1st Edition",
+   "set": "Fossil",
+   "year": "1999",
+   "number": "31/62",
+   "value": 1.82
+  },
+  "n0025": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "ITA",
+   "set": "Jungle",
+   "year": "1999",
+   "number": "60/64",
+   "value": 3.75
+  },
+  "n0026": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "variant": "Holo",
+   "set": "Fossil",
+   "year": "1999",
+   "number": "14/62",
+   "value": 42.0
+  },
+  "n0027": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "ENG",
+   "variant": "Brock's",
+   "set": "Gym Heroes",
+   "year": "2000",
+   "number": "72/132",
+   "value": 2.32
+  },
+  "n0035": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "060/193",
+   "value": 0.05
+  },
+  "n0036": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "set": "Jungle",
+   "year": "1999",
+   "number": "17/64",
+   "value": 5.26
+  },
+  "n0037": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Mega Evolution",
+   "year": "2025",
+   "number": "138/132"
+  },
+  "n0038": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Obsidian Flames",
+   "year": "2023",
+   "number": "199/197"
+  },
+  "n0039": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "ITA",
+   "set": "Jungle",
+   "year": "1999",
+   "number": "54/64",
+   "value": 0.72
+  },
+  "n0040": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Inferno X (M2)",
+   "year": "2025",
+   "number": "091/080",
+   "value": 2.07
+  },
+  "n0042": {
+   "art": false,
+   "rarity": "Uncommon",
+   "lang": "JPN",
+   "variant": "Rocket's",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "100/193",
+   "value": 0.03
+  },
+  "n0049": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "variant": "Holo",
+   "set": "Jungle",
+   "year": "1999",
+   "number": "13/64",
+   "value": 7.0
+  },
+  "n0051": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "206/193",
+   "value": 1.5
+  },
+  "n0052": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "FRA",
+   "set": "Phantasmal Flames",
+   "year": "2025",
+   "number": "106/094",
+   "value": 15.58
+  },
+  "n0053": {
+   "art": false,
+   "rarity": "Uncommon",
+   "lang": "ITA",
+   "set": "Jungle",
+   "year": "1999",
+   "number": "42/64",
+   "value": 0.1
+  },
+  "n0054": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "199/193",
+   "value": 12.74
+  },
+  "n0055": {
+   "art": false,
+   "rarity": "Uncommon",
+   "lang": "ITA",
+   "variant": "Dark",
+   "set": "Team Rocket",
+   "year": "2000",
+   "number": "37/82",
+   "value": 0.5
+  },
+  "n0059": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "set": "Skyridge",
+   "year": "2003",
+   "number": "3/144",
+   "value": 5.0
+  },
+  "n0065": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "variant": "Lucente",
+   "set": "Silver Tempest",
+   "year": "2022",
+   "number": "059/195",
+   "value": 0.25
+  },
+  "n0067": {
+   "art": false,
+   "rarity": "Uncommon",
+   "lang": "ITA",
+   "variant": "Dark (1st Edition)",
+   "set": "Team Rocket",
+   "year": "2000",
+   "number": "40/82",
+   "value": 4.0
+  },
+  "n0068": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "variant": "Dark",
+   "set": "Team Rocket",
+   "year": "2000",
+   "number": "27/82",
+   "value": 3.0
+  },
+  "n0075": {
+   "art": false,
+   "rarity": "Uncommon",
+   "lang": "ITA",
+   "set": "Fossil",
+   "year": "1999",
+   "number": "37/62",
+   "value": 0.1
+  },
+  "n0076": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "JPN",
+   "set": "Gym Heroes",
+   "year": "2000",
+   "number": "76",
+   "value": 4.0
+  },
+  "n0078": {
+   "art": false,
+   "rarity": "Uncommon",
+   "lang": "ITA",
+   "set": "Jungle",
+   "year": "1999",
+   "number": "44/64",
+   "value": 0.1
+  },
+  "n0079": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "FRA",
+   "set": "30esimo (30C)",
+   "year": "2026",
+   "number": "016/128",
+   "value": 1.0
+  },
+  "n0082": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ENG",
+   "variant": "RH",
+   "set": "Legendary Collection",
+   "year": "2002",
+   "number": "28/110",
+   "value": 25.0
+  },
+  "n0092": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "ENG",
+   "variant": "Sabrina's",
+   "set": "Gym Heroes",
+   "year": "2000",
+   "number": "92/132",
+   "value": 1.67
+  },
+  "n0094": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "JPN",
+   "number": "048/172"
+  },
+  "n0097": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "set": "Fossil",
+   "year": "1999",
+   "number": "23/62",
+   "value": 3.0
+  },
+  "n0101": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "set": "Jungle",
+   "year": "1999",
+   "number": "18/64",
+   "value": 5.0
+  },
+  "n0103": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ENG",
+   "set": "Legendary Collection",
+   "year": "2002",
+   "number": "23/110",
+   "value": 1.0
+  },
+  "n0105": {
+   "art": false,
+   "rarity": "Uncommon",
+   "lang": "ITA",
+   "set": "Jungle",
+   "year": "1999",
+   "number": "39/64",
+   "value": 1.14
+  },
+  "n0111": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "ITA",
+   "set": "Jungle",
+   "year": "1999",
+   "number": "61/64",
+   "value": 0.47
+  },
+  "n0115": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Glory of Team Rocket (sv10)",
+   "year": "2025",
+   "number": "110/098",
+   "value": 2.0
+  },
+  "n0116": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN"
+  },
+  "n0118": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "ITA",
+   "variant": "Holo",
+   "set": "Prismatic Evolutions",
+   "year": "2025",
+   "number": "020/031",
+   "value": 0.04
+  },
+  "n0122": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "set": "Jungle",
+   "year": "1999",
+   "number": "22/64",
+   "value": 4.0
+  },
+  "n0126": {
+   "art": false,
+   "rarity": "Uncommon",
+   "lang": "JPN",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "016/172",
+   "value": 0.05
+  },
+  "n0130": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "ENG",
+   "set": "Hidden Fates",
+   "year": "2019",
+   "number": "16/68",
+   "value": 2.96
+  },
+  "n0131": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "KOR",
+   "set": "Hot Air Arena (SV9a)",
+   "year": "2025",
+   "number": "072/063",
+   "value": 7.0
+  },
+  "n0132": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "JPN",
+   "variant": "Holo",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "117/172",
+   "value": 0.19
+  },
+  "n0135": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "set": "Jungle",
+   "year": "1999",
+   "number": "20/64",
+   "value": 6.0
+  },
+  "n0141": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ENG",
+   "set": "Legendary Collection",
+   "year": "2002",
+   "number": "27/110",
+   "value": 4.0
+  },
+  "n0143": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "set": "Jungle",
+   "year": "1999",
+   "number": "11/64",
+   "value": 13.0
+  },
+  "n0144": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Battle Partner (sv9)",
+   "year": "2025",
+   "number": "102/100",
+   "value": 5.0
+  },
+  "n0150": {
+   "art": false,
+   "rarity": "FR",
+   "lang": "FRA",
+   "set": "30esimo (30C)",
+   "year": "2026",
+   "number": "157/128",
+   "value": 70.0
+  },
+  "n0151": {
+   "art": false,
+   "rarity": "RRR",
+   "lang": "JPN",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "054/172",
+   "value": 2.0
+  },
+  "n0152": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "set": "Mega Evolution Promo (MEP)",
+   "year": "2025",
+   "number": "69",
+   "value": 0.32
+  },
+  "n0155": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "ITA",
+   "set": "Neo Genesis",
+   "year": "2000",
+   "number": "56/111",
+   "value": 1.21
+  },
+  "n0157": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "variant": "Ethan's",
+   "set": "Hot Air Arena (SV9a)",
+   "year": "2025",
+   "number": "070/063",
+   "value": 26.5
+  },
+  "n0158": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "ENG",
+   "set": "Expedition Base Set",
+   "year": "2002",
+   "number": "134/165",
+   "value": 2.0
+  },
+  "n0164": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "138/193",
+   "value": 0.05
+  },
+  "n0166": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "variant": "Light",
+   "set": "Neo Destiny",
+   "year": "2002",
+   "number": "24/105",
+   "value": 5.0
+  },
+  "n0169": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "variant": "Rocket's",
+   "set": "Chaos Rising (CRI)",
+   "year": "2026",
+   "number": "093/086",
+   "value": 6.5
+  },
+  "n0171": {
+   "art": false,
+   "rarity": "Uncommon",
+   "lang": "ENG",
+   "set": "Neo Revelation",
+   "year": "2001",
+   "number": "32/64",
+   "value": 1.39
+  },
+  "n0174": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "JPN",
+   "set": "Japanese Promo",
+   "year": "2000",
+   "number": "174",
+   "value": 6.0
+  },
+  "n0175": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "JPN",
+   "set": "Ruler of the Black Flame (SV3)",
+   "year": "2023",
+   "number": "043/108",
+   "value": 0.04
+  },
+  "n0180": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Silver Tempest",
+   "year": "2022",
+   "number": "TG03/TG30",
+   "value": 3.13
+  },
+  "n0190": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "JPN",
+   "set": "Inferno X (M2)",
+   "year": "2025",
+   "number": "066/080",
+   "value": 0.03
+  },
+  "n0193": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Hot Air Arena (SV9a)",
+   "year": "2025",
+   "number": "064/063",
+   "value": 1.0
+  },
+  "n0197": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "set": "Aquapolis",
+   "year": "2003",
+   "number": "41/147",
+   "value": 25.0
+  },
+  "n0200": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "202/193",
+   "value": 1.0
+  },
+  "n0201": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "ITA",
+   "set": "Silver Tempest",
+   "year": "2022",
+   "number": "065/195",
+   "value": 0.3
+  },
+  "n0208": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Mega Evolution",
+   "year": "2025",
+   "number": "150/132"
+  },
+  "n0212": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Obsidian Flames",
+   "year": "2023",
+   "number": "205/197"
+  },
+  "n0213": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Mega Evolution",
+   "year": "2025",
+   "number": "136/132",
+   "value": 1.5
+  },
+  "n0214": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Clay Burst (SV2D)",
+   "year": "2023",
+   "number": "072/071",
+   "value": 3.16
+  },
+  "n0215": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "set": "Neo Genesis",
+   "year": "2000",
+   "number": "25/111",
+   "value": 3.04
+  },
+  "n0219": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "variant": "Gold's",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "197/193",
+   "value": 1.0
+  },
+  "n0220": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Journey Together",
+   "year": "2025",
+   "number": "165/159",
+   "value": 1.0
+  },
+  "n0227": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Surging Sparks",
+   "year": "2024",
+   "number": "209/191",
+   "value": 3.0
+  },
+  "n0228": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Ruler of the Black Flame (SV3)",
+   "year": "2023",
+   "number": "115/108",
+   "value": 1.0
+  },
+  "n0235": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Silver Tempest",
+   "year": "2022",
+   "number": "10/30",
+   "value": 4.0
+  },
+  "n0237": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Ascended Heroes",
+   "year": "2026",
+   "number": "240/217",
+   "value": 2.0
+  },
+  "n0241": {
+   "art": false,
+   "rarity": "Uncommon",
+   "lang": "JPN",
+   "variant": "Holo",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "119/172",
+   "value": 0.02
+  },
+  "n0242": {
+   "art": false,
+   "rarity": "SR",
+   "lang": "ITA",
+   "set": "Twilight Masquerade",
+   "year": "2024",
+   "number": "201/167",
+   "value": 1.4
+  },
+  "n0244": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "020/193",
+   "value": 0.05
+  },
+  "n0245": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "set": "Phantasmal Flames",
+   "year": "2025",
+   "number": "026/094",
+   "value": 0.05
+  },
+  "n0246": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "KOR",
+   "set": "Ruler of the Black Flame (SV3)",
+   "year": "2023",
+   "number": "114/108",
+   "value": 1.54
+  },
+  "n0248": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Clay Burst (SV2D)",
+   "year": "2023",
+   "number": "079/071",
+   "value": 7.0
+  },
+  "n0250": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "KOR",
+   "variant": "Ethan's",
+   "set": "Hot Air Arena (SV9a)",
+   "year": "2025",
+   "number": "020/063",
+   "value": 0.1
+  },
+  "n0257": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Destined Rivals",
+   "year": "2025",
+   "number": "192/182"
+  },
+  "n0264": {
+   "art": false,
+   "rarity": "Uncommon",
+   "lang": "JPN",
+   "set": "Inferno X (M2)",
+   "year": "2025",
+   "number": "070/080",
+   "value": 0.05
+  },
+  "n0270": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "JPN",
+   "set": "Inferno X (M2)",
+   "year": "2025",
+   "number": "005/080",
+   "value": 0.05
+  },
+  "n0272": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Phantasmal Flames",
+   "year": "2025",
+   "number": "095/094",
+   "value": 0.8
+  },
+  "n0282": {
+   "art": false,
+   "rarity": "SR",
+   "lang": "ITA",
+   "set": "Scarlet & Violet",
+   "year": "2023",
+   "number": "228/198",
+   "value": 3.0
+  },
+  "n0287": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Super Electric Breaker (sv8)",
+   "year": "2024",
+   "number": "117/106",
+   "value": 1.83
+  },
+  "n0289": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "variant": "Holo",
+   "set": "Ruby & Sapphire",
+   "year": "2003",
+   "number": "12/109",
+   "value": 5.0
+  },
+  "n0291": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Mega Evolution",
+   "year": "2025",
+   "number": "137/132",
+   "value": 2.69
+  },
+  "n0292": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Mega Evolution",
+   "year": "2025",
+   "number": "144/132",
+   "value": 2.12
+  },
+  "n0303": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "ITA",
+   "set": "Silver Tempest",
+   "year": "2022",
+   "number": "070/195",
+   "value": 0.1
+  },
+  "n0305": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mask of Change (SV6)",
+   "year": "2024",
+   "number": "111/101",
+   "value": 2.0
+  },
+  "n0307": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Stella Miracle (sv7)",
+   "year": "2024",
+   "number": "111/102",
+   "value": 3.0
+  },
+  "n0308": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "207/193",
+   "value": 1.4
+  },
+  "n0309": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "KOR",
+   "set": "Hot Air Arena (SV9a)",
+   "year": "2025",
+   "number": "073/063",
+   "value": 1.0
+  },
+  "n0321": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Battle Partner (sv9)",
+   "year": "2025",
+   "number": "103/100",
+   "value": 3.0
+  },
+  "n0322": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "198/193",
+   "value": 2.0
+  },
+  "n0330": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Inferno X (M2)",
+   "year": "2025",
+   "number": "088/080",
+   "value": 1.0
+  },
+  "n0334": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "194/172",
+   "value": 2.73
+  },
+  "n0338": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "087/193",
+   "value": 0.05
+  },
+  "n0349": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Super Electric Breaker (SV8)",
+   "year": "2024",
+   "number": "110/106",
+   "value": 2.37
+  },
+  "n0350": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Silver Tempest",
+   "year": "2022",
+   "number": "TG02/TG30",
+   "value": 5.56
+  },
+  "n0351": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Paradise Dragana (SV7a)",
+   "year": "2024",
+   "number": "067/064",
+   "value": 3.0
+  },
+  "n0359": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "191/172",
+   "value": 3.02
+  },
+  "n0361": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "200/193",
+   "value": 1.0
+  },
+  "n0380": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "set": "Fusion Strike",
+   "year": "2021",
+   "number": "193/264",
+   "value": 0.2
+  },
+  "n0381": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "JPN",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "106/172",
+   "value": 0.05
+  },
+  "n0382": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "set": "Mega Evolution",
+   "year": "2025",
+   "number": "034/132",
+   "value": 0.05
+  },
+  "n0384": {
+   "art": true,
+   "rarity": "SAR",
+   "lang": "ITA",
+   "variant": "FAKE"
+  },
+  "n0385": {
+   "art": true,
+   "rarity": "SAR",
+   "lang": "FRA",
+   "set": "30esimo (30C)",
+   "year": "2026",
+   "number": "155/128",
+   "value": 40.0
+  },
+  "n0386": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "JPN",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "060/172",
+   "value": 0.05
+  },
+  "n0387": {
+   "art": false,
+   "rarity": "Common",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "006/172",
+   "value": 0.05
+  },
+  "n0388": {
+   "art": false,
+   "rarity": "Uncommon",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "007/172",
+   "value": 0.05
+  },
+  "n0389": {
+   "art": false,
+   "rarity": "Rare",
+   "variant": "Holo",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "008/172",
+   "value": 0.05
+  },
+  "n0392": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "variant": "Holo",
+   "set": "Twilight Masquerade",
+   "year": "2024",
+   "number": "033/167",
+   "value": 0.05
+  },
+  "n0400": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "200/172",
+   "value": 1.71
+  },
+  "n0402": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "JPN",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "010/172",
+   "value": 0.05
+  },
+  "n0406": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "196/193",
+   "value": 2.0
+  },
+  "n0416": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "KOR",
+   "variant": "Tetracrystal",
+   "set": "Ruler of the Black Flame (SV3)",
+   "year": "2023",
+   "number": "051/108",
+   "value": 0.1
+  },
+  "n0423": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "variant": "Holo",
+   "set": "Surging Sparks",
+   "year": "2024",
+   "number": "107/191",
+   "value": 0.1
+  },
+  "n0424": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Phantasmal Flames",
+   "year": "2025",
+   "number": "107/094",
+   "value": 1.0
+  },
+  "n0429": {
+   "art": false,
+   "rarity": "SR",
+   "lang": "JPN",
+   "set": "Inferno X (M2)",
+   "year": "2025",
+   "number": "097/080",
+   "value": 1.35
+  },
+  "n0435": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "ITA",
+   "set": "Silver Tempest",
+   "year": "2022",
+   "number": "108/195",
+   "value": 0.1
+  },
+  "n0438": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "JPN",
+   "set": "Ruler of the Black Flame (SV3)",
+   "year": "2023",
+   "number": "058/108",
+   "value": 0.1
+  },
+  "n0442": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "variant": "Cynthia's",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "208/193",
+   "value": 1.0
+  },
+  "n0445": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "KOR",
+   "variant": "Cynthia's",
+   "set": "Hot Air Arena (SV9a)",
+   "year": "2025",
+   "number": "044/063",
+   "value": 0.15
+  },
+  "n0448": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "JPN",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "077/172",
+   "value": 0.15
+  },
+  "n0457": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "JPN",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "026/172",
+   "value": 0.15
+  },
+  "n0466": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "180/172",
+   "value": 3.27
+  },
+  "n0467": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "175/172",
+   "value": 3.0
+  },
+  "n0468": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "203/193",
+   "value": 2.0
+  },
+  "n0472": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "set": "HSu2014Undaunted",
+   "year": "2010",
+   "number": "4/90",
+   "value": 4.16
+  },
+  "n0477": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "074/193",
+   "value": 0.05
+  },
+  "n0479": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "JPN",
+   "set": "Inferno X (M2)",
+   "year": "2025",
+   "number": "029/080",
+   "value": 0.1
+  },
+  "n0484": {
+   "art": false,
+   "rarity": "RRR",
+   "lang": "JPN",
+   "variant": "Original Form",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "028/172",
+   "value": 0.53
+  },
+  "n0486": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "JPN",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "124/172",
+   "value": 0.27
+  },
+  "n0487": {
+   "art": false,
+   "rarity": "RRR",
+   "lang": "KOR",
+   "set": "Lost Abysa (s11)",
+   "year": "2022",
+   "number": "081/100"
+  },
+  "n0492": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "KOR",
+   "set": "Hot Air Arena (SV9a)",
+   "year": "2025",
+   "number": "066/063",
+   "value": 2.0
+  },
+  "n0494": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "097/086",
+   "value": 10.28
+  },
+  "n0495": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "087/086",
+   "value": 8.28
+  },
+  "n0497": {
+   "art": false,
+   "rarity": "SR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "159/086",
+   "value": 1.0
+  },
+  "n0498": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "096/086",
+   "value": 10.72
+  },
+  "n0500": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "098/086",
+   "value": 4.51
+  },
+  "n0503": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "104/086",
+   "value": 7.42
+  },
+  "n0504": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "151/086",
+   "value": 3.0
+  },
+  "n0507": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "154/086",
+   "value": 3.57
+  },
+  "n0508": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "155/086",
+   "value": 3.78
+  },
+  "n0512": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "090/086",
+   "value": 3.0
+  },
+  "n0517": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "121/086",
+   "value": 4.5
+  },
+  "n0520": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "154/086",
+   "value": 2.88
+  },
+  "n0523": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "112/086",
+   "value": 2.74
+  },
+  "n0525": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "126/086",
+   "value": 2.58
+  },
+  "n0528": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "117/086",
+   "value": 3.2
+  },
+  "n0530": {
+   "art": false,
+   "rarity": "SR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "163/086",
+   "value": 0.69
+  },
+  "n0532": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mask of Change (SV6)",
+   "year": "2024",
+   "number": "109/101",
+   "value": 3.0
+  },
+  "n0534": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "133/086",
+   "value": 3.85
+  },
+  "n0536": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "108/086",
+   "value": 3.62
+  },
+  "n0537": {
+   "art": false,
+   "rarity": "Uncommon",
+   "lang": "JPN",
+   "set": "Ruler of the Black Flame (SV3)",
+   "year": "2023",
+   "number": "025/108",
+   "value": 0.03
+  },
+  "n0539": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "128/086",
+   "value": 2.37
+  },
+  "n0544": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "139/086",
+   "value": 2.8
+  },
+  "n0547": {
+   "art": false,
+   "rarity": "SR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "159/086",
+   "value": 0.86
+  },
+  "n0556": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "093/086",
+   "value": 1.0
+  },
+  "n0560": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "137/086",
+   "value": 3.59
+  },
+  "n0561": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "118/086",
+   "value": 3.0
+  },
+  "n0563": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "120/086",
+   "value": 3.0
+  },
+  "n0566": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "129/086",
+   "value": 3.0
+  },
+  "n0567": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "130/086",
+   "value": 3.0
+  },
+  "n0568": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "138/086",
+   "value": 2.76
+  },
+  "n0569": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "139/086",
+   "value": 2.42
+  },
+  "n0573": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "ITA",
+   "set": "Chaos Rising (CRI)",
+   "year": "2026",
+   "number": "073/086",
+   "value": 0.2
+  },
+  "n0574": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "121/086",
+   "value": 4.68
+  },
+  "n0576": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "123/086",
+   "value": 2.95
+  },
+  "n0577": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "123/086",
+   "value": 11.65
+  },
+  "n0579": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "125/086",
+   "value": 2.35
+  },
+  "n0585": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "091/086",
+   "value": 4.52
+  },
+  "n0590": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "095/086",
+   "value": 4.16
+  },
+  "n0592": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "124/086",
+   "value": 4.67
+  },
+  "n0593": {
+   "art": false,
+   "rarity": "SR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "162/086",
+   "value": 0.62
+  },
+  "n0596": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "114/086",
+   "value": 3.5
+  },
+  "n0600": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "147/086",
+   "value": 2.26
+  },
+  "n0603": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "118/086",
+   "value": 2.94
+  },
+  "n0609": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "102/086",
+   "value": 6.69
+  },
+  "n0615": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "115/086",
+   "value": 2.87
+  },
+  "n0616": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "093/086",
+   "value": 2.62
+  },
+  "n0618": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "115/086",
+   "value": 2.0
+  },
+  "n0620": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "132/086",
+   "value": 3.35
+  },
+  "n0621": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Silver Tempest",
+   "year": "2022",
+   "number": "TG09/TG30",
+   "value": 2.76
+  },
+  "n0625": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "148/086",
+   "value": 3.02
+  },
+  "n0626": {
+   "art": true,
+   "rarity": "SAR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "172/086",
+   "value": 8.88
+  },
+  "n0627": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "156/086",
+   "value": 2.6
+  },
+  "n0629": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "144/086",
+   "value": 2.84
+  },
+  "n0633": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "142/086",
+   "value": 4.0
+  },
+  "n0634": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "143/086",
+   "value": 3.43
+  },
+  "n0636": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Super Electric Breaker (SV8)",
+   "year": "2024",
+   "number": "108/106",
+   "value": 4.0
+  },
+  "n0637": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "KOR",
+   "set": "Evolving Skies",
+   "year": "2021",
+   "number": "015/067",
+   "value": 0.35
+  },
+  "n0638": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "149/086",
+   "value": 4.79
+  },
+  "n0642": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "120/086",
+   "value": 2.21
+  },
+  "n0643": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Battle Partner (sv9)",
+   "year": "2025",
+   "number": "109/100",
+   "value": 15.78
+  },
+  "n0644": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "210/193"
+  },
+  "n0646": {
+   "art": false,
+   "rarity": "SR",
+   "lang": "JPN",
+   "set": "Black Bolt",
+   "year": "2025",
+   "number": "160/086",
+   "value": 1.2
+  },
+  "n0647": {
+   "art": true,
+   "rarity": "SAR",
+   "lang": "JPN",
+   "set": "White Flare",
+   "year": "2025",
+   "number": "169/086",
+   "value": 20.99
+  },
+  "n0649": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "JPN",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "102/172",
+   "value": 0.3
+  },
+  "n0650": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Chaos Rising (CRI)",
+   "year": "2026",
+   "number": "087/086",
+   "value": 2.5
+  },
+  "n0652": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "ITA",
+   "set": "Silver Tempest",
+   "year": "2022",
+   "number": "015/195",
+   "value": 0.3
+  },
+  "n0653": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Mega Evolution Promo (MEP)",
+   "year": "2025",
+   "number": "80",
+   "value": 5.0
+  },
+  "n0666": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Surging Sparks",
+   "year": "2024",
+   "number": "193/191"
+  },
+  "n0675": {
+   "art": false,
+   "rarity": "Uncommon",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "113/193",
+   "value": 0.1
+  },
+  "n0687": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "set": "Lost Origin",
+   "year": "2022",
+   "number": "078/196",
+   "value": 0.2
+  },
+  "n0695": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "201/193",
+   "value": 0.4
+  },
+  "n0709": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "variant": "Hope's",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "204/193",
+   "value": 1.11
+  },
+  "n0711": {
+   "art": false,
+   "rarity": "SR",
+   "lang": "ITA",
+   "set": "Chaos Rising (CRI)",
+   "year": "2026",
+   "number": "102/086",
+   "value": 1.5
+  },
+  "n0714": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Battle Partner (sv9)",
+   "year": "2025",
+   "number": "111/100",
+   "value": 3.0
+  },
+  "n0719": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "JPN",
+   "variant": "Holo",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "063/172",
+   "value": 0.2
+  },
+  "n0722": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "FRA",
+   "set": "Nihil Zero (M3)",
+   "year": "2026",
+   "number": "090/088",
+   "value": 5.0
+  },
+  "n0725": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "ITA",
+   "set": "Silver Tempest",
+   "year": "2022",
+   "number": "030/195",
+   "value": 0.1
+  },
+  "n0726": {
+   "art": false,
+   "rarity": "Uncommon",
+   "lang": "ITA",
+   "set": "Silver Tempest",
+   "year": "2022",
+   "number": "031/195",
+   "value": 0.1
+  },
+  "n0727": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "set": "Silver Tempest",
+   "year": "2022",
+   "number": "032/195",
+   "value": 0.1
+  },
+  "n0735": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mega Brave (M1L)",
+   "year": "2025",
+   "number": "075/063",
+   "value": 1.0
+  },
+  "n0740": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Stella Miracle (sv7)",
+   "year": "2024",
+   "number": "107/102",
+   "value": 1.3
+  },
+  "n0741": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "176/172",
+   "value": 1.8
+  },
+  "n0745": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Journey Together",
+   "year": "2025",
+   "number": "166/159"
+  },
+  "n0759": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mega Symphonya (M1S)",
+   "year": "2025",
+   "number": "075/063",
+   "value": 1.71
+  },
+  "n0760": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Night Wanderer (sv6a)",
+   "year": "2024",
+   "number": "076/064",
+   "value": 1.5
+  },
+  "n0763": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "variant": "Lucente",
+   "set": "Silver Tempest",
+   "year": "2022",
+   "number": "016/195",
+   "value": 0.3
+  },
+  "n0776": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Stella Miracle (sv7)",
+   "year": "2024",
+   "number": "105/102",
+   "value": 4.0
+  },
+  "n0807": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Stella Miracle (sv7)",
+   "year": "2024",
+   "number": "109/102",
+   "value": 3.0
+  },
+  "n0808": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Cyber Judge (sv5m)",
+   "year": "2024",
+   "number": "081/071",
+   "value": 3.0
+  },
+  "n0814": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Stella Miracle (sv7)",
+   "year": "2024",
+   "number": "106/102",
+   "value": 1.0
+  },
+  "n0818": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Mega Evolution",
+   "year": "2025",
+   "number": "142/132",
+   "value": 2.41
+  },
+  "n0823": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Silver Tempest",
+   "year": "2022",
+   "number": "TG18/TG30",
+   "value": 8.4
+  },
+  "n0825": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Future Flash (sv4m)",
+   "year": "2023",
+   "number": "067/066",
+   "value": 2.0
+  },
+  "n0828": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "192/172",
+   "value": 1.5
+  },
+  "n0841": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Surging Sparks",
+   "year": "2024",
+   "number": "210/191",
+   "value": 7.0
+  },
+  "n0848": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "JPN",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "43/172",
+   "value": 0.05
+  },
+  "n0849": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Inferno X (M2)",
+   "year": "2025",
+   "number": "089/080",
+   "value": 1.1
+  },
+  "n0851": {
+   "art": true,
+   "rarity": "SAR",
+   "lang": "ITA",
+   "set": "VMAX Climax (s8b)",
+   "year": "2022",
+   "number": "14/30",
+   "value": 2.0
+  },
+  "n0861": {
+   "art": true,
+   "rarity": "SAR",
+   "lang": "FRA",
+   "variant": "Marnie's",
+   "set": "Ascended Heroes",
+   "year": "2026",
+   "number": "287/217",
+   "value": 45.0
+  },
+  "n0862": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "209/193",
+   "value": 3.0
+  },
+  "n0868": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "CHN",
+   "set": "Twilight Masquerade",
+   "year": "2024",
+   "number": "2107",
+   "value": 3.0
+  },
+  "n0875": {
+   "art": true,
+   "rarity": "SAR",
+   "lang": "ITA",
+   "set": "Obsidian Flames",
+   "year": "2023",
+   "number": "222/197",
+   "value": 4.0
+  },
+  "n0877": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Ancient Roar (sv4k)",
+   "year": "2023",
+   "number": "076/066",
+   "value": 4.0
+  },
+  "n0878": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Night Wanderer (sv6a)",
+   "year": "2024",
+   "number": "073/064",
+   "value": 3.5
+  },
+  "n0882": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "ITA",
+   "set": "Brilliant Stars",
+   "year": "2022",
+   "number": "114/172",
+   "value": 0.1
+  },
+  "n0884": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "JPN",
+   "set": "Inferno X (M2)",
+   "year": "2025",
+   "number": "062/080",
+   "value": 0.1
+  },
+  "n0886": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "212/193",
+   "value": 0.5
+  },
+  "n0888": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Inferno X (M2)",
+   "year": "2025",
+   "number": "087/080",
+   "value": 3.0
+  },
+  "n0889": {
+   "art": true,
+   "rarity": "SAR",
+   "lang": "JPN",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "232/172",
+   "value": 9.3
+  },
+  "n0893": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Abyss Eye (M5)",
+   "year": "2026",
+   "number": "090/081",
+   "value": 3.0
+  },
+  "n0894": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "ITA",
+   "set": "Silver Tempest",
+   "year": "2022",
+   "number": "057/195",
+   "value": 0.2
+  },
+  "n0901": {
+   "art": true,
+   "rarity": "SAR",
+   "lang": "CHN",
+   "variant": "Blood Moon",
+   "number": "247/208",
+   "value": 8.0
+  },
+  "n0905": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Crimson Haze (sv5a)",
+   "year": "2024",
+   "number": "074/066",
+   "value": 4.0
+  },
+  "n0907": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Triple Beat (sv1a)",
+   "year": "2023",
+   "number": "076/073",
+   "value": 3.47
+  },
+  "n0915": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Ruler of the Black Flame (SV3)",
+   "year": "2023",
+   "number": "126/108",
+   "value": 3.0
+  },
+  "n0916": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "JPN",
+   "set": "Ruler of the Black Flame (SV3)",
+   "year": "2023",
+   "number": "097/108",
+   "value": 0.1
+  },
+  "n0918": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Destined Rivals",
+   "year": "2025",
+   "number": "187/182",
+   "value": 1.0
+  },
+  "n0921": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Paldean Fates",
+   "year": "2024",
+   "number": "226/091",
+   "value": 1.0
+  },
+  "n0922": {
+   "art": false,
+   "rarity": "Uncommon",
+   "lang": "ENG",
+   "variant": "Holo",
+   "set": "Paldea Evolved",
+   "year": "2023",
+   "number": "075/193",
+   "value": 0.5
+  },
+  "n0923": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "FRA",
+   "set": "Phantasmal Flames",
+   "year": "2025",
+   "number": "034/094",
+   "value": 0.1
+  },
+  "n0929": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Scarlet EX (sv1S)",
+   "year": "2023",
+   "number": "079/078",
+   "value": 1.85
+  },
+  "n0932": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Clay Burst (SV2D)",
+   "year": "2023",
+   "number": "078/071",
+   "value": 3.0
+  },
+  "n0934": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mega Brave (M1L)",
+   "year": "2025",
+   "number": "070/063",
+   "value": 3.0
+  },
+  "n0935": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Inferno X (M2)",
+   "year": "2025",
+   "number": "083/080",
+   "value": 1.27
+  },
+  "n0936": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Scarlet EX (sv1S)",
+   "year": "2023",
+   "number": "080/078",
+   "value": 3.7
+  },
+  "n0937": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Super Electric Breaker (SV8)",
+   "year": "2024",
+   "number": "109/106",
+   "value": 4.76
+  },
+  "n0940": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mask of Change (SV6)",
+   "year": "2024",
+   "number": "105/101",
+   "value": 3.0
+  },
+  "n0944": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Mega Evolution",
+   "year": "2025",
+   "number": "149/132",
+   "value": 1.69
+  },
+  "n0945": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Clay Burst (SV2D)",
+   "year": "2023",
+   "number": "080/071",
+   "value": 4.0
+  },
+  "n0951": {
+   "art": false,
+   "rarity": "Common",
+   "lang": "JPN",
+   "set": "Ruler of the Black Flame (SV3)",
+   "year": "2023",
+   "number": "010/108",
+   "value": 0.1
+  },
+  "n0952": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "JPN",
+   "variant": "Holo",
+   "set": "Ruler of the Black Flame (SV3)",
+   "year": "2023",
+   "number": "011/108",
+   "value": 0.1
+  },
+  "n0956": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Future Flash (sv4m)",
+   "year": "2023",
+   "number": "073/066",
+   "value": 5.0
+  },
+  "n0961": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Paldean Fates",
+   "year": "2024",
+   "number": "224/091",
+   "value": 1.0
+  },
+  "n0962": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Violet EX (sv1V)",
+   "year": "2023",
+   "number": "089/078",
+   "value": 1.0
+  },
+  "n0964": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Paldean Fates",
+   "year": "2024",
+   "number": "225/091",
+   "value": 2.0
+  },
+  "n0965": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Obsidian Flames",
+   "year": "2023",
+   "number": "206/197",
+   "value": 3.0
+  },
+  "n0966": {
+   "art": true,
+   "rarity": "SAR",
+   "lang": "ENG",
+   "set": "Obsidian Flames",
+   "year": "2023",
+   "number": "224/197",
+   "value": 5.0
+  },
+  "n0967": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Raging Surf (sv3a)",
+   "year": "2023",
+   "number": "074/062",
+   "value": 4.0
+  },
+  "n0972": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mega Symphonya (M1S)",
+   "year": "2025",
+   "number": "073/063",
+   "value": 3.0
+  },
+  "n0976": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Ancient Roar (sv4k)",
+   "year": "2023",
+   "number": "070/066",
+   "value": 4.0
+  },
+  "n0977": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Scarlet & Violet",
+   "year": "2023",
+   "number": "207/198",
+   "value": 3.0
+  },
+  "n0981": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Clay Burst (SV2D)",
+   "year": "2023",
+   "number": "083/071",
+   "value": 3.0
+  },
+  "n0986": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "ITA",
+   "set": "Paradox Rift",
+   "year": "2023",
+   "number": "207/182"
+  },
+  "n0988": {
+   "art": false,
+   "rarity": "Uncommon",
+   "lang": "ITA",
+   "set": "Paradox Rift",
+   "year": "2023",
+   "number": "107/182",
+   "value": 0.1
+  },
+  "n0989": {
+   "art": true,
+   "rarity": "SAR",
+   "lang": "JPN",
+   "set": "Terastal Festival (SV8a)",
+   "year": "2024",
+   "number": "215/187",
+   "value": 3.0
+  },
+  "n0990": {
+   "art": true,
+   "rarity": "SAR",
+   "lang": "ITA",
+   "set": "Scarlet & Violet",
+   "year": "2023",
+   "number": "248/198",
+   "value": 3.0
+  },
+  "n0993": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Future Flash (sv4m)",
+   "year": "2023",
+   "number": "078/066",
+   "value": 3.0
+  },
+  "n1000": {
+   "art": true,
+   "rarity": "SAR",
+   "lang": "JPN",
+   "set": "Terastal Festival (SV8a)",
+   "year": "2024",
+   "number": "220/187",
+   "value": 10.0
+  },
+  "n1007": {
+   "art": false,
+   "rarity": "Uncommon",
+   "lang": "ITA",
+   "set": "Surging Sparks",
+   "year": "2024",
+   "number": "116/191",
+   "value": 0.1
+  },
+  "n1014": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mask of Change (SV6)",
+   "year": "2024",
+   "number": "110/101",
+   "value": 1.56
+  },
+  "n1016": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Mask of Change (SV6)",
+   "year": "2024",
+   "number": "108/101",
+   "value": 3.0
+  },
+  "n1018": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "122/193",
+   "value": 0.05
+  },
+  "n1021": {
+   "art": true,
+   "rarity": "SAR",
+   "lang": "KOR",
+   "set": "Terastal Festival (SV8a)",
+   "year": "2024",
+   "number": "222/187",
+   "value": 10.0
+  },
+  "n1022": {
+   "art": true,
+   "rarity": "SAR",
+   "lang": "ITA",
+   "set": "Terastal Festival (SV8a)",
+   "year": "2024",
+   "number": "207/162",
+   "value": 15.0
+  },
+  "n1024": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "145/193",
+   "value": 0.1
+  },
+  "m001": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "KOR",
+   "set": "Mega Brave (M1L)",
+   "year": "2025",
+   "number": "003/063"
+  },
+  "m002": {
+   "art": true,
+   "rarity": "MA",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "223/193"
+  },
+  "m005": {
+   "art": false
+  },
+  "m009": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "ITA",
+   "set": "Nihil Zero (M3)",
+   "year": "2026",
+   "number": "031/088"
+  },
+  "m013": {
+   "art": true,
+   "rarity": "MA",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "230/193"
+  },
+  "m015": {
+   "art": true,
+   "rarity": "SAR",
+   "lang": "ENG",
+   "set": "Nihil Zero (M3)",
+   "year": "2026",
+   "number": "118/088"
+  },
+  "m019": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "126/193"
+  },
+  "m027": {
+   "art": false,
+   "rarity": "SR",
+   "lang": "JPN",
+   "set": "Inferno X (M2)",
+   "year": "2025",
+   "number": "093/080"
+  },
+  "m034": {
+   "art": true,
+   "rarity": "MA",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "226/193"
+  },
+  "m036": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "KOR",
+   "set": "Mega Brave (M1L)",
+   "year": "2025",
+   "number": "046/063"
+  },
+  "m040": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "ENG",
+   "set": "Phantasmal Flames",
+   "year": "2025",
+   "number": "061/094"
+  },
+  "m041": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "ITA",
+   "set": "Mega Evolution",
+   "year": "2025",
+   "number": "022/132"
+  },
+  "m045": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "KOR",
+   "set": "Mega Brave (M1L)",
+   "year": "2025",
+   "number": "038/063"
+  },
+  "m057": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "KOR",
+   "set": "Mega Brave (M1L)",
+   "year": "2025",
+   "number": "029/063"
+  },
+  "m061": {
+   "art": true,
+   "rarity": "SAR",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "233/193"
+  },
+  "m068": {
+   "art": true,
+   "rarity": "MA",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "231/193"
+  },
+  "m069": {
+   "art": true,
+   "rarity": "MA",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "225/193"
+  },
+  "m070": {
+   "art": false,
+   "rarity": "SR",
+   "lang": "JPN",
+   "set": "Abyss Eye (M5)",
+   "year": "2026",
+   "number": "097/081"
+  },
+  "m074": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "ENG",
+   "set": "Chaos Rising (CRI)",
+   "year": "2026",
+   "number": "81"
+  },
+  "m076": {
+   "art": true,
+   "rarity": "SAR",
+   "lang": "ENG",
+   "set": "Chaos Rising (CRI)",
+   "year": "2026",
+   "number": "117/086"
+  },
+  "m081": {
+   "art": true,
+   "rarity": "MA",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "229/193"
+  },
+  "m083": {
+   "art": true,
+   "rarity": "MA",
+   "lang": "JPN",
+   "set": "Mega Dream ex (M2a)",
+   "year": "2026",
+   "number": "227/193"
+  },
+  "r005": {
+   "art": false,
+   "rarity": "RRR",
+   "lang": "ITA",
+   "set": "Silver Tempest",
+   "year": "2022",
+   "number": "034/195"
+  },
+  "r008": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "Super Electric Breaker (SV8)",
+   "year": "2024",
+   "number": "116/106"
+  },
+  "r028": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "JPN",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "190/172"
+  },
+  "r038": {
+   "art": true,
+   "rarity": "AR",
+   "lang": "CHN",
+   "set": "Twilight Masquerade",
+   "year": "2024",
+   "number": "0207/07"
+  },
+  "r039": {
+   "art": false,
+   "rarity": "Rare",
+   "lang": "ITA",
+   "set": "Twilight Masquerade",
+   "year": "2024",
+   "number": "100/167"
+  },
+  "r042": {
+   "art": false,
+   "rarity": "RRR",
+   "lang": "ITA",
+   "set": "Astral Radiance",
+   "year": "2022",
+   "number": "053/189"
+  },
+  "r048": {
+   "art": false,
+   "rarity": "RRR",
+   "lang": "JPN",
+   "set": "VStar Univers (S12A)",
+   "year": "2022",
+   "number": "129/172"
+  },
+  "r053": {
+   "art": false,
+   "rarity": "RR",
+   "lang": "JPN",
+   "set": "Battle Region (s9a)",
+   "year": "2022",
+   "number": "044/067"
+  }
+ }
+}

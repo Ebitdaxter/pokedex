@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Il mio Pokédex</title>
+<meta name="description" content="Raccoglitore digitale delle mie carte Pokémon, diviso per generazione.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23fff' stroke='%23172033' stroke-width='3'/%3E%3Cpath d='M2 16a14 14 0 0 1 28 0z' fill='%23E3350D' stroke='%23172033' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='4.5' fill='%23fff' stroke='%23172033' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="cover">
+  <div class="cover-inner">
+    <div class="brand">
+      <svg class="ball" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="#fff"/><path d="M2 16a14 14 0 0 1 28 0z" fill="currentColor"/><circle cx="16" cy="16" r="14" fill="none" stroke="#0f1626" stroke-width="2.5"/><path d="M2 16h28" stroke="#0f1626" stroke-width="2.5"/><circle cx="16" cy="16" r="4.5" fill="#fff" stroke="#0f1626" stroke-width="2.5"/></svg>
+      <div>
+        <h1>Il mio Pokédex</h1>
+        <p class="sub" id="syncState">Caricamento collezione…</p>
+      </div>
+    </div>
+    <dl class="totals" id="totals" aria-live="polite"></dl>
+    <div class="cover-actions">
+      <button class="btn ghost-light" id="openSettings" type="button" aria-label="Impostazioni e sincronizzazione">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg>
+        <span>Salva &amp; sync</span><i class="dirty-dot" id="dirtyDot" hidden></i>
+      </button>
+    </div>
+  </div>
+  <nav class="tabs" id="tabs" aria-label="Generazioni"></nav>
+</header>
+
+<main>
+  <div class="toolbar">
+    <label class="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="search" type="search" placeholder="Cerca per nome o numero" autocomplete="off">
+    </label>
+    <div class="seg" role="radiogroup" aria-label="Filtro" id="filterSeg">
+      <button role="radio" data-filter="all" aria-checked="true">Tutti</button>
+      <button role="radio" data-filter="owned" aria-checked="false">Presenti</button>
+      <button role="radio" data-filter="missing" aria-checked="false">Mancanti</button>
+      <button role="radio" data-filter="art" aria-checked="false">Art</button>
+    </div>
+    <div class="seg" role="radiogroup" aria-label="Vista" id="viewSeg">
+      <button role="radio" data-view="binder" aria-checked="true">Raccoglitore</button>
+      <button role="radio" data-view="grid" aria-checked="false">Griglia</button>
+    </div>
+  </div>
+  <section id="sectionHead" class="section-head"></section>
+  <div id="content"></div>
+</main>
+
+<!-- Detail -->
+<dialog id="detail" class="sheet" aria-labelledby="dName">
+  <form method="dialog" class="sheet-close"><button class="icon-btn" aria-label="Chiudi">✕</button></form>
+  <div class="detail-grid">
+    <aside class="poke">
+      <div class="poke-art"><img id="dSprite" alt=""></div>
+      <p class="dex-no" id="dNo"></p>
+      <h2 id="dName"></h2>
+      <p class="types" id="dTypes"></p>
+      <p class="where" id="dWhere"></p>
+      <div class="stats" id="dStats"></div>
+      <div class="nav-row">
+        <button class="btn quiet" id="dPrev" type="button">‹ Precedente</button>
+        <button class="btn quiet" id="dNext" type="button">Successivo ›</button>
+      </div>
+    </aside>
+    <section class="mine">
+      <div class="mine-head">
+        <h3>La mia carta</h3>
+        <label class="switch"><input type="checkbox" id="fOwned"><span>Ce l'ho</span></label>
+      </div>
+      <div id="cardBox" class="card-box"></div>
+      <form id="cardForm" class="card-form" autocomplete="off">
+        <label>Espansione<input name="set" list="setList"></label>
+        <label>Anno<input name="year" inputmode="numeric"></label>
+        <label>Numero<input name="number" placeholder="es. 065/063"></label>
+        <label>Rarità<input name="rarity" list="rarityList" placeholder="AR, SAR, RR…"></label>
+        <label>Lingua
+          <select name="lang"><option value="">—</option><option>ITA</option><option>JPN</option><option>ENG</option><option>KOR</option><option>FRA</option><option>CHN</option><option>DEU</option><option>ESP</option></select>
+        </label>
+        <label>Valore €<input name="value" inputmode="decimal"></label>
+        <label class="wide">Variante<input name="variant" placeholder="es. Reverse holo, Masterball…"></label>
+        <label class="wide">Immagine (URL)<input name="img" placeholder="Si compila scegliendo una carta qui sotto"></label>
+        <label class="check wide"><input type="checkbox" name="art"> Art rare (illustrazione a tutta carta)</label>
+      </form>
+      <div class="finder">
+        <div class="finder-head">
+          <h3>Scegli la carta</h3>
+          <input id="finderFilter" type="search" placeholder="Filtra per set o rarità" aria-label="Filtra carte">
+        </div>
+        <p class="finder-note" id="finderNote"></p>
+        <div class="finder-grid" id="finderGrid"></div>
+        <p class="ext-links" id="extLinks"></p>
+      </div>
+    </section>
+  </div>
+</dialog>
+
+<!-- Settings -->
+<dialog id="settings" class="sheet narrow" aria-labelledby="sTitle">
+  <form method="dialog" class="sheet-close"><button class="icon-btn" aria-label="Chiudi">✕</button></form>
+  <h2 id="sTitle">Salvataggio e sincronizzazione</h2>
+  <p class="lede">Le modifiche si salvano subito in questo browser. Per vederle su altri dispositivi, salvale su GitHub: il file <code>data/collection.json</code> del repository viene aggiornato.</p>
+  <div class="settings-block">
+    <h3>GitHub</h3>
+    <div class="form-2">
+      <label>Utente/organizzazione<input id="ghOwner"></label>
+      <label>Repository<input id="ghRepo"></label>
+      <label>Branch<input id="ghBranch" value="main"></label>
+      <label>Token (fine-grained, Contents: read &amp; write)<input id="ghToken" type="password" autocomplete="off"></label>
+    </div>
+    <p class="hint">Il token resta solo in questo browser. Crealo su GitHub → Settings → Developer settings → Fine-grained tokens, limitato a questo repository.</p>
+    <div class="row">
+      <button class="btn primary" id="ghSave" type="button">Salva su GitHub</button>
+      <button class="btn quiet" id="ghPull" type="button">Ricarica da GitHub</button>
+    </div>
+    <p class="status" id="ghStatus" role="status"></p>
+  </div>
+  <div class="settings-block">
+    <h3>Immagini delle carte</h3>
+    <p class="hint">Cerca automaticamente l'immagine delle carte già registrate confrontando espansione e numero con il catalogo internazionale. Le carte solo giapponesi/coreane potrebbero non avere corrispondenza.</p>
+    <div class="row"><button class="btn quiet" id="autoMatch" type="button">Abbina immagini</button></div>
+    <p class="status" id="matchStatus" role="status"></p>
+  </div>
+  <div class="settings-block">
+    <h3>File</h3>
+    <div class="row">
+      <button class="btn quiet" id="exportJson" type="button">Esporta JSON</button>
+      <button class="btn quiet" id="exportCsv" type="button">Esporta CSV per Excel</button>
+      <label class="btn quiet file-btn">Importa JSON<input type="file" id="importJson" accept="application/json,.json"></label>
+    </div>
+    <div class="row"><button class="btn danger" id="resetLocal" type="button">Scarta modifiche locali</button></div>
+  </div>
+</dialog>
+
+<datalist id="setList"></datalist>
+<datalist id="rarityList"><option>Common</option><option>Uncommon</option><option>Rare</option><option>RR</option><option>RRR</option><option>AR</option><option>SAR</option><option>SR</option><option>UR</option><option>MA</option><option>FR</option><option>Promo</option></datalist>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>
