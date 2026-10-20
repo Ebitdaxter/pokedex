@@ -334,3 +334,7 @@ details.more .card-form { margin-top: 8px; }
 
 .own.sprite-opt .own-meta { font-style: italic; }
 .poke .where { margin-bottom: 4px; }
+
+dialog .toast { position: fixed; bottom: calc(22px + env(safe-area-inset-bottom, 0px)); max-width: calc(100vw - 32px); text-align: center; z-index: 10; }
+.cand.just .cand-img::after { content: "✓ Aggiunta"; position: absolute; inset: 0; display: grid; place-items: center; background: rgba(227,53,13,.78); color: #fff; font: 800 .85rem/1 var(--display); border-radius: 6px; animation: flash 1.2s ease-out forwards; }
+@keyframes flash { 0%, 70% { opacity: 1; } 100% { opacity: 0; } }

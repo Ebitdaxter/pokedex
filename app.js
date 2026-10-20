@@ -408,7 +408,9 @@
       number: c.no + (c.tot ? '/' + c.tot : ''), rarity: c.r, rc: c.rc, lang, year: (c.date || '').slice(0, 4), img: c.img || null,
       art: ART_RC.has(c.rc), price: priceCache[cid]?.p ?? null, priceAt: priceCache[cid] ? priceCache[cid].t : null };
     addCard(x);
-    toast(`Aggiunta: ${c.set} ${c.no} · ${lang}`);
+    toast(`✓ Aggiunta a “Le mie carte”: ${c.set} ${c.no} · ${lang}`);
+    const tile = document.querySelector(`.cand[data-cid="${CSS.escape(cid)}"]`);
+    if (tile) { tile.classList.add('just'); setTimeout(() => tile.classList.remove('just'), 1200); }
     if (!fresh(priceCache[cid])) priceFor(c).then(p => { x.price = p; x.priceAt = Date.now(); persist(); if (current && selUid === x.uid) fillForm(); renderMine(); refreshAfterEdit(); paintPrice(cid); });
   }
   function addManual() {
@@ -521,7 +523,13 @@
   }
 
   let toastT;
-  function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 2000); }
+  function toast(msg) {
+    const t = $('#toast');
+    // an open <dialog> sits in the top layer and would hide the toast: show it inside the dialog instead
+    const host = document.querySelector('dialog[open]') || document.body;
+    if (t.parentNode !== host) host.appendChild(t);
+    t.textContent = msg; t.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 2400);
+  }
 
   /* ---------------- events ---------------- */
   $('#tabs').addEventListener('click', ev => { const b = ev.target.closest('.tab'); if (!b) return; ui.group = b.dataset.group; renderTabs(); renderContent(); syncControls(); window.scrollTo({ top: 0 }); });
