@@ -1,6 +1,6 @@
 {
  "version": 2,
- "updated": "2026-10-20T16:10:35.914Z",
+ "updated": "2026-10-20T19:08:30.266Z",
  "cards": {
   "n0001": {
    "cover": "37612vb6",
@@ -880,7 +880,10 @@
      "rc": "AR",
      "art": true,
      "rarity": "AR",
-     "lang": "JPN"
+     "lang": "JPN",
+     "imgOwn": null,
+     "img": "https://assets.tcgdex.net/ja/SV/SV6a/067/high.webp",
+     "imgFrom": "jp:SV6a-067"
     }
    ]
   },
@@ -5748,7 +5751,7 @@
    ]
   },
   "n0003": {
-   "cover": "sprite-bw",
+   "cover": "olwibg0t",
    "list": [
     {
      "uid": "olwibg0t",
@@ -6282,11 +6285,15 @@
    "uid": "a53b3a56",
    "name": "Jolteon",
    "eid": "n0135",
-   "set": "Eevee Heroes (s6a)",
-   "number": "079/069",
-   "rc": "SR",
+   "set": "SWSH Black Star Promos",
+   "number": "SWSH183/307",
+   "rc": "PR",
    "desire": "Medium",
-   "year": "2021"
+   "year": "2019",
+   "cid": "int:swshp-SWSH183",
+   "src": "int",
+   "tdx": "swshp-SWSH183",
+   "img": "https://images.pokemontcg.io/swshp/SWSH183_hires.png"
   },
   {
    "uid": "115f697a",
@@ -6482,17 +6489,6 @@
    "eid": "n0996",
    "set": "Clay Burst (SV2D)",
    "number": "075/071",
-   "rc": "AR",
-   "desire": "Medium",
-   "year": "2023",
-   "variant": "Together"
-  },
-  {
-   "uid": "2c90372e",
-   "name": "Arctibax",
-   "eid": "n0997",
-   "set": "Clay Burst (SV2D)",
-   "number": "076/071",
    "rc": "AR",
    "desire": "Medium",
    "year": "2023",
@@ -7624,11 +7620,15 @@
    "uid": "17b42d79",
    "name": "Luxray",
    "eid": "n0405",
-   "set": "Time Gazer (s10D)",
-   "number": "021/067",
+   "set": "Astral Radiance",
+   "number": "50/189",
    "rc": "RR",
    "desire": "Strong",
-   "year": "2022"
+   "year": "2022",
+   "cid": "int:swsh10-50",
+   "src": "int",
+   "tdx": "swsh10-050",
+   "img": "https://images.pokemontcg.io/swsh10/50_hires.png"
   },
   {
    "uid": "5332264b",
@@ -7639,7 +7639,70 @@
    "rc": "RR",
    "desire": "Medium",
    "year": "2022"
+  },
+  {
+   "uid": "zor6q5d6",
+   "name": "Venusaur",
+   "eid": "n0003",
+   "cid": "int:xyp-XY123",
+   "src": "int",
+   "tdx": "xyp-XY123",
+   "img": "https://images.pokemontcg.io/xyp/XY123_hires.png",
+   "set": "XY Black Star Promos",
+   "number": "XY123/211",
+   "rc": "PR",
+   "year": "2013",
+   "lang": "ITA",
+   "desire": "Medium"
+  },
+  {
+   "uid": "xva68kf1",
+   "name": "Arctibax",
+   "eid": "n0997",
+   "cid": "jp:SV2P-076",
+   "src": "jp",
+   "img": "https://assets.tcgdex.net/ja/SV/SV2P/076/high.webp",
+   "set": "Snow Hazard",
+   "number": "076/71",
+   "rc": "AR",
+   "year": "2023",
+   "lang": "JPN",
+   "desire": "Medium"
+  },
+  {
+   "uid": "22g70b0c",
+   "name": "Baxcalibur",
+   "eid": "n0998",
+   "cid": "jp:SV2P-077",
+   "src": "jp",
+   "img": "https://assets.tcgdex.net/ja/SV/SV2P/077/high.webp",
+   "set": "Snow Hazard",
+   "number": "077/71",
+   "rc": "AR",
+   "year": "2023",
+   "lang": "JPN",
+   "desire": "Medium"
+  },
+  {
+   "uid": "dudbtbdg",
+   "name": "Lugia",
+   "eid": "n0249",
+   "cid": "jp:S12-110",
+   "src": "jp",
+   "img": "https://assets.tcgdex.net/ja/S/S12/110/high.webp",
+   "set": "Paradigm Trigger",
+   "number": "110/98",
+   "rc": "SAR",
+   "year": "2022",
+   "lang": "JPN",
+   "desire": "Medium"
   }
  ],
- "bubi": {}
+ "bubi": {
+  "int:sv4-241": {
+   "at": "2026-10-20T16:59:35.374Z",
+   "lang": "ITA",
+   "price": null
+  }
+ }
 }
