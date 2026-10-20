@@ -518,3 +518,18 @@ dialog.sheet { overflow-x: hidden; }
 dialog.sheet.narrow > * { max-width: 100%; }
 .sheet-bottom { position: sticky; bottom: 0; display: flex; justify-content: center; padding: 12px 0 calc(4px + env(safe-area-inset-bottom, 0px)); background: linear-gradient(transparent, var(--paper) 40%); margin-top: 8px; }
 .sheet-bottom .btn { min-width: 160px; justify-content: center; }
+
+/* safe areas from JS (--sat/--sab), used everywhere a sheet or bar touches the screen edge */
+:root { --sat: env(safe-area-inset-top, 0px); --sab: env(safe-area-inset-bottom, 0px); }
+.cover-inner { padding-top: max(14px, calc(var(--sat) + 6px)); }
+@media (max-width: 560px) {
+  dialog.sheet { padding-top: var(--sat) !important; padding-bottom: var(--sab) !important; }
+  dialog.sheet.narrow { padding-top: calc(20px + var(--sat)) !important; padding-bottom: calc(24px + var(--sab)) !important; }
+  .sheet-close { position: fixed; top: calc(10px + var(--sat)) !important; }
+  .detail-grid { max-height: calc(100dvh - var(--sat) - var(--sab)); }
+  .sheet-bottom { padding-bottom: calc(4px + var(--sab)); }
+}
+.tabbar { top: var(--sat); }
+/* band behind the status bar, so scrolled content never shows under the clock */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: var(--sat); z-index: 21; background: color-mix(in srgb, var(--w2) 30%, #101828); }
+.fab { bottom: calc(18px + var(--sab)); }

@@ -825,5 +825,23 @@
   $('#bgClear').addEventListener('click', () => { try { localStorage.removeItem(BG_KEY); } catch {} applyBg(); toast('Sfondo rimosso'); });
   applyBg();
 
+  /* ---------------- safe areas (iPhone notch / home bar) ----------------
+     Measured once in the normal page and stored as --sat/--sab, because inside full-screen sheets
+     iOS does not always apply env(safe-area-inset-*). In the home-screen app we never go below the status bar height. */
+  function measureSafeArea() {
+    const probe = document.createElement('div');
+    probe.style.cssText = 'position:fixed;top:0;left:0;width:0;height:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);visibility:hidden;pointer-events:none';
+    document.body.appendChild(probe);
+    let top = probe.getBoundingClientRect().height, bottom = parseFloat(getComputedStyle(probe).paddingBottom) || 0;
+    probe.remove();
+    const standalone = navigator.standalone || matchMedia('(display-mode: standalone)').matches;
+    if (standalone) { top = Math.max(top, 47); bottom = Math.max(bottom, 20); }
+    document.documentElement.style.setProperty('--sat', top + 'px');
+    document.documentElement.style.setProperty('--sab', bottom + 'px');
+    document.documentElement.classList.toggle('standalone', !!standalone);
+  }
+  measureSafeArea();
+  window.addEventListener('orientationchange', () => setTimeout(measureSafeArea, 300));
+
   load().catch(err => { $('#content').innerHTML = `<p class="empty">Impossibile caricare i dati (${esc(err.message)}). Apri il sito tramite GitHub Pages o un server locale.</p>`; });
 })();
