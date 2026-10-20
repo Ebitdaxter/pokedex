@@ -1,4 +1,4 @@
-# Il mio Pokédex
+# Gotta Catch 'em All
 
 Raccoglitore digitale delle mie carte Pokémon: 1025 Pokémon divisi per generazione, più Megaevoluzioni e forme regionali, con le stesse pagine e tasche del raccoglitore fisico.
 

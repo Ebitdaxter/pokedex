@@ -10,7 +10,8 @@
    "set": "Gym Challenge",
    "year": "2000",
    "number": "39/132",
-   "value": 11.35
+   "value": 11.35,
+   "img": "https://images.pokemontcg.io/gym2/39_hires.png"
   },
   "n0002": {
    "art": true,
@@ -19,7 +20,8 @@
    "set": "Mega Brave (M1L)",
    "year": "2025",
    "number": "065/063",
-   "value": 6.12
+   "value": 6.12,
+   "img": "https://assets.tcgdex.net/ja/M/M1L/065/high.webp"
   },
   "n0004": {
    "art": false,
@@ -37,7 +39,8 @@
    "set": "Base",
    "year": "1999",
    "number": "24/102",
-   "value": 0.02
+   "value": 0.02,
+   "img": "https://images.pokemontcg.io/base1/24_hires.png"
   },
   "n0006": {
    "art": false,
@@ -47,7 +50,8 @@
    "set": "Ruler of the Black Flame (SV3)",
    "year": "2023",
    "number": "066/108",
-   "value": 1.61
+   "value": 1.61,
+   "img": "https://assets.tcgdex.net/ja/SV/SV3/066/high.webp"
   },
   "n0009": {
    "art": false,
@@ -56,7 +60,8 @@
    "set": "151",
    "year": "2023",
    "number": "009/165",
-   "value": 2.79
+   "value": 2.79,
+   "img": "https://images.pokemontcg.io/sv3pt5/9_hires.png"
   },
   "n0016": {
    "art": true,
@@ -65,7 +70,8 @@
    "set": "Ruler of the Black Flame (SV3)",
    "year": "2023",
    "number": "118/108",
-   "value": 3.32
+   "value": 3.32,
+   "img": "https://assets.tcgdex.net/ja/SV/SV3/118/high.webp"
   },
   "n0018": {
    "art": false,
@@ -74,7 +80,8 @@
    "set": "Jungle",
    "year": "1999",
    "number": "24/64",
-   "value": 2.0
+   "value": 2.0,
+   "img": "https://images.pokemontcg.io/base2/24_hires.png"
   },
   "n0019": {
    "art": false,
@@ -84,7 +91,8 @@
    "set": "Gym Heroes",
    "year": "2000",
    "number": "82/132",
-   "value": 0.76
+   "value": 0.76,
+   "img": "https://images.pokemontcg.io/gym1/82_hires.png"
   },
   "n0020": {
    "art": true,
@@ -93,7 +101,8 @@
    "set": "Nihil Zero (M3)",
    "year": "2026",
    "number": "092/080",
-   "value": 2.0
+   "value": 2.0,
+   "img": "https://assets.tcgdex.net/ja/M/M3/092/high.webp"
   },
   "n0021": {
    "art": true,
@@ -102,7 +111,8 @@
    "set": "Mega Brave (M1L)",
    "year": "2025",
    "number": "074/063",
-   "value": 1.68
+   "value": 1.68,
+   "img": "https://assets.tcgdex.net/ja/M/M1L/074/high.webp"
   },
   "n0024": {
    "art": false,
@@ -112,7 +122,8 @@
    "set": "Fossil",
    "year": "1999",
    "number": "31/62",
-   "value": 1.82
+   "value": 1.82,
+   "img": "https://images.pokemontcg.io/base3/31_hires.png"
   },
   "n0025": {
    "art": false,
@@ -121,7 +132,8 @@
    "set": "Jungle",
    "year": "1999",
    "number": "60/64",
-   "value": 3.75
+   "value": 3.75,
+   "img": "https://images.pokemontcg.io/base2/60_hires.png"
   },
   "n0026": {
    "art": false,
@@ -131,7 +143,8 @@
    "set": "Fossil",
    "year": "1999",
    "number": "14/62",
-   "value": 42.0
+   "value": 42.0,
+   "img": "https://images.pokemontcg.io/base3/14_hires.png"
   },
   "n0027": {
    "art": false,
@@ -141,7 +154,8 @@
    "set": "Gym Heroes",
    "year": "2000",
    "number": "72/132",
-   "value": 2.32
+   "value": 2.32,
+   "img": "https://images.pokemontcg.io/gym1/72_hires.png"
   },
   "n0035": {
    "art": false,
@@ -150,7 +164,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "060/193",
-   "value": 0.05
+   "value": 0.05,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/060/high.webp"
   },
   "n0036": {
    "art": false,
@@ -159,7 +174,8 @@
    "set": "Jungle",
    "year": "1999",
    "number": "17/64",
-   "value": 5.26
+   "value": 5.26,
+   "img": "https://images.pokemontcg.io/base2/17_hires.png"
   },
   "n0037": {
    "art": true,
@@ -167,7 +183,8 @@
    "lang": "ITA",
    "set": "Mega Evolution",
    "year": "2025",
-   "number": "138/132"
+   "number": "138/132",
+   "img": "https://images.pokemontcg.io/me1/138_hires.png"
   },
   "n0038": {
    "art": true,
@@ -175,7 +192,8 @@
    "lang": "ITA",
    "set": "Obsidian Flames",
    "year": "2023",
-   "number": "199/197"
+   "number": "199/197",
+   "img": "https://images.pokemontcg.io/sv3/199_hires.png"
   },
   "n0039": {
    "art": false,
@@ -184,7 +202,8 @@
    "set": "Jungle",
    "year": "1999",
    "number": "54/64",
-   "value": 0.72
+   "value": 0.72,
+   "img": "https://images.pokemontcg.io/base2/54_hires.png"
   },
   "n0040": {
    "art": true,
@@ -193,7 +212,8 @@
    "set": "Inferno X (M2)",
    "year": "2025",
    "number": "091/080",
-   "value": 2.07
+   "value": 2.07,
+   "img": "https://assets.tcgdex.net/ja/M/M2/091/high.webp"
   },
   "n0042": {
    "art": false,
@@ -203,7 +223,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "100/193",
-   "value": 0.03
+   "value": 0.03,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/100/high.webp"
   },
   "n0049": {
    "art": false,
@@ -213,7 +234,8 @@
    "set": "Jungle",
    "year": "1999",
    "number": "13/64",
-   "value": 7.0
+   "value": 7.0,
+   "img": "https://images.pokemontcg.io/base2/13_hires.png"
   },
   "n0051": {
    "art": true,
@@ -222,7 +244,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "206/193",
-   "value": 1.5
+   "value": 1.5,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/206/high.webp"
   },
   "n0052": {
    "art": true,
@@ -231,7 +254,8 @@
    "set": "Phantasmal Flames",
    "year": "2025",
    "number": "106/094",
-   "value": 15.58
+   "value": 15.58,
+   "img": "https://images.pokemontcg.io/me2/106_hires.png"
   },
   "n0053": {
    "art": false,
@@ -240,7 +264,8 @@
    "set": "Jungle",
    "year": "1999",
    "number": "42/64",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://images.pokemontcg.io/base2/42_hires.png"
   },
   "n0054": {
    "art": true,
@@ -249,7 +274,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "199/193",
-   "value": 12.74
+   "value": 12.74,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/199/high.webp"
   },
   "n0055": {
    "art": false,
@@ -259,7 +285,8 @@
    "set": "Team Rocket",
    "year": "2000",
    "number": "37/82",
-   "value": 0.5
+   "value": 0.5,
+   "img": "https://images.pokemontcg.io/base5/37_hires.png"
   },
   "n0059": {
    "art": false,
@@ -268,7 +295,8 @@
    "set": "Skyridge",
    "year": "2003",
    "number": "3/144",
-   "value": 5.0
+   "value": 5.0,
+   "img": "https://images.pokemontcg.io/ecard3/3_hires.png"
   },
   "n0065": {
    "art": false,
@@ -278,7 +306,8 @@
    "set": "Silver Tempest",
    "year": "2022",
    "number": "059/195",
-   "value": 0.25
+   "value": 0.25,
+   "img": "https://images.pokemontcg.io/swsh12/59_hires.png"
   },
   "n0067": {
    "art": false,
@@ -288,7 +317,8 @@
    "set": "Team Rocket",
    "year": "2000",
    "number": "40/82",
-   "value": 4.0
+   "value": 4.0,
+   "img": "https://images.pokemontcg.io/base5/40_hires.png"
   },
   "n0068": {
    "art": false,
@@ -298,7 +328,8 @@
    "set": "Team Rocket",
    "year": "2000",
    "number": "27/82",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://images.pokemontcg.io/base5/27_hires.png"
   },
   "n0075": {
    "art": false,
@@ -307,7 +338,8 @@
    "set": "Fossil",
    "year": "1999",
    "number": "37/62",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://images.pokemontcg.io/base3/37_hires.png"
   },
   "n0076": {
    "art": false,
@@ -325,7 +357,8 @@
    "set": "Jungle",
    "year": "1999",
    "number": "44/64",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://images.pokemontcg.io/base2/44_hires.png"
   },
   "n0079": {
    "art": false,
@@ -344,7 +377,8 @@
    "set": "Legendary Collection",
    "year": "2002",
    "number": "28/110",
-   "value": 25.0
+   "value": 25.0,
+   "img": "https://images.pokemontcg.io/base6/28_hires.png"
   },
   "n0092": {
    "art": false,
@@ -369,7 +403,8 @@
    "set": "Fossil",
    "year": "1999",
    "number": "23/62",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://images.pokemontcg.io/base3/23_hires.png"
   },
   "n0101": {
    "art": false,
@@ -378,7 +413,8 @@
    "set": "Jungle",
    "year": "1999",
    "number": "18/64",
-   "value": 5.0
+   "value": 5.0,
+   "img": "https://images.pokemontcg.io/base2/18_hires.png"
   },
   "n0103": {
    "art": false,
@@ -387,7 +423,8 @@
    "set": "Legendary Collection",
    "year": "2002",
    "number": "23/110",
-   "value": 1.0
+   "value": 1.0,
+   "img": "https://images.pokemontcg.io/base6/23_hires.png"
   },
   "n0105": {
    "art": false,
@@ -396,7 +433,8 @@
    "set": "Jungle",
    "year": "1999",
    "number": "39/64",
-   "value": 1.14
+   "value": 1.14,
+   "img": "https://images.pokemontcg.io/base2/39_hires.png"
   },
   "n0111": {
    "art": false,
@@ -405,7 +443,8 @@
    "set": "Jungle",
    "year": "1999",
    "number": "61/64",
-   "value": 0.47
+   "value": 0.47,
+   "img": "https://images.pokemontcg.io/base2/61_hires.png"
   },
   "n0115": {
    "art": true,
@@ -414,7 +453,8 @@
    "set": "Glory of Team Rocket (sv10)",
    "year": "2025",
    "number": "110/098",
-   "value": 2.0
+   "value": 2.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV10/110/high.webp"
   },
   "n0116": {
    "art": true,
@@ -429,7 +469,8 @@
    "set": "Prismatic Evolutions",
    "year": "2025",
    "number": "020/031",
-   "value": 0.04
+   "value": 0.04,
+   "img": "https://images.pokemontcg.io/sv8pt5/20_hires.png"
   },
   "n0122": {
    "art": false,
@@ -438,7 +479,8 @@
    "set": "Jungle",
    "year": "1999",
    "number": "22/64",
-   "value": 4.0
+   "value": 4.0,
+   "img": "https://images.pokemontcg.io/base2/22_hires.png"
   },
   "n0126": {
    "art": false,
@@ -447,7 +489,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "016/172",
-   "value": 0.05
+   "value": 0.05,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/016/high.webp"
   },
   "n0130": {
    "art": false,
@@ -456,7 +499,8 @@
    "set": "Hidden Fates",
    "year": "2019",
    "number": "16/68",
-   "value": 2.96
+   "value": 2.96,
+   "img": "https://images.pokemontcg.io/sm115/16_hires.png"
   },
   "n0131": {
    "art": true,
@@ -465,7 +509,8 @@
    "set": "Hot Air Arena (SV9a)",
    "year": "2025",
    "number": "072/063",
-   "value": 7.0
+   "value": 7.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV9a/072/high.webp"
   },
   "n0132": {
    "art": false,
@@ -475,7 +520,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "117/172",
-   "value": 0.19
+   "value": 0.19,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/117/high.webp"
   },
   "n0135": {
    "art": false,
@@ -484,7 +530,8 @@
    "set": "Jungle",
    "year": "1999",
    "number": "20/64",
-   "value": 6.0
+   "value": 6.0,
+   "img": "https://images.pokemontcg.io/base2/20_hires.png"
   },
   "n0141": {
    "art": false,
@@ -493,7 +540,8 @@
    "set": "Legendary Collection",
    "year": "2002",
    "number": "27/110",
-   "value": 4.0
+   "value": 4.0,
+   "img": "https://images.pokemontcg.io/base6/27_hires.png"
   },
   "n0143": {
    "art": false,
@@ -502,7 +550,8 @@
    "set": "Jungle",
    "year": "1999",
    "number": "11/64",
-   "value": 13.0
+   "value": 13.0,
+   "img": "https://images.pokemontcg.io/base2/11_hires.png"
   },
   "n0144": {
    "art": true,
@@ -511,7 +560,8 @@
    "set": "Battle Partner (sv9)",
    "year": "2025",
    "number": "102/100",
-   "value": 5.0
+   "value": 5.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV9/102/high.webp"
   },
   "n0150": {
    "art": false,
@@ -529,7 +579,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "054/172",
-   "value": 2.0
+   "value": 2.0,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/054/high.webp"
   },
   "n0152": {
    "art": false,
@@ -538,7 +589,8 @@
    "set": "Mega Evolution Promo (MEP)",
    "year": "2025",
    "number": "69",
-   "value": 0.32
+   "value": 0.32,
+   "img": "https://assets.tcgdex.net/ja/M/M-P/069/high.webp"
   },
   "n0155": {
    "art": false,
@@ -547,7 +599,8 @@
    "set": "Neo Genesis",
    "year": "2000",
    "number": "56/111",
-   "value": 1.21
+   "value": 1.21,
+   "img": "https://images.pokemontcg.io/neo1/56_hires.png"
   },
   "n0157": {
    "art": true,
@@ -557,7 +610,8 @@
    "set": "Hot Air Arena (SV9a)",
    "year": "2025",
    "number": "070/063",
-   "value": 26.5
+   "value": 26.5,
+   "img": "https://assets.tcgdex.net/ja/SV/SV9a/070/high.webp"
   },
   "n0158": {
    "art": false,
@@ -566,7 +620,8 @@
    "set": "Expedition Base Set",
    "year": "2002",
    "number": "134/165",
-   "value": 2.0
+   "value": 2.0,
+   "img": "https://images.pokemontcg.io/ecard1/134_hires.png"
   },
   "n0164": {
    "art": false,
@@ -575,7 +630,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "138/193",
-   "value": 0.05
+   "value": 0.05,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/138/high.webp"
   },
   "n0166": {
    "art": false,
@@ -585,7 +641,8 @@
    "set": "Neo Destiny",
    "year": "2002",
    "number": "24/105",
-   "value": 5.0
+   "value": 5.0,
+   "img": "https://images.pokemontcg.io/neo4/24_hires.png"
   },
   "n0169": {
    "art": true,
@@ -595,7 +652,8 @@
    "set": "Chaos Rising (CRI)",
    "year": "2026",
    "number": "093/086",
-   "value": 6.5
+   "value": 6.5,
+   "img": "https://images.scrydex.com/pokemon/me4-93/large"
   },
   "n0171": {
    "art": false,
@@ -604,7 +662,8 @@
    "set": "Neo Revelation",
    "year": "2001",
    "number": "32/64",
-   "value": 1.39
+   "value": 1.39,
+   "img": "https://images.pokemontcg.io/neo3/32_hires.png"
   },
   "n0174": {
    "art": false,
@@ -622,7 +681,8 @@
    "set": "Ruler of the Black Flame (SV3)",
    "year": "2023",
    "number": "043/108",
-   "value": 0.04
+   "value": 0.04,
+   "img": "https://assets.tcgdex.net/ja/SV/SV3/043/high.webp"
   },
   "n0180": {
    "art": true,
@@ -631,7 +691,8 @@
    "set": "Silver Tempest",
    "year": "2022",
    "number": "TG03/TG30",
-   "value": 3.13
+   "value": 3.13,
+   "img": "https://images.pokemontcg.io/swsh12tg/TG03_hires.png"
   },
   "n0190": {
    "art": false,
@@ -640,7 +701,8 @@
    "set": "Inferno X (M2)",
    "year": "2025",
    "number": "066/080",
-   "value": 0.03
+   "value": 0.03,
+   "img": "https://assets.tcgdex.net/ja/M/M2/066/high.webp"
   },
   "n0193": {
    "art": true,
@@ -649,7 +711,8 @@
    "set": "Hot Air Arena (SV9a)",
    "year": "2025",
    "number": "064/063",
-   "value": 1.0
+   "value": 1.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV9a/064/high.webp"
   },
   "n0197": {
    "art": false,
@@ -658,7 +721,8 @@
    "set": "Aquapolis",
    "year": "2003",
    "number": "41/147",
-   "value": 25.0
+   "value": 25.0,
+   "img": "https://images.pokemontcg.io/ecard2/41_hires.png"
   },
   "n0200": {
    "art": true,
@@ -667,7 +731,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "202/193",
-   "value": 1.0
+   "value": 1.0,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/202/high.webp"
   },
   "n0201": {
    "art": false,
@@ -676,7 +741,8 @@
    "set": "Silver Tempest",
    "year": "2022",
    "number": "065/195",
-   "value": 0.3
+   "value": 0.3,
+   "img": "https://images.pokemontcg.io/swsh12/65_hires.png"
   },
   "n0208": {
    "art": true,
@@ -684,7 +750,8 @@
    "lang": "ITA",
    "set": "Mega Evolution",
    "year": "2025",
-   "number": "150/132"
+   "number": "150/132",
+   "img": "https://images.pokemontcg.io/me1/150_hires.png"
   },
   "n0212": {
    "art": true,
@@ -692,7 +759,8 @@
    "lang": "ITA",
    "set": "Obsidian Flames",
    "year": "2023",
-   "number": "205/197"
+   "number": "205/197",
+   "img": "https://images.pokemontcg.io/sv3/205_hires.png"
   },
   "n0213": {
    "art": true,
@@ -701,7 +769,8 @@
    "set": "Mega Evolution",
    "year": "2025",
    "number": "136/132",
-   "value": 1.5
+   "value": 1.5,
+   "img": "https://images.pokemontcg.io/me1/136_hires.png"
   },
   "n0214": {
    "art": true,
@@ -710,7 +779,8 @@
    "set": "Clay Burst (SV2D)",
    "year": "2023",
    "number": "072/071",
-   "value": 3.16
+   "value": 3.16,
+   "img": "https://assets.tcgdex.net/ja/SV/SV2D/072/high.webp"
   },
   "n0215": {
    "art": false,
@@ -719,7 +789,8 @@
    "set": "Neo Genesis",
    "year": "2000",
    "number": "25/111",
-   "value": 3.04
+   "value": 3.04,
+   "img": "https://images.pokemontcg.io/neo1/25_hires.png"
   },
   "n0219": {
    "art": true,
@@ -729,7 +800,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "197/193",
-   "value": 1.0
+   "value": 1.0,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/197/high.webp"
   },
   "n0220": {
    "art": true,
@@ -738,7 +810,8 @@
    "set": "Journey Together",
    "year": "2025",
    "number": "165/159",
-   "value": 1.0
+   "value": 1.0,
+   "img": "https://images.pokemontcg.io/sv9/165_hires.png"
   },
   "n0227": {
    "art": true,
@@ -747,7 +820,8 @@
    "set": "Surging Sparks",
    "year": "2024",
    "number": "209/191",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://images.pokemontcg.io/sv8/209_hires.png"
   },
   "n0228": {
    "art": true,
@@ -756,7 +830,8 @@
    "set": "Ruler of the Black Flame (SV3)",
    "year": "2023",
    "number": "115/108",
-   "value": 1.0
+   "value": 1.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV3/115/high.webp"
   },
   "n0235": {
    "art": true,
@@ -774,7 +849,8 @@
    "set": "Ascended Heroes",
    "year": "2026",
    "number": "240/217",
-   "value": 2.0
+   "value": 2.0,
+   "img": "https://images.scrydex.com/pokemon/me2pt5-240/large"
   },
   "n0241": {
    "art": false,
@@ -784,7 +860,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "119/172",
-   "value": 0.02
+   "value": 0.02,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/119/high.webp"
   },
   "n0242": {
    "art": false,
@@ -793,7 +870,8 @@
    "set": "Twilight Masquerade",
    "year": "2024",
    "number": "201/167",
-   "value": 1.4
+   "value": 1.4,
+   "img": "https://images.pokemontcg.io/sv6/201_hires.png"
   },
   "n0244": {
    "art": false,
@@ -802,7 +880,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "020/193",
-   "value": 0.05
+   "value": 0.05,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/020/high.webp"
   },
   "n0245": {
    "art": false,
@@ -811,7 +890,8 @@
    "set": "Phantasmal Flames",
    "year": "2025",
    "number": "026/094",
-   "value": 0.05
+   "value": 0.05,
+   "img": "https://images.pokemontcg.io/me2/26_hires.png"
   },
   "n0246": {
    "art": true,
@@ -820,7 +900,8 @@
    "set": "Ruler of the Black Flame (SV3)",
    "year": "2023",
    "number": "114/108",
-   "value": 1.54
+   "value": 1.54,
+   "img": "https://assets.tcgdex.net/ja/SV/SV3/114/high.webp"
   },
   "n0248": {
    "art": true,
@@ -829,7 +910,8 @@
    "set": "Clay Burst (SV2D)",
    "year": "2023",
    "number": "079/071",
-   "value": 7.0
+   "value": 7.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV2D/079/high.webp"
   },
   "n0250": {
    "art": false,
@@ -839,7 +921,8 @@
    "set": "Hot Air Arena (SV9a)",
    "year": "2025",
    "number": "020/063",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://assets.tcgdex.net/ja/SV/SV9a/020/high.webp"
   },
   "n0257": {
    "art": true,
@@ -847,7 +930,8 @@
    "lang": "ITA",
    "set": "Destined Rivals",
    "year": "2025",
-   "number": "192/182"
+   "number": "192/182",
+   "img": "https://images.pokemontcg.io/sv10/192_hires.png"
   },
   "n0264": {
    "art": false,
@@ -856,7 +940,8 @@
    "set": "Inferno X (M2)",
    "year": "2025",
    "number": "070/080",
-   "value": 0.05
+   "value": 0.05,
+   "img": "https://assets.tcgdex.net/ja/M/M2/070/high.webp"
   },
   "n0270": {
    "art": false,
@@ -865,7 +950,8 @@
    "set": "Inferno X (M2)",
    "year": "2025",
    "number": "005/080",
-   "value": 0.05
+   "value": 0.05,
+   "img": "https://assets.tcgdex.net/ja/M/M2/005/high.webp"
   },
   "n0272": {
    "art": true,
@@ -874,7 +960,8 @@
    "set": "Phantasmal Flames",
    "year": "2025",
    "number": "095/094",
-   "value": 0.8
+   "value": 0.8,
+   "img": "https://images.pokemontcg.io/me2/95_hires.png"
   },
   "n0282": {
    "art": false,
@@ -883,7 +970,8 @@
    "set": "Scarlet & Violet",
    "year": "2023",
    "number": "228/198",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://images.pokemontcg.io/sv1/228_hires.png"
   },
   "n0287": {
    "art": true,
@@ -892,7 +980,8 @@
    "set": "Super Electric Breaker (sv8)",
    "year": "2024",
    "number": "117/106",
-   "value": 1.83
+   "value": 1.83,
+   "img": "https://assets.tcgdex.net/ja/SV/SV8/117/high.webp"
   },
   "n0289": {
    "art": false,
@@ -902,7 +991,8 @@
    "set": "Ruby & Sapphire",
    "year": "2003",
    "number": "12/109",
-   "value": 5.0
+   "value": 5.0,
+   "img": "https://images.pokemontcg.io/ex1/12_hires.png"
   },
   "n0291": {
    "art": true,
@@ -911,7 +1001,8 @@
    "set": "Mega Evolution",
    "year": "2025",
    "number": "137/132",
-   "value": 2.69
+   "value": 2.69,
+   "img": "https://images.pokemontcg.io/me1/137_hires.png"
   },
   "n0292": {
    "art": true,
@@ -920,7 +1011,8 @@
    "set": "Mega Evolution",
    "year": "2025",
    "number": "144/132",
-   "value": 2.12
+   "value": 2.12,
+   "img": "https://images.pokemontcg.io/me1/144_hires.png"
   },
   "n0303": {
    "art": false,
@@ -929,7 +1021,8 @@
    "set": "Silver Tempest",
    "year": "2022",
    "number": "070/195",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://images.pokemontcg.io/swsh12/70_hires.png"
   },
   "n0305": {
    "art": true,
@@ -938,7 +1031,8 @@
    "set": "Mask of Change (SV6)",
    "year": "2024",
    "number": "111/101",
-   "value": 2.0
+   "value": 2.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV6/111/high.webp"
   },
   "n0307": {
    "art": true,
@@ -947,7 +1041,8 @@
    "set": "Stella Miracle (sv7)",
    "year": "2024",
    "number": "111/102",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV7/111/high.webp"
   },
   "n0308": {
    "art": true,
@@ -956,7 +1051,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "207/193",
-   "value": 1.4
+   "value": 1.4,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/207/high.webp"
   },
   "n0309": {
    "art": true,
@@ -965,7 +1061,8 @@
    "set": "Hot Air Arena (SV9a)",
    "year": "2025",
    "number": "073/063",
-   "value": 1.0
+   "value": 1.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV9a/073/high.webp"
   },
   "n0321": {
    "art": true,
@@ -974,7 +1071,8 @@
    "set": "Battle Partner (sv9)",
    "year": "2025",
    "number": "103/100",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV9/103/high.webp"
   },
   "n0322": {
    "art": true,
@@ -983,7 +1081,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "198/193",
-   "value": 2.0
+   "value": 2.0,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/198/high.webp"
   },
   "n0330": {
    "art": true,
@@ -992,7 +1091,8 @@
    "set": "Inferno X (M2)",
    "year": "2025",
    "number": "088/080",
-   "value": 1.0
+   "value": 1.0,
+   "img": "https://assets.tcgdex.net/ja/M/M2/088/high.webp"
   },
   "n0334": {
    "art": true,
@@ -1001,7 +1101,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "194/172",
-   "value": 2.73
+   "value": 2.73,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/194/high.webp"
   },
   "n0338": {
    "art": false,
@@ -1010,7 +1111,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "087/193",
-   "value": 0.05
+   "value": 0.05,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/087/high.webp"
   },
   "n0349": {
    "art": true,
@@ -1019,7 +1121,8 @@
    "set": "Super Electric Breaker (SV8)",
    "year": "2024",
    "number": "110/106",
-   "value": 2.37
+   "value": 2.37,
+   "img": "https://assets.tcgdex.net/ja/SV/SV8/110/high.webp"
   },
   "n0350": {
    "art": true,
@@ -1028,7 +1131,8 @@
    "set": "Silver Tempest",
    "year": "2022",
    "number": "TG02/TG30",
-   "value": 5.56
+   "value": 5.56,
+   "img": "https://images.pokemontcg.io/swsh12tg/TG02_hires.png"
   },
   "n0351": {
    "art": true,
@@ -1037,7 +1141,8 @@
    "set": "Paradise Dragana (SV7a)",
    "year": "2024",
    "number": "067/064",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV7a/067/high.webp"
   },
   "n0359": {
    "art": true,
@@ -1046,7 +1151,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "191/172",
-   "value": 3.02
+   "value": 3.02,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/191/high.webp"
   },
   "n0361": {
    "art": true,
@@ -1055,7 +1161,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "200/193",
-   "value": 1.0
+   "value": 1.0,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/200/high.webp"
   },
   "n0380": {
    "art": false,
@@ -1064,7 +1171,8 @@
    "set": "Fusion Strike",
    "year": "2021",
    "number": "193/264",
-   "value": 0.2
+   "value": 0.2,
+   "img": "https://images.pokemontcg.io/swsh8/193_hires.png"
   },
   "n0381": {
    "art": false,
@@ -1073,7 +1181,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "106/172",
-   "value": 0.05
+   "value": 0.05,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/106/high.webp"
   },
   "n0382": {
    "art": false,
@@ -1082,7 +1191,8 @@
    "set": "Mega Evolution",
    "year": "2025",
    "number": "034/132",
-   "value": 0.05
+   "value": 0.05,
+   "img": "https://images.pokemontcg.io/me1/34_hires.png"
   },
   "n0384": {
    "art": true,
@@ -1106,7 +1216,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "060/172",
-   "value": 0.05
+   "value": 0.05,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/060/high.webp"
   },
   "n0387": {
    "art": false,
@@ -1114,7 +1225,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "006/172",
-   "value": 0.05
+   "value": 0.05,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/006/high.webp"
   },
   "n0388": {
    "art": false,
@@ -1122,7 +1234,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "007/172",
-   "value": 0.05
+   "value": 0.05,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/007/high.webp"
   },
   "n0389": {
    "art": false,
@@ -1131,7 +1244,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "008/172",
-   "value": 0.05
+   "value": 0.05,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/008/high.webp"
   },
   "n0392": {
    "art": false,
@@ -1141,7 +1255,8 @@
    "set": "Twilight Masquerade",
    "year": "2024",
    "number": "033/167",
-   "value": 0.05
+   "value": 0.05,
+   "img": "https://images.pokemontcg.io/sv6/33_hires.png"
   },
   "n0400": {
    "art": true,
@@ -1150,7 +1265,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "200/172",
-   "value": 1.71
+   "value": 1.71,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/200/high.webp"
   },
   "n0402": {
    "art": false,
@@ -1159,7 +1275,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "010/172",
-   "value": 0.05
+   "value": 0.05,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/010/high.webp"
   },
   "n0406": {
    "art": true,
@@ -1168,7 +1285,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "196/193",
-   "value": 2.0
+   "value": 2.0,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/196/high.webp"
   },
   "n0416": {
    "art": false,
@@ -1178,7 +1296,8 @@
    "set": "Ruler of the Black Flame (SV3)",
    "year": "2023",
    "number": "051/108",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://assets.tcgdex.net/ja/SV/SV3/051/high.webp"
   },
   "n0423": {
    "art": false,
@@ -1188,7 +1307,8 @@
    "set": "Surging Sparks",
    "year": "2024",
    "number": "107/191",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://images.pokemontcg.io/sv8/107_hires.png"
   },
   "n0424": {
    "art": true,
@@ -1197,7 +1317,8 @@
    "set": "Phantasmal Flames",
    "year": "2025",
    "number": "107/094",
-   "value": 1.0
+   "value": 1.0,
+   "img": "https://images.pokemontcg.io/me2/107_hires.png"
   },
   "n0429": {
    "art": false,
@@ -1206,7 +1327,8 @@
    "set": "Inferno X (M2)",
    "year": "2025",
    "number": "097/080",
-   "value": 1.35
+   "value": 1.35,
+   "img": "https://assets.tcgdex.net/ja/M/M2/097/high.webp"
   },
   "n0435": {
    "art": false,
@@ -1215,7 +1337,8 @@
    "set": "Silver Tempest",
    "year": "2022",
    "number": "108/195",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://images.pokemontcg.io/swsh12/108_hires.png"
   },
   "n0438": {
    "art": false,
@@ -1224,7 +1347,8 @@
    "set": "Ruler of the Black Flame (SV3)",
    "year": "2023",
    "number": "058/108",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://assets.tcgdex.net/ja/SV/SV3/058/high.webp"
   },
   "n0442": {
    "art": true,
@@ -1234,7 +1358,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "208/193",
-   "value": 1.0
+   "value": 1.0,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/208/high.webp"
   },
   "n0445": {
    "art": false,
@@ -1244,7 +1369,8 @@
    "set": "Hot Air Arena (SV9a)",
    "year": "2025",
    "number": "044/063",
-   "value": 0.15
+   "value": 0.15,
+   "img": "https://assets.tcgdex.net/ja/SV/SV9a/044/high.webp"
   },
   "n0448": {
    "art": false,
@@ -1253,7 +1379,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "077/172",
-   "value": 0.15
+   "value": 0.15,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/077/high.webp"
   },
   "n0457": {
    "art": false,
@@ -1262,7 +1389,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "026/172",
-   "value": 0.15
+   "value": 0.15,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/026/high.webp"
   },
   "n0466": {
    "art": true,
@@ -1271,7 +1399,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "180/172",
-   "value": 3.27
+   "value": 3.27,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/180/high.webp"
   },
   "n0467": {
    "art": true,
@@ -1280,7 +1409,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "175/172",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/175/high.webp"
   },
   "n0468": {
    "art": true,
@@ -1289,7 +1419,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "203/193",
-   "value": 2.0
+   "value": 2.0,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/203/high.webp"
   },
   "n0472": {
    "art": false,
@@ -1298,7 +1429,8 @@
    "set": "HSu2014Undaunted",
    "year": "2010",
    "number": "4/90",
-   "value": 4.16
+   "value": 4.16,
+   "img": "https://images.pokemontcg.io/hgss3/4_hires.png"
   },
   "n0477": {
    "art": false,
@@ -1307,7 +1439,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "074/193",
-   "value": 0.05
+   "value": 0.05,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/074/high.webp"
   },
   "n0479": {
    "art": false,
@@ -1316,7 +1449,8 @@
    "set": "Inferno X (M2)",
    "year": "2025",
    "number": "029/080",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://assets.tcgdex.net/ja/M/M2/029/high.webp"
   },
   "n0484": {
    "art": false,
@@ -1326,7 +1460,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "028/172",
-   "value": 0.53
+   "value": 0.53,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/028/high.webp"
   },
   "n0486": {
    "art": false,
@@ -1335,7 +1470,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "124/172",
-   "value": 0.27
+   "value": 0.27,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/124/high.webp"
   },
   "n0487": {
    "art": false,
@@ -1343,7 +1479,8 @@
    "lang": "KOR",
    "set": "Lost Abysa (s11)",
    "year": "2022",
-   "number": "081/100"
+   "number": "081/100",
+   "img": "https://assets.tcgdex.net/ja/S/S11/081/high.webp"
   },
   "n0492": {
    "art": true,
@@ -1352,7 +1489,8 @@
    "set": "Hot Air Arena (SV9a)",
    "year": "2025",
    "number": "066/063",
-   "value": 2.0
+   "value": 2.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV9a/066/high.webp"
   },
   "n0494": {
    "art": true,
@@ -1361,7 +1499,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "097/086",
-   "value": 10.28
+   "value": 10.28,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/097/high.webp"
   },
   "n0495": {
    "art": true,
@@ -1370,7 +1509,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "087/086",
-   "value": 8.28
+   "value": 8.28,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/087/high.webp"
   },
   "n0497": {
    "art": false,
@@ -1379,7 +1519,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "159/086",
-   "value": 1.0
+   "value": 1.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/159/high.webp"
   },
   "n0498": {
    "art": true,
@@ -1388,7 +1529,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "096/086",
-   "value": 10.72
+   "value": 10.72,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/096/high.webp"
   },
   "n0500": {
    "art": true,
@@ -1397,7 +1539,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "098/086",
-   "value": 4.51
+   "value": 4.51,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/098/high.webp"
   },
   "n0503": {
    "art": true,
@@ -1406,7 +1549,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "104/086",
-   "value": 7.42
+   "value": 7.42,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/104/high.webp"
   },
   "n0504": {
    "art": true,
@@ -1415,7 +1559,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "151/086",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/151/high.webp"
   },
   "n0507": {
    "art": true,
@@ -1424,7 +1569,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "154/086",
-   "value": 3.57
+   "value": 3.57,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/154/high.webp"
   },
   "n0508": {
    "art": true,
@@ -1433,7 +1579,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "155/086",
-   "value": 3.78
+   "value": 3.78,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/155/high.webp"
   },
   "n0512": {
    "art": true,
@@ -1442,7 +1589,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "090/086",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/090/high.webp"
   },
   "n0517": {
    "art": true,
@@ -1451,7 +1599,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "121/086",
-   "value": 4.5
+   "value": 4.5,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/121/high.webp"
   },
   "n0520": {
    "art": true,
@@ -1460,7 +1609,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "154/086",
-   "value": 2.88
+   "value": 2.88,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/154/high.webp"
   },
   "n0523": {
    "art": true,
@@ -1469,7 +1619,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "112/086",
-   "value": 2.74
+   "value": 2.74,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/112/high.webp"
   },
   "n0525": {
    "art": true,
@@ -1478,7 +1629,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "126/086",
-   "value": 2.58
+   "value": 2.58,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/126/high.webp"
   },
   "n0528": {
    "art": true,
@@ -1487,7 +1639,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "117/086",
-   "value": 3.2
+   "value": 3.2,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/117/high.webp"
   },
   "n0530": {
    "art": false,
@@ -1496,7 +1649,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "163/086",
-   "value": 0.69
+   "value": 0.69,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/163/high.webp"
   },
   "n0532": {
    "art": true,
@@ -1505,7 +1659,8 @@
    "set": "Mask of Change (SV6)",
    "year": "2024",
    "number": "109/101",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV6/109/high.webp"
   },
   "n0534": {
    "art": true,
@@ -1514,7 +1669,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "133/086",
-   "value": 3.85
+   "value": 3.85,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/133/high.webp"
   },
   "n0536": {
    "art": true,
@@ -1523,7 +1679,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "108/086",
-   "value": 3.62
+   "value": 3.62,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/108/high.webp"
   },
   "n0537": {
    "art": false,
@@ -1532,7 +1689,8 @@
    "set": "Ruler of the Black Flame (SV3)",
    "year": "2023",
    "number": "025/108",
-   "value": 0.03
+   "value": 0.03,
+   "img": "https://assets.tcgdex.net/ja/SV/SV3/025/high.webp"
   },
   "n0539": {
    "art": true,
@@ -1541,7 +1699,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "128/086",
-   "value": 2.37
+   "value": 2.37,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/128/high.webp"
   },
   "n0544": {
    "art": true,
@@ -1550,7 +1709,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "139/086",
-   "value": 2.8
+   "value": 2.8,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/139/high.webp"
   },
   "n0547": {
    "art": false,
@@ -1559,7 +1719,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "159/086",
-   "value": 0.86
+   "value": 0.86,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/159/high.webp"
   },
   "n0556": {
    "art": true,
@@ -1568,7 +1729,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "093/086",
-   "value": 1.0
+   "value": 1.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/093/high.webp"
   },
   "n0560": {
    "art": true,
@@ -1577,7 +1739,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "137/086",
-   "value": 3.59
+   "value": 3.59,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/137/high.webp"
   },
   "n0561": {
    "art": true,
@@ -1586,7 +1749,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "118/086",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/118/high.webp"
   },
   "n0563": {
    "art": true,
@@ -1595,7 +1759,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "120/086",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/120/high.webp"
   },
   "n0566": {
    "art": true,
@@ -1604,7 +1769,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "129/086",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/129/high.webp"
   },
   "n0567": {
    "art": true,
@@ -1613,7 +1779,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "130/086",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/130/high.webp"
   },
   "n0568": {
    "art": true,
@@ -1622,7 +1789,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "138/086",
-   "value": 2.76
+   "value": 2.76,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/138/high.webp"
   },
   "n0569": {
    "art": true,
@@ -1631,7 +1799,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "139/086",
-   "value": 2.42
+   "value": 2.42,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/139/high.webp"
   },
   "n0573": {
    "art": false,
@@ -1640,7 +1809,8 @@
    "set": "Chaos Rising (CRI)",
    "year": "2026",
    "number": "073/086",
-   "value": 0.2
+   "value": 0.2,
+   "img": "https://images.scrydex.com/pokemon/me4-73/large"
   },
   "n0574": {
    "art": true,
@@ -1649,7 +1819,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "121/086",
-   "value": 4.68
+   "value": 4.68,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/121/high.webp"
   },
   "n0576": {
    "art": true,
@@ -1658,7 +1829,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "123/086",
-   "value": 2.95
+   "value": 2.95,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/123/high.webp"
   },
   "n0577": {
    "art": true,
@@ -1667,7 +1839,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "123/086",
-   "value": 11.65
+   "value": 11.65,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/123/high.webp"
   },
   "n0579": {
    "art": true,
@@ -1676,7 +1849,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "125/086",
-   "value": 2.35
+   "value": 2.35,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/125/high.webp"
   },
   "n0585": {
    "art": true,
@@ -1685,7 +1859,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "091/086",
-   "value": 4.52
+   "value": 4.52,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/091/high.webp"
   },
   "n0590": {
    "art": true,
@@ -1694,7 +1869,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "095/086",
-   "value": 4.16
+   "value": 4.16,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/095/high.webp"
   },
   "n0592": {
    "art": true,
@@ -1703,7 +1879,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "124/086",
-   "value": 4.67
+   "value": 4.67,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/124/high.webp"
   },
   "n0593": {
    "art": false,
@@ -1712,7 +1889,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "162/086",
-   "value": 0.62
+   "value": 0.62,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/162/high.webp"
   },
   "n0596": {
    "art": true,
@@ -1721,7 +1899,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "114/086",
-   "value": 3.5
+   "value": 3.5,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/114/high.webp"
   },
   "n0600": {
    "art": true,
@@ -1730,7 +1909,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "147/086",
-   "value": 2.26
+   "value": 2.26,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/147/high.webp"
   },
   "n0603": {
    "art": true,
@@ -1739,7 +1919,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "118/086",
-   "value": 2.94
+   "value": 2.94,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/118/high.webp"
   },
   "n0609": {
    "art": true,
@@ -1748,7 +1929,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "102/086",
-   "value": 6.69
+   "value": 6.69,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/102/high.webp"
   },
   "n0615": {
    "art": true,
@@ -1757,7 +1939,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "115/086",
-   "value": 2.87
+   "value": 2.87,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/115/high.webp"
   },
   "n0616": {
    "art": true,
@@ -1766,7 +1949,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "093/086",
-   "value": 2.62
+   "value": 2.62,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/093/high.webp"
   },
   "n0618": {
    "art": true,
@@ -1775,7 +1959,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "115/086",
-   "value": 2.0
+   "value": 2.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/115/high.webp"
   },
   "n0620": {
    "art": true,
@@ -1784,7 +1969,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "132/086",
-   "value": 3.35
+   "value": 3.35,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/132/high.webp"
   },
   "n0621": {
    "art": true,
@@ -1793,7 +1979,8 @@
    "set": "Silver Tempest",
    "year": "2022",
    "number": "TG09/TG30",
-   "value": 2.76
+   "value": 2.76,
+   "img": "https://images.pokemontcg.io/swsh12tg/TG09_hires.png"
   },
   "n0625": {
    "art": true,
@@ -1802,7 +1989,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "148/086",
-   "value": 3.02
+   "value": 3.02,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/148/high.webp"
   },
   "n0626": {
    "art": true,
@@ -1811,7 +1999,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "172/086",
-   "value": 8.88
+   "value": 8.88,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/172/high.webp"
   },
   "n0627": {
    "art": true,
@@ -1820,7 +2009,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "156/086",
-   "value": 2.6
+   "value": 2.6,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/156/high.webp"
   },
   "n0629": {
    "art": true,
@@ -1829,7 +2019,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "144/086",
-   "value": 2.84
+   "value": 2.84,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/144/high.webp"
   },
   "n0633": {
    "art": true,
@@ -1838,7 +2029,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "142/086",
-   "value": 4.0
+   "value": 4.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/142/high.webp"
   },
   "n0634": {
    "art": true,
@@ -1847,7 +2039,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "143/086",
-   "value": 3.43
+   "value": 3.43,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/143/high.webp"
   },
   "n0636": {
    "art": true,
@@ -1856,7 +2049,8 @@
    "set": "Super Electric Breaker (SV8)",
    "year": "2024",
    "number": "108/106",
-   "value": 4.0
+   "value": 4.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV8/108/high.webp"
   },
   "n0637": {
    "art": false,
@@ -1865,7 +2059,8 @@
    "set": "Evolving Skies",
    "year": "2021",
    "number": "015/067",
-   "value": 0.35
+   "value": 0.35,
+   "img": "https://assets.tcgdex.net/ja/S/S7R/015/high.webp"
   },
   "n0638": {
    "art": true,
@@ -1874,7 +2069,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "149/086",
-   "value": 4.79
+   "value": 4.79,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/149/high.webp"
   },
   "n0642": {
    "art": true,
@@ -1883,7 +2079,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "120/086",
-   "value": 2.21
+   "value": 2.21,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/120/high.webp"
   },
   "n0643": {
    "art": true,
@@ -1892,7 +2089,8 @@
    "set": "Battle Partner (sv9)",
    "year": "2025",
    "number": "109/100",
-   "value": 15.78
+   "value": 15.78,
+   "img": "https://assets.tcgdex.net/ja/SV/SV9/109/high.webp"
   },
   "n0644": {
    "art": true,
@@ -1900,7 +2098,8 @@
    "lang": "JPN",
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
-   "number": "210/193"
+   "number": "210/193",
+   "img": "https://assets.tcgdex.net/ja/M/M2a/210/high.webp"
   },
   "n0646": {
    "art": false,
@@ -1909,7 +2108,8 @@
    "set": "Black Bolt",
    "year": "2025",
    "number": "160/086",
-   "value": 1.2
+   "value": 1.2,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11B/160/high.webp"
   },
   "n0647": {
    "art": true,
@@ -1918,7 +2118,8 @@
    "set": "White Flare",
    "year": "2025",
    "number": "169/086",
-   "value": 20.99
+   "value": 20.99,
+   "img": "https://assets.tcgdex.net/ja/SV/SV11W/169/high.webp"
   },
   "n0649": {
    "art": false,
@@ -1927,7 +2128,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "102/172",
-   "value": 0.3
+   "value": 0.3,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/102/high.webp"
   },
   "n0650": {
    "art": true,
@@ -1936,7 +2138,8 @@
    "set": "Chaos Rising (CRI)",
    "year": "2026",
    "number": "087/086",
-   "value": 2.5
+   "value": 2.5,
+   "img": "https://images.scrydex.com/pokemon/me4-87/large"
   },
   "n0652": {
    "art": false,
@@ -1945,7 +2148,8 @@
    "set": "Silver Tempest",
    "year": "2022",
    "number": "015/195",
-   "value": 0.3
+   "value": 0.3,
+   "img": "https://images.pokemontcg.io/swsh12/15_hires.png"
   },
   "n0653": {
    "art": true,
@@ -1962,7 +2166,8 @@
    "lang": "ITA",
    "set": "Surging Sparks",
    "year": "2024",
-   "number": "193/191"
+   "number": "193/191",
+   "img": "https://images.pokemontcg.io/sv8/193_hires.png"
   },
   "n0675": {
    "art": false,
@@ -1971,7 +2176,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "113/193",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/113/high.webp"
   },
   "n0687": {
    "art": false,
@@ -1980,7 +2186,8 @@
    "set": "Lost Origin",
    "year": "2022",
    "number": "078/196",
-   "value": 0.2
+   "value": 0.2,
+   "img": "https://images.pokemontcg.io/swsh11/78_hires.png"
   },
   "n0695": {
    "art": true,
@@ -1989,7 +2196,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "201/193",
-   "value": 0.4
+   "value": 0.4,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/201/high.webp"
   },
   "n0709": {
    "art": true,
@@ -1999,7 +2207,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "204/193",
-   "value": 1.11
+   "value": 1.11,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/204/high.webp"
   },
   "n0711": {
    "art": false,
@@ -2008,7 +2217,8 @@
    "set": "Chaos Rising (CRI)",
    "year": "2026",
    "number": "102/086",
-   "value": 1.5
+   "value": 1.5,
+   "img": "https://images.scrydex.com/pokemon/me4-102/large"
   },
   "n0714": {
    "art": true,
@@ -2017,7 +2227,8 @@
    "set": "Battle Partner (sv9)",
    "year": "2025",
    "number": "111/100",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV9/111/high.webp"
   },
   "n0719": {
    "art": false,
@@ -2027,7 +2238,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "063/172",
-   "value": 0.2
+   "value": 0.2,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/063/high.webp"
   },
   "n0722": {
    "art": true,
@@ -2036,7 +2248,8 @@
    "set": "Nihil Zero (M3)",
    "year": "2026",
    "number": "090/088",
-   "value": 5.0
+   "value": 5.0,
+   "img": "https://assets.tcgdex.net/ja/M/M3/090/high.webp"
   },
   "n0725": {
    "art": false,
@@ -2045,7 +2258,8 @@
    "set": "Silver Tempest",
    "year": "2022",
    "number": "030/195",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://images.pokemontcg.io/swsh12/30_hires.png"
   },
   "n0726": {
    "art": false,
@@ -2054,7 +2268,8 @@
    "set": "Silver Tempest",
    "year": "2022",
    "number": "031/195",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://images.pokemontcg.io/swsh12/31_hires.png"
   },
   "n0727": {
    "art": false,
@@ -2063,7 +2278,8 @@
    "set": "Silver Tempest",
    "year": "2022",
    "number": "032/195",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://images.pokemontcg.io/swsh12/32_hires.png"
   },
   "n0735": {
    "art": true,
@@ -2072,7 +2288,8 @@
    "set": "Mega Brave (M1L)",
    "year": "2025",
    "number": "075/063",
-   "value": 1.0
+   "value": 1.0,
+   "img": "https://assets.tcgdex.net/ja/M/M1L/075/high.webp"
   },
   "n0740": {
    "art": true,
@@ -2081,7 +2298,8 @@
    "set": "Stella Miracle (sv7)",
    "year": "2024",
    "number": "107/102",
-   "value": 1.3
+   "value": 1.3,
+   "img": "https://assets.tcgdex.net/ja/SV/SV7/107/high.webp"
   },
   "n0741": {
    "art": true,
@@ -2090,7 +2308,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "176/172",
-   "value": 1.8
+   "value": 1.8,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/176/high.webp"
   },
   "n0745": {
    "art": true,
@@ -2098,7 +2317,8 @@
    "lang": "ITA",
    "set": "Journey Together",
    "year": "2025",
-   "number": "166/159"
+   "number": "166/159",
+   "img": "https://images.pokemontcg.io/sv9/166_hires.png"
   },
   "n0759": {
    "art": true,
@@ -2107,7 +2327,8 @@
    "set": "Mega Symphonya (M1S)",
    "year": "2025",
    "number": "075/063",
-   "value": 1.71
+   "value": 1.71,
+   "img": "https://assets.tcgdex.net/ja/M/M1S/075/high.webp"
   },
   "n0760": {
    "art": true,
@@ -2116,7 +2337,8 @@
    "set": "Night Wanderer (sv6a)",
    "year": "2024",
    "number": "076/064",
-   "value": 1.5
+   "value": 1.5,
+   "img": "https://assets.tcgdex.net/ja/SV/SV6a/076/high.webp"
   },
   "n0763": {
    "art": false,
@@ -2126,7 +2348,8 @@
    "set": "Silver Tempest",
    "year": "2022",
    "number": "016/195",
-   "value": 0.3
+   "value": 0.3,
+   "img": "https://images.pokemontcg.io/swsh12/16_hires.png"
   },
   "n0776": {
    "art": true,
@@ -2135,7 +2358,8 @@
    "set": "Stella Miracle (sv7)",
    "year": "2024",
    "number": "105/102",
-   "value": 4.0
+   "value": 4.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV7/105/high.webp"
   },
   "n0807": {
    "art": true,
@@ -2144,7 +2368,8 @@
    "set": "Stella Miracle (sv7)",
    "year": "2024",
    "number": "109/102",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV7/109/high.webp"
   },
   "n0808": {
    "art": true,
@@ -2153,7 +2378,8 @@
    "set": "Cyber Judge (sv5m)",
    "year": "2024",
    "number": "081/071",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV5M/081/high.webp"
   },
   "n0814": {
    "art": true,
@@ -2162,7 +2388,8 @@
    "set": "Stella Miracle (sv7)",
    "year": "2024",
    "number": "106/102",
-   "value": 1.0
+   "value": 1.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV7/106/high.webp"
   },
   "n0818": {
    "art": true,
@@ -2171,7 +2398,8 @@
    "set": "Mega Evolution",
    "year": "2025",
    "number": "142/132",
-   "value": 2.41
+   "value": 2.41,
+   "img": "https://images.pokemontcg.io/me1/142_hires.png"
   },
   "n0823": {
    "art": true,
@@ -2180,7 +2408,8 @@
    "set": "Silver Tempest",
    "year": "2022",
    "number": "TG18/TG30",
-   "value": 8.4
+   "value": 8.4,
+   "img": "https://images.pokemontcg.io/swsh12tg/TG18_hires.png"
   },
   "n0825": {
    "art": true,
@@ -2189,7 +2418,8 @@
    "set": "Future Flash (sv4m)",
    "year": "2023",
    "number": "067/066",
-   "value": 2.0
+   "value": 2.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV4M/067/high.webp"
   },
   "n0828": {
    "art": true,
@@ -2198,7 +2428,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "192/172",
-   "value": 1.5
+   "value": 1.5,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/192/high.webp"
   },
   "n0841": {
    "art": true,
@@ -2207,7 +2438,8 @@
    "set": "Surging Sparks",
    "year": "2024",
    "number": "210/191",
-   "value": 7.0
+   "value": 7.0,
+   "img": "https://images.pokemontcg.io/sv8/210_hires.png"
   },
   "n0848": {
    "art": false,
@@ -2216,7 +2448,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "43/172",
-   "value": 0.05
+   "value": 0.05,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/043/high.webp"
   },
   "n0849": {
    "art": true,
@@ -2225,7 +2458,8 @@
    "set": "Inferno X (M2)",
    "year": "2025",
    "number": "089/080",
-   "value": 1.1
+   "value": 1.1,
+   "img": "https://assets.tcgdex.net/ja/M/M2/089/high.webp"
   },
   "n0851": {
    "art": true,
@@ -2234,7 +2468,8 @@
    "set": "VMAX Climax (s8b)",
    "year": "2022",
    "number": "14/30",
-   "value": 2.0
+   "value": 2.0,
+   "img": "https://assets.tcgdex.net/ja/S/S8b/014/high.webp"
   },
   "n0861": {
    "art": true,
@@ -2244,7 +2479,8 @@
    "set": "Ascended Heroes",
    "year": "2026",
    "number": "287/217",
-   "value": 45.0
+   "value": 45.0,
+   "img": "https://images.scrydex.com/pokemon/me2pt5-287/large"
   },
   "n0862": {
    "art": true,
@@ -2253,7 +2489,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "209/193",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/209/high.webp"
   },
   "n0868": {
    "art": true,
@@ -2271,7 +2508,8 @@
    "set": "Obsidian Flames",
    "year": "2023",
    "number": "222/197",
-   "value": 4.0
+   "value": 4.0,
+   "img": "https://images.pokemontcg.io/sv3/222_hires.png"
   },
   "n0877": {
    "art": true,
@@ -2280,7 +2518,8 @@
    "set": "Ancient Roar (sv4k)",
    "year": "2023",
    "number": "076/066",
-   "value": 4.0
+   "value": 4.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV4K/076/high.webp"
   },
   "n0878": {
    "art": true,
@@ -2289,7 +2528,8 @@
    "set": "Night Wanderer (sv6a)",
    "year": "2024",
    "number": "073/064",
-   "value": 3.5
+   "value": 3.5,
+   "img": "https://assets.tcgdex.net/ja/SV/SV6a/073/high.webp"
   },
   "n0882": {
    "art": false,
@@ -2298,7 +2538,8 @@
    "set": "Brilliant Stars",
    "year": "2022",
    "number": "114/172",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://images.pokemontcg.io/swsh9/114_hires.png"
   },
   "n0884": {
    "art": false,
@@ -2307,7 +2548,8 @@
    "set": "Inferno X (M2)",
    "year": "2025",
    "number": "062/080",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://assets.tcgdex.net/ja/M/M2/062/high.webp"
   },
   "n0886": {
    "art": true,
@@ -2316,7 +2558,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "212/193",
-   "value": 0.5
+   "value": 0.5,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/212/high.webp"
   },
   "n0888": {
    "art": true,
@@ -2325,7 +2568,8 @@
    "set": "Inferno X (M2)",
    "year": "2025",
    "number": "087/080",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/M/M2/087/high.webp"
   },
   "n0889": {
    "art": true,
@@ -2334,7 +2578,8 @@
    "set": "VStar Univers (S12A)",
    "year": "2022",
    "number": "232/172",
-   "value": 9.3
+   "value": 9.3,
+   "img": "https://assets.tcgdex.net/ja/S/S12a/232/high.webp"
   },
   "n0893": {
    "art": true,
@@ -2343,7 +2588,8 @@
    "set": "Abyss Eye (M5)",
    "year": "2026",
    "number": "090/081",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/M/M5/090/high.webp"
   },
   "n0894": {
    "art": false,
@@ -2352,7 +2598,8 @@
    "set": "Silver Tempest",
    "year": "2022",
    "number": "057/195",
-   "value": 0.2
+   "value": 0.2,
+   "img": "https://images.pokemontcg.io/swsh12/57_hires.png"
   },
   "n0901": {
    "art": true,
@@ -2369,7 +2616,8 @@
    "set": "Crimson Haze (sv5a)",
    "year": "2024",
    "number": "074/066",
-   "value": 4.0
+   "value": 4.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV5a/074/high.webp"
   },
   "n0907": {
    "art": true,
@@ -2378,7 +2626,8 @@
    "set": "Triple Beat (sv1a)",
    "year": "2023",
    "number": "076/073",
-   "value": 3.47
+   "value": 3.47,
+   "img": "https://assets.tcgdex.net/ja/SV/SV1a/076/high.webp"
   },
   "n0915": {
    "art": true,
@@ -2387,7 +2636,8 @@
    "set": "Ruler of the Black Flame (SV3)",
    "year": "2023",
    "number": "126/108",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV3/126/high.webp"
   },
   "n0916": {
    "art": false,
@@ -2396,7 +2646,8 @@
    "set": "Ruler of the Black Flame (SV3)",
    "year": "2023",
    "number": "097/108",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://assets.tcgdex.net/ja/SV/SV3/097/high.webp"
   },
   "n0918": {
    "art": true,
@@ -2405,7 +2656,8 @@
    "set": "Destined Rivals",
    "year": "2025",
    "number": "187/182",
-   "value": 1.0
+   "value": 1.0,
+   "img": "https://images.pokemontcg.io/sv10/187_hires.png"
   },
   "n0921": {
    "art": true,
@@ -2414,7 +2666,8 @@
    "set": "Paldean Fates",
    "year": "2024",
    "number": "226/091",
-   "value": 1.0
+   "value": 1.0,
+   "img": "https://images.pokemontcg.io/sv4pt5/226_hires.png"
   },
   "n0922": {
    "art": false,
@@ -2424,7 +2677,8 @@
    "set": "Paldea Evolved",
    "year": "2023",
    "number": "075/193",
-   "value": 0.5
+   "value": 0.5,
+   "img": "https://images.pokemontcg.io/sv2/75_hires.png"
   },
   "n0923": {
    "art": false,
@@ -2433,7 +2687,8 @@
    "set": "Phantasmal Flames",
    "year": "2025",
    "number": "034/094",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://images.pokemontcg.io/me2/34_hires.png"
   },
   "n0929": {
    "art": true,
@@ -2442,7 +2697,8 @@
    "set": "Scarlet EX (sv1S)",
    "year": "2023",
    "number": "079/078",
-   "value": 1.85
+   "value": 1.85,
+   "img": "https://assets.tcgdex.net/ja/SV/SV1S/079/high.webp"
   },
   "n0932": {
    "art": true,
@@ -2451,7 +2707,8 @@
    "set": "Clay Burst (SV2D)",
    "year": "2023",
    "number": "078/071",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV2D/078/high.webp"
   },
   "n0934": {
    "art": true,
@@ -2460,7 +2717,8 @@
    "set": "Mega Brave (M1L)",
    "year": "2025",
    "number": "070/063",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/M/M1L/070/high.webp"
   },
   "n0935": {
    "art": true,
@@ -2469,7 +2727,8 @@
    "set": "Inferno X (M2)",
    "year": "2025",
    "number": "083/080",
-   "value": 1.27
+   "value": 1.27,
+   "img": "https://assets.tcgdex.net/ja/M/M2/083/high.webp"
   },
   "n0936": {
    "art": true,
@@ -2478,7 +2737,8 @@
    "set": "Scarlet EX (sv1S)",
    "year": "2023",
    "number": "080/078",
-   "value": 3.7
+   "value": 3.7,
+   "img": "https://assets.tcgdex.net/ja/SV/SV1S/080/high.webp"
   },
   "n0937": {
    "art": true,
@@ -2487,7 +2747,8 @@
    "set": "Super Electric Breaker (SV8)",
    "year": "2024",
    "number": "109/106",
-   "value": 4.76
+   "value": 4.76,
+   "img": "https://assets.tcgdex.net/ja/SV/SV8/109/high.webp"
   },
   "n0940": {
    "art": true,
@@ -2496,7 +2757,8 @@
    "set": "Mask of Change (SV6)",
    "year": "2024",
    "number": "105/101",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV6/105/high.webp"
   },
   "n0944": {
    "art": true,
@@ -2505,7 +2767,8 @@
    "set": "Mega Evolution",
    "year": "2025",
    "number": "149/132",
-   "value": 1.69
+   "value": 1.69,
+   "img": "https://images.pokemontcg.io/me1/149_hires.png"
   },
   "n0945": {
    "art": true,
@@ -2514,7 +2777,8 @@
    "set": "Clay Burst (SV2D)",
    "year": "2023",
    "number": "080/071",
-   "value": 4.0
+   "value": 4.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV2D/080/high.webp"
   },
   "n0951": {
    "art": false,
@@ -2523,7 +2787,8 @@
    "set": "Ruler of the Black Flame (SV3)",
    "year": "2023",
    "number": "010/108",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://assets.tcgdex.net/ja/SV/SV3/010/high.webp"
   },
   "n0952": {
    "art": false,
@@ -2533,7 +2798,8 @@
    "set": "Ruler of the Black Flame (SV3)",
    "year": "2023",
    "number": "011/108",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://assets.tcgdex.net/ja/SV/SV3/011/high.webp"
   },
   "n0956": {
    "art": true,
@@ -2542,7 +2808,8 @@
    "set": "Future Flash (sv4m)",
    "year": "2023",
    "number": "073/066",
-   "value": 5.0
+   "value": 5.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV4M/073/high.webp"
   },
   "n0961": {
    "art": true,
@@ -2551,7 +2818,8 @@
    "set": "Paldean Fates",
    "year": "2024",
    "number": "224/091",
-   "value": 1.0
+   "value": 1.0,
+   "img": "https://images.pokemontcg.io/sv4pt5/224_hires.png"
   },
   "n0962": {
    "art": true,
@@ -2560,7 +2828,8 @@
    "set": "Violet EX (sv1V)",
    "year": "2023",
    "number": "089/078",
-   "value": 1.0
+   "value": 1.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV1V/089/high.webp"
   },
   "n0964": {
    "art": true,
@@ -2569,7 +2838,8 @@
    "set": "Paldean Fates",
    "year": "2024",
    "number": "225/091",
-   "value": 2.0
+   "value": 2.0,
+   "img": "https://images.pokemontcg.io/sv4pt5/225_hires.png"
   },
   "n0965": {
    "art": true,
@@ -2578,7 +2848,8 @@
    "set": "Obsidian Flames",
    "year": "2023",
    "number": "206/197",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://images.pokemontcg.io/sv3/206_hires.png"
   },
   "n0966": {
    "art": true,
@@ -2587,7 +2858,8 @@
    "set": "Obsidian Flames",
    "year": "2023",
    "number": "224/197",
-   "value": 5.0
+   "value": 5.0,
+   "img": "https://images.pokemontcg.io/sv3/224_hires.png"
   },
   "n0967": {
    "art": true,
@@ -2596,7 +2868,8 @@
    "set": "Raging Surf (sv3a)",
    "year": "2023",
    "number": "074/062",
-   "value": 4.0
+   "value": 4.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV3a/074/high.webp"
   },
   "n0972": {
    "art": true,
@@ -2605,7 +2878,8 @@
    "set": "Mega Symphonya (M1S)",
    "year": "2025",
    "number": "073/063",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/M/M1S/073/high.webp"
   },
   "n0976": {
    "art": true,
@@ -2614,7 +2888,8 @@
    "set": "Ancient Roar (sv4k)",
    "year": "2023",
    "number": "070/066",
-   "value": 4.0
+   "value": 4.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV4K/070/high.webp"
   },
   "n0977": {
    "art": true,
@@ -2623,7 +2898,8 @@
    "set": "Scarlet & Violet",
    "year": "2023",
    "number": "207/198",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://images.pokemontcg.io/sv1/207_hires.png"
   },
   "n0981": {
    "art": true,
@@ -2632,7 +2908,8 @@
    "set": "Clay Burst (SV2D)",
    "year": "2023",
    "number": "083/071",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV2D/083/high.webp"
   },
   "n0986": {
    "art": true,
@@ -2640,7 +2917,8 @@
    "lang": "ITA",
    "set": "Paradox Rift",
    "year": "2023",
-   "number": "207/182"
+   "number": "207/182",
+   "img": "https://images.pokemontcg.io/sv4/207_hires.png"
   },
   "n0988": {
    "art": false,
@@ -2649,7 +2927,8 @@
    "set": "Paradox Rift",
    "year": "2023",
    "number": "107/182",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://images.pokemontcg.io/sv4/107_hires.png"
   },
   "n0989": {
    "art": true,
@@ -2658,7 +2937,8 @@
    "set": "Terastal Festival (SV8a)",
    "year": "2024",
    "number": "215/187",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV8a/215/high.webp"
   },
   "n0990": {
    "art": true,
@@ -2667,7 +2947,8 @@
    "set": "Scarlet & Violet",
    "year": "2023",
    "number": "248/198",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://images.pokemontcg.io/sv1/248_hires.png"
   },
   "n0993": {
    "art": true,
@@ -2676,7 +2957,8 @@
    "set": "Future Flash (sv4m)",
    "year": "2023",
    "number": "078/066",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV4M/078/high.webp"
   },
   "n1000": {
    "art": true,
@@ -2685,7 +2967,8 @@
    "set": "Terastal Festival (SV8a)",
    "year": "2024",
    "number": "220/187",
-   "value": 10.0
+   "value": 10.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV8a/220/high.webp"
   },
   "n1007": {
    "art": false,
@@ -2694,7 +2977,8 @@
    "set": "Surging Sparks",
    "year": "2024",
    "number": "116/191",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://images.pokemontcg.io/sv8/116_hires.png"
   },
   "n1014": {
    "art": true,
@@ -2703,7 +2987,8 @@
    "set": "Mask of Change (SV6)",
    "year": "2024",
    "number": "110/101",
-   "value": 1.56
+   "value": 1.56,
+   "img": "https://assets.tcgdex.net/ja/SV/SV6/110/high.webp"
   },
   "n1016": {
    "art": true,
@@ -2712,7 +2997,8 @@
    "set": "Mask of Change (SV6)",
    "year": "2024",
    "number": "108/101",
-   "value": 3.0
+   "value": 3.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV6/108/high.webp"
   },
   "n1018": {
    "art": false,
@@ -2721,7 +3007,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "122/193",
-   "value": 0.05
+   "value": 0.05,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/122/high.webp"
   },
   "n1021": {
    "art": true,
@@ -2730,7 +3017,8 @@
    "set": "Terastal Festival (SV8a)",
    "year": "2024",
    "number": "222/187",
-   "value": 10.0
+   "value": 10.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV8a/222/high.webp"
   },
   "n1022": {
    "art": true,
@@ -2739,7 +3027,8 @@
    "set": "Terastal Festival (SV8a)",
    "year": "2024",
    "number": "207/162",
-   "value": 15.0
+   "value": 15.0,
+   "img": "https://assets.tcgdex.net/ja/SV/SV8a/207/high.webp"
   },
   "n1024": {
    "art": false,
@@ -2748,7 +3037,8 @@
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
    "number": "145/193",
-   "value": 0.1
+   "value": 0.1,
+   "img": "https://assets.tcgdex.net/ja/M/M2a/145/high.webp"
   },
   "m001": {
    "art": false,
@@ -2756,7 +3046,8 @@
    "lang": "KOR",
    "set": "Mega Brave (M1L)",
    "year": "2025",
-   "number": "003/063"
+   "number": "003/063",
+   "img": "https://assets.tcgdex.net/ja/M/M1L/003/high.webp"
   },
   "m002": {
    "art": true,
@@ -2764,7 +3055,8 @@
    "lang": "JPN",
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
-   "number": "223/193"
+   "number": "223/193",
+   "img": "https://assets.tcgdex.net/ja/M/M2a/223/high.webp"
   },
   "m005": {
    "art": false
@@ -2775,7 +3067,8 @@
    "lang": "ITA",
    "set": "Nihil Zero (M3)",
    "year": "2026",
-   "number": "031/088"
+   "number": "031/088",
+   "img": "https://assets.tcgdex.net/ja/M/M3/031/high.webp"
   },
   "m013": {
    "art": true,
@@ -2783,7 +3076,8 @@
    "lang": "JPN",
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
-   "number": "230/193"
+   "number": "230/193",
+   "img": "https://assets.tcgdex.net/ja/M/M2a/230/high.webp"
   },
   "m015": {
    "art": true,
@@ -2799,7 +3093,8 @@
    "lang": "JPN",
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
-   "number": "126/193"
+   "number": "126/193",
+   "img": "https://assets.tcgdex.net/ja/M/M2a/126/high.webp"
   },
   "m027": {
    "art": false,
@@ -2807,7 +3102,8 @@
    "lang": "JPN",
    "set": "Inferno X (M2)",
    "year": "2025",
-   "number": "093/080"
+   "number": "093/080",
+   "img": "https://assets.tcgdex.net/ja/M/M2/093/high.webp"
   },
   "m034": {
    "art": true,
@@ -2815,7 +3111,8 @@
    "lang": "JPN",
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
-   "number": "226/193"
+   "number": "226/193",
+   "img": "https://assets.tcgdex.net/ja/M/M2a/226/high.webp"
   },
   "m036": {
    "art": false,
@@ -2823,7 +3120,8 @@
    "lang": "KOR",
    "set": "Mega Brave (M1L)",
    "year": "2025",
-   "number": "046/063"
+   "number": "046/063",
+   "img": "https://assets.tcgdex.net/ja/M/M1L/046/high.webp"
   },
   "m040": {
    "art": false,
@@ -2831,7 +3129,8 @@
    "lang": "ENG",
    "set": "Phantasmal Flames",
    "year": "2025",
-   "number": "061/094"
+   "number": "061/094",
+   "img": "https://images.pokemontcg.io/me2/61_hires.png"
   },
   "m041": {
    "art": false,
@@ -2839,7 +3138,8 @@
    "lang": "ITA",
    "set": "Mega Evolution",
    "year": "2025",
-   "number": "022/132"
+   "number": "022/132",
+   "img": "https://images.pokemontcg.io/me1/22_hires.png"
   },
   "m045": {
    "art": false,
@@ -2847,7 +3147,8 @@
    "lang": "KOR",
    "set": "Mega Brave (M1L)",
    "year": "2025",
-   "number": "038/063"
+   "number": "038/063",
+   "img": "https://assets.tcgdex.net/ja/M/M1L/038/high.webp"
   },
   "m057": {
    "art": false,
@@ -2855,7 +3156,8 @@
    "lang": "KOR",
    "set": "Mega Brave (M1L)",
    "year": "2025",
-   "number": "029/063"
+   "number": "029/063",
+   "img": "https://assets.tcgdex.net/ja/M/M1L/029/high.webp"
   },
   "m061": {
    "art": true,
@@ -2863,7 +3165,8 @@
    "lang": "JPN",
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
-   "number": "233/193"
+   "number": "233/193",
+   "img": "https://assets.tcgdex.net/ja/M/M2a/233/high.webp"
   },
   "m068": {
    "art": true,
@@ -2871,7 +3174,8 @@
    "lang": "JPN",
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
-   "number": "231/193"
+   "number": "231/193",
+   "img": "https://assets.tcgdex.net/ja/M/M2a/231/high.webp"
   },
   "m069": {
    "art": true,
@@ -2879,7 +3183,8 @@
    "lang": "JPN",
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
-   "number": "225/193"
+   "number": "225/193",
+   "img": "https://assets.tcgdex.net/ja/M/M2a/225/high.webp"
   },
   "m070": {
    "art": false,
@@ -2887,7 +3192,8 @@
    "lang": "JPN",
    "set": "Abyss Eye (M5)",
    "year": "2026",
-   "number": "097/081"
+   "number": "097/081",
+   "img": "https://assets.tcgdex.net/ja/M/M5/097/high.webp"
   },
   "m074": {
    "art": false,
@@ -2895,7 +3201,8 @@
    "lang": "ENG",
    "set": "Chaos Rising (CRI)",
    "year": "2026",
-   "number": "81"
+   "number": "81",
+   "img": "https://images.scrydex.com/pokemon/me4-81/large"
   },
   "m076": {
    "art": true,
@@ -2903,7 +3210,8 @@
    "lang": "ENG",
    "set": "Chaos Rising (CRI)",
    "year": "2026",
-   "number": "117/086"
+   "number": "117/086",
+   "img": "https://images.scrydex.com/pokemon/me4-117/large"
   },
   "m081": {
    "art": true,
@@ -2911,7 +3219,8 @@
    "lang": "JPN",
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
-   "number": "229/193"
+   "number": "229/193",
+   "img": "https://assets.tcgdex.net/ja/M/M2a/229/high.webp"
   },
   "m083": {
    "art": true,
@@ -2919,7 +3228,8 @@
    "lang": "JPN",
    "set": "Mega Dream ex (M2a)",
    "year": "2026",
-   "number": "227/193"
+   "number": "227/193",
+   "img": "https://assets.tcgdex.net/ja/M/M2a/227/high.webp"
   },
   "r005": {
    "art": false,
@@ -2927,7 +3237,8 @@
    "lang": "ITA",
    "set": "Silver Tempest",
    "year": "2022",
-   "number": "034/195"
+   "number": "034/195",
+   "img": "https://images.pokemontcg.io/swsh12/34_hires.png"
   },
   "r008": {
    "art": true,
@@ -2935,7 +3246,8 @@
    "lang": "JPN",
    "set": "Super Electric Breaker (SV8)",
    "year": "2024",
-   "number": "116/106"
+   "number": "116/106",
+   "img": "https://assets.tcgdex.net/ja/SV/SV8/116/high.webp"
   },
   "r028": {
    "art": true,
@@ -2943,7 +3255,8 @@
    "lang": "JPN",
    "set": "VStar Univers (S12A)",
    "year": "2022",
-   "number": "190/172"
+   "number": "190/172",
+   "img": "https://assets.tcgdex.net/ja/S/S12a/190/high.webp"
   },
   "r038": {
    "art": true,
@@ -2951,7 +3264,8 @@
    "lang": "CHN",
    "set": "Twilight Masquerade",
    "year": "2024",
-   "number": "0207/07"
+   "number": "0207/07",
+   "img": "https://images.pokemontcg.io/sv6/207_hires.png"
   },
   "r039": {
    "art": false,
@@ -2959,7 +3273,8 @@
    "lang": "ITA",
    "set": "Twilight Masquerade",
    "year": "2024",
-   "number": "100/167"
+   "number": "100/167",
+   "img": "https://images.pokemontcg.io/sv6/100_hires.png"
   },
   "r042": {
    "art": false,
@@ -2967,7 +3282,8 @@
    "lang": "ITA",
    "set": "Astral Radiance",
    "year": "2022",
-   "number": "053/189"
+   "number": "053/189",
+   "img": "https://images.pokemontcg.io/swsh10/53_hires.png"
   },
   "r048": {
    "art": false,
@@ -2975,7 +3291,8 @@
    "lang": "JPN",
    "set": "VStar Univers (S12A)",
    "year": "2022",
-   "number": "129/172"
+   "number": "129/172",
+   "img": "https://assets.tcgdex.net/ja/S/S12a/129/high.webp"
   },
   "r053": {
    "art": false,
@@ -2983,7 +3300,8 @@
    "lang": "JPN",
    "set": "Battle Region (s9a)",
    "year": "2022",
-   "number": "044/067"
+   "number": "044/067",
+   "img": "https://assets.tcgdex.net/ja/S/S9a/044/high.webp"
   }
  }
 }

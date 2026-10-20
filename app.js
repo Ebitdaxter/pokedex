@@ -2,9 +2,12 @@
 (() => {
   'use strict';
 
-  const SPRITE = p => `https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/${p}/Normal.png`;
+  // all PMDCollab portraits packed in one 40x30 atlas (40px cells)
+  const ATLAS = { cols: 40, rows: 30 };
+  const spritePos = e => `--sx:${(e.si % ATLAS.cols) / (ATLAS.cols - 1) * 100}%;--sy:${Math.floor(e.si / ATLAS.cols) / (ATLAS.rows - 1) * 100}%`;
+  const sprite = e => `<i class="sp" style="${spritePos(e)}"></i>`;
   const TCG_API = 'https://api.pokemontcg.io/v2/cards';
-  const LS = { col: 'pdx.collection.v1', gh: 'pdx.github.v1', ui: 'pdx.ui.v1', cache: 'pdx.tcgcache.v1' };
+  const LS = { col: 'pdx.collection.v2', gh: 'pdx.github.v1', ui: 'pdx.ui.v2', cache: 'pdx.tcgcache.v1' };
   const GROUPS = [
     ...[1, 2, 3, 4, 5, 6, 7, 8, 9].map(g => ({ id: 'g' + g, tab: 'Gen ' + ['I','II','III','IV','V','VI','VII','VIII','IX'][g - 1],
       title: ['Kanto', 'Johto', 'Hoenn', 'Sinnoh', 'Unima', 'Kalos', 'Alola', 'Galar', 'Paldea'][g - 1], cols: 4 })),
@@ -33,7 +36,7 @@
   let remote = null;          // collection as loaded from the repo
   let col = { version: 1, updated: null, cards: {} };
   let dirty = false;          // local changes not yet pushed to GitHub
-  const ui = Object.assign({ group: 'g1', filter: 'all', view: 'binder', q: '' }, store.get(LS.ui, {}));
+  const ui = Object.assign({ group: 'g1', filter: 'all', view: 'grid', q: '' }, store.get(LS.ui, {}));
   const tcgCache = store.get(LS.cache, {});
   let current = null;         // entry open in detail
 
@@ -121,18 +124,16 @@
     const no = e.group.startsWith('g') ? dexStr(e.dex) : (e.region || dexStr(e.dex));
     if (!c) {
       return `<button class="pocket missing" data-id="${e.id}" aria-label="${esc(label)}, mancante">
-        <span class="no">${esc(no)}</span><span class="spr"><img loading="lazy" alt="" src="${SPRITE(e.sprite)}" data-fallback="${String(e.dex).padStart(4, '0')}"></span>
+        <span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span>
         <span class="nm">${esc(e.name)}</span></button>`;
     }
     const art = c.art ? '<span class="badge-art" title="Art rare">A</span>' : '';
-    if (c.img) {
-      return `<button class="pocket owned has-img" data-id="${e.id}" aria-label="${esc(label)}, ${esc(c.set || 'carta presente')}">
-        <img class="card" loading="lazy" alt="" src="${esc(c.img)}">${art}</button>`;
-    }
+    // card photo on top; if it can't load, the coloured sprite tile underneath shows instead
     const meta = [c.rarity, c.lang, c.set].filter(Boolean).join(' · ');
-    return `<button class="pocket owned" style="${typeVars(e)}" data-id="${e.id}" aria-label="${esc(label)}, presente">
-      <span class="no">${esc(no)}</span>${art}<span class="spr"><img loading="lazy" alt="" src="${SPRITE(e.sprite)}" data-fallback="${String(e.dex).padStart(4, '0')}"></span>
-      <span class="meta">${esc(meta)}</span><span class="nm">${esc(e.name)}</span></button>`;
+    const img = c.img && !badImg.has(c.img) ? `<img class="card" loading="lazy" decoding="async" alt="" src="${esc(c.img)}">` : '';
+    return `<button class="pocket owned${img ? ' has-img' : ''}" style="${typeVars(e)}" data-id="${e.id}" aria-label="${esc(label)}, ${esc(c.set || 'presente')}">
+      <span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span>
+      <span class="meta">${esc(meta)}</span><span class="nm">${esc(e.name)}</span>${img}${art}</button>`;
   }
 
   function renderContent() {
@@ -176,12 +177,13 @@
     store.set(LS.ui, { group: ui.group, filter: ui.filter, view: ui.view });
   }
 
-  // sprite fallback (form portrait missing → base species)
+  // card photo failed (missing on the source, or blocked) → remember and show the sprite tile
+  const badImg = new Set();
   document.addEventListener('error', ev => {
     const img = ev.target;
-    if (img.tagName === 'IMG' && img.dataset.fallback && !img.dataset.fellBack) {
-      img.dataset.fellBack = '1'; img.src = SPRITE(img.dataset.fallback);
-    }
+    if (img.tagName !== 'IMG') return;
+    if (img.classList.contains('card')) { badImg.add(img.getAttribute('src')); img.closest('.pocket')?.classList.remove('has-img'); img.remove(); }
+    if (img.classList.contains('big')) { badImg.add(img.getAttribute('src')); img.replaceWith(Object.assign(document.createElement('div'), { className: 'ph', textContent: 'Immagine non disponibile: scegli la carta qui sotto' })); }
   }, true);
 
   /* ---------------- detail dialog ---------------- */
@@ -196,7 +198,7 @@
 
   function fillDetail() {
     const e = current, c = card(e.id);
-    $('#dSprite').src = SPRITE(e.sprite); $('#dSprite').dataset.fallback = String(e.dex).padStart(4, '0'); delete $('#dSprite').dataset.fellBack;
+    $('#dSprite').setAttribute('style', spritePos(e));
     $('#dSprite').closest('.poke-art').classList.toggle('ghost', !c);
     $('#dNo').textContent = dexStr(e.dex) + (e.region ? ` · forma di ${e.region}` : e.group === 'mega' ? ' · megaevoluzione' : '');
     $('#dName').textContent = e.name;
