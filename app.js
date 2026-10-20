@@ -1,15 +1,16 @@
-/* Il mio Pokédex — binder-style card tracker. Vanilla JS, no build step. */
+/* Gotta Catch 'em All — Pokédex delle carte. Vanilla JS, nessun build step. */
 (() => {
   'use strict';
 
-  // all PMDCollab portraits packed in one 40x30 atlas (40px cells)
+  // PMDCollab portraits packed in one 40x30 atlas (40px cells)
   const ATLAS = { cols: 40, rows: 30 };
   const spritePos = e => `--sx:${(e.si % ATLAS.cols) / (ATLAS.cols - 1) * 100}%;--sy:${Math.floor(e.si / ATLAS.cols) / (ATLAS.rows - 1) * 100}%`;
   const sprite = e => `<i class="sp" style="${spritePos(e)}"></i>`;
-  const TCG_API = 'https://api.pokemontcg.io/v2/cards';
-  const LS = { col: 'pdx.collection.v2', gh: 'pdx.github.v1', ui: 'pdx.ui.v2', cache: 'pdx.tcgcache.v1' };
+  const PTCG = 'https://api.pokemontcg.io/v2/cards';
+  const TCGDEX = 'https://api.tcgdex.net/v2';
+  const LS = { col: 'pdx.collection.v3', gh: 'pdx.github.v1', ui: 'pdx.ui.v3', price: 'pdx.prices.v1' };
   const GROUPS = [
-    ...[1, 2, 3, 4, 5, 6, 7, 8, 9].map(g => ({ id: 'g' + g, tab: 'Gen ' + ['I','II','III','IV','V','VI','VII','VIII','IX'][g - 1],
+    ...[1, 2, 3, 4, 5, 6, 7, 8, 9].map(g => ({ id: 'g' + g, tab: 'Gen ' + ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'][g - 1],
       title: ['Kanto', 'Johto', 'Hoenn', 'Sinnoh', 'Unima', 'Kalos', 'Alola', 'Galar', 'Paldea'][g - 1], cols: 4 })),
     { id: 'mega', tab: 'Mega', title: 'Megaevoluzioni', cols: 3 },
     { id: 'regional', tab: 'Regionali', title: 'Forme regionali', cols: 3 },
@@ -21,6 +22,18 @@
     Fighting: 'Lotta', Poison: 'Veleno', Ground: 'Terra', Flying: 'Volante', Psychic: 'Psico', Bug: 'Coleottero', Rock: 'Roccia',
     Ghost: 'Spettro', Dragon: 'Drago', Dark: 'Buio', Steel: 'Acciaio', Fairy: 'Folletto' };
   const STAT_LABELS = ['PS', 'Attacco', 'Difesa', 'Att. Sp.', 'Dif. Sp.', 'Velocità'];
+  const ART_RC = new Set(['AR', 'SAR', 'CHR', 'CSR', 'MA']);
+  const RC_LABEL = { Common: 'Comune', Uncommon: 'Non comune', Rare: 'Rara', RR: 'Doppia rara', RRR: 'Tripla rara', AR: 'Art rare', SAR: 'Special art rare',
+    SR: 'Super rara', UR: 'Secret / Hyper rare', MUR: 'Mega hyper rare', MA: 'Mega attack rare', CHR: 'Character rare', CSR: 'Character super rare',
+    S: 'Shiny', SSR: 'Shiny super rare', ACE: 'ACE SPEC', K: 'Radiante', PR: 'Promo', CC: 'Classic collection', AMZ: 'Amazing rare' };
+  const RFILTERS = [
+    ['all', 'Tutte le rarità', () => true],
+    ['art', 'Art (AR, SAR, CHR…)', r => ART_RC.has(r)],
+    ['secret', 'Secret / SR / UR', r => ['SR', 'UR', 'MUR', 'SSR', 'MA'].includes(r)],
+    ['holo', 'RR / RRR / Rare', r => ['RR', 'RRR', 'Rare', 'K', 'ACE', 'AMZ'].includes(r)],
+    ['base', 'Comuni e non comuni', r => ['Common', 'Uncommon'].includes(r)],
+  ];
+  const LANGS = { int: ['ITA', 'ENG', 'FRA', 'DEU', 'ESP', 'POR'], jp: ['JPN', 'KOR', 'CHN'] };
 
   const $ = s => document.querySelector(s);
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -31,16 +44,38 @@
   };
   const eur = n => (n || 0).toLocaleString('it-IT', { style: 'currency', currency: 'EUR' });
   const dexStr = n => '#' + String(n).padStart(4, '0');
+  const uid = () => Math.random().toString(36).slice(2, 10);
 
   let ENTRIES = [], BY_ID = new Map(), SETS = [];
-  let remote = null;          // collection as loaded from the repo
-  let col = { version: 1, updated: null, cards: {} };
-  let dirty = false;          // local changes not yet pushed to GitHub
-  const ui = Object.assign({ group: 'g1', filter: 'all', view: 'grid', q: '' }, store.get(LS.ui, {}));
-  const tcgCache = store.get(LS.cache, {});
-  let current = null;         // entry open in detail
+  let remote = null, col = { version: 2, updated: null, cards: {} }, dirty = false;
+  const ui = Object.assign({ group: 'g1', filter: 'all', view: 'grid', q: '', src: 'all', rf: 'all', langInt: 'ITA', langJp: 'JPN' }, store.get(LS.ui, {}));
+  const priceCache = store.get(LS.price, {});   // cid -> {p, t}
+  let current = null, selUid = null;
 
-  /* ---------------- data load ---------------- */
+  /* ---------------- collection model ---------------- */
+  // col.cards[entryId] = { cover: <uid>, list: [ {uid, cid?, src?, set, sid?, number, rarity, rc, lang, variant, year, img, price, value, art} ] }
+  function migrate(c) {
+    const out = { version: 2, updated: c.updated || null, cards: {} };
+    for (const [k, v] of Object.entries(c.cards || {})) {
+      if (v && Array.isArray(v.list)) {
+        v.list.forEach(x => { x.uid = x.uid || uid(); });
+        if (typeof v.cover === 'number') v.cover = v.list[v.cover]?.uid;
+        if (!v.list.some(x => x.uid === v.cover)) v.cover = v.list[0]?.uid;
+        if (v.list.length) out.cards[k] = v;
+      } else if (v) {
+        const x = Object.assign({ uid: uid(), rc: v.rarity }, v);
+        out.cards[k] = { cover: x.uid, list: [x] };
+      }
+    }
+    return out;
+  }
+  const mine = id => col.cards[id]?.list || [];
+  const isOwned = id => mine(id).length > 0;
+  const cover = id => { const e = col.cards[id]; return e && (e.list.find(x => x.uid === e.cover) || e.list[0]); };
+  const cardValue = x => +(x.value ?? x.price ?? 0) || 0;
+  const isArt = x => x.art ?? ART_RC.has(x.rc);
+
+  /* ---------------- load ---------------- */
   async function load() {
     const [p, c, s] = await Promise.all([
       fetch('data/pokedex.json').then(r => r.json()),
@@ -48,207 +83,195 @@
       fetch('data/sets.json').then(r => r.json()).catch(() => []),
     ]);
     ENTRIES = p; ENTRIES.forEach(e => BY_ID.set(e.id, e)); SETS = s;
-    remote = c || { version: 1, updated: null, cards: {} };
-    const local = store.get(LS.col, null);
-    if (local && local.dirty && (!remote.updated || local.updated >= remote.updated)) {
-      col = local.data; dirty = true;
-    } else {
-      col = structuredClone(remote); dirty = false; store.del(LS.col);
-    }
+    remote = migrate(c || {});
+    const local = store.get(LS.col, null) || store.get('pdx.collection.v2', null);
+    if (local && local.dirty && (!remote.updated || local.updated >= remote.updated)) { col = migrate(local.data); dirty = true; }
+    else { col = structuredClone(remote); dirty = false; store.del(LS.col); }
     $('#setList').innerHTML = SETS.map(x => `<option value="${esc(x.name)}">${esc(x.year)}</option>`).join('');
     initGithubFields();
     renderAll();
   }
-
   function persist() {
-    col.updated = new Date().toISOString();
-    dirty = true;
+    col.updated = new Date().toISOString(); dirty = true;
     store.set(LS.col, { dirty: true, updated: col.updated, data: col });
     renderSync();
   }
 
-  const card = id => col.cards[id];
-  const isOwned = id => !!col.cards[id];
-
-  /* ---------------- render: header ---------------- */
+  /* ---------------- header ---------------- */
   function renderTotals() {
-    const owned = ENTRIES.filter(e => isOwned(e.id));
     const main = ENTRIES.filter(e => e.group.startsWith('g'));
-    const mainOwned = main.filter(e => isOwned(e.id)).length;
-    const art = owned.filter(e => card(e.id).art).length;
-    const value = owned.reduce((s, e) => s + (+card(e.id).value || 0), 0);
+    const all = ENTRIES.flatMap(e => mine(e.id));
     $('#totals').innerHTML = `
-      <div><dt>Pokédex</dt><dd>${mainOwned}<small>/ ${main.length}</small></dd></div>
-      <div><dt>Carte</dt><dd>${owned.length}</dd></div>
-      <div><dt>Art rare</dt><dd>${art}</dd></div>
-      <div><dt>Valore</dt><dd>${eur(value)}</dd></div>`;
+      <div><dt>Pokédex</dt><dd>${main.filter(e => isOwned(e.id)).length}<small>/ ${main.length}</small></dd></div>
+      <div><dt>Carte</dt><dd>${all.length}</dd></div>
+      <div><dt>Art rare</dt><dd>${all.filter(isArt).length}</dd></div>
+      <div><dt>Valore</dt><dd>${eur(all.reduce((s, x) => s + cardValue(x), 0))}</dd></div>`;
   }
-
   function renderTabs() {
     $('#tabs').innerHTML = GROUPS.map(g => {
-      const list = ENTRIES.filter(e => e.group === g.id);
-      const n = list.filter(e => isOwned(e.id)).length;
+      const list = ENTRIES.filter(e => e.group === g.id), n = list.filter(e => isOwned(e.id)).length;
       const pct = list.length ? Math.round(n / list.length * 100) : 0;
       return `<button class="tab" role="tab" data-group="${g.id}" aria-selected="${ui.group === g.id}">
         <b>${g.tab}</b><span>${n}/${list.length} · ${pct}%</span><i class="meter"><i style="width:${pct}%"></i></i></button>`;
     }).join('');
   }
-
   function renderSync() {
     $('#dirtyDot').hidden = !dirty;
     const t = col.updated ? new Date(col.updated).toLocaleString('it-IT', { dateStyle: 'medium', timeStyle: 'short' }) : '—';
-    $('#syncState').textContent = dirty ? `Modifiche salvate nel browser, non ancora su GitHub` : `Aggiornato ${t}`;
+    $('#syncState').textContent = dirty ? 'Modifiche salvate nel browser, non ancora su GitHub' : `Aggiornato ${t}`;
   }
 
-  /* ---------------- render: content ---------------- */
+  /* ---------------- grid / binder ---------------- */
   function matches(e) {
-    const c = card(e.id);
-    if (ui.filter === 'owned' && !c) return false;
-    if (ui.filter === 'missing' && c) return false;
-    if (ui.filter === 'art' && !(c && c.art)) return false;
+    const l = mine(e.id);
+    if (ui.filter === 'owned' && !l.length) return false;
+    if (ui.filter === 'missing' && l.length) return false;
+    if (ui.filter === 'art' && !l.some(isArt)) return false;
     if (ui.q) {
       const q = ui.q.toLowerCase().replace(/^#0*/, '');
       if (!(e.name.toLowerCase().includes(q) || String(e.dex) === q)) return false;
     }
     return true;
   }
-
-  function typeVars(e) {
-    const a = TYPE_COLORS[e.types[0]] || '#888', b = TYPE_COLORS[e.types[1]] || a;
-    return `--t1:${a};--t2:${b}`;
-  }
+  const typeVars = e => { const a = TYPE_COLORS[e.types[0]] || '#888', b = TYPE_COLORS[e.types[1]] || a; return `--t1:${a};--t2:${b}`; };
+  const badImg = new Set();
 
   function pocket(e) {
-    const c = card(e.id);
+    const c = cover(e.id), n = mine(e.id).length;
     const label = e.group === 'regional' ? `${e.name} di ${e.region}` : e.name;
     const no = e.group.startsWith('g') ? dexStr(e.dex) : (e.region || dexStr(e.dex));
     if (!c) {
       return `<button class="pocket missing" data-id="${e.id}" aria-label="${esc(label)}, mancante">
-        <span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span>
-        <span class="nm">${esc(e.name)}</span></button>`;
+        <span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span><span class="nm">${esc(e.name)}</span></button>`;
     }
-    const art = c.art ? '<span class="badge-art" title="Art rare">A</span>' : '';
-    // card photo on top; if it can't load, the coloured sprite tile underneath shows instead
-    const meta = [c.rarity, c.lang, c.set].filter(Boolean).join(' · ');
+    const meta = [c.rc, c.lang, c.set].filter(Boolean).join(' · ');
     const img = c.img && !badImg.has(c.img) ? `<img class="card" loading="lazy" decoding="async" alt="" src="${esc(c.img)}">` : '';
-    return `<button class="pocket owned${img ? ' has-img' : ''}" style="${typeVars(e)}" data-id="${e.id}" aria-label="${esc(label)}, ${esc(c.set || 'presente')}">
+    const art = mine(e.id).some(isArt) ? '<span class="badge-art" title="Art rare">A</span>' : '';
+    const count = n > 1 ? `<span class="badge-n" title="${n} carte">${n}</span>` : '';
+    return `<button class="pocket owned${img ? ' has-img' : ''}" style="${typeVars(e)}" data-id="${e.id}" aria-label="${esc(label)}, ${n} ${n > 1 ? 'carte' : 'carta'}">
       <span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span>
-      <span class="meta">${esc(meta)}</span><span class="nm">${esc(e.name)}</span>${img}${art}</button>`;
+      <span class="meta">${esc(meta)}</span><span class="nm">${esc(e.name)}</span>${img}${art}${count}</button>`;
   }
 
   function renderContent() {
     const g = GROUPS.find(x => x.id === ui.group) || GROUPS[0];
-    const all = ENTRIES.filter(e => e.group === g.id);
-    const list = all.filter(matches);
+    const all = ENTRIES.filter(e => e.group === g.id), list = all.filter(matches);
     const n = all.filter(e => isOwned(e.id)).length;
-    const first = all[0], last = all[all.length - 1];
-    const range = g.id.startsWith('g') ? `${dexStr(first.dex)}–${dexStr(last.dex)}` : `${all.length} forme`;
+    const range = g.id.startsWith('g') ? `${dexStr(all[0].dex)}–${dexStr(all[all.length - 1].dex)}` : `${all.length} forme`;
     $('#sectionHead').innerHTML = `<h2>${g.title}</h2><p>${range} · ${n} di ${all.length} nel raccoglitore</p>`;
-
     if (!list.length) {
       $('#content').innerHTML = `<p class="empty">${ui.q ? `Nessun Pokémon trovato per “${esc(ui.q)}” in questa sezione.` : 'Niente da mostrare con questo filtro.'}</p>`;
       return;
     }
-    if (ui.view === 'grid' || ui.q) {
-      $('#content').innerHTML = `<div class="grid">${list.map(pocket).join('')}</div>`;
-      return;
-    }
-    // binder: group by physical page, keep true pocket positions
-    const per = g.cols * g.cols;
-    const pages = new Map();
-    for (const e of list) {
-      if (!pages.has(e.page)) pages.set(e.page, new Array(per).fill(null));
-      pages.get(e.page)[e.pos - 1] = e;
-    }
-    const html = [...pages.entries()].sort((a, b) => a[0] - b[0]).map(([p, slots]) => {
-      const inPage = ENTRIES.filter(e => e.group === g.id && e.page === p);
-      const own = inPage.filter(e => isOwned(e.id)).length;
+    if (ui.view === 'grid' || ui.q) { $('#content').innerHTML = `<div class="grid">${list.map(pocket).join('')}</div>`; return; }
+    const per = g.cols * g.cols, pages = new Map();
+    for (const e of list) { if (!pages.has(e.page)) pages.set(e.page, new Array(per).fill(null)); pages.get(e.page)[e.pos - 1] = e; }
+    $('#content').innerHTML = `<div class="pages">${[...pages.entries()].sort((a, b) => a[0] - b[0]).map(([p, slots]) => {
+      const inPage = all.filter(e => e.page === p), own = inPage.filter(e => isOwned(e.id)).length;
       return `<section class="page" aria-label="Pagina ${p}"><div class="page-label"><b>Pagina ${p}</b><span>${own}/${inPage.length}</span></div>
         <div class="pockets c${g.cols}">${slots.map(e => e ? pocket(e) : '<div class="pocket void" aria-hidden="true"></div>').join('')}</div></section>`;
-    }).join('');
-    $('#content').innerHTML = `<div class="pages">${html}</div>`;
+    }).join('')}</div>`;
   }
-
   function renderAll() { renderTotals(); renderTabs(); renderContent(); renderSync(); syncControls(); }
-
   function syncControls() {
     document.querySelectorAll('#filterSeg button').forEach(b => b.setAttribute('aria-checked', b.dataset.filter === ui.filter));
     document.querySelectorAll('#viewSeg button').forEach(b => b.setAttribute('aria-checked', b.dataset.view === ui.view));
-    store.set(LS.ui, { group: ui.group, filter: ui.filter, view: ui.view });
+    const { q, ...keep } = ui; store.set(LS.ui, keep);
   }
+  let refreshT;
+  function refreshAfterEdit() { clearTimeout(refreshT); refreshT = setTimeout(() => { renderTotals(); renderTabs(); renderContent(); }, 120); }
 
-  // card photo failed (missing on the source, or blocked) → remember and show the sprite tile
-  const badImg = new Set();
   document.addEventListener('error', ev => {
     const img = ev.target;
     if (img.tagName !== 'IMG') return;
-    if (img.classList.contains('card')) { badImg.add(img.getAttribute('src')); img.closest('.pocket')?.classList.remove('has-img'); img.remove(); }
-    if (img.classList.contains('big')) { badImg.add(img.getAttribute('src')); img.replaceWith(Object.assign(document.createElement('div'), { className: 'ph', textContent: 'Immagine non disponibile: scegli la carta qui sotto' })); }
+    const src = img.getAttribute('src');
+    if (img.classList.contains('card')) { badImg.add(src); img.closest('.pocket')?.classList.remove('has-img'); img.remove(); }
+    else if (img.dataset.ph != null) { badImg.add(src); img.replaceWith(Object.assign(document.createElement('div'), { className: 'img-ph', textContent: img.dataset.ph || 'Foto non disponibile' })); }
   }, true);
 
-  /* ---------------- detail dialog ---------------- */
+  /* ---------------- detail ---------------- */
   const dlg = $('#detail'), form = $('#cardForm');
 
   function openDetail(id) {
     current = BY_ID.get(id); if (!current) return;
-    fillDetail();
+    selUid = cover(id)?.uid || null;
+    fillPoke(); renderMine(); fillForm();
     if (!dlg.open) dlg.showModal();
-    loadCandidates();
+    dlg.querySelector('.mine').scrollTop = 0;
+    loadCatalog();
   }
-
-  function fillDetail() {
-    const e = current, c = card(e.id);
+  function fillPoke() {
+    const e = current;
     $('#dSprite').setAttribute('style', spritePos(e));
-    $('#dSprite').closest('.poke-art').classList.toggle('ghost', !c);
+    $('#dSprite').closest('.poke-art').classList.toggle('ghost', !isOwned(e.id));
     $('#dNo').textContent = dexStr(e.dex) + (e.region ? ` · forma di ${e.region}` : e.group === 'mega' ? ' · megaevoluzione' : '');
     $('#dName').textContent = e.name;
     $('#dTypes').innerHTML = e.types.map(t => `<span class="type" style="--c:${TYPE_COLORS[t] || '#888'}">${TYPE_IT[t] || t}</span>`).join('');
     $('#dWhere').textContent = `Raccoglitore: pagina ${e.page}, tasca ${e.pos}`;
     $('#dStats').innerHTML = e.stats ? e.stats.map((v, i) => `<span>${STAT_LABELS[i]}</span><b>${v ?? '–'}</b><i style="--w:${Math.min(100, (v || 0) / 180 * 100)}%"></i>`).join('') : '';
-    $('#fOwned').checked = !!c;
-    form.classList.toggle('off', !c);
+  }
+
+  const thumb = (src, ph, cls = '') => src && !badImg.has(src) ? `<img class="${cls}" loading="lazy" alt="" src="${esc(src)}" data-ph="${esc(ph)}">` : `<div class="img-ph">${esc(ph)}</div>`;
+  const rcBadge = rc => rc ? `<span class="rc rc-${esc(rc)}${ART_RC.has(rc) ? ' art' : ''}" title="${esc(RC_LABEL[rc] || rc)}">${esc(rc)}</span>` : '';
+
+  function renderMine() {
+    const l = mine(current.id), cv = cover(current.id);
+    $('#mineCount').textContent = l.length ? `${l.length} ${l.length > 1 ? 'carte' : 'carta'} · ${eur(l.reduce((s, x) => s + cardValue(x), 0))}` : '';
+    $('#mineList').innerHTML = l.length ? l.map(x => `
+      <div class="own${x.uid === selUid ? ' sel' : ''}" data-uid="${x.uid}">
+        <button type="button" class="own-pick" data-act="select" aria-label="Modifica ${esc(x.set || 'carta')}">${thumb(x.img, x.set || 'Carta')}</button>
+        <button type="button" class="star${x.uid === cv?.uid ? ' on' : ''}" data-act="cover" aria-pressed="${x.uid === cv?.uid}" title="${x.uid === cv?.uid ? 'Anteprima nel raccoglitore' : 'Usa come anteprima'}">★</button>
+        <span class="own-meta">${rcBadge(x.rc)} ${esc(x.lang || '')}<br>${esc(x.set || '—')} ${esc(x.number || '')}</span>
+      </div>`).join('') : `<p class="none">Nessuna carta registrata. Scegline una dal catalogo qui sotto: foto, rarità e valore si compilano da soli.</p>`;
+    $('#editWrap').hidden = !l.length || !selUid;
+  }
+
+  function fillForm() {
+    const x = mine(current.id).find(c => c.uid === selUid);
+    $('#editWrap').hidden = !x;
+    if (!x) return;
+    $('#editTitle').textContent = [x.set, x.number].filter(Boolean).join(' · ') || 'Carta aggiunta a mano';
     for (const el of form.elements) {
       if (!el.name) continue;
-      if (el.type === 'checkbox') el.checked = !!(c && c[el.name]);
-      else el.value = c && c[el.name] != null ? c[el.name] : '';
+      if (el.type === 'checkbox') el.checked = !!isArt(x);
+      else if (el.name === 'value') { el.value = x.value ?? ''; el.placeholder = x.price != null ? `Cardmarket ${eur(x.price)}` : 'es. 4,50'; }
+      else el.value = x[el.name] ?? '';
     }
-    renderCardBox();
-    const q = encodeURIComponent(e.name.replace(/^Mega /, '').replace(/ (X|Y|Z)$/, ''));
-    $('#extLinks').innerHTML = `Non la trovi? Cercala su <a href="https://www.tcgcollector.com/cards/intl?cardSearch=${q}" target="_blank" rel="noopener">TCGCollector (internazionale)</a> o <a href="https://www.tcgcollector.com/cards/jp?cardSearch=${q}" target="_blank" rel="noopener">TCGCollector (Giappone)</a>, poi incolla l'URL dell'immagine nel campo qui sopra.`;
-    $('#finderFilter').value = '';
-  }
-
-  function renderCardBox() {
-    const c = card(current.id);
-    const box = $('#cardBox');
-    if (!c) { box.innerHTML = `<div class="ph">Non ancora nel raccoglitore</div><p class="summary">Attiva “Ce l'ho” oppure scegli direttamente una carta qui sotto.</p>`; return; }
-    const title = [c.set, c.number].filter(Boolean).join(' ') || 'Carta presente';
-    const line2 = [c.rarity, c.lang, c.year, c.variant].filter(Boolean).join(' · ');
-    box.innerHTML = (c.img ? `<img class="big" alt="Carta ${esc(current.name)}" src="${esc(c.img)}">` : `<div class="ph">Nessuna immagine: scegli la carta qui sotto</div>`) +
-      `<p class="summary"><strong>${esc(title)}</strong>${esc(line2)}${c.value ? `<br>Valore: ${eur(+c.value)}` : ''}${c.art ? '<br>Art rare' : ''}</p>`;
-  }
-
-  function setOwned(on) {
-    if (on && !card(current.id)) col.cards[current.id] = { art: false };
-    if (!on) delete col.cards[current.id];
-    persist(); fillDetail(); refreshAfterEdit();
-    toast(on ? `${current.name} aggiunto` : `${current.name} rimosso`);
+    const ls = form.elements.lang;
+    $('#priceNote').textContent = x.price != null ? `Prezzo Cardmarket (trend): ${eur(x.price)}${x.priceAt ? ' · ' + new Date(x.priceAt).toLocaleDateString('it-IT') : ''}. Lascia vuoto “Valore” per usarlo.` : x.cid ? 'Prezzo Cardmarket non disponibile per questa carta.' : '';
+    ls.value = x.lang || '';
   }
 
   function readForm() {
-    const c = card(current.id); if (!c) return;
+    const x = mine(current.id).find(c => c.uid === selUid); if (!x) return;
     for (const el of form.elements) {
       if (!el.name) continue;
-      if (el.type === 'checkbox') c[el.name] = el.checked;
-      else if (el.name === 'value') { const v = parseFloat(el.value.replace(',', '.')); if (isNaN(v)) delete c.value; else c.value = v; }
-      else if (el.value.trim()) c[el.name] = el.value.trim(); else delete c[el.name];
+      if (el.type === 'checkbox') x.art = el.checked;
+      else if (el.name === 'value') { const v = parseFloat(el.value.replace(',', '.')); if (isNaN(v)) delete x.value; else x.value = v; }
+      else if (el.value.trim()) x[el.name] = el.value.trim(); else delete x[el.name];
     }
-    if (c.set && !c.year) { const s = SETS.find(x => x.name === c.set); if (s) { c.year = String(s.year); form.elements.year.value = c.year; } }
-    persist(); renderCardBox(); refreshAfterEdit();
+    if (form.elements.rc.value) x.rc = form.elements.rc.value;
+    if (x.set && !x.year) { const s = SETS.find(z => z.name === x.set); if (s) x.year = String(s.year); }
+    persist(); renderMine(); refreshAfterEdit();
   }
 
-  let refreshT;
-  function refreshAfterEdit() { clearTimeout(refreshT); refreshT = setTimeout(() => { renderTotals(); renderTabs(); renderContent(); }, 120); }
+  function addCard(x) {
+    const entry = col.cards[current.id] || (col.cards[current.id] = { cover: null, list: [] });
+    entry.list.push(x);
+    if (!entry.cover || entry.list.length === 1) entry.cover = x.uid;
+    selUid = x.uid;
+    persist(); fillPoke(); renderMine(); fillForm(); renderCatalog(); refreshAfterEdit();
+  }
+  function removeCard(u) {
+    const entry = col.cards[current.id]; if (!entry) return;
+    entry.list = entry.list.filter(x => x.uid !== u);
+    if (!entry.list.length) delete col.cards[current.id];
+    else if (entry.cover === u) entry.cover = entry.list[0].uid;
+    selUid = cover(current.id)?.uid || null;
+    persist(); fillPoke(); renderMine(); fillForm(); renderCatalog(); refreshAfterEdit();
+    toast('Carta rimossa');
+  }
+  function setCover(u) { col.cards[current.id].cover = u; persist(); renderMine(); refreshAfterEdit(); toast('Anteprima aggiornata'); }
 
   function step(dir) {
     const list = ENTRIES.filter(e => e.group === current.group && matches(e));
@@ -257,181 +280,223 @@
     if (nx) openDetail(nx.id);
   }
 
-  /* ---------------- card finder (pokemontcg.io) ---------------- */
-  let candidates = [], candToken = 0;
-
-  async function fetchCards(dex) {
-    const hit = tcgCache[dex];
-    if (hit && Date.now() - hit.t < 1000 * 60 * 60 * 24 * 14) return hit.cards;
-    const url = `${TCG_API}?q=nationalPokedexNumbers:${dex}&orderBy=-set.releaseDate&pageSize=250&select=id,name,number,rarity,set,images`;
-    const r = await fetch(url);
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    const j = await r.json();
-    const cards = j.data.map(x => ({ id: x.id, name: x.name, number: x.number, total: x.set.printedTotal, rarity: x.rarity || '',
-      set: x.set.name, series: x.set.series, date: x.set.releaseDate, sm: x.images.small, lg: x.images.large }));
-    tcgCache[dex] = { t: Date.now(), cards };
-    if (!store.set(LS.cache, tcgCache)) { for (const k in tcgCache) if (k != dex) delete tcgCache[k]; store.set(LS.cache, tcgCache); }
-    return cards;
+  /* ---------------- catalog ---------------- */
+  let catalog = [], catToken = 0, catLimit = 60;
+  const catCache = new Map();
+  async function fetchCatalog(dex) {
+    if (!catCache.has(dex)) catCache.set(dex, fetch(`data/cards/${String(dex).padStart(4, '0')}.json`).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }));
+    return catCache.get(dex);
   }
-
   function relevant(e, list) {
-    // narrow to the form shown in this pocket
+    const MEGA = /^(M |Mega |メガ)/, REG = /Alolan|Galarian|Hisuian|Paldean|アローラ|ガラル|ヒスイ|パルデア/;
     if (e.group === 'mega') {
       const suf = (e.name.match(/ (X|Y|Z)$/) || [])[1];
-      const m = list.filter(c => /^M |^Mega /i.test(c.name) && (!suf || c.name.includes(' ' + suf)));
-      return m.length ? m : list;
+      const m = list.filter(c => MEGA.test(c.n) && (!suf || c.n.includes(suf)));
+      return m.length ? m : list.filter(c => MEGA.test(c.n)).length ? list.filter(c => MEGA.test(c.n)) : list;
     }
     if (e.group === 'regional') {
-      const adj = { Alola: 'Alolan', Galar: 'Galarian', Hisui: 'Hisuian', Paldea: 'Paldean' }[e.region];
-      const m = list.filter(c => c.name.includes(adj));
-      return m.length ? m : list;
+      const k = { Alola: /Alolan|アローラ/, Galar: /Galarian|ガラル/, Hisui: /Hisuian|ヒスイ/, Paldea: /Paldean|パルデア/ }[e.region];
+      const m = list.filter(c => k.test(c.n)); return m.length ? m : list;
     }
-    return list.filter(c => !/^(M |Mega )|Alolan|Galarian|Hisuian|Paldean/.test(c.name)).length ? list.filter(c => !/^(M |Mega )|Alolan|Galarian|Hisuian|Paldean/.test(c.name)) : list;
+    const base = list.filter(c => !MEGA.test(c.n) && !REG.test(c.n));
+    return base.length ? base : list;
   }
-
-  async function loadCandidates() {
-    const e = current, tk = ++candToken;
-    $('#finderGrid').innerHTML = '';
-    $('#finderNote').textContent = 'Carico le carte di ' + e.name + '…';
+  async function loadCatalog() {
+    const e = current, tk = ++catToken; catLimit = 60;
+    $('#catGrid').innerHTML = ''; $('#catNote').textContent = 'Carico il catalogo…'; $('#catMore').hidden = true;
     try {
-      const list = relevant(e, await fetchCards(e.dex));
-      if (tk !== candToken) return;
-      candidates = list;
-      $('#finderNote').textContent = list.length ? `${list.length} carte dal catalogo internazionale, dalla più recente. Tocca una carta per registrarla.` : 'Nessuna carta trovata nel catalogo internazionale.';
-      renderCandidates();
-    } catch (err) {
-      if (tk !== candToken) return;
-      $('#finderNote').textContent = 'Catalogo carte non raggiungibile al momento. Puoi comunque compilare i campi a mano.';
+      const list = relevant(e, await fetchCatalog(e.dex));
+      if (tk !== catToken) return;
+      catalog = list; renderCatalog();
+      loadIntPrices(e.dex, tk);
+    } catch { if (tk === catToken) $('#catNote').textContent = 'Catalogo non disponibile. Puoi aggiungere la carta a mano.'; }
+  }
+  function filteredCatalog() {
+    const f = $('#catFilter').value.trim().toLowerCase(), rf = (RFILTERS.find(r => r[0] === ui.rf) || RFILTERS[0])[2];
+    return catalog.filter(c => (ui.src === 'all' || c.src === ui.src) && rf(c.rc) &&
+      (!f || `${c.set} ${c.setJa || ''} ${c.sid} ${c.no} ${c.r} ${c.n}`.toLowerCase().includes(f)));
+  }
+  function renderCatalog() {
+    if (!current) return;
+    document.querySelectorAll('#srcSeg button').forEach(b => b.setAttribute('aria-checked', b.dataset.src === ui.src));
+    $('#rarityFilter').value = ui.rf;
+    const list = filteredCatalog(), ownedC = new Set(mine(current.id).map(x => x.cid).filter(Boolean));
+    const nInt = catalog.filter(c => c.src === 'int').length, nJp = catalog.length - nInt;
+    $('#catNote').textContent = catalog.length ? `${list.length} di ${catalog.length} carte (${nInt} internazionali, ${nJp} giapponesi), dalla più recente. Tocca una carta per aggiungerla.` : 'Nessuna carta in catalogo per questo Pokémon.';
+    $('#catGrid').innerHTML = list.slice(0, catLimit).map(c => {
+      const cid = c.src + ':' + c.id, p = priceCache[cid];
+      const tot = c.tot ? `/${c.tot}` : '';
+      return `<button type="button" class="cand${ownedC.has(cid) ? ' have' : ''}" data-cid="${esc(cid)}">
+        <span class="cand-img">${thumb(c.sm, `${c.set} ${c.no}`)}${c.alt ? '<i class="alt" title="Foto della versione internazionale">EN</i>' : ''}${ownedC.has(cid) ? '<i class="tick" aria-label="Già nella collezione">✓</i>' : ''}</span>
+        <span class="cand-info"><b>${esc(c.set)}</b><span>${esc(c.no)}${tot} · ${esc((c.date || '').slice(0, 4))} · ${c.src === 'jp' ? 'JP' : 'INT'}</span>
+        <span class="cand-row">${rcBadge(c.rc)}<span class="price" data-price="${esc(cid)}">${p ? (p.p != null ? eur(p.p) : '—') : ''}</span></span></span></button>`;
+    }).join('');
+    $('#catMore').hidden = list.length <= catLimit;
+    $('#catMore').textContent = `Mostra altre ${Math.min(60, list.length - catLimit)}`;
+    loadJpPrices(list.slice(0, catLimit).filter(c => c.src === 'jp'));
+  }
+  function paintPrice(cid) {
+    const el = document.querySelector(`[data-price="${CSS.escape(cid)}"]`); const p = priceCache[cid];
+    if (el && p) el.textContent = p.p != null ? eur(p.p) : '—';
+  }
+  function savePrices() {
+    if (!store.set(LS.price, priceCache)) { // trim oldest if storage is full
+      Object.entries(priceCache).sort((a, b) => a[1].t - b[1].t).slice(0, 2000).forEach(([k]) => delete priceCache[k]); store.set(LS.price, priceCache);
     }
   }
+  const fresh = p => p && Date.now() - p.t < 1000 * 60 * 60 * 24 * 3;
 
-  function renderCandidates() {
-    const f = $('#finderFilter').value.trim().toLowerCase();
-    const c = card(current.id);
-    const list = f ? candidates.filter(x => (x.set + ' ' + x.rarity + ' ' + x.series + ' ' + x.name).toLowerCase().includes(f)) : candidates;
-    $('#finderGrid').innerHTML = list.map(x => `<button type="button" class="cand${c && c.tcgId === x.id ? ' sel' : ''}" data-cid="${esc(x.id)}">
-      <img loading="lazy" alt="" src="${esc(x.sm)}"><span>${esc(x.set)} · ${esc(x.number)}/${esc(x.total)}${x.rarity ? '<br>' + esc(x.rarity) : ''}</span></button>`).join('');
+  // international prices: pokemontcg.io (Cardmarket trend, EUR), one call per Pokémon
+  async function loadIntPrices(dex, tk) {
+    const need = catalog.filter(c => c.src === 'int' && !fresh(priceCache['int:' + c.id]));
+    if (!need.length) return;
+    try {
+      for (let page = 1; page <= 4; page++) {
+        const r = await fetch(`${PTCG}?q=nationalPokedexNumbers:${dex}&pageSize=250&page=${page}&select=id,cardmarket`);
+        if (!r.ok) break;
+        const j = await r.json();
+        for (const c of j.data) {
+          const pr = c.cardmarket?.prices; const v = pr ? (pr.trendPrice || pr.averageSellPrice || pr.avg30 || null) : null;
+          priceCache['int:' + c.id] = { p: v, t: Date.now() };
+          if (tk === catToken) paintPrice('int:' + c.id);
+        }
+        if (j.data.length < 250) break;
+      }
+      need.forEach(c => { if (!priceCache['int:' + c.id]) priceCache['int:' + c.id] = { p: null, t: Date.now() }; if (tk === catToken) paintPrice('int:' + c.id); });
+      savePrices();
+    } catch {}
   }
-
-  function pickCandidate(cid) {
-    const x = candidates.find(c => c.id === cid); if (!x) return;
-    const prev = card(current.id) || {};
-    col.cards[current.id] = Object.assign({}, prev, {
-      set: x.set, year: (x.date || '').slice(0, 4), number: `${x.number}/${x.total}`, rarity: shortRarity(x.rarity) || prev.rarity,
-      img: x.lg, tcgId: x.id, art: prev.art || /Illustration|Special Art|Character|Trainer Gallery/i.test(x.rarity),
-      lang: prev.lang || 'ENG',
-    });
-    persist(); fillDetail(); renderCandidates(); refreshAfterEdit();
-    toast('Carta registrata');
+  // Japanese prices: TCGdex card detail (Cardmarket), fetched for visible cards only
+  const jpQueue = new Set(); let jpRunning = 0;
+  function loadJpPrices(list) {
+    list.forEach(c => { const cid = 'jp:' + c.id; if (!fresh(priceCache[cid])) jpQueue.add(c.id); });
+    pumpJp();
   }
-
-  function shortRarity(r) {
-    const m = { 'Common': 'Common', 'Uncommon': 'Uncommon', 'Rare': 'Rare', 'Rare Holo': 'Rare', 'Double Rare': 'RR', 'Illustration Rare': 'AR',
-      'Special Illustration Rare': 'SAR', 'Ultra Rare': 'SR', 'Hyper Rare': 'UR', 'Rare Ultra': 'SR', 'Rare Secret': 'UR', 'Rare Rainbow': 'UR',
-      'Promo': 'Promo', 'ACE SPEC Rare': 'ACE', 'Trainer Gallery Rare Holo': 'CHR', 'Rare Holo V': 'RR', 'Rare Holo VMAX': 'RRR', 'Rare Holo EX': 'RR', 'Rare Holo GX': 'RR' };
-    return m[r] || r;
+  async function jpPrice(id) {
+    const r = await fetch(`${TCGDEX}/ja/cards/${encodeURIComponent(id)}`);
+    if (!r.ok) return null;
+    const j = await r.json(); const cm = j.pricing?.cardmarket || j.variants_detailed?.find(v => v.pricing?.cardmarket)?.pricing.cardmarket;
+    return cm ? (cm.trend || cm.avg || cm.avg30 || null) : null;
   }
-
-  /* ---------------- auto-match images for seeded cards ---------------- */
-  const normSet = s => (s || '').toLowerCase().replace(/\(.*?\)/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
-  const normNo = s => (s || '').split('/')[0].replace(/^0+/, '').toLowerCase();
-
-  async function autoMatch() {
-    const btn = $('#autoMatch'); btn.disabled = true;
-    const todo = ENTRIES.filter(e => { const c = card(e.id); return c && !c.img && c.set && c.number; });
-    let done = 0, found = 0;
-    const out = $('#matchStatus');
-    for (const e of todo) {
-      out.textContent = `Controllo ${++done} di ${todo.length}… (${found} abbinate)`;
-      try {
-        const list = await fetchCards(e.dex);
-        const c = card(e.id);
-        const hit = list.find(x => normSet(x.set) === normSet(c.set) && normNo(x.number) === normNo(c.number));
-        if (hit) { c.img = hit.lg; c.tcgId = hit.id; found++; }
-      } catch { out.textContent = 'Catalogo non raggiungibile: riprova più tardi.'; break; }
-      await new Promise(r => setTimeout(r, 120));
+  function pumpJp() {
+    while (jpRunning < 6 && jpQueue.size) {
+      const id = jpQueue.values().next().value; jpQueue.delete(id); jpRunning++;
+      jpPrice(id).catch(() => null).then(p => {
+        priceCache['jp:' + id] = { p, t: Date.now() }; paintPrice('jp:' + id);
+        jpRunning--; if (!jpQueue.size && !jpRunning) savePrices(); pumpJp();
+      });
     }
-    if (found) { persist(); renderAll(); }
-    out.textContent = `Fatto: ${found} immagini abbinate su ${todo.length} carte senza immagine.`;
-    btn.disabled = false;
+  }
+  async function priceFor(c) {
+    const cid = c.src + ':' + c.id;
+    if (fresh(priceCache[cid])) return priceCache[cid].p;
+    if (c.src === 'jp') { const p = await jpPrice(c.id).catch(() => null); priceCache[cid] = { p, t: Date.now() }; savePrices(); return p; }
+    try {
+      const r = await fetch(`${PTCG}/${encodeURIComponent(c.id)}?select=id,cardmarket`); const j = await r.json();
+      const pr = j.data?.cardmarket?.prices; const p = pr ? (pr.trendPrice || pr.averageSellPrice || null) : null;
+      priceCache[cid] = { p, t: Date.now() }; savePrices(); return p;
+    } catch { return null; }
+  }
+
+  function pickCatalog(cid) {
+    const c = catalog.find(x => x.src + ':' + x.id === cid); if (!c) return;
+    const lang = c.src === 'jp' ? ui.langJp : ui.langInt;
+    const x = { uid: uid(), cid, src: c.src, set: c.set + (c.src === 'jp' && !/\(/.test(c.set) ? ` (${c.sid})` : ''), sid: c.sid,
+      number: c.no + (c.tot ? '/' + c.tot : ''), rarity: c.r, rc: c.rc, lang, year: (c.date || '').slice(0, 4), img: c.img || null,
+      art: ART_RC.has(c.rc), price: priceCache[cid]?.p ?? null, priceAt: priceCache[cid] ? priceCache[cid].t : null };
+    addCard(x);
+    toast(`Aggiunta: ${c.set} ${c.no} · ${lang}`);
+    if (!fresh(priceCache[cid])) priceFor(c).then(p => { x.price = p; x.priceAt = Date.now(); persist(); if (current && selUid === x.uid) fillForm(); renderMine(); refreshAfterEdit(); paintPrice(cid); });
+  }
+  function addManual() {
+    addCard({ uid: uid(), lang: ui.langInt, art: false });
+    form.elements.set.focus();
+  }
+
+  /* ---------------- refresh all prices ---------------- */
+  async function refreshPrices() {
+    const btn = $('#refreshPrices'), out = $('#priceStatus'); btn.disabled = true;
+    const todo = ENTRIES.flatMap(e => mine(e.id)).filter(x => x.cid);
+    let done = 0;
+    for (const x of todo) {
+      out.textContent = `Aggiorno ${++done} di ${todo.length}…`;
+      const [src, ...rest] = x.cid.split(':'); const id = rest.join(':');
+      delete priceCache[x.cid];
+      const p = await priceFor({ src, id });
+      if (p != null) { x.price = p; x.priceAt = Date.now(); }
+    }
+    persist(); renderAll();
+    out.textContent = `Prezzi aggiornati per ${todo.length} carte.`; btn.disabled = false;
   }
 
   /* ---------------- GitHub sync ---------------- */
   function ghDefaults() {
     const h = location.hostname, seg = location.pathname.split('/').filter(Boolean)[0];
-    if (h.endsWith('.github.io')) return { owner: h.split('.')[0], repo: seg || h, branch: 'main' };
-    return { owner: '', repo: '', branch: 'main' };
+    return h.endsWith('.github.io') ? { owner: h.split('.')[0], repo: seg || h, branch: 'main' } : { owner: '', repo: '', branch: 'main' };
   }
-  function ghCfg() { return Object.assign(ghDefaults(), store.get(LS.gh, {})); }
-  function initGithubFields() {
-    const c = ghCfg();
-    $('#ghOwner').value = c.owner || ''; $('#ghRepo').value = c.repo || ''; $('#ghBranch').value = c.branch || 'main'; $('#ghToken').value = c.token || '';
-  }
+  const ghCfg = () => Object.assign(ghDefaults(), store.get(LS.gh, {}));
+  function initGithubFields() { const c = ghCfg(); $('#ghOwner').value = c.owner || ''; $('#ghRepo').value = c.repo || ''; $('#ghBranch').value = c.branch || 'main'; $('#ghToken').value = c.token || ''; }
   function saveGhFields() {
     const c = { owner: $('#ghOwner').value.trim(), repo: $('#ghRepo').value.trim(), branch: $('#ghBranch').value.trim() || 'main', token: $('#ghToken').value.trim() };
     store.set(LS.gh, c); return c;
   }
-  const b64 = str => btoa(String.fromCharCode(...new TextEncoder().encode(str)));
+  const b64 = str => { const b = new TextEncoder().encode(str); let s = ''; for (let i = 0; i < b.length; i += 0x8000) s += String.fromCharCode(...b.subarray(i, i + 0x8000)); return btoa(s); };
   const unb64 = s => new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\n/g, '')), c => c.charCodeAt(0)));
-
   async function gh(path, opts = {}) {
     const c = saveGhFields();
     if (!c.owner || !c.repo) throw new Error('Indica utente e repository.');
     const r = await fetch(`https://api.github.com/repos/${c.owner}/${c.repo}/contents/${path}${opts.method ? '' : `?ref=${encodeURIComponent(c.branch)}`}`, {
-      ...opts, headers: { Accept: 'application/vnd.github+json', ...(c.token ? { Authorization: `Bearer ${c.token}` } : {}), ...(opts.headers || {}) } });
+      ...opts, cache: 'no-store', headers: { Accept: 'application/vnd.github+json', ...(c.token ? { Authorization: `Bearer ${c.token}` } : {}), ...(opts.headers || {}) } });
     if (!r.ok) {
       const msg = { 401: 'Token non valido o scaduto.', 403: 'Il token non ha il permesso di scrittura su questo repository.', 404: 'Repository o file non trovato (o token senza accesso).', 409: 'Conflitto: il file è cambiato, ricarica e riprova.', 422: 'Dati rifiutati da GitHub.' }[r.status];
       throw new Error(msg || `Errore GitHub ${r.status}`);
     }
     return r.json();
   }
-
   async function ghSave() {
     const st = $('#ghStatus'), c = saveGhFields();
     if (!c.token) { st.textContent = 'Serve un token per salvare su GitHub.'; return; }
     $('#ghSave').disabled = true; st.textContent = 'Salvataggio in corso…';
     try {
-      let sha;
-      try { sha = (await gh('data/collection.json')).sha; } catch (e) { if (!/non trovato/.test(e.message)) throw e; }
+      let sha; try { sha = (await gh('data/collection.json')).sha; } catch (e) { if (!/non trovato/.test(e.message)) throw e; }
       col.updated = new Date().toISOString();
-      const body = { message: `Aggiorna collezione (${Object.keys(col.cards).length} carte)`, content: b64(JSON.stringify(col, null, 1)), branch: c.branch, ...(sha ? { sha } : {}) };
-      await gh('data/collection.json', { method: 'PUT', body: JSON.stringify(body), headers: { 'Content-Type': 'application/json' } });
+      const n = ENTRIES.reduce((s, e) => s + mine(e.id).length, 0);
+      await gh('data/collection.json', { method: 'PUT', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: `Aggiorna collezione (${n} carte)`, content: b64(JSON.stringify(col, null, 1)), branch: c.branch, ...(sha ? { sha } : {}) }) });
       remote = structuredClone(col); dirty = false; store.del(LS.col); renderSync();
-      st.textContent = 'Salvato su GitHub. Il sito pubblico si aggiorna entro un paio di minuti.';
-      toast('Salvato su GitHub');
+      st.textContent = 'Salvato su GitHub. Il sito pubblico si aggiorna entro un paio di minuti.'; toast('Salvato su GitHub');
     } catch (e) { st.textContent = e.message; }
     $('#ghSave').disabled = false;
   }
-
   async function ghPull() {
-    const st = $('#ghStatus');
-    if (dirty && !confirmLoss()) return;
-    st.textContent = 'Scarico da GitHub…';
+    const st = $('#ghStatus'); st.textContent = 'Scarico da GitHub…';
     try {
       const f = await gh('data/collection.json');
-      col = JSON.parse(unb64(f.content)); remote = structuredClone(col); dirty = false; store.del(LS.col);
+      col = migrate(JSON.parse(unb64(f.content))); remote = structuredClone(col); dirty = false; store.del(LS.col);
       renderAll(); st.textContent = 'Collezione ricaricata da GitHub.';
     } catch (e) { st.textContent = e.message; }
   }
-  function confirmLoss() { return window.confirm('Hai modifiche non salvate su GitHub. Vuoi scartarle?'); }
 
   /* ---------------- export / import ---------------- */
   function download(name, text, type) {
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([text], { type })); a.download = name; a.click();
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type })); a.download = name; a.click();
     setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   }
   function exportCsv() {
-    const head = ['Sezione', 'Pokedex #', 'Nome', 'Regione', 'Gen', 'Pagina', 'Posizione', 'Cielo/Manca', 'Art Flag', 'Tipo', 'Lingua', 'Variante', 'Expansion', 'Year', 'Card #', 'Value', 'Immagine'];
+    const head = ['Sezione', 'Pokedex #', 'Nome', 'Regione', 'Gen', 'Pagina', 'Posizione', 'Anteprima', 'Art Flag', 'Rarità', 'Lingua', 'Variante', 'Expansion', 'Year', 'Card #', 'Valore', 'Prezzo Cardmarket', 'Immagine'];
     const q = v => { v = v == null ? '' : String(v); return /[;"\n]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v; };
-    const rows = ENTRIES.map(e => { const c = card(e.id) || {}; const g = GROUPS.find(x => x.id === e.group);
-      return [g.tab, e.dex, e.name, e.region, e.gen, e.page, e.pos, isOwned(e.id) ? 'TRUE' : 'FALSE', c.art ? 'TRUE' : 'FALSE', c.rarity, c.lang, c.variant, c.set, c.year, c.number, c.value != null ? String(c.value).replace('.', ',') : '', c.img]; });
+    const num = v => v != null ? String(v).replace('.', ',') : '';
+    const rows = [];
+    for (const e of ENTRIES) {
+      const g = GROUPS.find(x => x.id === e.group), l = mine(e.id), cv = cover(e.id);
+      if (!l.length) rows.push([g.tab, e.dex, e.name, e.region, e.gen, e.page, e.pos, '', '', '', '', '', '', '', '', '', '', '']);
+      for (const x of l) rows.push([g.tab, e.dex, e.name, e.region, e.gen, e.page, e.pos, x.uid === cv.uid ? 'TRUE' : 'FALSE', isArt(x) ? 'TRUE' : 'FALSE', x.rc, x.lang, x.variant, x.set, x.year, x.number, num(x.value), num(x.price), x.img]);
+    }
     download('pokedex.csv', '﻿' + [head, ...rows].map(r => r.map(q).join(';')).join('\r\n'), 'text/csv;charset=utf-8');
   }
 
-  /* ---------------- toast ---------------- */
   let toastT;
-  function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 1800); }
+  function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 2000); }
 
   /* ---------------- events ---------------- */
   $('#tabs').addEventListener('click', ev => { const b = ev.target.closest('.tab'); if (!b) return; ui.group = b.dataset.group; renderTabs(); renderContent(); syncControls(); window.scrollTo({ top: 0 }); });
@@ -440,46 +505,57 @@
   let qT; $('#search').addEventListener('input', ev => {
     clearTimeout(qT); qT = setTimeout(() => {
       ui.q = ev.target.value.trim();
-      if (ui.q) { // jump to the section holding the first match
-        const here = ENTRIES.some(e => e.group === ui.group && matches(e));
-        if (!here) { const hit = ENTRIES.find(matches); if (hit) { ui.group = hit.group; renderTabs(); syncControls(); } }
-      }
+      if (ui.q && !ENTRIES.some(e => e.group === ui.group && matches(e))) { const hit = ENTRIES.find(matches); if (hit) { ui.group = hit.group; renderTabs(); syncControls(); } }
       renderContent();
     }, 140);
   });
   $('#content').addEventListener('click', ev => { const p = ev.target.closest('.pocket[data-id]'); if (p) openDetail(p.dataset.id); });
-  $('#fOwned').addEventListener('change', ev => setOwned(ev.target.checked));
+  $('#mineList').addEventListener('click', ev => {
+    const own = ev.target.closest('.own'); if (!own) return;
+    const act = ev.target.closest('[data-act]')?.dataset.act;
+    if (act === 'cover') setCover(own.dataset.uid);
+    else { selUid = own.dataset.uid; renderMine(); fillForm(); }
+  });
+  $('#removeCard').addEventListener('click', () => { if (selUid) removeCard(selUid); });
   form.addEventListener('change', readForm);
   form.addEventListener('submit', ev => ev.preventDefault());
-  $('#finderGrid').addEventListener('click', ev => { const b = ev.target.closest('.cand'); if (b) pickCandidate(b.dataset.cid); });
-  $('#finderFilter').addEventListener('input', renderCandidates);
+  $('#catGrid').addEventListener('click', ev => { const b = ev.target.closest('.cand'); if (b) pickCatalog(b.dataset.cid); });
+  $('#catFilter').addEventListener('input', () => { catLimit = 60; renderCatalog(); });
+  $('#rarityFilter').addEventListener('change', ev => { ui.rf = ev.target.value; catLimit = 60; syncControls(); renderCatalog(); });
+  $('#srcSeg').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; ui.src = b.dataset.src; catLimit = 60; syncControls(); renderCatalog(); });
+  $('#catMore').addEventListener('click', () => { catLimit += 60; renderCatalog(); });
+  $('#addManual').addEventListener('click', addManual);
+  $('#langInt').addEventListener('change', ev => { ui.langInt = ev.target.value; syncControls(); });
+  $('#langJp').addEventListener('change', ev => { ui.langJp = ev.target.value; syncControls(); });
   $('#dPrev').addEventListener('click', () => step(-1));
   $('#dNext').addEventListener('click', () => step(1));
-  dlg.addEventListener('keydown', ev => {
-    if (ev.target.matches('input, select, textarea')) return;
-    if (ev.key === 'ArrowRight') step(1); if (ev.key === 'ArrowLeft') step(-1);
-  });
+  dlg.addEventListener('keydown', ev => { if (ev.target.matches('input, select, textarea')) return; if (ev.key === 'ArrowRight') step(1); if (ev.key === 'ArrowLeft') step(-1); });
   dlg.addEventListener('click', ev => { if (ev.target === dlg) dlg.close(); });
   $('#openSettings').addEventListener('click', () => { initGithubFields(); $('#settings').showModal(); });
   $('#settings').addEventListener('click', ev => { if (ev.target === $('#settings')) $('#settings').close(); });
   ['#ghOwner', '#ghRepo', '#ghBranch', '#ghToken'].forEach(s => $(s).addEventListener('change', saveGhFields));
   $('#ghSave').addEventListener('click', ghSave);
   $('#ghPull').addEventListener('click', ghPull);
-  $('#autoMatch').addEventListener('click', autoMatch);
+  $('#refreshPrices').addEventListener('click', refreshPrices);
   $('#exportJson').addEventListener('click', () => download('collection.json', JSON.stringify(col, null, 1), 'application/json'));
   $('#exportCsv').addEventListener('click', exportCsv);
   $('#importJson').addEventListener('change', async ev => {
     const f = ev.target.files[0]; if (!f) return;
-    try { const j = JSON.parse(await f.text()); if (!j.cards) throw 0; col = j; persist(); renderAll(); toast('Collezione importata'); }
+    try { const j = JSON.parse(await f.text()); if (!j.cards) throw 0; col = migrate(j); persist(); renderAll(); toast('Collezione importata'); }
     catch { toast('File non valido: serve un collection.json esportato da qui'); }
     ev.target.value = '';
   });
   $('#resetLocal').addEventListener('click', () => {
     if (!dirty) { toast('Nessuna modifica locale da scartare'); return; }
-    if (!confirmLoss()) return;
-    col = structuredClone(remote); dirty = false; store.del(LS.col); renderAll(); toast('Modifiche locali scartate');
+    const b = $('#resetLocal');
+    if (b.dataset.armed) { col = structuredClone(remote); dirty = false; store.del(LS.col); renderAll(); toast('Modifiche locali scartate'); delete b.dataset.armed; b.textContent = 'Scarta modifiche locali'; }
+    else { b.dataset.armed = '1'; b.textContent = 'Tocca di nuovo per confermare'; setTimeout(() => { delete b.dataset.armed; b.textContent = 'Scarta modifiche locali'; }, 4000); }
   });
-  window.addEventListener('beforeunload', ev => { /* local copy is already saved; nothing to block */ });
+
+  // language pickers in the catalog header
+  $('#langInt').innerHTML = LANGS.int.map(l => `<option${l === ui.langInt ? ' selected' : ''}>${l}</option>`).join('');
+  $('#langJp').innerHTML = LANGS.jp.map(l => `<option${l === ui.langJp ? ' selected' : ''}>${l}</option>`).join('');
+  $('#rarityFilter').innerHTML = RFILTERS.map(([k, l]) => `<option value="${k}">${l}</option>`).join('');
 
   load().catch(err => { $('#content').innerHTML = `<p class="empty">Impossibile caricare i dati (${esc(err.message)}). Apri il sito tramite GitHub Pages o un server locale.</p>`; });
 })();

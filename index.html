@@ -71,31 +71,52 @@
     </aside>
     <section class="mine">
       <div class="mine-head">
-        <h3>La mia carta</h3>
-        <label class="switch"><input type="checkbox" id="fOwned"><span>Ce l'ho</span></label>
+        <h3>Le mie carte</h3>
+        <span class="mine-count" id="mineCount"></span>
       </div>
-      <div id="cardBox" class="card-box"></div>
-      <form id="cardForm" class="card-form" autocomplete="off">
-        <label>Espansione<input name="set" list="setList"></label>
-        <label>Anno<input name="year" inputmode="numeric"></label>
-        <label>Numero<input name="number" placeholder="es. 065/063"></label>
-        <label>Rarità<input name="rarity" list="rarityList" placeholder="AR, SAR, RR…"></label>
-        <label>Lingua
-          <select name="lang"><option value="">—</option><option>ITA</option><option>JPN</option><option>ENG</option><option>KOR</option><option>FRA</option><option>CHN</option><option>DEU</option><option>ESP</option></select>
-        </label>
-        <label>Valore €<input name="value" inputmode="decimal"></label>
-        <label class="wide">Variante<input name="variant" placeholder="es. Reverse holo, Masterball…"></label>
-        <label class="wide">Immagine (URL)<input name="img" placeholder="Si compila scegliendo una carta qui sotto"></label>
-        <label class="check wide"><input type="checkbox" name="art"> Art rare (illustrazione a tutta carta)</label>
-      </form>
+      <div class="mine-list" id="mineList"></div>
+      <div class="edit" id="editWrap" hidden>
+        <div class="edit-head"><b id="editTitle"></b><button type="button" class="btn danger small" id="removeCard">Rimuovi</button></div>
+        <form id="cardForm" class="card-form" autocomplete="off">
+          <label>Lingua
+            <select name="lang"><option value="">—</option><option>ITA</option><option>JPN</option><option>ENG</option><option>KOR</option><option>FRA</option><option>DEU</option><option>ESP</option><option>POR</option><option>CHN</option></select>
+          </label>
+          <label>Valore €<input name="value" inputmode="decimal"></label>
+          <label>Rarità
+            <select name="rc"><option value="">—</option><option value="Common">Common</option><option value="Uncommon">Uncommon</option><option value="Rare">Rare</option><option value="RR">RR</option><option value="RRR">RRR</option><option value="AR">AR</option><option value="SAR">SAR</option><option value="SR">SR</option><option value="UR">UR</option><option value="MA">MA</option><option value="MUR">MUR</option><option value="CHR">CHR</option><option value="CSR">CSR</option><option value="S">Shiny</option><option value="ACE">ACE</option><option value="PR">Promo</option></select>
+          </label>
+          <label class="wide">Variante<input name="variant" placeholder="es. Reverse holo, Masterball, 1ª edizione…"></label>
+          <details class="wide more">
+            <summary>Dettagli carta</summary>
+            <div class="card-form">
+              <label class="wide">Espansione<input name="set" list="setList"></label>
+              <label>Numero<input name="number" placeholder="es. 065/063"></label>
+              <label>Anno<input name="year" inputmode="numeric"></label>
+              <label class="wide">Immagine (URL)<input name="img"></label>
+            </div>
+          </details>
+          <label class="check wide"><input type="checkbox" name="art"> Art rare (illustrazione a tutta carta)</label>
+        </form>
+        <p class="hint" id="priceNote"></p>
+      </div>
       <div class="finder">
         <div class="finder-head">
-          <h3>Scegli la carta</h3>
-          <input id="finderFilter" type="search" placeholder="Filtra per set o rarità" aria-label="Filtra carte">
+          <h3>Catalogo carte</h3>
+          <div class="seg small" role="radiogroup" aria-label="Edizione" id="srcSeg">
+            <button role="radio" data-src="all" aria-checked="true">Tutte</button>
+            <button role="radio" data-src="int" aria-checked="false">Internazionali</button>
+            <button role="radio" data-src="jp" aria-checked="false">Giapponesi</button>
+          </div>
         </div>
-        <p class="finder-note" id="finderNote"></p>
-        <div class="finder-grid" id="finderGrid"></div>
-        <p class="ext-links" id="extLinks"></p>
+        <div class="finder-tools">
+          <input id="catFilter" type="search" placeholder="Filtra per set o numero" aria-label="Filtra carte">
+          <select id="rarityFilter" aria-label="Rarità"></select>
+          <label class="lang-pick">Aggiungi come <select id="langInt" aria-label="Lingua carte internazionali"></select> / <select id="langJp" aria-label="Lingua carte giapponesi"></select></label>
+        </div>
+        <p class="finder-note" id="catNote"></p>
+        <div class="finder-grid" id="catGrid"></div>
+        <div class="row"><button class="btn quiet" id="catMore" type="button" hidden>Mostra altre</button><button class="btn quiet" id="addManual" type="button">Aggiungi carta non in elenco</button></div>
+        <p class="ext-links">Prezzi: trend Cardmarket in euro (via pokemontcg.io e TCGdex). Foto: pokemontcg.io e TCGdex; “EN” indica la foto della stampa internazionale.</p>
       </div>
     </section>
   </div>
@@ -122,10 +143,10 @@
     <p class="status" id="ghStatus" role="status"></p>
   </div>
   <div class="settings-block">
-    <h3>Immagini delle carte</h3>
-    <p class="hint">Cerca automaticamente l'immagine delle carte già registrate confrontando espansione e numero con il catalogo internazionale. Le carte solo giapponesi/coreane potrebbero non avere corrispondenza.</p>
-    <div class="row"><button class="btn quiet" id="autoMatch" type="button">Abbina immagini</button></div>
-    <p class="status" id="matchStatus" role="status"></p>
+    <h3>Valore della collezione</h3>
+    <p class="hint">Aggiorna il prezzo Cardmarket (trend) di tutte le carte scelte dal catalogo. Le carte con un valore inserito a mano mantengono il tuo valore.</p>
+    <div class="row"><button class="btn quiet" id="refreshPrices" type="button">Aggiorna prezzi</button></div>
+    <p class="status" id="priceStatus" role="status"></p>
   </div>
   <div class="settings-block">
     <h3>File</h3>

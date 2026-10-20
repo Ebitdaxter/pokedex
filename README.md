@@ -3,7 +3,8 @@
 Raccoglitore digitale delle mie carte Pokémon: 1025 Pokémon divisi per generazione, più Megaevoluzioni e forme regionali, con le stesse pagine e tasche del raccoglitore fisico.
 
 - Pokémon mancanti: sprite in scala di grigi. Pokémon presenti: a colori, o con l'immagine della carta scelta.
-- Tocca un Pokémon per registrare/modificare la carta e sceglierla dal catalogo (pokemontcg.io), oppure incollare un'immagine da TCGCollector.
+- Tocca un Pokémon: vedi il catalogo di tutte le sue carte (internazionali e giapponesi) con foto, rarità e prezzo Cardmarket; tocca una carta per aggiungerla. Puoi averne più di una e scegliere con ★ quella da mostrare come anteprima.
+- Catalogo: `data/cards/NNNN.json`, generato da [pokemon-tcg-data](https://github.com/PokemonTCG/pokemon-tcg-data) e [TCGdex](https://github.com/tcgdex/cards-database). Prezzi live da pokemontcg.io e api.tcgdex.net.
 - Sprite: [PMDCollab SpriteCollab](https://sprites.pmdcollab.org/).
 
 ## Pubblicazione (GitHub Pages)
