@@ -1,6 +1,6 @@
 {
  "version": 2,
- "updated": "2026-10-20T15:31:38.298Z",
+ "updated": "2026-10-20T16:10:35.914Z",
  "cards": {
   "n0001": {
    "cover": "37612vb6",
@@ -55,7 +55,7 @@
    ]
   },
   "n0004": {
-   "cover": "21yvwpzb",
+   "cover": "sprite-bw",
    "list": [
     {
      "uid": "7n5qybi8",
@@ -5748,7 +5748,7 @@
    ]
   },
   "n0003": {
-   "cover": "sprite",
+   "cover": "sprite-bw",
    "list": [
     {
      "uid": "olwibg0t",
@@ -5770,7 +5770,7 @@
    ]
   },
   "n0007": {
-   "cover": "sprite",
+   "cover": "sprite-bw",
    "list": [
     {
      "uid": "v8zfdoqh",
@@ -5792,7 +5792,7 @@
    ]
   },
   "n0008": {
-   "cover": "sprite",
+   "cover": "sprite-bw",
    "list": [
     {
      "uid": "zv7163yb",
@@ -7640,5 +7640,6 @@
    "desire": "Medium",
    "year": "2022"
   }
- ]
+ ],
+ "bubi": {}
 }
