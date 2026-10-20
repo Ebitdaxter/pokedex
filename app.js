@@ -25,11 +25,11 @@
   const ART_RC = new Set(['AR', 'SAR', 'CHR', 'CSR', 'MA']);
   const RC_LABEL = { Common: 'Comune', Uncommon: 'Non comune', Rare: 'Rara', RR: 'Doppia rara', RRR: 'Tripla rara', AR: 'Art rare', SAR: 'Special art rare',
     SR: 'Super rara', UR: 'Secret / Hyper rare', MUR: 'Mega hyper rare', MA: 'Mega attack rare', CHR: 'Character rare', CSR: 'Character super rare',
-    S: 'Shiny', SSR: 'Shiny super rare', ACE: 'ACE SPEC', K: 'Radiante', PR: 'Promo', CC: 'Classic collection', AMZ: 'Amazing rare' };
+    S: 'Shiny', SSR: 'Shiny super rare', ACE: 'ACE SPEC', K: 'Radiante', PR: 'Promo', CC: 'Classic collection', AMZ: 'Amazing rare', SEC: 'Secret (numero oltre il totale del set)' };
   const RFILTERS = [
     ['all', 'Tutte le rarità', () => true],
     ['art', 'Art (AR, SAR, CHR…)', r => ART_RC.has(r)],
-    ['secret', 'Secret / SR / UR', r => ['SR', 'UR', 'MUR', 'SSR', 'MA'].includes(r)],
+    ['secret', 'Secret / SR / UR', r => ['SR', 'UR', 'MUR', 'SSR', 'MA', 'SEC'].includes(r)],
     ['holo', 'RR / RRR / Rare', r => ['RR', 'RRR', 'Rare', 'K', 'ACE', 'AMZ'].includes(r)],
     ['base', 'Comuni e non comuni', r => ['Common', 'Uncommon'].includes(r)],
   ];
@@ -352,8 +352,10 @@
     if (!need.length) return;
     try {
       for (let page = 1; page <= 4; page++) {
-        const r = await fetch(`${PTCG}?q=nationalPokedexNumbers:${dex}&pageSize=250&page=${page}&select=id,cardmarket`);
-        if (!r.ok) break;
+        const url = `${PTCG}?q=nationalPokedexNumbers:${dex}&pageSize=250&page=${page}&select=`;
+        let r = await fetch(url + 'id,name,number,cardmarket').catch(() => null);
+        if (!r || !r.ok) r = await fetch(url + 'id,name,number,set,images,cardmarket').catch(() => null);
+        if (!r || !r.ok) break;
         const j = await r.json();
         for (const c of j.data) {
           const pr = c.cardmarket?.prices; const v = pr ? (pr.trendPrice || pr.averageSellPrice || pr.avg30 || null) : null;
@@ -392,7 +394,7 @@
     if (fresh(priceCache[cid])) return priceCache[cid].p;
     if (c.src === 'jp') { const p = await jpPrice(c.id).catch(() => null); priceCache[cid] = { p, t: Date.now() }; savePrices(); return p; }
     try {
-      const r = await fetch(`${PTCG}/${encodeURIComponent(c.id)}?select=id,cardmarket`); const j = await r.json();
+      const r = await fetch(`${PTCG}/${encodeURIComponent(c.id)}`); const j = await r.json();
       const pr = j.data?.cardmarket?.prices; const p = pr ? (pr.trendPrice || pr.averageSellPrice || null) : null;
       priceCache[cid] = { p, t: Date.now() }; savePrices(); return p;
     } catch { return null; }

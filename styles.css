@@ -232,7 +232,7 @@ details.more .card-form { margin-top: 8px; }
 
 .rc { display: inline-block; padding: 1px 6px; border-radius: 5px; font: 700 .66rem/1.4 var(--body); background: var(--line); color: var(--ink); }
 .rc.art { background: var(--gold); color: #3a2a00; }
-.rc-SR, .rc-UR, .rc-MUR, .rc-MA, .rc-SSR { background: #2b2f4a; color: #ffd86b; }
+.rc-SR, .rc-UR, .rc-MUR, .rc-MA, .rc-SSR, .rc-SEC { background: #2b2f4a; color: #ffd86b; }
 .badge-n { position: absolute; bottom: 5px; right: 5px; z-index: 6; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; background: var(--ink); color: var(--paper); font: 800 .62rem/18px var(--display); text-align: center; }
 
 /* ---------- catalog ---------- */
