@@ -476,3 +476,9 @@ main { padding-bottom: 110px; }
 .pocket.void::after { display: none; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pocket.missing::after { opacity: .35; } }
 :root[data-theme="dark"] .pocket.missing::after { opacity: .35; }
+
+/* pockets hidden by the filter in page view: black & white, faded */
+.pocket.dim { opacity: .45; }
+.pocket.dim .sp { filter: grayscale(1) !important; }
+.pocket.dim > img.card { filter: grayscale(1); }
+.pocket.dim.owned { background: linear-gradient(160deg, #3a3f4b, #9aa0ab); }

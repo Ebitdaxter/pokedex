@@ -198,12 +198,15 @@
     }
     if (ui.view === 'grid' || ui.q) { $('#content').innerHTML = `<div class="grid">${list.map(pocket).join('')}</div>`; return; }
     const per = g.cols * g.cols, pages = new Map();
-    for (const e of list) { if (!pages.has(e.page)) pages.set(e.page, new Array(per).fill(null)); pages.get(e.page)[e.pos - 1] = e; }
+    // a binder page keeps every pocket filled: Pokémon hidden by the filter still show (as their black & white sprite), only dimmed
+    const shown = new Set(list.map(e => e.page));
+    for (const e of all) { if (!shown.has(e.page)) continue; if (!pages.has(e.page)) pages.set(e.page, new Array(per).fill(null)); pages.get(e.page)[e.pos - 1] = e; }
+    const keep = new Set(list.map(e => e.id));
     const sorted = [...pages.entries()].sort((a, b) => a[0] - b[0]);
     $('#content').innerHTML = `<div class="album-nav" id="albumNav"><button type="button" class="btn quiet small" data-turn="-1" aria-label="Pagina precedente">‹</button><span id="albumPos"></span><button type="button" class="btn quiet small" data-turn="1" aria-label="Pagina successiva">›</button></div><div class="pages" id="pages">${sorted.map(([p, slots]) => {
       const inPage = all.filter(e => e.page === p), own = inPage.filter(e => isOwned(e.id)).length;
       return `<section class="page" aria-label="Pagina ${p}"><div class="page-label"><b>Pagina ${p}</b><span>${own}/${inPage.length}</span></div>
-        <div class="pockets c${g.cols}">${slots.map(e => e ? pocket(e) : '<div class="pocket void" aria-hidden="true"></div>').join('')}</div></section>`;
+        <div class="pockets c${g.cols}">${slots.map(e => e ? (keep.has(e.id) ? pocket(e) : pocket(e).replace('class="pocket ', 'class="pocket dim ')) : '<div class="pocket void" aria-hidden="true"></div>').join('')}</div></section>`;
     }).join('')}</div>`;
     initAlbum();
   }
