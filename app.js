@@ -8,7 +8,7 @@
   const sprite = e => `<i class="sp" style="${spritePos(e)}"></i>`;
   const PTCG = 'https://api.pokemontcg.io/v2/cards';
   const TCGDEX = 'https://api.tcgdex.net/v2';
-  const LS = { col: 'pdx.collection.v3', gh: 'pdx.github.v1', ui: 'pdx.ui.v3', price: 'pdx.prices.v1' };
+  const LS = { col: 'pdx.collection.v3', gh: 'pdx.github.v1', ui: 'pdx.ui.v3', price: 'pdx.prices.v2' };
   const GROUPS = [
     ...[1, 2, 3, 4, 5, 6, 7, 8, 9].map(g => ({ id: 'g' + g, tab: 'Gen ' + ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'][g - 1],
       title: ['Kanto', 'Johto', 'Hoenn', 'Sinnoh', 'Unima', 'Kalos', 'Alola', 'Galar', 'Paldea'][g - 1], cols: 4 })),
@@ -350,13 +350,14 @@
   async function loadIntPrices(dex, tk) {
     const need = catalog.filter(c => c.src === 'int' && !fresh(priceCache['int:' + c.id]));
     if (!need.length) return;
+    let ok = false;
     try {
       for (let page = 1; page <= 4; page++) {
         const url = `${PTCG}?q=nationalPokedexNumbers:${dex}&pageSize=250&page=${page}&select=`;
         let r = await fetch(url + 'id,name,number,cardmarket').catch(() => null);
         if (!r || !r.ok) r = await fetch(url + 'id,name,number,set,images,cardmarket').catch(() => null);
         if (!r || !r.ok) break;
-        const j = await r.json();
+        const j = await r.json(); ok = true;
         for (const c of j.data) {
           const pr = c.cardmarket?.prices; const v = pr ? (pr.trendPrice || pr.averageSellPrice || pr.avg30 || null) : null;
           priceCache['int:' + c.id] = { p: v, t: Date.now() };
@@ -364,7 +365,7 @@
         }
         if (j.data.length < 250) break;
       }
-      need.forEach(c => { if (!priceCache['int:' + c.id]) priceCache['int:' + c.id] = { p: null, t: Date.now() }; if (tk === catToken) paintPrice('int:' + c.id); });
+      if (ok) need.forEach(c => { if (!priceCache['int:' + c.id]) priceCache['int:' + c.id] = { p: null, t: Date.now() }; if (tk === catToken) paintPrice('int:' + c.id); });
       savePrices();
     } catch {}
   }
