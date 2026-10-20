@@ -346,10 +346,10 @@
     if (!cards.length) { $('#content').innerHTML = '<p class="empty">Niente da mostrare con questo filtro.</p>'; return; }
     $('#content').innerHTML = `<div class="bubi-grid nine">${cards.map(c => {
       const key = bubiKey(c), o = bubiOwned(c), p = c.src === 'pocket' ? null : priceCache[key];
-      return `<button type="button" class="bcard${o ? ' have' : ''}" data-key="${esc(key)}" aria-pressed="${o}" aria-label="${esc(BUBI.labels[c.k])}${o ? ', nella collezione' : ''}">
+      return `<div class="cwrap"><button type="button" class="bcard${o ? ' have' : ''}" data-key="${esc(key)}" aria-pressed="${o}" aria-label="${esc(BUBI.labels[c.k])}${o ? ', nella collezione' : ''}">
         <span class="cand-img"><img class="bimg" alt="" src="${esc(c.img)}">${o ? '<i class="tick">✓</i>' : ''}</span>
         <span class="cand-info"><b>${esc(BUBI.labels[c.k])}</b><span>${esc(c.set)} · ${esc(c.no)}${c.tot ? '/' + c.tot : ''} · ${esc((c.date || '').slice(0, 4))}</span>
-        <span class="cand-row">${rcBadge(c.rc)}<span class="price" data-price="${esc(key)}">${c.src === 'pocket' ? 'TCG Pocket' : p ? (p.p != null ? eur(p.p) : '—') : ''}</span></span></span></button>`;
+        <span class="cand-row">${rcBadge(c.rc)}<span class="price" data-price="${esc(key)}">${c.src === 'pocket' ? 'TCG Pocket' : p ? (p.p != null ? eur(p.p) : '—') : ''}</span></span></span></button><button type="button" class="zoom" data-zoom="${esc(c.img)}" aria-label="Ingrandisci la carta">⤢</button></div>`;
     }).join('')}</div><div class="bubi-more"><button type="button" class="btn primary" data-shuffle>↻ Rimescola</button></div>`;
   }
   function toggleBubi(key) {
@@ -436,6 +436,7 @@
       <div class="own${x.uid === selUid ? ' sel' : ''}" data-uid="${x.uid}">
         <button type="button" class="own-pick" data-act="select" aria-label="Modifica ${esc(x.set || 'carta')}">${thumb(x.img, x.set || 'Carta')}</button>
         <button type="button" class="star${x.uid === cv?.uid ? ' on' : ''}" data-act="cover" aria-pressed="${x.uid === cv?.uid}" title="${x.uid === cv?.uid ? 'Anteprima nel raccoglitore' : 'Usa come anteprima'}">★</button>
+        ${x.img && !badImg.has(x.img) ? `<button type="button" class="zoom" data-zoom="${esc(x.img)}" aria-label="Ingrandisci la carta">⤢</button>` : ''}
         <span class="own-meta">${rcBadge(x.rc)} ${esc(x.lang || '')}<br>${esc(x.set || '—')} ${esc(x.number || '')}</span>
       </div>`).join('') : `<p class="none">Nessuna carta registrata. Scegline una dal catalogo qui sotto: foto, rarità e valore si compilano da soli.</p>`;
     $('#editWrap').hidden = !l.length || !selUid;
@@ -546,10 +547,10 @@
     $('#catGrid').innerHTML = list.slice(0, catLimit).map(c => {
       const cid = c.src + ':' + c.id, p = priceCache[cid];
       const tot = c.tot ? `/${c.tot}` : '';
-      return `<button type="button" class="cand${ownedC.has(cid) ? ' have' : ''}" data-cid="${esc(cid)}">
+      return `<div class="cwrap"><button type="button" class="cand${ownedC.has(cid) ? ' have' : ''}" data-cid="${esc(cid)}">
         <span class="cand-img">${thumb(c.sm, `${c.set} ${c.no}`)}${c.alt ? '<i class="alt" title="Foto della versione internazionale">EN</i>' : ''}${ownedC.has(cid) ? '<i class="tick" aria-label="Già nella collezione">✓</i>' : ''}${targC.has(cid) ? '<i class="tgt" title="Tra i target">◎</i>' : ''}</span>
         <span class="cand-info"><b>${esc(c.set)}</b><span>${esc(c.no)}${tot} · ${esc((c.date || '').slice(0, 4))} · ${c.src === 'jp' ? 'JP' : 'INT'}</span>
-        <span class="cand-row">${rcBadge(c.rc)}<span class="price" data-price="${esc(cid)}">${p ? (p.p != null ? eur(p.p) : '—') : ''}</span></span></span></button>`;
+        <span class="cand-row">${rcBadge(c.rc)}<span class="price" data-price="${esc(cid)}">${p ? (p.p != null ? eur(p.p) : '—') : ''}</span></span></span></button>${c.img ? `<button type="button" class="zoom" data-zoom="${esc(c.img)}" aria-label="Ingrandisci la carta">⤢</button>` : ''}</div>`;
     }).join('');
     $('#catMore').hidden = list.length <= catLimit;
     $('#catMore').textContent = `Mostra altre ${Math.min(60, list.length - catLimit)}`;
@@ -924,6 +925,22 @@
     } catch {}
   })();
   window.addEventListener('orientationchange', () => setTimeout(measureSafeArea, 300));
+
+  /* ---------------- zoom a card ---------------- */
+  const zoomDlg = $('#zoomDlg'), zoomImg = $('#zoomImg');
+  document.addEventListener('click', ev => {
+    const z = ev.target.closest('[data-zoom]'); if (!z) return;
+    ev.preventDefault(); ev.stopPropagation();
+    zoomImg.classList.remove('big'); zoomImg.src = z.dataset.zoom; zoomDlg.showModal();
+  }, true);
+  zoomImg.addEventListener('click', ev => {          // tap the card: 2x closer on that spot, tap again to go back
+    ev.stopPropagation();
+    if (zoomImg.classList.toggle('big')) {
+      const r = zoomImg.getBoundingClientRect();
+      zoomImg.style.transformOrigin = `${(ev.clientX - r.left) / r.width * 100}% ${(ev.clientY - r.top) / r.height * 100}%`;
+    }
+  });
+  zoomDlg.addEventListener('click', () => zoomDlg.close());
 
   load().catch(err => { $('#content').innerHTML = `<p class="empty">Impossibile caricare i dati (${esc(err.message)}). Apri il sito tramite GitHub Pages o un server locale.</p>`; });
 })();
