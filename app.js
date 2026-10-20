@@ -308,7 +308,6 @@
       const list = relevant(e, await fetchCatalog(e.dex));
       if (tk !== catToken) return;
       catalog = list; renderCatalog();
-      loadIntPrices(e.dex, tk);
     } catch { if (tk === catToken) $('#catNote').textContent = 'Catalogo non disponibile. Puoi aggiungere la carta a mano.'; }
   }
   function filteredCatalog() {
@@ -333,7 +332,7 @@
     }).join('');
     $('#catMore').hidden = list.length <= catLimit;
     $('#catMore').textContent = `Mostra altre ${Math.min(60, list.length - catLimit)}`;
-    loadJpPrices(list.slice(0, catLimit).filter(c => c.src === 'jp'));
+    loadPrices(list.slice(0, catLimit));
   }
   function paintPrice(cid) {
     const el = document.querySelector(`[data-price="${CSS.escape(cid)}"]`); const p = priceCache[cid];
@@ -346,65 +345,43 @@
   }
   const fresh = p => p && Date.now() - p.t < 1000 * 60 * 60 * 24 * 3;
 
-  // international prices: pokemontcg.io (Cardmarket trend, EUR), one call per Pokémon
-  async function loadIntPrices(dex, tk) {
-    const need = catalog.filter(c => c.src === 'int' && !fresh(priceCache['int:' + c.id]));
-    if (!need.length) return;
-    let ok = false;
-    try {
-      for (let page = 1; page <= 4; page++) {
-        const url = `${PTCG}?q=nationalPokedexNumbers:${dex}&pageSize=250&page=${page}&select=`;
-        let r = await fetch(url + 'id,name,number,cardmarket').catch(() => null);
-        if (!r || !r.ok) r = await fetch(url + 'id,name,number,set,images,cardmarket').catch(() => null);
-        if (!r || !r.ok) break;
-        const j = await r.json(); ok = true;
-        for (const c of j.data) {
-          const pr = c.cardmarket?.prices; const v = pr ? (pr.trendPrice || pr.averageSellPrice || pr.avg30 || null) : null;
-          priceCache['int:' + c.id] = { p: v, t: Date.now() };
-          if (tk === catToken) paintPrice('int:' + c.id);
-        }
-        if (j.data.length < 250) break;
-      }
-      if (ok) need.forEach(c => { if (!priceCache['int:' + c.id]) priceCache['int:' + c.id] = { p: null, t: Date.now() }; if (tk === catToken) paintPrice('int:' + c.id); });
-      savePrices();
-    } catch {}
+  // Cardmarket prices (EUR) from TCGdex card detail, fetched only for the cards on screen.
+  // International cards without a TCGdex match fall back to pokemontcg.io.
+  const cmPrice = cm => cm ? (cm.trend || cm.avg || cm.avg30 || cm['trend-holo'] || cm['avg-holo'] || null) : null;
+  async function fetchPrice(c) {
+    if (c.src === 'jp' || c.tdx) {
+      const r = await fetch(`${TCGDEX}/${c.src === 'jp' ? 'ja' : 'en'}/cards/${encodeURIComponent(c.src === 'jp' ? c.id : c.tdx)}`);
+      if (r.status === 404) return null;
+      if (!r.ok) throw new Error(r.status);
+      const j = await r.json();
+      return cmPrice(j.pricing?.cardmarket) ?? cmPrice(j.variants_detailed?.find(v => v.pricing?.cardmarket)?.pricing.cardmarket) ?? null;
+    }
+    const r = await fetch(`${PTCG}/${encodeURIComponent(c.id)}`);
+    if (!r.ok) throw new Error(r.status);
+    const pr = (await r.json()).data?.cardmarket?.prices;
+    return pr ? (pr.trendPrice || pr.averageSellPrice || null) : null;
   }
-  // Japanese prices: TCGdex card detail (Cardmarket), fetched for visible cards only
-  const jpQueue = new Set(); let jpRunning = 0;
-  function loadJpPrices(list) {
-    list.forEach(c => { const cid = 'jp:' + c.id; if (!fresh(priceCache[cid])) jpQueue.add(c.id); });
-    pumpJp();
-  }
-  async function jpPrice(id) {
-    const r = await fetch(`${TCGDEX}/ja/cards/${encodeURIComponent(id)}`);
-    if (!r.ok) return null;
-    const j = await r.json(); const cm = j.pricing?.cardmarket || j.variants_detailed?.find(v => v.pricing?.cardmarket)?.pricing.cardmarket;
-    return cm ? (cm.trend || cm.avg || cm.avg30 || null) : null;
-  }
-  function pumpJp() {
-    while (jpRunning < 6 && jpQueue.size) {
-      const id = jpQueue.values().next().value; jpQueue.delete(id); jpRunning++;
-      jpPrice(id).catch(() => null).then(p => {
-        priceCache['jp:' + id] = { p, t: Date.now() }; paintPrice('jp:' + id);
-        jpRunning--; if (!jpQueue.size && !jpRunning) savePrices(); pumpJp();
+  const pQueue = new Map(); let pRunning = 0, pSaveT;
+  function loadPrices(list) { list.forEach(c => { const cid = c.src + ':' + c.id; if (!fresh(priceCache[cid])) pQueue.set(cid, c); }); pumpPrices(); }
+  function pumpPrices() {
+    while (pRunning < 6 && pQueue.size) {
+      const [cid, c] = pQueue.entries().next().value; pQueue.delete(cid); pRunning++;
+      fetchPrice(c).then(p => { priceCache[cid] = { p, t: Date.now() }; }, () => {}).then(() => {
+        paintPrice(cid); pRunning--;
+        clearTimeout(pSaveT); pSaveT = setTimeout(savePrices, 800); pumpPrices();
       });
     }
   }
   async function priceFor(c) {
     const cid = c.src + ':' + c.id;
     if (fresh(priceCache[cid])) return priceCache[cid].p;
-    if (c.src === 'jp') { const p = await jpPrice(c.id).catch(() => null); priceCache[cid] = { p, t: Date.now() }; savePrices(); return p; }
-    try {
-      const r = await fetch(`${PTCG}/${encodeURIComponent(c.id)}`); const j = await r.json();
-      const pr = j.data?.cardmarket?.prices; const p = pr ? (pr.trendPrice || pr.averageSellPrice || null) : null;
-      priceCache[cid] = { p, t: Date.now() }; savePrices(); return p;
-    } catch { return null; }
+    try { const p = await fetchPrice(c); priceCache[cid] = { p, t: Date.now() }; savePrices(); return p; } catch { return null; }
   }
 
   function pickCatalog(cid) {
     const c = catalog.find(x => x.src + ':' + x.id === cid); if (!c) return;
     const lang = c.src === 'jp' ? ui.langJp : ui.langInt;
-    const x = { uid: uid(), cid, src: c.src, set: c.set + (c.src === 'jp' && !/\(/.test(c.set) ? ` (${c.sid})` : ''), sid: c.sid,
+    const x = { uid: uid(), cid, src: c.src, tdx: c.tdx, set: c.set + (c.src === 'jp' && !/\(/.test(c.set) ? ` (${c.sid})` : ''), sid: c.sid,
       number: c.no + (c.tot ? '/' + c.tot : ''), rarity: c.r, rc: c.rc, lang, year: (c.date || '').slice(0, 4), img: c.img || null,
       art: ART_RC.has(c.rc), price: priceCache[cid]?.p ?? null, priceAt: priceCache[cid] ? priceCache[cid].t : null };
     addCard(x);
@@ -425,7 +402,7 @@
       out.textContent = `Aggiorno ${++done} di ${todo.length}…`;
       const [src, ...rest] = x.cid.split(':'); const id = rest.join(':');
       delete priceCache[x.cid];
-      const p = await priceFor({ src, id });
+      const p = await priceFor({ src, id, tdx: x.tdx });
       if (p != null) { x.price = p; x.priceAt = Date.now(); }
     }
     persist(); renderAll();

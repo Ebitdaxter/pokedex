@@ -19,7 +19,9 @@
      "rc": "Uncommon",
      "cid": "int:gym2-39",
      "sid": "gym2",
-     "rarityRaw": "Uncommon"
+     "rarityRaw": "Uncommon",
+     "src": "int",
+     "tdx": "gym2-39"
     }
    ]
   },
@@ -39,7 +41,8 @@
      "rc": "AR",
      "cid": "jp:M1L-065",
      "sid": "M1L",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -75,7 +78,9 @@
      "rc": "Uncommon",
      "cid": "int:base1-24",
      "sid": "base1",
-     "rarityRaw": "Uncommon"
+     "rarityRaw": "Uncommon",
+     "src": "int",
+     "tdx": "base1-24"
     }
    ]
   },
@@ -96,7 +101,8 @@
      "rc": "RR",
      "cid": "jp:SV3-066",
      "sid": "SV3",
-     "rarityRaw": "Double rare"
+     "rarityRaw": "Double rare",
+     "src": "jp"
     }
    ]
   },
@@ -116,7 +122,9 @@
      "rc": "RR",
      "cid": "int:sv3pt5-9",
      "sid": "sv3pt5",
-     "rarityRaw": "Double Rare"
+     "rarityRaw": "Double Rare",
+     "src": "int",
+     "tdx": "sv03.5-009"
     }
    ]
   },
@@ -136,7 +144,8 @@
      "rc": "AR",
      "cid": "jp:SV3-118",
      "sid": "SV3",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -156,7 +165,9 @@
      "rc": "Rare",
      "cid": "int:base2-24",
      "sid": "base2",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "base2-24"
     }
    ]
   },
@@ -177,7 +188,9 @@
      "rc": "Common",
      "cid": "int:gym1-82",
      "sid": "gym1",
-     "rarityRaw": "Common"
+     "rarityRaw": "Common",
+     "src": "int",
+     "tdx": "gym1-82"
     }
    ]
   },
@@ -197,7 +210,8 @@
      "rc": "AR",
      "cid": "jp:M3-092",
      "sid": "M3",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -217,7 +231,8 @@
      "rc": "AR",
      "cid": "jp:M1L-074",
      "sid": "M1L",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -238,7 +253,9 @@
      "rc": "Uncommon",
      "cid": "int:base3-31",
      "sid": "base3",
-     "rarityRaw": "Uncommon"
+     "rarityRaw": "Uncommon",
+     "src": "int",
+     "tdx": "base3-31"
     }
    ]
   },
@@ -258,7 +275,9 @@
      "rc": "Common",
      "cid": "int:base2-60",
      "sid": "base2",
-     "rarityRaw": "Common"
+     "rarityRaw": "Common",
+     "src": "int",
+     "tdx": "base2-60"
     }
    ]
   },
@@ -279,7 +298,9 @@
      "rc": "Rare",
      "cid": "int:base3-14",
      "sid": "base3",
-     "rarityRaw": "Rare Holo"
+     "rarityRaw": "Rare Holo",
+     "src": "int",
+     "tdx": "base3-14"
     }
    ]
   },
@@ -300,7 +321,9 @@
      "rc": "Common",
      "cid": "int:gym1-72",
      "sid": "gym1",
-     "rarityRaw": "Common"
+     "rarityRaw": "Common",
+     "src": "int",
+     "tdx": "gym1-72"
     }
    ]
   },
@@ -320,7 +343,8 @@
      "rc": "RR",
      "cid": "jp:M2a-060",
      "sid": "M2a",
-     "rarityRaw": "Double rare"
+     "rarityRaw": "Double rare",
+     "src": "jp"
     }
    ]
   },
@@ -340,7 +364,9 @@
      "rc": "Rare",
      "cid": "int:base2-17",
      "sid": "base2",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "base2-17"
     }
    ]
   },
@@ -359,7 +385,9 @@
      "rc": "AR",
      "cid": "int:me1-138",
      "sid": "me1",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "me01-138"
     }
    ]
   },
@@ -378,7 +406,9 @@
      "rc": "AR",
      "cid": "int:sv3-199",
      "sid": "sv3",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "sv03-199"
     }
    ]
   },
@@ -398,7 +428,9 @@
      "rc": "Common",
      "cid": "int:base2-54",
      "sid": "base2",
-     "rarityRaw": "Common"
+     "rarityRaw": "Common",
+     "src": "int",
+     "tdx": "base2-54"
     }
    ]
   },
@@ -418,7 +450,8 @@
      "rc": "AR",
      "cid": "jp:M2-091",
      "sid": "M2",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -438,7 +471,8 @@
      "rc": "Uncommon",
      "cid": "jp:M2a-100",
      "sid": "M2a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -459,7 +493,9 @@
      "rc": "Rare",
      "cid": "int:base2-13",
      "sid": "base2",
-     "rarityRaw": "Rare Holo"
+     "rarityRaw": "Rare Holo",
+     "src": "int",
+     "tdx": "base2-13"
     }
    ]
   },
@@ -479,7 +515,8 @@
      "rc": "AR",
      "cid": "jp:M2a-206",
      "sid": "M2a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -499,7 +536,9 @@
      "rc": "AR",
      "cid": "int:me2-106",
      "sid": "me2",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "me02-106"
     }
    ]
   },
@@ -519,7 +558,9 @@
      "rc": "Uncommon",
      "cid": "int:base2-42",
      "sid": "base2",
-     "rarityRaw": "Uncommon"
+     "rarityRaw": "Uncommon",
+     "src": "int",
+     "tdx": "base2-42"
     }
    ]
   },
@@ -539,7 +580,8 @@
      "rc": "AR",
      "cid": "jp:M2a-199",
      "sid": "M2a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -560,7 +602,9 @@
      "rc": "Uncommon",
      "cid": "int:base5-37",
      "sid": "base5",
-     "rarityRaw": "Uncommon"
+     "rarityRaw": "Uncommon",
+     "src": "int",
+     "tdx": "base5-37"
     }
    ]
   },
@@ -580,7 +624,9 @@
      "rc": "Rare",
      "cid": "int:ecard3-3",
      "sid": "ecard3",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "ecard3-3"
     }
    ]
   },
@@ -601,7 +647,9 @@
      "rc": "Rare",
      "cid": "int:swsh12-59",
      "sid": "swsh12",
-     "rarityRaw": "Radiant Rare"
+     "rarityRaw": "Radiant Rare",
+     "src": "int",
+     "tdx": "swsh12-059"
     }
    ]
   },
@@ -622,7 +670,9 @@
      "rc": "Uncommon",
      "cid": "int:base5-40",
      "sid": "base5",
-     "rarityRaw": "Uncommon"
+     "rarityRaw": "Uncommon",
+     "src": "int",
+     "tdx": "base5-40"
     }
    ]
   },
@@ -643,7 +693,9 @@
      "rc": "Rare",
      "cid": "int:base5-27",
      "sid": "base5",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "base5-27"
     }
    ]
   },
@@ -663,7 +715,9 @@
      "rc": "Uncommon",
      "cid": "int:base3-37",
      "sid": "base3",
-     "rarityRaw": "Uncommon"
+     "rarityRaw": "Uncommon",
+     "src": "int",
+     "tdx": "base3-37"
     }
    ]
   },
@@ -699,7 +753,9 @@
      "rc": "Uncommon",
      "cid": "int:base2-44",
      "sid": "base2",
-     "rarityRaw": "Uncommon"
+     "rarityRaw": "Uncommon",
+     "src": "int",
+     "tdx": "base2-44"
     }
    ]
   },
@@ -737,7 +793,9 @@
      "rc": "Rare",
      "cid": "int:base6-28",
      "sid": "base6",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "lc-28"
     }
    ]
   },
@@ -787,7 +845,9 @@
      "rc": "Rare",
      "cid": "int:base3-23",
      "sid": "base3",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "base3-23"
     }
    ]
   },
@@ -807,7 +867,9 @@
      "rc": "Rare",
      "cid": "int:base2-18",
      "sid": "base2",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "base2-18"
     }
    ]
   },
@@ -827,7 +889,9 @@
      "rc": "Rare",
      "cid": "int:base6-23",
      "sid": "base6",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "lc-23"
     }
    ]
   },
@@ -847,7 +911,9 @@
      "rc": "Uncommon",
      "cid": "int:base2-39",
      "sid": "base2",
-     "rarityRaw": "Uncommon"
+     "rarityRaw": "Uncommon",
+     "src": "int",
+     "tdx": "base2-39"
     }
    ]
   },
@@ -867,7 +933,9 @@
      "rc": "Common",
      "cid": "int:base2-61",
      "sid": "base2",
-     "rarityRaw": "Common"
+     "rarityRaw": "Common",
+     "src": "int",
+     "tdx": "base2-61"
     }
    ]
   },
@@ -887,7 +955,8 @@
      "rc": "AR",
      "cid": "jp:SV10-110",
      "sid": "SV10",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -920,7 +989,9 @@
      "rc": "Common",
      "cid": "int:sv8pt5-20",
      "sid": "sv8pt5",
-     "rarityRaw": "Common"
+     "rarityRaw": "Common",
+     "src": "int",
+     "tdx": "sv08.5-020"
     }
    ]
   },
@@ -940,7 +1011,9 @@
      "rc": "Rare",
      "cid": "int:base2-22",
      "sid": "base2",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "base2-22"
     }
    ]
   },
@@ -960,7 +1033,8 @@
      "rc": "Uncommon",
      "cid": "jp:S12a-016",
      "sid": "S12a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -980,7 +1054,9 @@
      "rc": "RR",
      "cid": "int:sm115-16",
      "sid": "sm115",
-     "rarityRaw": "Rare Holo GX"
+     "rarityRaw": "Rare Holo GX",
+     "src": "int",
+     "tdx": "sm115-16"
     }
    ]
   },
@@ -1000,7 +1076,8 @@
      "rc": "AR",
      "cid": "jp:SV9a-072",
      "sid": "SV9a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -1021,7 +1098,8 @@
      "rc": "Rare",
      "cid": "jp:S12a-117",
      "sid": "S12a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -1041,7 +1119,9 @@
      "rc": "Rare",
      "cid": "int:base2-20",
      "sid": "base2",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "base2-20"
     }
    ]
   },
@@ -1061,7 +1141,9 @@
      "rc": "Rare",
      "cid": "int:base6-27",
      "sid": "base6",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "lc-27"
     }
    ]
   },
@@ -1081,7 +1163,9 @@
      "rc": "Rare",
      "cid": "int:base2-11",
      "sid": "base2",
-     "rarityRaw": "Rare Holo"
+     "rarityRaw": "Rare Holo",
+     "src": "int",
+     "tdx": "base2-11"
     }
    ]
   },
@@ -1101,7 +1185,8 @@
      "rc": "AR",
      "cid": "jp:SV9-102",
      "sid": "SV9",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -1138,7 +1223,8 @@
      "rc": "RRR",
      "cid": "jp:S12a-054",
      "sid": "S12a",
-     "rarityRaw": "Triple Rare"
+     "rarityRaw": "Triple Rare",
+     "src": "jp"
     }
    ]
   },
@@ -1174,7 +1260,9 @@
      "rc": "Common",
      "cid": "int:neo1-56",
      "sid": "neo1",
-     "rarityRaw": "Common"
+     "rarityRaw": "Common",
+     "src": "int",
+     "tdx": "neo1-56"
     }
    ]
   },
@@ -1195,7 +1283,8 @@
      "rc": "AR",
      "cid": "jp:SV9a-070",
      "sid": "SV9a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -1215,7 +1304,9 @@
      "rc": "Common",
      "cid": "int:ecard1-134",
      "sid": "ecard1",
-     "rarityRaw": "Common"
+     "rarityRaw": "Common",
+     "src": "int",
+     "tdx": "ecard1-134"
     }
    ]
   },
@@ -1234,7 +1325,8 @@
      "rc": "Rare",
      "cid": "jp:M2a-138",
      "sid": "M2a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -1255,7 +1347,9 @@
      "rc": "Rare",
      "cid": "int:neo4-24",
      "sid": "neo4",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "neo4-24"
     }
    ]
   },
@@ -1293,7 +1387,9 @@
      "rc": "Uncommon",
      "cid": "int:neo3-32",
      "sid": "neo3",
-     "rarityRaw": "Uncommon"
+     "rarityRaw": "Uncommon",
+     "src": "int",
+     "tdx": "neo3-32"
     }
    ]
   },
@@ -1329,7 +1425,8 @@
      "rc": "Common",
      "cid": "jp:SV3-043",
      "sid": "SV3",
-     "rarityRaw": "Common"
+     "rarityRaw": "Common",
+     "src": "jp"
     }
    ]
   },
@@ -1349,7 +1446,9 @@
      "rc": "AR",
      "cid": "int:swsh12tg-TG03",
      "sid": "swsh12tg",
-     "rarityRaw": "Trainer Gallery Rare Holo"
+     "rarityRaw": "Trainer Gallery Rare Holo",
+     "src": "int",
+     "tdx": "swsh12tg-TG03"
     }
    ]
   },
@@ -1369,7 +1468,8 @@
      "rc": "Common",
      "cid": "jp:M2-066",
      "sid": "M2",
-     "rarityRaw": "Common"
+     "rarityRaw": "Common",
+     "src": "jp"
     }
    ]
   },
@@ -1389,7 +1489,8 @@
      "rc": "AR",
      "cid": "jp:SV9a-064",
      "sid": "SV9a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -1409,7 +1510,9 @@
      "rc": "Rare",
      "cid": "int:ecard2-41",
      "sid": "ecard2",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "ecard2-41"
     }
    ]
   },
@@ -1429,7 +1532,8 @@
      "rc": "AR",
      "cid": "jp:M2a-202",
      "sid": "M2a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -1449,7 +1553,9 @@
      "rc": "RR",
      "cid": "int:swsh12-65",
      "sid": "swsh12",
-     "rarityRaw": "Rare Holo V"
+     "rarityRaw": "Rare Holo V",
+     "src": "int",
+     "tdx": "swsh12-065"
     }
    ]
   },
@@ -1468,7 +1574,9 @@
      "rc": "AR",
      "cid": "int:me1-150",
      "sid": "me1",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "me01-150"
     }
    ]
   },
@@ -1487,7 +1595,9 @@
      "rc": "AR",
      "cid": "int:sv3-205",
      "sid": "sv3",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "sv03-205"
     }
    ]
   },
@@ -1507,7 +1617,9 @@
      "rc": "AR",
      "cid": "int:me1-136",
      "sid": "me1",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "me01-136"
     }
    ]
   },
@@ -1527,7 +1639,8 @@
      "rc": "AR",
      "cid": "jp:SV2D-072",
      "sid": "SV2D",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -1547,7 +1660,9 @@
      "rc": "Rare",
      "cid": "int:neo1-25",
      "sid": "neo1",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "neo1-25"
     }
    ]
   },
@@ -1568,7 +1683,8 @@
      "rc": "AR",
      "cid": "jp:M2a-197",
      "sid": "M2a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -1588,7 +1704,9 @@
      "rc": "AR",
      "cid": "int:sv9-165",
      "sid": "sv9",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "sv09-165"
     }
    ]
   },
@@ -1608,7 +1726,9 @@
      "rc": "AR",
      "cid": "int:sv8-209",
      "sid": "sv8",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "sv08-209"
     }
    ]
   },
@@ -1628,7 +1748,8 @@
      "rc": "AR",
      "cid": "jp:SV3-115",
      "sid": "SV3",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -1664,7 +1785,9 @@
      "rc": "AR",
      "cid": "int:me2pt5-240",
      "sid": "me2pt5",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "me02.5-240"
     }
    ]
   },
@@ -1685,7 +1808,8 @@
      "rc": "Uncommon",
      "cid": "jp:S12a-119",
      "sid": "S12a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -1705,7 +1829,9 @@
      "rc": "SR",
      "cid": "int:sv6-201",
      "sid": "sv6",
-     "rarityRaw": "Ultra Rare"
+     "rarityRaw": "Ultra Rare",
+     "src": "int",
+     "tdx": "sv06-201"
     }
    ]
   },
@@ -1725,7 +1851,8 @@
      "rc": "Rare",
      "cid": "jp:M2a-020",
      "sid": "M2a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -1745,7 +1872,9 @@
      "rc": "Rare",
      "cid": "int:me2-26",
      "sid": "me2",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "me02-026"
     }
    ]
   },
@@ -1765,7 +1894,8 @@
      "rc": "AR",
      "cid": "jp:SV3-114",
      "sid": "SV3",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -1785,7 +1915,8 @@
      "rc": "AR",
      "cid": "jp:SV2D-079",
      "sid": "SV2D",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -1806,7 +1937,8 @@
      "rc": "RR",
      "cid": "jp:SV9a-020",
      "sid": "SV9a",
-     "rarityRaw": "Double rare"
+     "rarityRaw": "Double rare",
+     "src": "jp"
     }
    ]
   },
@@ -1825,7 +1957,9 @@
      "rc": "AR",
      "cid": "int:sv10-192",
      "sid": "sv10",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "sv10-192"
     }
    ]
   },
@@ -1845,7 +1979,8 @@
      "rc": "Uncommon",
      "cid": "jp:M2-070",
      "sid": "M2",
-     "rarityRaw": "Uncommon"
+     "rarityRaw": "Uncommon",
+     "src": "jp"
     }
    ]
   },
@@ -1865,7 +2000,8 @@
      "rc": "Common",
      "cid": "jp:M2-005",
      "sid": "M2",
-     "rarityRaw": "Common"
+     "rarityRaw": "Common",
+     "src": "jp"
     }
    ]
   },
@@ -1885,7 +2021,9 @@
      "rc": "AR",
      "cid": "int:me2-95",
      "sid": "me2",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "me02-095"
     }
    ]
   },
@@ -1905,7 +2043,9 @@
      "rc": "SR",
      "cid": "int:sv1-228",
      "sid": "sv1",
-     "rarityRaw": "Ultra Rare"
+     "rarityRaw": "Ultra Rare",
+     "src": "int",
+     "tdx": "sv01-228"
     }
    ]
   },
@@ -1925,7 +2065,8 @@
      "rc": "AR",
      "cid": "jp:SV8-117",
      "sid": "SV8",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -1946,7 +2087,9 @@
      "rc": "Rare",
      "cid": "int:ex1-12",
      "sid": "ex1",
-     "rarityRaw": "Rare Holo"
+     "rarityRaw": "Rare Holo",
+     "src": "int",
+     "tdx": "ex1-12"
     }
    ]
   },
@@ -1966,7 +2109,9 @@
      "rc": "AR",
      "cid": "int:me1-137",
      "sid": "me1",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "me01-137"
     }
    ]
   },
@@ -1986,7 +2131,9 @@
      "rc": "AR",
      "cid": "int:me1-144",
      "sid": "me1",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "me01-144"
     }
    ]
   },
@@ -2006,7 +2153,9 @@
      "rc": "RR",
      "cid": "int:swsh12-70",
      "sid": "swsh12",
-     "rarityRaw": "Rare Holo V"
+     "rarityRaw": "Rare Holo V",
+     "src": "int",
+     "tdx": "swsh12-070"
     }
    ]
   },
@@ -2026,7 +2175,8 @@
      "rc": "AR",
      "cid": "jp:SV6-111",
      "sid": "SV6",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -2046,7 +2196,8 @@
      "rc": "AR",
      "cid": "jp:SV7-111",
      "sid": "SV7",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -2066,7 +2217,8 @@
      "rc": "AR",
      "cid": "jp:M2a-207",
      "sid": "M2a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -2086,7 +2238,8 @@
      "rc": "AR",
      "cid": "jp:SV9a-073",
      "sid": "SV9a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -2106,7 +2259,8 @@
      "rc": "AR",
      "cid": "jp:SV9-103",
      "sid": "SV9",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -2126,7 +2280,8 @@
      "rc": "AR",
      "cid": "jp:M2a-198",
      "sid": "M2a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -2146,7 +2301,8 @@
      "rc": "AR",
      "cid": "jp:M2-088",
      "sid": "M2",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -2166,7 +2322,8 @@
      "rc": "AR",
      "cid": "jp:S12a-194",
      "sid": "S12a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -2185,7 +2342,8 @@
      "rc": "Common",
      "cid": "jp:M2a-087",
      "sid": "M2a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -2205,7 +2363,8 @@
      "rc": "AR",
      "cid": "jp:SV8-110",
      "sid": "SV8",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -2225,7 +2384,9 @@
      "rc": "AR",
      "cid": "int:swsh12tg-TG02",
      "sid": "swsh12tg",
-     "rarityRaw": "Trainer Gallery Rare Holo"
+     "rarityRaw": "Trainer Gallery Rare Holo",
+     "src": "int",
+     "tdx": "swsh12tg-TG02"
     }
    ]
   },
@@ -2245,7 +2406,8 @@
      "rc": "AR",
      "cid": "jp:SV7a-067",
      "sid": "SV7a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -2265,7 +2427,8 @@
      "rc": "AR",
      "cid": "jp:S12a-191",
      "sid": "S12a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -2285,7 +2448,8 @@
      "rc": "AR",
      "cid": "jp:M2a-200",
      "sid": "M2a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -2305,7 +2469,9 @@
      "rc": "Rare",
      "cid": "int:swsh8-193",
      "sid": "swsh8",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "swsh8-193"
     }
    ]
   },
@@ -2325,7 +2491,8 @@
      "rc": "Rare",
      "cid": "jp:S12a-106",
      "sid": "S12a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -2345,7 +2512,9 @@
      "rc": "Rare",
      "cid": "int:me1-34",
      "sid": "me1",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "me01-034"
     }
    ]
   },
@@ -2395,7 +2564,8 @@
      "rc": "Rare",
      "cid": "jp:S12a-060",
      "sid": "S12a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -2414,7 +2584,8 @@
      "rc": "Common",
      "cid": "jp:S12a-006",
      "sid": "S12a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -2433,7 +2604,8 @@
      "rc": "Uncommon",
      "cid": "jp:S12a-007",
      "sid": "S12a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -2453,7 +2625,8 @@
      "rc": "Rare",
      "cid": "jp:S12a-008",
      "sid": "S12a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -2474,7 +2647,9 @@
      "rc": "Rare",
      "cid": "int:sv6-33",
      "sid": "sv6",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "sv06-033"
     }
    ]
   },
@@ -2494,7 +2669,8 @@
      "rc": "AR",
      "cid": "jp:S12a-200",
      "sid": "S12a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -2514,7 +2690,8 @@
      "rc": "Common",
      "cid": "jp:S12a-010",
      "sid": "S12a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -2534,7 +2711,8 @@
      "rc": "AR",
      "cid": "jp:M2a-196",
      "sid": "M2a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -2555,7 +2733,8 @@
      "rc": "RR",
      "cid": "jp:SV3-051",
      "sid": "SV3",
-     "rarityRaw": "Double rare"
+     "rarityRaw": "Double rare",
+     "src": "jp"
     }
    ]
   },
@@ -2576,7 +2755,9 @@
      "rc": "Rare",
      "cid": "int:sv8-107",
      "sid": "sv8",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "sv08-107"
     }
    ]
   },
@@ -2596,7 +2777,9 @@
      "rc": "AR",
      "cid": "int:me2-107",
      "sid": "me2",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "me02-107"
     }
    ]
   },
@@ -2616,7 +2799,8 @@
      "rc": "SR",
      "cid": "jp:M2-097",
      "sid": "M2",
-     "rarityRaw": "Ultra Rare"
+     "rarityRaw": "Ultra Rare",
+     "src": "jp"
     }
    ]
   },
@@ -2636,7 +2820,9 @@
      "rc": "RR",
      "cid": "int:swsh12-108",
      "sid": "swsh12",
-     "rarityRaw": "Rare Holo V"
+     "rarityRaw": "Rare Holo V",
+     "src": "int",
+     "tdx": "swsh12-108"
     }
    ]
   },
@@ -2656,7 +2842,8 @@
      "rc": "Common",
      "cid": "jp:SV3-058",
      "sid": "SV3",
-     "rarityRaw": "Common"
+     "rarityRaw": "Common",
+     "src": "jp"
     }
    ]
   },
@@ -2677,7 +2864,8 @@
      "rc": "AR",
      "cid": "jp:M2a-208",
      "sid": "M2a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -2698,7 +2886,8 @@
      "rc": "RR",
      "cid": "jp:SV9a-044",
      "sid": "SV9a",
-     "rarityRaw": "Double rare"
+     "rarityRaw": "Double rare",
+     "src": "jp"
     }
    ]
   },
@@ -2718,7 +2907,8 @@
      "rc": "Rare",
      "cid": "jp:S12a-077",
      "sid": "S12a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -2738,7 +2928,8 @@
      "rc": "RR",
      "cid": "jp:S12a-026",
      "sid": "S12a",
-     "rarityRaw": "Double rare"
+     "rarityRaw": "Double rare",
+     "src": "jp"
     }
    ]
   },
@@ -2758,7 +2949,8 @@
      "rc": "AR",
      "cid": "jp:S12a-180",
      "sid": "S12a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -2778,7 +2970,8 @@
      "rc": "AR",
      "cid": "jp:S12a-175",
      "sid": "S12a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -2798,7 +2991,8 @@
      "rc": "AR",
      "cid": "jp:M2a-203",
      "sid": "M2a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -2834,7 +3028,8 @@
      "rc": "Rare",
      "cid": "jp:M2a-074",
      "sid": "M2a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -2854,7 +3049,8 @@
      "rc": "RR",
      "cid": "jp:M2-029",
      "sid": "M2",
-     "rarityRaw": "Double rare"
+     "rarityRaw": "Double rare",
+     "src": "jp"
     }
    ]
   },
@@ -2875,7 +3071,8 @@
      "rc": "RRR",
      "cid": "jp:S12a-028",
      "sid": "S12a",
-     "rarityRaw": "Triple Rare"
+     "rarityRaw": "Triple Rare",
+     "src": "jp"
     }
    ]
   },
@@ -2895,7 +3092,8 @@
      "rc": "RR",
      "cid": "jp:S12a-124",
      "sid": "S12a",
-     "rarityRaw": "Double rare"
+     "rarityRaw": "Double rare",
+     "src": "jp"
     }
    ]
   },
@@ -2914,7 +3112,8 @@
      "rc": "RRR",
      "cid": "jp:S11-081",
      "sid": "S11",
-     "rarityRaw": "Triple Rare"
+     "rarityRaw": "Triple Rare",
+     "src": "jp"
     }
    ]
   },
@@ -2934,7 +3133,8 @@
      "rc": "AR",
      "cid": "jp:SV9a-066",
      "sid": "SV9a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -2953,7 +3153,8 @@
      "rc": "AR",
      "cid": "jp:SV11B-097",
      "sid": "SV11B",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -2973,7 +3174,8 @@
      "rc": "AR",
      "cid": "jp:SV11B-087",
      "sid": "SV11B",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -2993,7 +3195,8 @@
      "rc": "SR",
      "cid": "jp:SV11B-159",
      "sid": "SV11B",
-     "rarityRaw": "Ultra Rare"
+     "rarityRaw": "Ultra Rare",
+     "src": "jp"
     }
    ]
   },
@@ -3013,7 +3216,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-096",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3033,7 +3237,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-098",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3053,7 +3258,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-104",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3073,7 +3279,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-151",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3093,7 +3300,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-154",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3113,7 +3321,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-155",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3133,7 +3342,8 @@
      "rc": "AR",
      "cid": "jp:SV11B-090",
      "sid": "SV11B",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3153,7 +3363,8 @@
      "rc": "AR",
      "cid": "jp:SV11B-121",
      "sid": "SV11B",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3173,7 +3384,8 @@
      "rc": "AR",
      "cid": "jp:SV11B-154",
      "sid": "SV11B",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3193,7 +3405,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-112",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3213,7 +3426,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-126",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3233,7 +3447,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-117",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3253,7 +3468,8 @@
      "rc": "SR",
      "cid": "jp:SV11B-163",
      "sid": "SV11B",
-     "rarityRaw": "Ultra Rare"
+     "rarityRaw": "Ultra Rare",
+     "src": "jp"
     }
    ]
   },
@@ -3273,7 +3489,8 @@
      "rc": "AR",
      "cid": "jp:SV6-109",
      "sid": "SV6",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3293,7 +3510,8 @@
      "rc": "AR",
      "cid": "jp:SV11B-133",
      "sid": "SV11B",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3313,7 +3531,8 @@
      "rc": "AR",
      "cid": "jp:SV11B-108",
      "sid": "SV11B",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3333,7 +3552,8 @@
      "rc": "Uncommon",
      "cid": "jp:SV3-025",
      "sid": "SV3",
-     "rarityRaw": "Uncommon"
+     "rarityRaw": "Uncommon",
+     "src": "jp"
     }
    ]
   },
@@ -3353,7 +3573,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-128",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3373,7 +3594,8 @@
      "rc": "AR",
      "cid": "jp:SV11B-139",
      "sid": "SV11B",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3393,7 +3615,8 @@
      "rc": "SR",
      "cid": "jp:SV11W-159",
      "sid": "SV11W",
-     "rarityRaw": "Ultra Rare"
+     "rarityRaw": "Ultra Rare",
+     "src": "jp"
     }
    ]
   },
@@ -3413,7 +3636,8 @@
      "rc": "AR",
      "cid": "jp:SV11B-093",
      "sid": "SV11B",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3433,7 +3657,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-137",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3453,7 +3678,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-118",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3473,7 +3699,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-120",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3492,7 +3719,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-129",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3512,7 +3740,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-130",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3532,7 +3761,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-138",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3552,7 +3782,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-139",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3589,7 +3820,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-121",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3608,7 +3840,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-123",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3628,7 +3861,8 @@
      "rc": "AR",
      "cid": "jp:SV11B-123",
      "sid": "SV11B",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3647,7 +3881,8 @@
      "rc": "AR",
      "cid": "jp:SV11B-125",
      "sid": "SV11B",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3667,7 +3902,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-091",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3687,7 +3923,8 @@
      "rc": "AR",
      "cid": "jp:SV11B-095",
      "sid": "SV11B",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3707,7 +3944,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-124",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3727,7 +3965,8 @@
      "rc": "SR",
      "cid": "jp:SV11W-162",
      "sid": "SV11W",
-     "rarityRaw": "Ultra Rare"
+     "rarityRaw": "Ultra Rare",
+     "src": "jp"
     }
    ]
   },
@@ -3747,7 +3986,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-114",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3766,7 +4006,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-147",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3786,7 +4027,8 @@
      "rc": "AR",
      "cid": "jp:SV11B-118",
      "sid": "SV11B",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3805,7 +4047,8 @@
      "rc": "AR",
      "cid": "jp:SV11B-102",
      "sid": "SV11B",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3825,7 +4068,8 @@
      "rc": "AR",
      "cid": "jp:SV11B-115",
      "sid": "SV11B",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3845,7 +4089,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-093",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3865,7 +4110,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-115",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3885,7 +4131,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-132",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3905,7 +4152,9 @@
      "rc": "AR",
      "cid": "int:swsh12tg-TG09",
      "sid": "swsh12tg",
-     "rarityRaw": "Trainer Gallery Rare Holo"
+     "rarityRaw": "Trainer Gallery Rare Holo",
+     "src": "int",
+     "tdx": "swsh12tg-TG09"
     }
    ]
   },
@@ -3925,7 +4174,8 @@
      "rc": "AR",
      "cid": "jp:SV11B-148",
      "sid": "SV11B",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3945,7 +4195,8 @@
      "rc": "SAR",
      "cid": "jp:SV11W-172",
      "sid": "SV11W",
-     "rarityRaw": "Special illustration rare"
+     "rarityRaw": "Special illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3964,7 +4215,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-156",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -3983,7 +4235,8 @@
      "rc": "AR",
      "cid": "jp:SV11B-144",
      "sid": "SV11B",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -4003,7 +4256,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-142",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -4023,7 +4277,8 @@
      "rc": "AR",
      "cid": "jp:SV11W-143",
      "sid": "SV11W",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -4043,7 +4298,8 @@
      "rc": "AR",
      "cid": "jp:SV8-108",
      "sid": "SV8",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -4080,7 +4336,8 @@
      "rc": "AR",
      "cid": "jp:SV11B-149",
      "sid": "SV11B",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -4099,7 +4356,8 @@
      "rc": "AR",
      "cid": "jp:SV11B-120",
      "sid": "SV11B",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -4119,7 +4377,8 @@
      "rc": "AR",
      "cid": "jp:SV9-109",
      "sid": "SV9",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -4137,7 +4396,8 @@
      "rc": "AR",
      "cid": "jp:M2a-210",
      "sid": "M2a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -4157,7 +4417,8 @@
      "rc": "SR",
      "cid": "jp:SV11B-160",
      "sid": "SV11B",
-     "rarityRaw": "Ultra Rare"
+     "rarityRaw": "Ultra Rare",
+     "src": "jp"
     }
    ]
   },
@@ -4177,7 +4438,8 @@
      "rc": "SAR",
      "cid": "jp:SV11W-169",
      "sid": "SV11W",
-     "rarityRaw": "Special illustration rare"
+     "rarityRaw": "Special illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -4197,7 +4459,8 @@
      "rc": "RR",
      "cid": "jp:S12a-102",
      "sid": "S12a",
-     "rarityRaw": "Double rare"
+     "rarityRaw": "Double rare",
+     "src": "jp"
     }
    ]
   },
@@ -4234,7 +4497,9 @@
      "rc": "RR",
      "cid": "int:swsh12-15",
      "sid": "swsh12",
-     "rarityRaw": "Rare Holo V"
+     "rarityRaw": "Rare Holo V",
+     "src": "int",
+     "tdx": "swsh12-015"
     }
    ]
   },
@@ -4269,7 +4534,9 @@
      "rc": "AR",
      "cid": "int:sv8-193",
      "sid": "sv8",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "sv08-193"
     }
    ]
   },
@@ -4289,7 +4556,8 @@
      "rc": "Uncommon",
      "cid": "jp:M2a-113",
      "sid": "M2a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -4309,7 +4577,9 @@
      "rc": "Rare",
      "cid": "int:swsh11-78",
      "sid": "swsh11",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "swsh11-078"
     }
    ]
   },
@@ -4329,7 +4599,8 @@
      "rc": "AR",
      "cid": "jp:M2a-201",
      "sid": "M2a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -4350,7 +4621,8 @@
      "rc": "AR",
      "cid": "jp:M2a-204",
      "sid": "M2a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -4387,7 +4659,8 @@
      "rc": "AR",
      "cid": "jp:SV9-111",
      "sid": "SV9",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -4408,7 +4681,8 @@
      "rc": "Rare",
      "cid": "jp:S12a-063",
      "sid": "S12a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -4445,7 +4719,9 @@
      "rc": "Common",
      "cid": "int:swsh12-30",
      "sid": "swsh12",
-     "rarityRaw": "Common"
+     "rarityRaw": "Common",
+     "src": "int",
+     "tdx": "swsh12-030"
     }
    ]
   },
@@ -4465,7 +4741,9 @@
      "rc": "Uncommon",
      "cid": "int:swsh12-31",
      "sid": "swsh12",
-     "rarityRaw": "Uncommon"
+     "rarityRaw": "Uncommon",
+     "src": "int",
+     "tdx": "swsh12-031"
     }
    ]
   },
@@ -4485,7 +4763,9 @@
      "rc": "Rare",
      "cid": "int:swsh12-32",
      "sid": "swsh12",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "swsh12-032"
     }
    ]
   },
@@ -4505,7 +4785,8 @@
      "rc": "AR",
      "cid": "jp:M1L-075",
      "sid": "M1L",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -4525,7 +4806,8 @@
      "rc": "AR",
      "cid": "jp:SV7-107",
      "sid": "SV7",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -4545,7 +4827,8 @@
      "rc": "AR",
      "cid": "jp:S12a-176",
      "sid": "S12a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -4564,7 +4847,9 @@
      "rc": "AR",
      "cid": "int:sv9-166",
      "sid": "sv9",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "sv09-166"
     }
    ]
   },
@@ -4584,7 +4869,8 @@
      "rc": "AR",
      "cid": "jp:M1S-075",
      "sid": "M1S",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -4604,7 +4890,8 @@
      "rc": "AR",
      "cid": "jp:SV6a-076",
      "sid": "SV6a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -4625,7 +4912,9 @@
      "rc": "Rare",
      "cid": "int:swsh12-16",
      "sid": "swsh12",
-     "rarityRaw": "Radiant Rare"
+     "rarityRaw": "Radiant Rare",
+     "src": "int",
+     "tdx": "swsh12-016"
     }
    ]
   },
@@ -4645,7 +4934,8 @@
      "rc": "AR",
      "cid": "jp:SV7-105",
      "sid": "SV7",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -4665,7 +4955,8 @@
      "rc": "AR",
      "cid": "jp:SV7-109",
      "sid": "SV7",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -4685,7 +4976,8 @@
      "rc": "AR",
      "cid": "jp:SV5M-081",
      "sid": "SV5M",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -4705,7 +4997,8 @@
      "rc": "AR",
      "cid": "jp:SV7-106",
      "sid": "SV7",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -4725,7 +5018,9 @@
      "rc": "AR",
      "cid": "int:me1-142",
      "sid": "me1",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "me01-142"
     }
    ]
   },
@@ -4745,7 +5040,9 @@
      "rc": "AR",
      "cid": "int:swsh12tg-TG18",
      "sid": "swsh12tg",
-     "rarityRaw": "Rare Holo V"
+     "rarityRaw": "Rare Holo V",
+     "src": "int",
+     "tdx": "swsh12tg-TG18"
     }
    ]
   },
@@ -4765,7 +5062,8 @@
      "rc": "AR",
      "cid": "jp:SV4M-067",
      "sid": "SV4M",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -4785,7 +5083,8 @@
      "rc": "AR",
      "cid": "jp:S12a-192",
      "sid": "S12a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -4805,7 +5104,9 @@
      "rc": "AR",
      "cid": "int:sv8-210",
      "sid": "sv8",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "sv08-210"
     }
    ]
   },
@@ -4825,7 +5126,8 @@
      "rc": "Common",
      "cid": "jp:S12a-043",
      "sid": "S12a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -4845,7 +5147,8 @@
      "rc": "AR",
      "cid": "jp:M2-089",
      "sid": "M2",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -4883,7 +5186,9 @@
      "rc": "SAR",
      "cid": "int:me2pt5-287",
      "sid": "me2pt5",
-     "rarityRaw": "Special Illustration Rare"
+     "rarityRaw": "Special Illustration Rare",
+     "src": "int",
+     "tdx": "me02.5-287"
     }
    ]
   },
@@ -4903,7 +5208,8 @@
      "rc": "AR",
      "cid": "jp:M2a-209",
      "sid": "M2a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -4939,7 +5245,9 @@
      "rc": "SAR",
      "cid": "int:sv3-222",
      "sid": "sv3",
-     "rarityRaw": "Special Illustration Rare"
+     "rarityRaw": "Special Illustration Rare",
+     "src": "int",
+     "tdx": "sv03-222"
     }
    ]
   },
@@ -4959,7 +5267,8 @@
      "rc": "AR",
      "cid": "jp:SV4K-076",
      "sid": "SV4K",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -4979,7 +5288,8 @@
      "rc": "AR",
      "cid": "jp:SV6a-073",
      "sid": "SV6a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -4999,7 +5309,9 @@
      "rc": "RR",
      "cid": "int:swsh9-114",
      "sid": "swsh9",
-     "rarityRaw": "Rare Holo V"
+     "rarityRaw": "Rare Holo V",
+     "src": "int",
+     "tdx": "swsh9-114"
     }
    ]
   },
@@ -5019,7 +5331,8 @@
      "rc": "Common",
      "cid": "jp:M2-062",
      "sid": "M2",
-     "rarityRaw": "Common"
+     "rarityRaw": "Common",
+     "src": "jp"
     }
    ]
   },
@@ -5039,7 +5352,8 @@
      "rc": "AR",
      "cid": "jp:M2a-212",
      "sid": "M2a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -5059,7 +5373,8 @@
      "rc": "AR",
      "cid": "jp:M2-087",
      "sid": "M2",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -5079,7 +5394,8 @@
      "rc": "SAR",
      "cid": "jp:S12a-232",
      "sid": "S12a",
-     "rarityRaw": "Special illustration rare"
+     "rarityRaw": "Special illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -5098,7 +5414,8 @@
      "rc": "AR",
      "cid": "jp:M5-090",
      "sid": "M5",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -5118,7 +5435,9 @@
      "rc": "RR",
      "cid": "int:swsh12-57",
      "sid": "swsh12",
-     "rarityRaw": "Rare Holo V"
+     "rarityRaw": "Rare Holo V",
+     "src": "int",
+     "tdx": "swsh12-057"
     }
    ]
   },
@@ -5153,7 +5472,8 @@
      "rc": "AR",
      "cid": "jp:SV5a-074",
      "sid": "SV5a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -5173,7 +5493,8 @@
      "rc": "AR",
      "cid": "jp:SV1a-076",
      "sid": "SV1a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -5227,7 +5548,9 @@
      "rc": "AR",
      "cid": "int:sv10-187",
      "sid": "sv10",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "sv10-187"
     }
    ]
   },
@@ -5247,7 +5570,9 @@
      "rc": "AR",
      "cid": "int:sv4pt5-226",
      "sid": "sv4pt5",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "sv04.5-226"
     }
    ]
   },
@@ -5268,7 +5593,9 @@
      "rc": "Uncommon",
      "cid": "int:sv2-75",
      "sid": "sv2",
-     "rarityRaw": "Uncommon"
+     "rarityRaw": "Uncommon",
+     "src": "int",
+     "tdx": "sv02-075"
     }
    ]
   },
@@ -5288,7 +5615,9 @@
      "rc": "Rare",
      "cid": "int:me2-34",
      "sid": "me2",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "me02-034"
     }
    ]
   },
@@ -5308,7 +5637,8 @@
      "rc": "AR",
      "cid": "jp:SV1S-079",
      "sid": "SV1S",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -5328,7 +5658,8 @@
      "rc": "AR",
      "cid": "jp:SV2D-078",
      "sid": "SV2D",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -5348,7 +5679,8 @@
      "rc": "AR",
      "cid": "jp:M1L-070",
      "sid": "M1L",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -5367,7 +5699,8 @@
      "rc": "AR",
      "cid": "jp:M2-083",
      "sid": "M2",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -5387,7 +5720,8 @@
      "rc": "AR",
      "cid": "jp:SV1S-080",
      "sid": "SV1S",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -5407,7 +5741,8 @@
      "rc": "AR",
      "cid": "jp:SV8-109",
      "sid": "SV8",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -5427,7 +5762,8 @@
      "rc": "AR",
      "cid": "jp:SV6-105",
      "sid": "SV6",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -5447,7 +5783,9 @@
      "rc": "AR",
      "cid": "int:me1-149",
      "sid": "me1",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "me01-149"
     }
    ]
   },
@@ -5467,7 +5805,8 @@
      "rc": "AR",
      "cid": "jp:SV2D-080",
      "sid": "SV2D",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -5487,7 +5826,8 @@
      "rc": "Common",
      "cid": "jp:SV3-010",
      "sid": "SV3",
-     "rarityRaw": "Common"
+     "rarityRaw": "Common",
+     "src": "jp"
     }
    ]
   },
@@ -5508,7 +5848,8 @@
      "rc": "Rare",
      "cid": "jp:SV3-011",
      "sid": "SV3",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "jp"
     }
    ]
   },
@@ -5528,7 +5869,8 @@
      "rc": "AR",
      "cid": "jp:SV4M-073",
      "sid": "SV4M",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -5548,7 +5890,9 @@
      "rc": "AR",
      "cid": "int:sv4pt5-224",
      "sid": "sv4pt5",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "sv04.5-224"
     }
    ]
   },
@@ -5568,7 +5912,8 @@
      "rc": "AR",
      "cid": "jp:SV1V-089",
      "sid": "SV1V",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -5588,7 +5933,9 @@
      "rc": "AR",
      "cid": "int:sv4pt5-225",
      "sid": "sv4pt5",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "sv04.5-225"
     }
    ]
   },
@@ -5608,7 +5955,9 @@
      "rc": "AR",
      "cid": "int:sv3-206",
      "sid": "sv3",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "sv03-206"
     }
    ]
   },
@@ -5628,7 +5977,9 @@
      "rc": "SAR",
      "cid": "int:sv3-224",
      "sid": "sv3",
-     "rarityRaw": "Special Illustration Rare"
+     "rarityRaw": "Special Illustration Rare",
+     "src": "int",
+     "tdx": "sv03-224"
     }
    ]
   },
@@ -5648,7 +5999,8 @@
      "rc": "AR",
      "cid": "jp:SV3a-074",
      "sid": "SV3a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -5668,7 +6020,8 @@
      "rc": "AR",
      "cid": "jp:M1S-073",
      "sid": "M1S",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -5688,7 +6041,8 @@
      "rc": "AR",
      "cid": "jp:SV4K-070",
      "sid": "SV4K",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -5708,7 +6062,9 @@
      "rc": "AR",
      "cid": "int:sv1-207",
      "sid": "sv1",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "sv01-207"
     }
    ]
   },
@@ -5728,7 +6084,8 @@
      "rc": "AR",
      "cid": "jp:SV2D-083",
      "sid": "SV2D",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -5747,7 +6104,9 @@
      "rc": "AR",
      "cid": "int:sv4-207",
      "sid": "sv4",
-     "rarityRaw": "Illustration Rare"
+     "rarityRaw": "Illustration Rare",
+     "src": "int",
+     "tdx": "sv04-207"
     }
    ]
   },
@@ -5767,7 +6126,9 @@
      "rc": "Uncommon",
      "cid": "int:sv4-107",
      "sid": "sv4",
-     "rarityRaw": "Uncommon"
+     "rarityRaw": "Uncommon",
+     "src": "int",
+     "tdx": "sv04-107"
     }
    ]
   },
@@ -5787,7 +6148,8 @@
      "rc": "SAR",
      "cid": "jp:SV8a-215",
      "sid": "SV8a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -5807,7 +6169,9 @@
      "rc": "SAR",
      "cid": "int:sv1-248",
      "sid": "sv1",
-     "rarityRaw": "Special Illustration Rare"
+     "rarityRaw": "Special Illustration Rare",
+     "src": "int",
+     "tdx": "sv01-248"
     }
    ]
   },
@@ -5827,7 +6191,8 @@
      "rc": "AR",
      "cid": "jp:SV4M-078",
      "sid": "SV4M",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -5847,7 +6212,8 @@
      "rc": "SAR",
      "cid": "jp:SV8a-220",
      "sid": "SV8a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -5867,7 +6233,9 @@
      "rc": "Uncommon",
      "cid": "int:sv8-116",
      "sid": "sv8",
-     "rarityRaw": "Uncommon"
+     "rarityRaw": "Uncommon",
+     "src": "int",
+     "tdx": "sv08-116"
     }
    ]
   },
@@ -5887,7 +6255,8 @@
      "rc": "AR",
      "cid": "jp:SV6-110",
      "sid": "SV6",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -5907,7 +6276,8 @@
      "rc": "AR",
      "cid": "jp:SV6-108",
      "sid": "SV6",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -5926,7 +6296,8 @@
      "rc": "RR",
      "cid": "jp:M2a-122",
      "sid": "M2a",
-     "rarityRaw": "Double rare"
+     "rarityRaw": "Double rare",
+     "src": "jp"
     }
    ]
   },
@@ -5946,7 +6317,8 @@
      "rc": "SAR",
      "cid": "jp:SV8a-222",
      "sid": "SV8a",
-     "rarityRaw": ""
+     "rarityRaw": "",
+     "src": "jp"
     }
    ]
   },
@@ -5983,7 +6355,8 @@
      "rc": "RR",
      "cid": "jp:M2a-145",
      "sid": "M2a",
-     "rarityRaw": "Double rare"
+     "rarityRaw": "Double rare",
+     "src": "jp"
     }
    ]
   },
@@ -6002,7 +6375,8 @@
      "rc": "RR",
      "cid": "jp:M1L-003",
      "sid": "M1L",
-     "rarityRaw": "Double rare"
+     "rarityRaw": "Double rare",
+     "src": "jp"
     }
    ]
   },
@@ -6021,7 +6395,8 @@
      "rc": "MA",
      "cid": "jp:M2a-223",
      "sid": "M2a",
-     "rarityRaw": "Ultra Rare"
+     "rarityRaw": "Ultra Rare",
+     "src": "jp"
     }
    ]
   },
@@ -6066,7 +6441,8 @@
      "rc": "MA",
      "cid": "jp:M2a-230",
      "sid": "M2a",
-     "rarityRaw": "Ultra Rare"
+     "rarityRaw": "Ultra Rare",
+     "src": "jp"
     }
    ]
   },
@@ -6101,7 +6477,8 @@
      "rc": "RR",
      "cid": "jp:M2a-126",
      "sid": "M2a",
-     "rarityRaw": "Double rare"
+     "rarityRaw": "Double rare",
+     "src": "jp"
     }
    ]
   },
@@ -6120,7 +6497,8 @@
      "rc": "SR",
      "cid": "jp:M2-093",
      "sid": "M2",
-     "rarityRaw": "Ultra Rare"
+     "rarityRaw": "Ultra Rare",
+     "src": "jp"
     }
    ]
   },
@@ -6138,7 +6516,8 @@
      "rc": "MA",
      "cid": "jp:M2a-226",
      "sid": "M2a",
-     "rarityRaw": "Ultra Rare"
+     "rarityRaw": "Ultra Rare",
+     "src": "jp"
     }
    ]
   },
@@ -6157,7 +6536,8 @@
      "rc": "RR",
      "cid": "jp:M1L-046",
      "sid": "M1L",
-     "rarityRaw": "Double rare"
+     "rarityRaw": "Double rare",
+     "src": "jp"
     }
    ]
   },
@@ -6176,7 +6556,9 @@
      "rc": "RR",
      "cid": "int:me2-61",
      "sid": "me2",
-     "rarityRaw": "Double Rare"
+     "rarityRaw": "Double Rare",
+     "src": "int",
+     "tdx": "me02-061"
     }
    ]
   },
@@ -6195,7 +6577,9 @@
      "rc": "RR",
      "cid": "int:me1-22",
      "sid": "me1",
-     "rarityRaw": "Double Rare"
+     "rarityRaw": "Double Rare",
+     "src": "int",
+     "tdx": "me01-022"
     }
    ]
   },
@@ -6214,7 +6598,8 @@
      "rc": "RR",
      "cid": "jp:M1L-038",
      "sid": "M1L",
-     "rarityRaw": "Double rare"
+     "rarityRaw": "Double rare",
+     "src": "jp"
     }
    ]
   },
@@ -6233,7 +6618,8 @@
      "rc": "RR",
      "cid": "jp:M1L-029",
      "sid": "M1L",
-     "rarityRaw": "Double rare"
+     "rarityRaw": "Double rare",
+     "src": "jp"
     }
    ]
   },
@@ -6252,7 +6638,8 @@
      "rc": "SAR",
      "cid": "jp:M2a-233",
      "sid": "M2a",
-     "rarityRaw": "Special illustration rare"
+     "rarityRaw": "Special illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -6271,7 +6658,8 @@
      "rc": "MA",
      "cid": "jp:M2a-231",
      "sid": "M2a",
-     "rarityRaw": "Ultra Rare"
+     "rarityRaw": "Ultra Rare",
+     "src": "jp"
     }
    ]
   },
@@ -6290,7 +6678,8 @@
      "rc": "MA",
      "cid": "jp:M2a-225",
      "sid": "M2a",
-     "rarityRaw": "Ultra Rare"
+     "rarityRaw": "Ultra Rare",
+     "src": "jp"
     }
    ]
   },
@@ -6309,7 +6698,8 @@
      "rc": "SR",
      "cid": "jp:M5-097",
      "sid": "M5",
-     "rarityRaw": "Ultra Rare"
+     "rarityRaw": "Ultra Rare",
+     "src": "jp"
     }
    ]
   },
@@ -6360,7 +6750,8 @@
      "rc": "MA",
      "cid": "jp:M2a-229",
      "sid": "M2a",
-     "rarityRaw": "Ultra Rare"
+     "rarityRaw": "Ultra Rare",
+     "src": "jp"
     }
    ]
   },
@@ -6379,7 +6770,8 @@
      "rc": "MA",
      "cid": "jp:M2a-227",
      "sid": "M2a",
-     "rarityRaw": "Ultra Rare"
+     "rarityRaw": "Ultra Rare",
+     "src": "jp"
     }
    ]
   },
@@ -6398,7 +6790,9 @@
      "rc": "RRR",
      "cid": "int:swsh12-34",
      "sid": "swsh12",
-     "rarityRaw": "Rare Holo VSTAR"
+     "rarityRaw": "Rare Holo VSTAR",
+     "src": "int",
+     "tdx": "swsh12-034"
     }
    ]
   },
@@ -6417,7 +6811,8 @@
      "rc": "AR",
      "cid": "jp:SV8-116",
      "sid": "SV8",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -6436,7 +6831,8 @@
      "rc": "AR",
      "cid": "jp:S12a-190",
      "sid": "S12a",
-     "rarityRaw": "Illustration rare"
+     "rarityRaw": "Illustration rare",
+     "src": "jp"
     }
    ]
   },
@@ -6471,7 +6867,9 @@
      "rc": "Rare",
      "cid": "int:sv6-100",
      "sid": "sv6",
-     "rarityRaw": "Rare"
+     "rarityRaw": "Rare",
+     "src": "int",
+     "tdx": "sv06-100"
     }
    ]
   },
@@ -6490,7 +6888,9 @@
      "rc": "RRR",
      "cid": "int:swsh10-53",
      "sid": "swsh10",
-     "rarityRaw": "Rare Holo V"
+     "rarityRaw": "Rare Holo V",
+     "src": "int",
+     "tdx": "swsh10-053"
     }
    ]
   },
@@ -6509,7 +6909,8 @@
      "rc": "RRR",
      "cid": "jp:S12a-129",
      "sid": "S12a",
-     "rarityRaw": "Triple Rare"
+     "rarityRaw": "Triple Rare",
+     "src": "jp"
     }
    ]
   },
@@ -6528,7 +6929,8 @@
      "rc": "RR",
      "cid": "jp:S9a-044",
      "sid": "S9a",
-     "rarityRaw": "Double rare"
+     "rarityRaw": "Double rare",
+     "src": "jp"
     }
    ]
   }
