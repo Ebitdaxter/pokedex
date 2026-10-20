@@ -186,7 +186,7 @@
     if (img.tagName !== 'IMG') return;
     const src = img.getAttribute('src');
     if (img.classList.contains('card')) { badImg.add(src); img.closest('.pocket')?.classList.remove('has-img'); img.remove(); }
-    else if (img.dataset.ph != null) { badImg.add(src); img.replaceWith(Object.assign(document.createElement('div'), { className: 'img-ph', textContent: img.dataset.ph || 'Foto non disponibile' })); }
+    else if (img.dataset.ph != null) { badImg.add(src); const t = document.createElement('template'); t.innerHTML = spritePh(img.dataset.ph || 'Foto non disponibile'); img.replaceWith(t.content.firstChild); }
   }, true);
 
   /* ---------------- detail ---------------- */
@@ -211,7 +211,8 @@
     $('#dStats').innerHTML = e.stats ? e.stats.map((v, i) => `<span>${STAT_LABELS[i]}</span><b>${v ?? '–'}</b><i style="--w:${Math.min(100, (v || 0) / 180 * 100)}%"></i>`).join('') : '';
   }
 
-  const thumb = (src, ph, cls = '') => src && !badImg.has(src) ? `<img class="${cls}" loading="lazy" alt="" src="${esc(src)}" data-ph="${esc(ph)}">` : `<div class="img-ph">${esc(ph)}</div>`;
+  const spritePh = (ph, e = current) => `<div class="img-ph sprite-ph" style="${e ? typeVars(e) : ''}">${e ? `<span class="spr">${sprite(e)}</span>` : ''}<span class="ph-t">${esc(ph)}</span></div>`;
+  const thumb = (src, ph, cls = '') => src && !badImg.has(src) ? `<img class="${cls}" loading="lazy" alt="" src="${esc(src)}" data-ph="${esc(ph)}">` : spritePh(ph);
   const rcBadge = rc => rc ? `<span class="rc rc-${esc(rc)}${ART_RC.has(rc) ? ' art' : ''}" title="${esc(RC_LABEL[rc] || rc)}">${esc(rc)}</span>` : '';
 
   function renderMine() {
@@ -307,7 +308,8 @@
     try {
       const list = relevant(e, await fetchCatalog(e.dex));
       if (tk !== catToken) return;
-      catalog = list; renderCatalog();
+      const key = c => (c.date || '9999') + '|' + c.set + '|' + String(parseInt(c.no, 10) || 0).padStart(5, '0') + c.no;
+      catalog = list.slice().sort((a, b) => key(a) < key(b) ? -1 : key(a) > key(b) ? 1 : 0); renderCatalog();
     } catch { if (tk === catToken) $('#catNote').textContent = 'Catalogo non disponibile. Puoi aggiungere la carta a mano.'; }
   }
   function filteredCatalog() {
@@ -321,7 +323,7 @@
     $('#rarityFilter').value = ui.rf;
     const list = filteredCatalog(), ownedC = new Set(mine(current.id).map(x => x.cid).filter(Boolean));
     const nInt = catalog.filter(c => c.src === 'int').length, nJp = catalog.length - nInt;
-    $('#catNote').textContent = catalog.length ? `${list.length} di ${catalog.length} carte (${nInt} internazionali, ${nJp} giapponesi), dalla più recente. Tocca una carta per aggiungerla.` : 'Nessuna carta in catalogo per questo Pokémon.';
+    $('#catNote').textContent = catalog.length ? `${list.length} di ${catalog.length} carte (${nInt} internazionali, ${nJp} giapponesi), dalla più vecchia alla più nuova. Tocca una carta per aggiungerla.` : 'Nessuna carta in catalogo per questo Pokémon.';
     $('#catGrid').innerHTML = list.slice(0, catLimit).map(c => {
       const cid = c.src + ':' + c.id, p = priceCache[cid];
       const tot = c.tot ? `/${c.tot}` : '';
