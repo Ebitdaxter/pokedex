@@ -113,7 +113,7 @@
     ENTRIES = p; ENTRIES.forEach(e => BY_ID.set(e.id, e)); SETS = s;
     remote = migrate(c || {});
     const local = store.get(LS.col, null) || store.get('pdx.collection.v2', null);
-    if (local && local.dirty && (!remote.updated || local.updated >= remote.updated)) { col = mergePrices(migrate(local.data), remote); if (!col.targets?.length && remote.targets?.length) col.targets = structuredClone(remote.targets); dirty = true; }
+    if (local && local.dirty && (!remote.updated || local.updated >= remote.updated)) { col = mergePrices(migrate(local.data), remote); if (!col.targets?.length && remote.targets?.length) col.targets = structuredClone(remote.targets); if (!col.doppie?.length && remote.doppie?.length) col.doppie = structuredClone(remote.doppie); dirty = true; }
     else { col = structuredClone(remote); dirty = false; store.del(LS.col); }
     $('#setList').innerHTML = SETS.map(x => `<option value="${esc(x.name)}">${esc(x.year)}</option>`).join('');
     initGithubFields();
