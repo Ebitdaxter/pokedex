@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202610201906">
+<link rel="stylesheet" href="styles.css?v=202610251253">
 </head>
 <body>
 <div class="bg" aria-hidden="true">
@@ -132,6 +132,7 @@
           <div class="seg small" role="radiogroup" aria-label="Aggiungi a" id="tapSeg">
             <button role="radio" data-tap="col" aria-checked="true">Collezione</button>
             <button role="radio" data-tap="target" aria-checked="false">Target</button>
+            <button role="radio" data-tap="doppia" aria-checked="false">Doppia</button>
           </div>
         </div>
         <div class="finder-tools">
@@ -166,6 +167,8 @@
 <dialog id="zoomDlg" class="zoom-dlg" aria-label="Carta ingrandita">
   <button type="button" class="icon-btn zoom-x" aria-label="Chiudi">✕</button>
   <img id="zoomImg" alt="Carta ingrandita">
+  <p class="zoom-label" id="zoomLabel"></p>
+  <div class="zoom-strip" id="zoomStrip"></div>
   <p class="zoom-hint">Tocca la carta per avvicinarti · tocca fuori per chiudere</p>
 </dialog>
 
@@ -219,6 +222,6 @@
 <datalist id="setList"></datalist>
 <datalist id="rarityList"><option>Common</option><option>Uncommon</option><option>Rare</option><option>RR</option><option>RRR</option><option>AR</option><option>SAR</option><option>SR</option><option>UR</option><option>MA</option><option>FR</option><option>Promo</option></datalist>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="app.js?v=202610201906"></script>
+<script src="app.js?v=202610251253"></script>
 </body>
 </html>

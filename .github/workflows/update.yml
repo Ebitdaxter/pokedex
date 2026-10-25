@@ -31,6 +31,7 @@ jobs:
         run: |
           python tools/build_cards.py
           python tools/build_bubi.py
+          python tools/build_pocketdex.py
       - name: Aggiorna i prezzi della collezione
         run: python tools/update_prices.py
       - name: Salva

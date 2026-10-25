@@ -611,3 +611,23 @@ html.modal-open, html.modal-open body { overflow: hidden; }
 .zoom-x { position: fixed; top: calc(12px + var(--sat, 0px)); right: 12px; z-index: 5; }
 .zoom-dlg[open] { overflow: hidden; }
 #zoomImg.big { position: relative; z-index: 1; }
+
+/* ---------- Doppie & Pokédex Pocket ---------- */
+body.on-list #faceSeg, body.on-list #viewSeg, body.on-list #filterSeg [data-filter="art"] { display: none; }
+body.on-target.on-list #filterSeg { display: none; }
+.t-img-wrap { position: relative; display: block; }
+.t-img-wrap > .zoom { left: 4px; top: 4px; width: 24px; height: 24px; line-height: 24px; font-size: 12px; }
+.qty { display: inline-flex; align-items: center; gap: 6px; }
+.qty b { min-width: 18px; text-align: center; font: 800 1rem/1 var(--display); }
+.qty .btn { padding: 3px 10px; }
+#pocketGen { margin-top: 8px; flex-wrap: wrap; }
+#pocketGen small { opacity: .7; font-size: .7em; margin-left: 2px; }
+div.pocket.missing { cursor: default; }
+.zoom-label { color: #fff; font-weight: 700; font-size: .85rem; margin: 0; min-height: 1em; }
+.zoom-strip { display: flex; gap: 8px; overflow-x: auto; max-width: 92vw; padding: 2px 4px 6px; touch-action: pan-x; }
+.zoom-strip:empty { display: none; }
+.zs { flex: none; width: 52px; padding: 0; border: 2px solid transparent; border-radius: 6px; background: none; cursor: pointer; }
+.zs img { width: 100%; aspect-ratio: 63/88; object-fit: cover; border-radius: 4px; }
+.zs.on { border-color: #f2b807; }
+#zoomImg { max-height: calc(100dvh - 190px - var(--sat, 0px)); }
+body.on-doppie #filterSeg { display: none; }

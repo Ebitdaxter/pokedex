@@ -18,6 +18,8 @@
     { id: 'mega', tab: 'Mega', title: 'Megaevoluzioni', cols: 3, theme: ['#7b3fd1', '#e0479e', '#38c6d9'] },
     { id: 'regional', tab: 'Regionali', title: 'Forme regionali', cols: 3, theme: ['#2fae63', '#1f76d2', '#f2b807'] },
     { id: 'target', tab: 'Target', title: 'Carte target', cols: 0, theme: ['#f2b807', '#e3350d', '#1f5fbf'] },
+    { id: 'doppie', tab: 'Doppie', title: 'Doppie', cols: 0, theme: ['#2fae63', '#1f76d2', '#f2b807'] },
+    { id: 'pocket', tab: 'Pokédex Pocket', title: 'Pokédex Pocket', cols: 0, theme: ['#14a3d9', '#7b3fd1', '#f2b807'] },
     { id: 'bubi', tab: 'Sezione Bubi', title: 'Sezione Bubi', cols: 0, theme: ['#4a7fe0', '#e9466f', '#5bbdbd'] },
   ];
   const DESIRE = { Strong: { l: 'Tanto', o: 0 }, Medium: { l: 'Medio', o: 1 }, Weak: { l: 'Poco', o: 2 } };
@@ -61,7 +63,7 @@
   /* ---------------- collection model ---------------- */
   // col.cards[entryId] = { cover: <uid>, list: [ {uid, cid?, src?, set, sid?, number, rarity, rc, lang, variant, year, img, price, value, art} ] }
   function migrate(c) {
-    const out = { version: 2, updated: c.updated || null, pricesUpdated: c.pricesUpdated, cards: {}, targets: (c.targets || []).map(t => Object.assign({ uid: uid() }, t)), bubi: c.bubi || {} };
+    const out = { version: 2, updated: c.updated || null, pricesUpdated: c.pricesUpdated, cards: {}, targets: (c.targets || []).map(t => Object.assign({ uid: uid() }, t)), bubi: c.bubi || {}, doppie: (c.doppie || []).map(d => Object.assign({ uid: uid() }, d)) };
     for (const [k, v] of Object.entries(c.cards || {})) {
       if (v && Array.isArray(v.list)) {
         v.list.forEach(x => { x.uid = x.uid || uid(); });
@@ -140,6 +142,14 @@
         const pct = tot ? Math.round(n / tot * 100) : 0;
         return `<button class="tab" role="tab" data-group="bubi" aria-selected="${ui.group === 'bubi'}"><b>Sezione Bubi</b><span>${tot ? `${n}/${tot}` : `${n} carte`}</span><i class="meter"><i style="width:${pct}%"></i></i></button>`;
       }
+      if (g.id === 'doppie') {
+        const q = (col.doppie || []).reduce((s, d) => s + (+d.qty || 1), 0);
+        return `<button class="tab" role="tab" data-group="doppie" aria-selected="${ui.group === 'doppie'}"><b>Doppie</b><span>${q} carte</span><i class="meter"><i style="width:0"></i></i></button>`;
+      }
+      if (g.id === 'pocket') {
+        const n = POCKET ? Object.keys(POCKET).length : 0;
+        return `<button class="tab" role="tab" data-group="pocket" aria-selected="${ui.group === 'pocket'}"><b>Pokédex Pocket</b><span>${n ? n + ' Pokémon' : 'TCG Pocket'}</span><i class="meter"><i style="width:${Math.round(n / 1025 * 100)}%"></i></i></button>`;
+      }
       if (g.id === 'target') {
         const t = targets(), n = t.filter(isTaken).length, pct = t.length ? Math.round(n / t.length * 100) : 0;
         return `<button class="tab tab-target" role="tab" data-group="target" aria-selected="${ui.group === 'target'}">
@@ -204,7 +214,11 @@
     applyTheme(g);
     document.body.classList.toggle('on-target', g.id === 'target');
     document.body.classList.toggle('on-bubi', g.id === 'bubi');
+    document.body.classList.toggle('on-list', g.id === 'doppie' || g.id === 'pocket');
+    document.body.classList.toggle('on-doppie', g.id === 'doppie');
     if (g.id === 'target') { renderTargets(); return; }
+    if (g.id === 'doppie') { renderDoppie(); return; }
+    if (g.id === 'pocket') { renderPocket(); return; }
     if (g.id === 'bubi') { renderBubi(); return; }
     const all = ENTRIES.filter(e => e.group === g.id), list = all.filter(matches);
     const n = all.filter(e => isOwned(e.id)).length;
@@ -352,6 +366,102 @@
         <span class="cand-row">${rcBadge(c.rc)}<span class="price" data-price="${esc(key)}">${c.src === 'pocket' ? 'TCG Pocket' : p ? (p.p != null ? eur(p.p) : '—') : ''}</span></span></span></button><button type="button" class="zoom" data-zoom="${esc(c.img)}" aria-label="Ingrandisci la carta">⤢</button></div>`;
     }).join('')}</div><div class="bubi-more"><button type="button" class="btn primary" data-shuffle>↻ Rimescola</button></div>`;
   }
+  /* ---------------- Doppie ---------------- */
+  const doppie = () => col.doppie || (col.doppie = []);
+  let dEdit = null;
+  function renderDoppie() {
+    const q = (ui.q || '').toLowerCase();
+    const all = doppie(), tot = all.reduce((s, d) => s + (+d.qty || 1), 0);
+    const val = all.reduce((s, d) => s + (+(d.value ?? d.price ?? priceCache[d.cid]?.p ?? 0) || 0) * (+d.qty || 1), 0);
+    $('#sectionHead').innerHTML = `<h2>Doppie</h2><p>${tot} carte doppie (${all.length} diverse)${val ? ' · circa ' + eur(val) : ''} · aggiungine con + o dal catalogo scegliendo “Doppia”</p>`;
+    const list = all.filter(d => !q || `${d.name} ${d.set} ${d.where}`.toLowerCase().includes(q))
+      .sort((a, b) => (a.page ?? 999) - (b.page ?? 999) || (a.pos ?? 0) - (b.pos ?? 0) || String(a.where || '').localeCompare(String(b.where || '')) || a.name.localeCompare(b.name));
+    if (!list.length) { $('#content').innerHTML = '<p class="empty">Nessuna doppia. Usa il + per aggiungerne una.</p>'; return; }
+    $('#content').innerHTML = `<ul class="tlist">${list.map(d => {
+      const e = BY_ID.get(d.eid), p = d.cid ? priceCache[d.cid] : null;
+      return `<li class="trow drow" data-uid="${d.uid}">
+        <span class="t-img-wrap"><button type="button" class="t-img" data-act="open" aria-label="Apri ${esc(d.name)}">${d.img && !badImg.has(d.img) ? `<img loading="lazy" alt="" src="${esc(d.img)}" data-ph="${esc(d.set || d.name)}">` : spritePh(d.set || d.name, e)}</button>${d.img ? `<button type="button" class="zoom" data-zoom="${esc(d.img)}" aria-label="Ingrandisci la carta">⤢</button>` : ''}</span>
+        <div class="t-main">
+          <b>${esc(d.name)}</b>
+          <span>${esc(d.set || '—')}${d.number ? ' · ' + esc(d.number) : ''}${d.year ? ' · ' + esc(d.year) : ''}${d.variant ? ' · ' + esc(d.variant) : ''}</span>
+          <span class="t-tags">${rcBadge(d.rc)}${d.lang ? `<span class="lang">${esc(d.lang)}</span>` : ''}${d.where ? `<span class="where-t">${esc(d.where)}</span>` : ''}</span>
+        </div>
+        <div class="t-side">
+          <span class="price" data-price="${esc(d.cid || '')}">${d.value != null ? eur(d.value) : p ? (p.p != null ? eur(p.p) : '—') : (d.cid ? '' : '—')}</span>
+          <span class="qty"><button type="button" class="btn quiet small" data-act="minus" aria-label="Una in meno">−</button><b>${+d.qty || 1}</b><button type="button" class="btn quiet small" data-act="plus" aria-label="Una in più">+</button></span>
+          <span class="t-btns"><button type="button" class="btn quiet small" data-act="edit">Modifica</button><button type="button" class="btn quiet small" data-act="del">Togli</button></span>
+        </div>${dEdit === d.uid ? doppiaForm(d) : ''}</li>`;
+    }).join('')}</ul>`;
+    loadPrices(list.filter(d => d.cid).map(d => { const [src, ...r] = d.cid.split(':'); return { src, id: r.join(':'), tdx: d.tdx }; }));
+  }
+  function doppiaForm(d) {
+    const L = ['', 'ITA', 'JPN', 'ENG', 'KOR', 'FRA', 'DEU', 'ESP', 'POR', 'CHN'].map(x => [x, x || '—']);
+    const RC = ['', 'Common', 'Uncommon', 'Rare', 'RR', 'RRR', 'AR', 'SAR', 'SR', 'UR', 'MA', 'MUR', 'CHR', 'CSR', 'S', 'SSR', 'ACE', 'PR'].map(x => [x, x || '—']);
+    return `<form class="t-edit d-edit card-form" data-uid="${d.uid}" autocomplete="off">
+      <label>Quantità<input name="qty" inputmode="numeric" value="${esc(d.qty || 1)}"></label>
+      <label>Lingua<select name="lang">${opts(L, d.lang)}</select></label>
+      <label>Rarità<select name="rc">${opts(RC, d.rc)}</select></label>
+      <label class="wide">Dove si trova<input name="where" value="${esc(d.where || '')}" placeholder="es. Raccoglitore doppie · pagina 2, tasca 4"></label>
+      <label class="wide">Espansione<input name="set" list="setList" value="${esc(d.set || '')}"></label>
+      <label>Numero<input name="number" value="${esc(d.number || '')}"></label>
+      <label>Anno<input name="year" inputmode="numeric" value="${esc(d.year || '')}"></label>
+      <label>Valore €<input name="value" inputmode="decimal" value="${esc(d.value ?? '')}"></label>
+      <label class="wide">Variante<input name="variant" value="${esc(d.variant || '')}"></label>
+      <label class="wide">Immagine (URL)<input name="img" value="${esc(d.img || '')}"></label>
+      <div class="row wide"><button type="button" class="btn primary small" data-act="dclose">Fatto</button></div>
+    </form>`;
+  }
+  function saveDoppiaForm(f) {
+    const d = doppie().find(z => z.uid === f.dataset.uid); if (!d) return;
+    for (const el of f.elements) {
+      if (!el.name) continue;
+      const v = el.value.trim();
+      if (el.name === 'qty') d.qty = Math.max(1, parseInt(v, 10) || 1);
+      else if (el.name === 'value') { const n = parseFloat(v.replace(',', '.')); if (isNaN(n)) delete d.value; else d.value = n; }
+      else if (v) d[el.name] = v; else delete d[el.name];
+    }
+    persist(); renderTabs();
+  }
+  function addDoppia(c) {
+    const cid = c.src + ':' + c.id, have = doppie().find(d => d.cid === cid);
+    if (have) { have.qty = (+have.qty || 1) + 1; persist(); refreshAfterEdit(); toast(`Doppia: ora ne hai ${have.qty} (${c.set} ${c.no})`); return; }
+    doppie().push({ uid: uid(), name: current.name, eid: current.id, cid, src: c.src, tdx: c.tdx, img: c.img || null, set: c.set,
+      number: c.no + (c.tot ? '/' + c.tot : ''), rc: c.rc, year: (c.date || '').slice(0, 4), lang: c.src === 'jp' ? ui.langJp : ui.langInt, qty: 1 });
+    persist(); refreshAfterEdit();
+    toast(`Aggiunta alle doppie: ${c.set} ${c.no}`);
+  }
+
+  /* ---------------- Pokédex Pocket ---------------- */
+  let POCKET = null, pocketLoading = null, pocketGen = 1;
+  async function renderPocket() {
+    if (!POCKET) {
+      $('#sectionHead').innerHTML = '<h2>Pokédex Pocket</h2><p>Carico le carte di TCG Pocket…</p>'; $('#content').innerHTML = '';
+      pocketLoading = pocketLoading || fetch('data/pocketdex.json').then(r => r.json()).then(j => { POCKET = j; renderTabs(); });
+      await pocketLoading; if (ui.group !== 'pocket') return;
+    }
+    const q = (ui.q || '').toLowerCase().replace(/^#0*/, '');
+    const mains = ENTRIES.filter(e => e.group.startsWith('g'));
+    const have = e => (POCKET[e.dex] || []).length > 0;
+    const totalCards = Object.values(POCKET).reduce((s, l) => s + l.length, 0);
+    const gens = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    $('#sectionHead').innerHTML = `<h2>Pokédex Pocket</h2><p>${Object.keys(POCKET).length} Pokémon con una full art di TCG Pocket · ${totalCards} carte (2★ rainbow e 3★ immersive)</p>
+      <div class="seg small" role="radiogroup" aria-label="Generazione" id="pocketGen">${gens.map(g => `<button role="radio" data-pg="${g}" aria-checked="${!q && pocketGen === g}">${['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'][g - 1]} <small>${mains.filter(e => e.gen === g && have(e)).length}</small></button>`).join('')}</div>`;
+    let list = q ? mains.filter(e => e.name.toLowerCase().includes(q) || String(e.dex) === q) : mains.filter(e => e.gen === pocketGen);
+    if (ui.filter === 'owned') list = list.filter(have); if (ui.filter === 'missing') list = list.filter(e => !have(e));
+    if (!list.length) { $('#content').innerHTML = '<p class="empty">Niente da mostrare.</p>'; return; }
+    $('#content').innerHTML = `<div class="grid">${list.map(e => {
+      const cards = POCKET[e.dex] || [], c = cards[0];
+      if (!c) return `<div class="pocket missing" aria-label="${esc(e.name)}, nessuna full art Pocket"><span class="no">${dexStr(e.dex)}</span><span class="spr">${sprite(e)}</span><span class="nm">${esc(e.name)}</span></div>`;
+      return `<button type="button" class="pocket owned has-img" style="${typeVars(e)}" data-pocket="${e.dex}" aria-label="${esc(e.name)}, ${cards.length} ${cards.length > 1 ? 'carte' : 'carta'} Pocket">
+        <span class="no">${dexStr(e.dex)}</span><span class="spr">${sprite(e)}</span><span class="nm">${esc(e.name)}</span>
+        <img class="card" loading="lazy" decoding="async" alt="" src="${esc(c.img)}"><span class="badge-art">${c.rc}</span>${cards.length > 1 ? `<span class="badge-n">${cards.length}</span>` : ''}</button>`;
+    }).join('')}</div>`;
+  }
+  function openPocket(dex) {
+    const cards = POCKET?.[dex] || []; if (!cards.length) return;
+    openZoom(cards.map(c => ({ img: c.img, sm: c.sm, label: `${c.rc} · ${c.set} ${c.no}` })), 0);
+  }
+
   function toggleBubi(key) {
     const c = BUBI.cards.find(z => bubiKey(z) === key); if (!c) return;
     col.bubi = col.bubi || {};
@@ -617,6 +727,7 @@
     const c = catalog.find(x => x.src + ':' + x.id === cid); if (!c) return;
     if (photoMode) { borrowPhoto(c); return; }
     if (ui.tap === 'target') { addTarget(c); return; }
+    if (ui.tap === 'doppia') { addDoppia(c); return; }
     const lang = c.src === 'jp' ? ui.langJp : ui.langInt;
     const x = { uid: uid(), cid, src: c.src, tdx: c.tdx, set: c.set + (c.src === 'jp' && !/\(/.test(c.set) ? ` (${c.sid})` : ''), sid: c.sid,
       number: c.no + (c.tot ? '/' + c.tot : ''), rarity: c.r, rc: c.rc, lang, year: (c.date || '').slice(0, 4), img: c.img || null,
@@ -749,6 +860,18 @@
   $('#tabs').addEventListener('click', ev => { const b = ev.target.closest('.tab'); if (!b) return; ui.group = b.dataset.group; renderTabs(); renderContent(); syncControls(); window.scrollTo({ top: 0 }); });
   $('#filterSeg').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; ui.filter = b.dataset.filter; syncControls(); renderContent(); });
   $('#content').addEventListener('click', ev => { const b = ev.target.closest('.bcard'); if (b) toggleBubi(b.dataset.key); });
+  $('#content').addEventListener('click', ev => {
+    const pk = ev.target.closest('[data-pocket]'); if (pk) { openPocket(pk.dataset.pocket); return; }
+    const row = ev.target.closest('.drow'); if (!row) return;
+    const d = doppie().find(z => z.uid === row.dataset.uid); if (!d) return;
+    const act = ev.target.closest('[data-act]')?.dataset.act;
+    if (act === 'plus' || act === 'minus') { d.qty = Math.max(1, (+d.qty || 1) + (act === 'plus' ? 1 : -1)); persist(); renderDoppie(); renderTabs(); }
+    else if (act === 'del') { col.doppie = doppie().filter(z => z !== d); persist(); renderDoppie(); renderTabs(); toast('Tolta dalle doppie'); }
+    else if (act === 'edit' || act === 'dclose') { dEdit = dEdit === d.uid || act === 'dclose' ? null : d.uid; renderDoppie(); }
+    else if (act === 'open' && d.eid) openDetail(d.eid);
+  });
+  $('#content').addEventListener('change', ev => { const f = ev.target.closest('.d-edit'); if (f) saveDoppiaForm(f); });
+  $('#sectionHead').addEventListener('click', ev => { const b = ev.target.closest('[data-pg]'); if (b) { pocketGen = +b.dataset.pg; $('#search').value = ''; ui.q = ''; renderPocket(); } });
   $('#tapSeg').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; ui.tap = b.dataset.tap; syncControls(); renderCatalog(); });
   $('#content').addEventListener('click', ev => {
     const tb = ev.target.closest('#tSeg button'); if (tb) { tFilter = tb.dataset.t; renderTargets(); return; }
@@ -811,7 +934,7 @@
     x.img = x.imgOwn ?? null; delete x.imgOwn; delete x.imgFrom;
     persist(); renderMine(); fillForm(); refreshAfterEdit(); toast('Foto originale ripristinata');
   });
-  dlg.addEventListener('close', () => { setPhotoMode(false); if (tReplace || targetQuick) { tReplace = null; targetQuick = false; ui.tap = 'col'; syncControls(); if (ui.group === 'target') renderTargets(); } });
+  dlg.addEventListener('close', () => { setPhotoMode(false); if (tReplace || targetQuick) { tReplace = null; targetQuick = false; ui.tap = 'col'; syncControls(); if (ui.group === 'target') renderTargets(); if (ui.group === 'doppie') renderDoppie(); } });
   form.addEventListener('change', readForm);
   form.addEventListener('submit', ev => ev.preventDefault());
   $('#catGrid').addEventListener('click', ev => { const b = ev.target.closest('.cand'); if (b) pickCatalog(b.dataset.cid); });
@@ -867,7 +990,7 @@
     }).join('') : `<p class="hint">Nessun Pokémon trovato per “${esc(q)}”.</p>`;
   }
   $('#fab').addEventListener('click', () => {
-    $('#qTitle').textContent = ui.group === 'target' ? 'Aggiungi un target' : 'Aggiungi una carta';
+    $('#qTitle').textContent = ui.group === 'target' ? 'Aggiungi un target' : ui.group === 'doppie' ? 'Aggiungi una doppia' : 'Aggiungi una carta';
     $('#qInput').value = ''; renderQuick(); quick.showModal(); setTimeout(() => $('#qInput').focus(), 50);
   });
   $('#qInput').addEventListener('input', renderQuick);
@@ -875,8 +998,8 @@
     if (ev.target === quick) { quick.close(); return; }
     const it = ev.target.closest('.q-item'); if (!it) return;
     const e = BY_ID.get(it.dataset.id); quick.close();
-    if (ui.group === 'target') {        // from the Target tab: cards you pick go to the target list, not to your collection
-      targetQuick = true; ui.tap = 'target'; syncControls();
+    if (ui.group === 'target' || ui.group === 'doppie') {   // from Target / Doppie: what you pick goes to that list, not to your collection
+      targetQuick = true; ui.tap = ui.group === 'target' ? 'target' : 'doppia'; syncControls();
     } else if (ui.group !== e.group) { ui.group = e.group; renderTabs(); renderContent(); syncControls(); }
     openDetail(e.id);
     setTimeout(() => $('.finder').scrollIntoView({ behavior: 'smooth', block: 'start' }), 350);
@@ -933,10 +1056,18 @@
 
   /* ---------------- zoom a card ---------------- */
   const zoomDlg = $('#zoomDlg'), zoomImg = $('#zoomImg');
+  let zoomSet = [], zoomAt = 0;
+  function showZoom(i) {
+    zoomAt = i; const z = zoomSet[i];
+    zoomImg.classList.remove('big'); zoomImg.src = z.img;
+    $('#zoomStrip').innerHTML = zoomSet.length > 1 ? zoomSet.map((x, k) => `<button type="button" class="zs${k === i ? ' on' : ''}" data-zi="${k}" aria-label="${esc(x.label || 'Carta ' + (k + 1))}"><img alt="" src="${esc(x.sm || x.img)}"></button>`).join('') : '';
+    $('#zoomLabel').textContent = z.label || '';
+  }
+  function openZoom(set, i = 0) { zoomSet = set; showZoom(i); if (!zoomDlg.open) zoomDlg.showModal(); }
   document.addEventListener('click', ev => {
     const z = ev.target.closest('[data-zoom]'); if (!z) return;
     ev.preventDefault(); ev.stopPropagation();
-    zoomImg.classList.remove('big'); zoomImg.src = z.dataset.zoom; zoomDlg.showModal();
+    openZoom([{ img: z.dataset.zoom }], 0);
   }, true);
   zoomImg.addEventListener('click', ev => {          // tap the card: 2x closer on that spot, tap again to go back
     ev.stopPropagation();
@@ -945,6 +1076,7 @@
       zoomImg.style.transformOrigin = `${(ev.clientX - r.left) / r.width * 100}% ${(ev.clientY - r.top) / r.height * 100}%`;
     }
   });
+  $('#zoomStrip').addEventListener('click', ev => { ev.stopPropagation(); const b = ev.target.closest('[data-zi]'); if (b) showZoom(+b.dataset.zi); });
   zoomDlg.addEventListener('click', () => zoomDlg.close());
 
   load().catch(err => { $('#content').innerHTML = `<p class="empty">Impossibile caricare i dati (${esc(err.message)}). Apri il sito tramite GitHub Pages o un server locale.</p>`; });
