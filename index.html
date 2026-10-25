@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202610251253">
+<link rel="stylesheet" href="styles.css?v=202610251304">
 </head>
 <body>
 <div class="bg" aria-hidden="true">
@@ -169,7 +169,14 @@
   <img id="zoomImg" alt="Carta ingrandita">
   <p class="zoom-label" id="zoomLabel"></p>
   <div class="zoom-strip" id="zoomStrip"></div>
+  <div class="zoom-actions"><button type="button" class="btn primary small" id="zoomUse">Mostra questa nel Pokédex Pocket</button><button type="button" class="btn quiet small" id="zoomSprite">Usa lo sprite</button></div>
   <p class="zoom-hint">Tocca la carta per avvicinarti · tocca fuori per chiudere</p>
+</dialog>
+
+<dialog id="dsheet" class="sheet narrow ds" aria-label="Doppia">
+  <form method="dialog" class="sheet-close"><button class="icon-btn" aria-label="Chiudi">✕</button></form>
+  <div id="dsBody" class="ds-body"></div>
+  <form method="dialog" class="sheet-bottom"><button class="btn quiet">Chiudi</button></form>
 </dialog>
 
 <!-- Settings -->
@@ -222,6 +229,6 @@
 <datalist id="setList"></datalist>
 <datalist id="rarityList"><option>Common</option><option>Uncommon</option><option>Rare</option><option>RR</option><option>RRR</option><option>AR</option><option>SAR</option><option>SR</option><option>UR</option><option>MA</option><option>FR</option><option>Promo</option></datalist>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="app.js?v=202610251253"></script>
+<script src="app.js?v=202610251304"></script>
 </body>
 </html>

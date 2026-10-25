@@ -63,7 +63,7 @@
   /* ---------------- collection model ---------------- */
   // col.cards[entryId] = { cover: <uid>, list: [ {uid, cid?, src?, set, sid?, number, rarity, rc, lang, variant, year, img, price, value, art} ] }
   function migrate(c) {
-    const out = { version: 2, updated: c.updated || null, pricesUpdated: c.pricesUpdated, cards: {}, targets: (c.targets || []).map(t => Object.assign({ uid: uid() }, t)), bubi: c.bubi || {}, doppie: (c.doppie || []).map(d => Object.assign({ uid: uid() }, d)) };
+    const out = { version: 2, updated: c.updated || null, pricesUpdated: c.pricesUpdated, cards: {}, targets: (c.targets || []).map(t => Object.assign({ uid: uid() }, t)), bubi: c.bubi || {}, pocketCover: c.pocketCover || {}, doppie: (c.doppie || []).map(d => Object.assign({ uid: uid() }, d)) };
     for (const [k, v] of Object.entries(c.cards || {})) {
       if (v && Array.isArray(v.list)) {
         v.list.forEach(x => { x.uid = x.uid || uid(); });
@@ -373,10 +373,13 @@
     const q = (ui.q || '').toLowerCase();
     const all = doppie(), tot = all.reduce((s, d) => s + (+d.qty || 1), 0);
     const val = all.reduce((s, d) => s + (+(d.value ?? d.price ?? priceCache[d.cid]?.p ?? 0) || 0) * (+d.qty || 1), 0);
-    $('#sectionHead').innerHTML = `<h2>Doppie</h2><p>${tot} carte doppie (${all.length} diverse)${val ? ' · circa ' + eur(val) : ''} · aggiungine con + o dal catalogo scegliendo “Doppia”</p>`;
+    const dv = ui.dview || 'album';
+    $('#sectionHead').innerHTML = `<h2>Doppie</h2><p>${tot} carte doppie (${all.length} diverse)${val ? ' · circa ' + eur(val) : ''} · aggiungine con + o dal catalogo scegliendo “Doppia”</p>
+      <div class="seg small" role="radiogroup" aria-label="Vista" id="dviewSeg"><button role="radio" data-dv="album" aria-checked="${dv === 'album'}">Album</button><button role="radio" data-dv="list" aria-checked="${dv === 'list'}">Lista</button></div>`;
     const list = all.filter(d => !q || `${d.name} ${d.set} ${d.where}`.toLowerCase().includes(q))
       .sort((a, b) => (a.page ?? 999) - (b.page ?? 999) || (a.pos ?? 0) - (b.pos ?? 0) || String(a.where || '').localeCompare(String(b.where || '')) || a.name.localeCompare(b.name));
     if (!list.length) { $('#content').innerHTML = '<p class="empty">Nessuna doppia. Usa il + per aggiungerne una.</p>'; return; }
+    if (dv === 'album') { renderDoppieAlbum(list); return; }
     $('#content').innerHTML = `<ul class="tlist">${list.map(d => {
       const e = BY_ID.get(d.eid), p = d.cid ? priceCache[d.cid] : null;
       return `<li class="trow drow" data-uid="${d.uid}">
@@ -393,6 +396,39 @@
         </div>${dEdit === d.uid ? doppiaForm(d) : ''}</li>`;
     }).join('')}</ul>`;
     loadPrices(list.filter(d => d.cid).map(d => { const [src, ...r] = d.cid.split(':'); return { src, id: r.join(':'), tdx: d.tdx }; }));
+  }
+  // album: 5×5 pages, a doppia you own twice takes two pockets
+  function renderDoppieAlbum(list) {
+    const slots = list.flatMap(d => Array.from({ length: Math.max(1, +d.qty || 1) }, () => d));
+    const pages = []; for (let i = 0; i < slots.length; i += 25) pages.push(slots.slice(i, i + 25));
+    const pocketOf = d => {
+      const e = BY_ID.get(d.eid), img = d.img && !badImg.has(d.img);
+      return `<button type="button" class="pocket owned${img ? ' has-img' : ''} dpocket" ${e ? `style="${typeVars(e)}"` : ''} data-duid="${d.uid}" aria-label="${esc(d.name)} · ${esc(d.set || '')}">
+        ${e ? `<span class="spr">${sprite(e)}</span>` : ''}<span class="meta">${esc(d.set || '')}</span><span class="nm">${esc(d.name)}</span>
+        ${img ? `<img class="card" loading="lazy" decoding="async" alt="" src="${esc(d.img)}">` : ''}${ART_RC.has(d.rc) ? `<span class="badge-art">${esc(d.rc)}</span>` : ''}</button>`;
+    };
+    $('#content').innerHTML = `<div class="album-nav" id="albumNav"><button type="button" class="btn quiet small" data-turn="-1" aria-label="Pagina precedente">‹</button><span id="albumPos"></span><button type="button" class="btn quiet small" data-turn="1" aria-label="Pagina successiva">›</button></div>
+      <div class="pages pages5" id="pages">${pages.map((pg, i) => `<section class="page" aria-label="Pagina ${i + 1}"><div class="page-label"><b>Pagina ${i + 1}</b><span>${pg.length}/25</span></div>
+        <div class="pockets c5">${pg.map(pocketOf).join('')}${Array.from({ length: 25 - pg.length }, () => '<div class="pocket void" aria-hidden="true"></div>').join('')}</div></section>`).join('')}</div>`;
+    initAlbum();
+  }
+  // a small sheet for one doppia: picture, details, quantity, change picture, edit, remove
+  function openDoppia(uidD) {
+    const d = doppie().find(z => z.uid === uidD); if (!d) return;
+    const e = BY_ID.get(d.eid), p = d.cid ? priceCache[d.cid] : null;
+    $('#dsBody').innerHTML = `
+      <div class="ds-card">${d.img && !badImg.has(d.img) ? `<img alt="" src="${esc(d.img)}" data-ph="${esc(d.set || d.name)}">${`<button type="button" class="zoom" data-zoom="${esc(d.img)}" aria-label="Ingrandisci la carta">⤢</button>`}` : spritePh(d.set || d.name, e)}</div>
+      <div class="ds-info">
+        <h2>${esc(d.name)}</h2>
+        <p>${esc(d.set || '—')}${d.number ? ' · ' + esc(d.number) : ''}${d.year ? ' · ' + esc(d.year) : ''}${d.variant ? ' · ' + esc(d.variant) : ''}</p>
+        <p class="t-tags">${rcBadge(d.rc)}${d.lang ? `<span class="lang">${esc(d.lang)}</span>` : ''}${d.where ? `<span class="where-t">${esc(d.where)}</span>` : ''}</p>
+        <p class="ds-price">${d.value != null ? eur(d.value) : p?.p != null ? eur(p.p) + ' <small>Cardmarket</small>' : ''}</p>
+        <div class="row"><span class="qty"><button type="button" class="btn quiet small" data-dsa="minus" aria-label="Una in meno">−</button><b>${+d.qty || 1}</b><button type="button" class="btn quiet small" data-dsa="plus" aria-label="Una in più">+</button></span></div>
+        <div class="row">${d.eid ? '<button type="button" class="btn quiet small" data-dsa="photo">Cambia foto</button>' : ''}${d.imgFrom ? '<button type="button" class="btn quiet small" data-dsa="photoReset">Foto originale</button>' : ''}<button type="button" class="btn quiet small" data-dsa="edit">Modifica</button><button type="button" class="btn danger small" data-dsa="del">Togli</button></div>
+        <div id="dsForm"></div>
+      </div>`;
+    $('#dsheet').dataset.uid = d.uid;
+    if (!$('#dsheet').open) $('#dsheet').showModal();
   }
   function doppiaForm(d) {
     const L = ['', 'ITA', 'JPN', 'ENG', 'KOR', 'FRA', 'DEU', 'ESP', 'POR', 'CHN'].map(x => [x, x || '—']);
@@ -432,7 +468,7 @@
   }
 
   /* ---------------- Pokédex Pocket ---------------- */
-  let POCKET = null, pocketLoading = null, pocketGen = 1;
+  let POCKET = null, pocketLoading = null, pocketGen = 'g1';
   async function renderPocket() {
     if (!POCKET) {
       $('#sectionHead').innerHTML = '<h2>Pokédex Pocket</h2><p>Carico le carte di TCG Pocket…</p>'; $('#content').innerHTML = '';
@@ -440,26 +476,37 @@
       await pocketLoading; if (ui.group !== 'pocket') return;
     }
     const q = (ui.q || '').toLowerCase().replace(/^#0*/, '');
-    const mains = ENTRIES.filter(e => e.group.startsWith('g'));
-    const have = e => (POCKET[e.dex] || []).length > 0;
-    const totalCards = Object.values(POCKET).reduce((s, l) => s + l.length, 0);
-    const gens = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    $('#sectionHead').innerHTML = `<h2>Pokédex Pocket</h2><p>${Object.keys(POCKET).length} Pokémon con una full art di TCG Pocket · ${totalCards} carte (2★ rainbow e 3★ immersive)</p>
-      <div class="seg small" role="radiogroup" aria-label="Generazione" id="pocketGen">${gens.map(g => `<button role="radio" data-pg="${g}" aria-checked="${!q && pocketGen === g}">${['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'][g - 1]} <small>${mains.filter(e => e.gen === g && have(e)).length}</small></button>`).join('')}</div>`;
-    let list = q ? mains.filter(e => e.name.toLowerCase().includes(q) || String(e.dex) === q) : mains.filter(e => e.gen === pocketGen);
-    if (ui.filter === 'owned') list = list.filter(have); if (ui.filter === 'missing') list = list.filter(e => !have(e));
+    const covers = col.pocketCover || {};
+    const shown = e => pocketShown(e.id);
+    const groups = [...[1, 2, 3, 4, 5, 6, 7, 8, 9].map(g => ['g' + g, ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'][g - 1]]), ['mega', 'Mega'], ['regional', 'Regionali']];
+    const pg = String(pocketGen).startsWith('g') || pocketGen === 'mega' || pocketGen === 'regional' ? pocketGen : 'g' + pocketGen;
+    const withFa = Object.values(POCKET).filter(l => l.some(c => c.fa)).length;
+    $('#sectionHead').innerHTML = `<h2>Pokédex Pocket</h2><p>${withFa} Pokémon con una full art di TCG Pocket · tocca un Pokémon per scegliere quale carta mostrare</p>
+      <div class="seg small" role="radiogroup" aria-label="Generazione" id="pocketGen">${groups.map(([k, l]) => `<button role="radio" data-pg="${k}" aria-checked="${!q && pg === k}">${l} <small>${ENTRIES.filter(e => e.group === k && shown(e)).length}</small></button>`).join('')}</div>`;
+    let list = q ? ENTRIES.filter(e => e.name.toLowerCase().includes(q) || String(e.dex) === q) : ENTRIES.filter(e => e.group === pg);
+    if (ui.filter === 'owned') list = list.filter(shown); if (ui.filter === 'missing') list = list.filter(e => !shown(e));
     if (!list.length) { $('#content').innerHTML = '<p class="empty">Niente da mostrare.</p>'; return; }
     $('#content').innerHTML = `<div class="grid">${list.map(e => {
-      const cards = POCKET[e.dex] || [], c = cards[0];
-      if (!c) return `<div class="pocket missing" aria-label="${esc(e.name)}, nessuna full art Pocket"><span class="no">${dexStr(e.dex)}</span><span class="spr">${sprite(e)}</span><span class="nm">${esc(e.name)}</span></div>`;
-      return `<button type="button" class="pocket owned has-img" style="${typeVars(e)}" data-pocket="${e.dex}" aria-label="${esc(e.name)}, ${cards.length} ${cards.length > 1 ? 'carte' : 'carta'} Pocket">
-        <span class="no">${dexStr(e.dex)}</span><span class="spr">${sprite(e)}</span><span class="nm">${esc(e.name)}</span>
-        <img class="card" loading="lazy" decoding="async" alt="" src="${esc(c.img)}"><span class="badge-art">${c.rc}</span>${cards.length > 1 ? `<span class="badge-n">${cards.length}</span>` : ''}</button>`;
+      const cards = POCKET[e.id] || [], c = shown(e);
+      const no = e.group.startsWith('g') ? dexStr(e.dex) : (e.region || dexStr(e.dex));
+      if (!c) return `<${cards.length ? 'button type="button"' : 'div'} class="pocket missing" ${cards.length ? `data-pocket="${e.id}"` : ''} aria-label="${esc(e.name)}${cards.length ? `, ${cards.length} carte Pocket, nessuna esposta` : ', nessuna carta Pocket'}"><span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span><span class="nm">${esc(e.name)}</span>${cards.length ? `<span class="badge-n" title="Carte disponibili">${cards.length}</span>` : ''}</${cards.length ? 'button' : 'div'}>`;
+      return `<button type="button" class="pocket owned has-img" style="${typeVars(e)}" data-pocket="${e.id}" aria-label="${esc(e.name)}, ${esc(c.rc)} ${esc(c.set)}">
+        <span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span><span class="nm">${esc(e.name)}</span>
+        <img class="card" loading="lazy" decoding="async" alt="" src="${esc(c.img)}"><span class="badge-art">${c.rc}</span></button>`;
     }).join('')}</div>`;
   }
-  function openPocket(dex) {
-    const cards = POCKET?.[dex] || []; if (!cards.length) return;
-    openZoom(cards.map(c => ({ img: c.img, sm: c.sm, label: `${c.rc} · ${c.set} ${c.no}` })), 0);
+  // which Pocket card is on show for an entry: your choice, otherwise its best full art, otherwise none (sprite)
+  function pocketShown(eid) {
+    const cards = POCKET?.[eid] || [], pick = (col.pocketCover || {})[eid];
+    if (pick === 'sprite') return null;
+    return cards.find(c => c.id === pick) || cards.find(c => c.fa) || null;
+  }
+  let pocketEid = null;
+  function openPocket(eid) {
+    const cards = POCKET?.[eid] || []; if (!cards.length) return;
+    pocketEid = eid;
+    const cur = pocketShown(eid), at = Math.max(0, cards.findIndex(c => c === cur));
+    openZoom(cards.map(c => ({ img: c.img, sm: c.sm, id: c.id, label: `${c.rc} · ${c.set} · ${c.no}` })), at, true);
   }
 
   function toggleBubi(key) {
@@ -714,7 +761,15 @@
     photoMode = on; $('#photoBanner').hidden = !on; dlg.classList.toggle('photo-mode', on);
     if (on) { ui.src = 'all'; renderCatalog(); $('#photoBanner').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   }
+  let photoDoppia = null;     // uid of a doppia whose picture we are choosing
   function borrowPhoto(c) {
+    if (photoDoppia) {
+      const d = doppie().find(z => z.uid === photoDoppia); photoDoppia = null;
+      if (!c.img) { toast('Questa carta non ha foto: scegline un\'altra'); return; }
+      if (d) { if (!d.imgFrom) d.imgOwn = d.img ?? null; d.img = c.img; d.imgFrom = c.src + ':' + c.id; }
+      persist(); setPhotoMode(false); dlg.close(); ui.group = 'doppie'; renderTabs(); renderContent(); toast(`Foto della doppia presa da ${c.set} ${c.no}`);
+      return;
+    }
     const x = mine(current.id).find(z => z.uid === selUid); if (!x) return;
     if (!c.img) { toast('Questa carta non ha foto: scegline un\'altra'); return; }
     if (!x.imgFrom) x.imgOwn = x.img ?? null;
@@ -871,7 +926,21 @@
     else if (act === 'open' && d.eid) openDetail(d.eid);
   });
   $('#content').addEventListener('change', ev => { const f = ev.target.closest('.d-edit'); if (f) saveDoppiaForm(f); });
-  $('#sectionHead').addEventListener('click', ev => { const b = ev.target.closest('[data-pg]'); if (b) { pocketGen = +b.dataset.pg; $('#search').value = ''; ui.q = ''; renderPocket(); } });
+  $('#content').addEventListener('click', ev => { const b = ev.target.closest('.dpocket'); if (b) openDoppia(b.dataset.duid); });
+  $('#sectionHead').addEventListener('click', ev => { const b = ev.target.closest('[data-dv]'); if (b) { ui.dview = b.dataset.dv; syncControls(); renderDoppie(); } });
+  $('#dsheet').addEventListener('click', ev => {
+    const sh = $('#dsheet'); if (ev.target === sh) { sh.close(); return; }
+    const a = ev.target.closest('[data-dsa]')?.dataset.dsa; if (!a) return;
+    const d = doppie().find(z => z.uid === sh.dataset.uid); if (!d) return;
+    if (a === 'plus' || a === 'minus') { d.qty = Math.max(1, (+d.qty || 1) + (a === 'plus' ? 1 : -1)); persist(); openDoppia(d.uid); refreshAfterEdit(); }
+    else if (a === 'del') { col.doppie = doppie().filter(z => z !== d); persist(); sh.close(); refreshAfterEdit(); toast('Tolta dalle doppie'); }
+    else if (a === 'edit') { $('#dsForm').innerHTML = doppiaForm(d); }
+    else if (a === 'photoReset') { d.img = d.imgOwn ?? null; delete d.imgOwn; delete d.imgFrom; persist(); openDoppia(d.uid); refreshAfterEdit(); }
+    else if (a === 'photo') { sh.close(); photoDoppia = d.uid; openDetail(d.eid); setTimeout(() => setPhotoMode(true), 150); }
+  });
+  $('#dsheet').addEventListener('change', ev => { const f = ev.target.closest('.d-edit'); if (f) { saveDoppiaForm(f); refreshAfterEdit(); } });
+  $('#dsheet').addEventListener('click', ev => { if (ev.target.closest('[data-act="dclose"]')) openDoppia($('#dsheet').dataset.uid); });
+  $('#sectionHead').addEventListener('click', ev => { const b = ev.target.closest('[data-pg]'); if (b) { pocketGen = b.dataset.pg; $('#search').value = ''; ui.q = ''; renderPocket(); } });
   $('#tapSeg').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; ui.tap = b.dataset.tap; syncControls(); renderCatalog(); });
   $('#content').addEventListener('click', ev => {
     const tb = ev.target.closest('#tSeg button'); if (tb) { tFilter = tb.dataset.t; renderTargets(); return; }
@@ -934,7 +1003,7 @@
     x.img = x.imgOwn ?? null; delete x.imgOwn; delete x.imgFrom;
     persist(); renderMine(); fillForm(); refreshAfterEdit(); toast('Foto originale ripristinata');
   });
-  dlg.addEventListener('close', () => { setPhotoMode(false); if (tReplace || targetQuick) { tReplace = null; targetQuick = false; ui.tap = 'col'; syncControls(); if (ui.group === 'target') renderTargets(); if (ui.group === 'doppie') renderDoppie(); } });
+  dlg.addEventListener('close', () => { setPhotoMode(false); photoDoppia = null; if (tReplace || targetQuick) { tReplace = null; targetQuick = false; ui.tap = 'col'; syncControls(); if (ui.group === 'target') renderTargets(); if (ui.group === 'doppie') renderDoppie(); } });
   form.addEventListener('change', readForm);
   form.addEventListener('submit', ev => ev.preventDefault());
   $('#catGrid').addEventListener('click', ev => { const b = ev.target.closest('.cand'); if (b) pickCatalog(b.dataset.cid); });
@@ -1062,8 +1131,16 @@
     zoomImg.classList.remove('big'); zoomImg.src = z.img;
     $('#zoomStrip').innerHTML = zoomSet.length > 1 ? zoomSet.map((x, k) => `<button type="button" class="zs${k === i ? ' on' : ''}" data-zi="${k}" aria-label="${esc(x.label || 'Carta ' + (k + 1))}"><img alt="" src="${esc(x.sm || x.img)}"></button>`).join('') : '';
     $('#zoomLabel').textContent = z.label || '';
+    if (pocketEid) {
+      const cur = pocketShown(pocketEid);
+      $('#zoomUse').textContent = cur && cur.id === z.id ? '✓ Esposta nel Pokédex Pocket' : 'Mostra questa nel Pokédex Pocket';
+      $('#zoomUse').disabled = !!(cur && cur.id === z.id);
+    }
   }
-  function openZoom(set, i = 0) { zoomSet = set; showZoom(i); if (!zoomDlg.open) zoomDlg.showModal(); }
+  function openZoom(set, i = 0, chooser = false) {
+    zoomSet = set; zoomDlg.classList.toggle('chooser', chooser); if (!chooser) pocketEid = null;
+    showZoom(i); if (!zoomDlg.open) zoomDlg.showModal();
+  }
   document.addEventListener('click', ev => {
     const z = ev.target.closest('[data-zoom]'); if (!z) return;
     ev.preventDefault(); ev.stopPropagation();
@@ -1075,6 +1152,16 @@
       const r = zoomImg.getBoundingClientRect();
       zoomImg.style.transformOrigin = `${(ev.clientX - r.left) / r.width * 100}% ${(ev.clientY - r.top) / r.height * 100}%`;
     }
+  });
+  $('#zoomUse').addEventListener('click', ev => {
+    ev.stopPropagation(); if (!pocketEid) return;
+    col.pocketCover = col.pocketCover || {}; col.pocketCover[pocketEid] = zoomSet[zoomAt].id;
+    persist(); showZoom(zoomAt); refreshAfterEdit(); toast('Carta esposta aggiornata');
+  });
+  $('#zoomSprite').addEventListener('click', ev => {
+    ev.stopPropagation(); if (!pocketEid) return;
+    col.pocketCover = col.pocketCover || {}; col.pocketCover[pocketEid] = 'sprite';
+    persist(); zoomDlg.close(); refreshAfterEdit(); toast('Nel Pokédex Pocket vedrai lo sprite');
   });
   $('#zoomStrip').addEventListener('click', ev => { ev.stopPropagation(); const b = ev.target.closest('[data-zi]'); if (b) showZoom(+b.dataset.zi); });
   zoomDlg.addEventListener('click', () => zoomDlg.close());
