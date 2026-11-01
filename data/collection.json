@@ -32,8 +32,8 @@
      "year": "2023",
      "img": "https://images.pokemontcg.io/sv3pt5/166_hires.png",
      "art": true,
-     "price": 69.34,
-     "priceAt": 1792507034559
+     "price": 66.21,
+     "priceAt": "2026-11-01T11:18:18Z"
     }
    ]
   },
@@ -82,8 +82,8 @@
      "year": "2023",
      "img": "https://images.pokemontcg.io/sv3pt5/168_hires.png",
      "art": true,
-     "price": 78.06,
-     "priceAt": 1792505543224
+     "price": 81.04,
+     "priceAt": "2026-11-01T11:18:18Z"
     }
    ]
   },
@@ -116,8 +116,8 @@
      "year": "2023",
      "img": "https://images.pokemontcg.io/sv3pt5/169_hires.png",
      "art": true,
-     "price": 55.81,
-     "priceAt": 1792505758399
+     "price": 54.86,
+     "priceAt": "2026-11-01T11:18:18Z"
     }
    ]
   },
@@ -151,8 +151,8 @@
      "year": "2023",
      "img": "https://images.pokemontcg.io/sv3pt5/199_hires.png",
      "art": true,
-     "price": 318,
-     "priceAt": 1792507180213
+     "price": 334.23,
+     "priceAt": "2026-11-01T11:18:18Z"
     }
    ]
   },
@@ -185,8 +185,8 @@
      "year": "2023",
      "img": "https://images.pokemontcg.io/sv3pt5/200_hires.png",
      "art": true,
-     "price": 133.61,
-     "priceAt": 1792507218462
+     "price": 147.22,
+     "priceAt": "2026-11-01T11:18:18Z"
     }
    ]
   },
@@ -3775,8 +3775,8 @@
      "year": "2026",
      "img": "https://assets.tcgdex.net/ja/M/M4/085/high.webp",
      "art": true,
-     "price": 3.05,
-     "priceAt": 1792506209765
+     "price": 2.39,
+     "priceAt": "2026-11-01T11:18:18Z"
     }
    ]
   },
@@ -5346,8 +5346,8 @@
      "year": "2025",
      "img": null,
      "art": true,
-     "price": 26.31,
-     "priceAt": 1792506317278
+     "price": 21.82,
+     "priceAt": "2026-11-01T11:18:18Z"
     }
    ]
   },
@@ -5767,8 +5767,8 @@
      "year": "2023",
      "img": "https://images.pokemontcg.io/sv3pt5/198_hires.png",
      "art": true,
-     "price": 109.9,
-     "priceAt": 1792507078047
+     "price": 112.15,
+     "priceAt": "2026-11-01T11:18:18Z"
     }
    ]
   },
@@ -5789,8 +5789,8 @@
      "year": "2023",
      "img": "https://images.pokemontcg.io/sv3pt5/170_hires.png",
      "art": true,
-     "price": 72.56,
-     "priceAt": 1792507193279
+     "price": 70.22,
+     "priceAt": "2026-11-01T11:18:18Z"
     }
    ]
   },
@@ -5811,8 +5811,8 @@
      "year": "2023",
      "img": "https://images.pokemontcg.io/sv3pt5/171_hires.png",
      "art": true,
-     "price": 55.12,
-     "priceAt": 1792507205743
+     "price": 51.32,
+     "priceAt": "2026-11-01T11:18:18Z"
     }
    ]
   }
@@ -8917,5 +8917,6 @@
    "uid": "ff40bb4e",
    "eid": "n0508"
   }
- ]
+ ],
+ "pricesUpdated": "2026-11-01T11:18:18Z"
 }
