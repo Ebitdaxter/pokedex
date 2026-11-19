@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '17 4 1,15 * *'   # il 1° e il 15 di ogni mese (circa ogni due settimane)
   workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths: ['tools/**', '.github/workflows/**']
 
 permissions:
   contents: write
@@ -32,6 +35,8 @@ jobs:
           python tools/build_cards.py
           python tools/build_bubi.py
           python tools/build_pocketdex.py
+      - name: Prezzi delle full art (lista Mancanti)
+        run: python tools/build_art_prices.py
       - name: Aggiorna i prezzi della collezione
         run: python tools/update_prices.py
       - name: Salva

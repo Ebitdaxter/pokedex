@@ -653,3 +653,19 @@ body.on-doppie #filterSeg { display: none; }
 .zoom-dlg.chooser .zoom-actions { display: flex; }
 .zoom-actions .btn:disabled { opacity: 1; background: #2fae63; cursor: default; }
 #pocketGen button { padding: 4px 8px; }
+
+/* ---------- Mancanti: compact two-line rows ---------- */
+.mlist { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+.mrow { width: 100%; display: flex; align-items: center; gap: 10px; padding: 6px 12px 6px 6px; border: 1px solid var(--line); border-radius: 10px;
+  background: var(--sleeve); color: inherit; font: inherit; text-align: left; cursor: pointer; min-height: 52px; }
+.mrow:hover { border-color: var(--muted); }
+.mrow .spr { flex: none; width: 40px; height: 40px; }
+.mrow .sp { filter: grayscale(1) contrast(.9); opacity: .6; }
+.mrow .m-main { min-width: 0; display: flex; flex-direction: column; line-height: 1.25; }
+.mrow .m-main b, .mrow .m-main > span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mrow .m-main b small { font-weight: 400; color: var(--muted); font-size: 12px; }
+.mrow .m-main > span { font-size: 13px; color: var(--muted); }
+.mrow.none { opacity: .6; }
+#missGen { flex-wrap: wrap; }
+.badge-art .rb { display: inline-block; width: 8px; height: 8px; margin-left: 3px; border-radius: 50%; vertical-align: 1px;
+  background: conic-gradient(#ff4d4d, #ffb84d, #f7f74d, #4dff88, #4dc3ff, #a64dff, #ff4d4d); }

@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202610251304">
+<link rel="stylesheet" href="styles.css?v=202611191748">
 </head>
 <body>
 <div class="bg" aria-hidden="true">
@@ -54,16 +54,6 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="search" type="search" placeholder="Cerca per nome o numero" autocomplete="off">
     </label>
-    <div class="seg" role="radiogroup" aria-label="Filtro" id="filterSeg">
-      <button role="radio" data-filter="all" aria-checked="true">Tutti</button>
-      <button role="radio" data-filter="owned" aria-checked="false">Presenti</button>
-      <button role="radio" data-filter="missing" aria-checked="false">Mancanti</button>
-      <button role="radio" data-filter="art" aria-checked="false">Art</button>
-    </div>
-    <div class="seg" role="radiogroup" aria-label="Cosa mostrare" id="faceSeg">
-      <button role="radio" data-face="card" aria-checked="true">Carte</button>
-      <button role="radio" data-face="sprite" aria-checked="false">Sprite</button>
-    </div>
     <div class="seg" role="radiogroup" aria-label="Vista" id="viewSeg">
       <button role="radio" data-view="grid" aria-checked="true">Griglia</button>
       <button role="radio" data-view="binder" aria-checked="false">Pagine</button>
@@ -114,7 +104,7 @@
               <label class="wide">Immagine (URL)<input name="img"></label>
             </div>
           </details>
-          <label class="check wide"><input type="checkbox" name="art"> Art rare (illustrazione a tutta carta)</label>
+          <label class="check wide"><input type="checkbox" name="art"> Full art (conta per completare il Pokédex)</label>
         </form>
         <p class="hint" id="priceNote"></p>
         <div class="row photo-row"><button type="button" class="btn quiet small" id="photoFrom">Usa la foto di un'altra carta</button><button type="button" class="btn quiet small" id="photoReset" hidden>Ripristina foto originale</button></div>
@@ -131,7 +121,6 @@
         <div class="tap-mode"><span>Tocca una carta per aggiungerla a</span>
           <div class="seg small" role="radiogroup" aria-label="Aggiungi a" id="tapSeg">
             <button role="radio" data-tap="col" aria-checked="true">Collezione</button>
-            <button role="radio" data-tap="target" aria-checked="false">Target</button>
             <button role="radio" data-tap="doppia" aria-checked="false">Doppia</button>
           </div>
         </div>
@@ -229,6 +218,6 @@
 <datalist id="setList"></datalist>
 <datalist id="rarityList"><option>Common</option><option>Uncommon</option><option>Rare</option><option>RR</option><option>RRR</option><option>AR</option><option>SAR</option><option>SR</option><option>UR</option><option>MA</option><option>FR</option><option>Promo</option></datalist>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="app.js?v=202610251304"></script>
+<script src="app.js?v=202611191748"></script>
 </body>
 </html>

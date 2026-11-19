@@ -17,7 +17,7 @@
         ['#2b2b2b', '#e9e9e9', '#3fb6a8'], ['#1f76d2', '#e0283a', '#2fae63'], ['#f28a1a', '#7a4fd6', '#1fb5a6'], ['#14a3d9', '#d6267a', '#f2b807'], ['#e3350d', '#7b3fd1', '#f29e0d']][g - 1] })),
     { id: 'mega', tab: 'Mega', title: 'Megaevoluzioni', cols: 3, theme: ['#7b3fd1', '#e0479e', '#38c6d9'] },
     { id: 'regional', tab: 'Regionali', title: 'Forme regionali', cols: 3, theme: ['#2fae63', '#1f76d2', '#f2b807'] },
-    { id: 'target', tab: 'Target', title: 'Carte target', cols: 0, theme: ['#f2b807', '#e3350d', '#1f5fbf'] },
+    { id: 'missing', tab: 'Mancanti', title: 'Pokémon mancanti', cols: 0, theme: ['#f2b807', '#e3350d', '#1f5fbf'] },
     { id: 'doppie', tab: 'Doppie', title: 'Doppie', cols: 0, theme: ['#2fae63', '#1f76d2', '#f2b807'] },
     { id: 'pocket', tab: 'Pokédex Pocket', title: 'Pokédex Pocket', cols: 0, theme: ['#14a3d9', '#7b3fd1', '#f2b807'] },
     { id: 'bubi', tab: 'Sezione Bubi', title: 'Sezione Bubi', cols: 0, theme: ['#4a7fe0', '#e9466f', '#5bbdbd'] },
@@ -31,15 +31,16 @@
     Ghost: 'Spettro', Dragon: 'Drago', Dark: 'Buio', Steel: 'Acciaio', Fairy: 'Folletto' };
   const STAT_LABELS = ['PS', 'Attacco', 'Difesa', 'Att. Sp.', 'Dif. Sp.', 'Velocità'];
   const ART_RC = new Set(['AR', 'SAR', 'CHR', 'CSR', 'MA']);
+  // full arts: the only cards that count towards completing the Pokédex
+  const FA_RC = new Set(['AR', 'SAR', 'SR', 'UR', 'MUR', 'MA', 'CHR', 'CSR', 'SSR', 'SEC']);
   const RC_LABEL = { Common: 'Comune', Uncommon: 'Non comune', Rare: 'Rara', RR: 'Doppia rara', RRR: 'Tripla rara', AR: 'Art rare', SAR: 'Special art rare',
     SR: 'Super rara', UR: 'Secret / Hyper rare', MUR: 'Mega hyper rare', MA: 'Mega attack rare', CHR: 'Character rare', CSR: 'Character super rare',
     S: 'Shiny', SSR: 'Shiny super rare', ACE: 'ACE SPEC', K: 'Radiante', PR: 'Promo', CC: 'Classic collection', AMZ: 'Amazing rare', SEC: 'Secret (numero oltre il totale del set)' };
   const RFILTERS = [
-    ['all', 'Tutte le rarità', () => true],
-    ['art', 'Art (AR, SAR, CHR…)', r => ART_RC.has(r)],
-    ['secret', 'Secret / SR / UR', r => ['SR', 'UR', 'MUR', 'SSR', 'MA', 'SEC'].includes(r)],
-    ['holo', 'RR / RRR / Rare', r => ['RR', 'RRR', 'Rare', 'K', 'ACE', 'AMZ'].includes(r)],
-    ['base', 'Comuni e non comuni', r => ['Common', 'Uncommon'].includes(r)],
+    ['all', 'Tutte le full art', () => true],
+    ['art', 'AR / CHR', r => ['AR', 'CHR'].includes(r)],
+    ['sar', 'SAR / CSR', r => ['SAR', 'CSR'].includes(r)],
+    ['secret', 'SR / UR / MUR / MA', r => ['SR', 'UR', 'MUR', 'SSR', 'MA', 'SEC'].includes(r)],
   ];
   const LANGS = { int: ['ITA', 'ENG', 'FRA', 'DEU', 'ESP', 'POR'], jp: ['JPN', 'KOR', 'CHN'] };
 
@@ -90,17 +91,15 @@
     if (ts(src.pricesUpdated) > ts(dst.pricesUpdated)) dst.pricesUpdated = src.pricesUpdated;
     return dst;
   }
-  const mine = id => col.cards[id]?.list || [];
+  const isArt = x => x.art ?? FA_RC.has(x.rc);
+  const mine = id => (col.cards[id]?.list || []).filter(isArt);   // only full arts count
   const isOwned = id => mine(id).length > 0;
-  const cover = id => { const e = col.cards[id]; return e && (e.list.find(x => x.uid === e.cover) || e.list[0]); };
-  const spriteFace = id => ui.face === 'sprite' || String(col.cards[id]?.cover).startsWith('sprite');
-  const bwFace = id => col.cards[id]?.cover === 'sprite-bw';
-  if (ui.face === 'bw') ui.face = 'card';
+  const cover = id => { const e = col.cards[id], l = mine(id); return e && (l.find(x => x.uid === e.cover) || l[0]); };
+  ui.face = 'card'; ui.filter = 'all'; if (ui.group === 'target') ui.group = 'missing';
   const targets = () => col.targets || (col.targets = []);
   const isTaken = t => !!t.taken || (t.eid && mine(t.eid).some(x => (t.cid && x.cid === t.cid) ||
     (x.set && t.set && x.number && t.number && x.set.toLowerCase() === t.set.toLowerCase() && x.number.split('/')[0].replace(/^0+/, '') === t.number.split('/')[0].replace(/^0+/, ''))));
   const cardValue = x => +(x.value ?? x.price ?? 0) || 0;
-  const isArt = x => x.art ?? ART_RC.has(x.rc);
 
   /* ---------------- load ---------------- */
   async function load() {
@@ -132,7 +131,7 @@
     $('#totals').innerHTML = `
       <div><dt>Pokédex</dt><dd>${main.filter(e => isOwned(e.id)).length}<small>/ ${main.length}</small></dd></div>
       <div><dt>Carte</dt><dd>${all.length}</dd></div>
-      <div><dt>Art rare</dt><dd>${all.filter(isArt).length}</dd></div>
+      <div><dt>Mancanti</dt><dd>${ENTRIES.filter(e => !isOwned(e.id)).length}</dd></div>
       <div><dt>Valore</dt><dd>${eur(all.reduce((s, x) => s + cardValue(x), 0))}</dd></div>`;
   }
   function renderTabs() {
@@ -150,17 +149,21 @@
         const n = POCKET ? Object.keys(POCKET).length : 0;
         return `<button class="tab" role="tab" data-group="pocket" aria-selected="${ui.group === 'pocket'}"><b>Pokédex Pocket</b><span>${n ? n + ' Pokémon' : 'TCG Pocket'}</span><i class="meter"><i style="width:${Math.round(n / 1025 * 100)}%"></i></i></button>`;
       }
-      if (g.id === 'target') {
-        const t = targets(), n = t.filter(isTaken).length, pct = t.length ? Math.round(n / t.length * 100) : 0;
-        return `<button class="tab tab-target" role="tab" data-group="target" aria-selected="${ui.group === 'target'}">
-          <b>Target</b><span>${n}/${t.length} presi</span><i class="meter"><i style="width:${pct}%"></i></i></button>`;
+      if (g.id === 'missing') {
+        const miss = ENTRIES.filter(e => !isOwned(e.id)).length, pct = Math.round((ENTRIES.length - miss) / (ENTRIES.length || 1) * 100);
+        return `<button class="tab tab-target" role="tab" data-group="missing" aria-selected="${ui.group === 'missing'}">
+          <b>Mancanti</b><span>${miss} da trovare</span><i class="meter"><i style="width:${pct}%"></i></i></button>`;
       }
       const list = ENTRIES.filter(e => e.group === g.id), n = list.filter(e => isOwned(e.id)).length;
       const pct = list.length ? Math.round(n / list.length * 100) : 0;
       return `<button class="tab" role="tab" data-group="${g.id}" aria-selected="${ui.group === g.id}">
         <b>${g.tab}</b><span>${n}/${list.length} · ${pct}%</span><i class="meter"><i style="width:${pct}%"></i></i></button>`;
     }).join('');
-    requestAnimationFrame(() => document.querySelector('.tab[aria-selected="true"]')?.scrollIntoView({ block: 'nearest', inline: 'nearest' }));
+    requestAnimationFrame(() => {   // bring the active tab into view horizontally only: scrollIntoView would also scroll the page
+      const box = $('#tabs'), t = box.querySelector('.tab[aria-selected="true"]'); if (!t) return;
+      const l = t.offsetLeft - box.offsetLeft, r = l + t.offsetWidth;
+      if (l < box.scrollLeft) box.scrollLeft = l - 8; else if (r > box.scrollLeft + box.clientWidth) box.scrollLeft = r - box.clientWidth + 8;
+    });
   }
   function renderSync() {
     $('#dirtyDot').hidden = !dirty;
@@ -170,10 +173,6 @@
 
   /* ---------------- grid / binder ---------------- */
   function matches(e) {
-    const l = mine(e.id);
-    if (ui.filter === 'owned' && !l.length) return false;
-    if (ui.filter === 'missing' && l.length) return false;
-    if (ui.filter === 'art' && !l.some(isArt)) return false;
     if (ui.q) {
       const q = ui.q.toLowerCase().replace(/^#0*/, '');
       if (!(e.name.toLowerCase().includes(q) || String(e.dex) === q)) return false;
@@ -196,13 +195,10 @@
     const label = e.group === 'regional' ? `${e.name} di ${e.region}` : e.name;
     const no = e.group.startsWith('g') ? dexStr(e.dex) : (e.region || dexStr(e.dex));
     const art = c ? artBadge(e.id) : '';
-    if (!c || bwFace(e.id)) {   // missing, or owned but shown "as if missing" by choice: badges still say you have it
-      const count = c ? `<span class="badge-n" title="${n} ${n > 1 ? 'carte' : 'carta'}">${n}</span>` : '';
-      return `<button class="pocket missing${c ? ' as-missing' : ''}" data-id="${e.id}" aria-label="${esc(label)}, ${c ? `${n} ${n > 1 ? 'carte' : 'carta'}, mostrato come mancante` : 'mancante'}">
-        <span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span><span class="nm">${esc(e.name)}</span>${art}${count}</button>`;
-    }
+    if (!c) return `<button class="pocket missing" data-id="${e.id}" aria-label="${esc(label)}, mancante">
+        <span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span><span class="nm">${esc(e.name)}</span></button>`;
     const meta = [c.rc, c.lang, c.set].filter(Boolean).join(' · ');
-    const img = !spriteFace(e.id) && c.img && !badImg.has(c.img) ? `<img class="card" loading="lazy" decoding="async" alt="" src="${esc(c.img)}">` : '';
+    const img = c.img && !badImg.has(c.img) ? `<img class="card" loading="lazy" decoding="async" alt="" src="${esc(c.img)}">` : '';
     const count = n > 1 ? `<span class="badge-n" title="${n} carte">${n}</span>` : '';
     return `<button class="pocket owned${img ? ' has-img' : ''}" style="${typeVars(e)}" data-id="${e.id}" aria-label="${esc(label)}, ${n} ${n > 1 ? 'carte' : 'carta'}">
       <span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span>
@@ -212,20 +208,20 @@
   function renderContent() {
     const g = GROUPS.find(x => x.id === ui.group) || GROUPS[0];
     applyTheme(g);
-    document.body.classList.toggle('on-target', g.id === 'target');
+    document.body.classList.toggle('on-target', g.id === 'missing');
     document.body.classList.toggle('on-bubi', g.id === 'bubi');
     document.body.classList.toggle('on-list', g.id === 'doppie' || g.id === 'pocket');
     document.body.classList.toggle('on-doppie', g.id === 'doppie');
-    if (g.id === 'target') { renderTargets(); return; }
+    if (g.id === 'missing') { renderMissing(); return; }
     if (g.id === 'doppie') { renderDoppie(); return; }
     if (g.id === 'pocket') { renderPocket(); return; }
     if (g.id === 'bubi') { renderBubi(); return; }
     const all = ENTRIES.filter(e => e.group === g.id), list = all.filter(matches);
     const n = all.filter(e => isOwned(e.id)).length;
     const range = g.id.startsWith('g') ? `${dexStr(all[0].dex)}–${dexStr(all[all.length - 1].dex)}` : `${all.length} forme`;
-    $('#sectionHead').innerHTML = `<h2>${g.title}</h2><p>${range} · ${n} di ${all.length} nel raccoglitore</p>`;
+    $('#sectionHead').innerHTML = `<h2>${g.title}</h2><p>${range} · ${n} di ${all.length} con una full art</p>`;
     if (!list.length) {
-      $('#content').innerHTML = `<p class="empty">${ui.q ? `Nessun Pokémon trovato per “${esc(ui.q)}” in questa sezione.` : 'Niente da mostrare con questo filtro.'}</p>`;
+      $('#content').innerHTML = `<p class="empty">Nessun Pokémon trovato per “${esc(ui.q)}” in questa sezione.</p>`;
       return;
     }
     if (ui.view === 'grid' || ui.q) { $('#content').innerHTML = `<div class="grid">${list.map(pocket).join('')}</div>`; return; }
@@ -276,6 +272,39 @@
   function applyTheme(g) {
     const [a, b, c] = g.theme || GROUPS[0].theme, r = document.documentElement.style;
     r.setProperty('--w1', a); r.setProperty('--w2', b); r.setProperty('--w3', c);
+  }
+
+  /* ---------------- Mancanti: Pokémon without a full art ---------------- */
+  let ARTIDX = null, ARTP = null, artLoading = null, missGen = 'all';
+  const loadArt = () => artLoading || (artLoading = Promise.all([
+    fetch('data/artindex.json').then(r => r.json()).catch(() => ({})),
+    fetch('data/artprices.json').then(r => r.json()).catch(() => ({ p: {} })),
+  ]).then(([i, p]) => {
+    ARTIDX = i; ARTP = p.p || {};
+    const t = Date.parse(p.updated) || 0;   // seed the price cache, live prices still refresh the cards on screen
+    for (const [cid, v] of Object.entries(ARTP)) if (!priceCache[cid] || priceCache[cid].t < t) priceCache[cid] = { p: v, t };
+  }));
+  const eur0 = n => n == null ? '' : n.toLocaleString('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: n < 10 ? 2 : 0 });
+  async function renderMissing() {
+    if (!ARTIDX) {
+      $('#sectionHead').innerHTML = '<h2>Pokémon mancanti</h2><p>Carico le full art…</p>'; $('#content').innerHTML = '';
+      await loadArt(); if (ui.group !== 'missing') return;
+    }
+    const q = (ui.q || '').toLowerCase().replace(/^#0*/, '');
+    const miss = ENTRIES.filter(e => !isOwned(e.id));
+    const groups = [['all', 'Tutti'], ...[1, 2, 3, 4, 5, 6, 7, 8, 9].map(g => ['g' + g, ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'][g - 1]]), ['mega', 'Mega'], ['regional', 'Regionali']];
+    $('#sectionHead').innerHTML = `<h2>Pokémon mancanti</h2><p>${miss.length} Pokémon senza una full art · tocca un Pokémon per vedere le full art e segnare quella che compri</p>
+      <div class="seg small" role="radiogroup" aria-label="Sezione" id="missGen">${groups.map(([k, l]) => `<button role="radio" data-mg="${k}" aria-checked="${missGen === k}">${l} <small>${k === 'all' ? miss.length : miss.filter(e => e.group === k).length}</small></button>`).join('')}</div>`;
+    const list = miss.filter(e => (missGen === 'all' || e.group === missGen) && (!q || e.name.toLowerCase().includes(q) || String(e.dex) === q));
+    if (!list.length) { $('#content').innerHTML = `<p class="empty">${q ? `Nessun Pokémon mancante per “${esc(ui.q)}”.` : 'Nessun Pokémon mancante qui: sezione completa!'}</p>`; return; }
+    $('#content').innerHTML = `<ul class="mlist">${list.map(e => {
+      const [n, lo, hi] = ARTIDX[e.id] || [0, null, null];
+      const no = e.group.startsWith('g') ? dexStr(e.dex) : e.group === 'mega' ? 'Mega' : e.region;
+      const cost = lo == null ? '' : ` · ${lo === hi ? eur0(lo) : `${eur0(lo)} – ${eur0(hi)}`}`;
+      return `<li><button type="button" class="mrow${n ? '' : ' none'}" data-id="${e.id}"><span class="spr">${sprite(e)}</span>
+        <span class="m-main"><b>${esc(e.group === 'regional' ? `${e.name} di ${e.region}` : e.name)} <small>${esc(no)}</small></b>
+        <span>${n ? `${n} full art${cost}` : 'Nessuna full art in catalogo'}</span></span></button></li>`;
+    }).join('')}</ul>`;
   }
 
   /* ---------------- targets ---------------- */
@@ -481,7 +510,7 @@
     const groups = [...[1, 2, 3, 4, 5, 6, 7, 8, 9].map(g => ['g' + g, ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'][g - 1]]), ['mega', 'Mega'], ['regional', 'Regionali']];
     const pg = String(pocketGen).startsWith('g') || pocketGen === 'mega' || pocketGen === 'regional' ? pocketGen : 'g' + pocketGen;
     const withFa = Object.values(POCKET).filter(l => l.some(c => c.fa)).length;
-    $('#sectionHead').innerHTML = `<h2>Pokédex Pocket</h2><p>${withFa} Pokémon con una full art di TCG Pocket · tocca un Pokémon per scegliere quale carta mostrare</p>
+    $('#sectionHead').innerHTML = `<h2>Pokédex Pocket</h2><p>${withFa} Pokémon con una full art di TCG Pocket (prima l'immersiva ★★★, poi la ★★ arcobaleno, poi la ★) · tocca un Pokémon per scegliere quale carta mostrare</p>
       <div class="seg small" role="radiogroup" aria-label="Generazione" id="pocketGen">${groups.map(([k, l]) => `<button role="radio" data-pg="${k}" aria-checked="${!q && pg === k}">${l} <small>${ENTRIES.filter(e => e.group === k && shown(e)).length}</small></button>`).join('')}</div>`;
     let list = q ? ENTRIES.filter(e => e.name.toLowerCase().includes(q) || String(e.dex) === q) : ENTRIES.filter(e => e.group === pg);
     if (ui.filter === 'owned') list = list.filter(shown); if (ui.filter === 'missing') list = list.filter(e => !shown(e));
@@ -492,7 +521,7 @@
       if (!c) return `<${cards.length ? 'button type="button"' : 'div'} class="pocket missing" ${cards.length ? `data-pocket="${e.id}"` : ''} aria-label="${esc(e.name)}${cards.length ? `, ${cards.length} carte Pocket, nessuna esposta` : ', nessuna carta Pocket'}"><span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span><span class="nm">${esc(e.name)}</span>${cards.length ? `<span class="badge-n" title="Carte disponibili">${cards.length}</span>` : ''}</${cards.length ? 'button' : 'div'}>`;
       return `<button type="button" class="pocket owned has-img" style="${typeVars(e)}" data-pocket="${e.id}" aria-label="${esc(e.name)}, ${esc(c.rc)} ${esc(c.set)}">
         <span class="no">${esc(no)}</span><span class="spr">${sprite(e)}</span><span class="nm">${esc(e.name)}</span>
-        <img class="card" loading="lazy" decoding="async" alt="" src="${esc(c.img)}"><span class="badge-art">${c.rc}</span></button>`;
+        <img class="card" loading="lazy" decoding="async" alt="" src="${esc(c.img)}"><span class="badge-art">${c.rc}${c.rb ? '<i class="rb"></i>' : ''}</span></button>`;
     }).join('')}</div>`;
   }
   // which Pocket card is on show for an entry: your choice, otherwise its best full art, otherwise none (sprite)
@@ -506,7 +535,7 @@
     const cards = POCKET?.[eid] || []; if (!cards.length) return;
     pocketEid = eid;
     const cur = pocketShown(eid), at = Math.max(0, cards.findIndex(c => c === cur));
-    openZoom(cards.map(c => ({ img: c.img, sm: c.sm, id: c.id, label: `${c.rc} · ${c.set} · ${c.no}` })), at, true);
+    openZoom(cards.map(c => ({ img: c.img, sm: c.sm, id: c.id, label: `${c.rc}${c.rc === '★★' ? (c.rb ? ' arcobaleno' : ' bordo argentato') : ''} · ${c.set} · ${c.no}` })), at, true);
   }
 
   function toggleBubi(key) {
@@ -522,7 +551,7 @@
       if (t) Object.assign(t, { name: current.name, eid: current.id, cid: c.src + ':' + c.id, src: c.src, tdx: c.tdx, img: c.img || null,
         set: c.set, number: c.no + (c.tot ? '/' + c.tot : ''), rc: c.rc, year: (c.date || '').slice(0, 4) });
       ui.tap = 'col'; syncControls(); persist(); dlg.close();
-      ui.group = 'target'; tEdit = t?.uid; renderTabs(); renderContent();
+      renderTabs(); renderContent();
       toast('Carta del target aggiornata'); return;
     }
     const cid = c.src + ':' + c.id;
@@ -539,10 +568,10 @@
     document.querySelectorAll('#faceSeg button').forEach(b => b.setAttribute('aria-checked', b.dataset.face === ui.face));
     const { q, ...keep } = ui; store.set(LS.ui, keep);
   }
-  let refreshT;
+  let refreshT, openY = null;
   function refreshAfterEdit() {
     clearTimeout(refreshT);
-    refreshT = setTimeout(() => { const y = window.scrollY; renderTotals(); renderTabs(); renderContent(); window.scrollTo(0, y); }, 120);
+    refreshT = setTimeout(() => { const y = openY ?? window.scrollY; renderTotals(); renderTabs(); renderContent(); window.scrollTo(0, y); requestAnimationFrame(() => window.scrollTo(0, y)); }, 120);
   }
 
   document.addEventListener('error', ev => {
@@ -580,16 +609,9 @@
   const rcBadge = rc => rc ? `<span class="rc rc-${esc(rc)}${ART_RC.has(rc) ? ' art' : ''}" title="${esc(RC_LABEL[rc] || rc)}">${esc(rc)}</span>` : '';
 
   function renderMine() {
-    const l = mine(current.id), cvKey = col.cards[current.id]?.cover, spr = String(cvKey).startsWith('sprite'), cv = spr ? null : cover(current.id);
+    const l = mine(current.id), cv = cover(current.id);
     $('#mineCount').textContent = l.length ? `${l.length} ${l.length > 1 ? 'carte' : 'carta'} · ${eur(l.reduce((s, x) => s + cardValue(x), 0))}` : '';
-    const opt = (key, label, sub, bw) => `
-      <div class="own sprite-opt${bw ? ' bw' : ''}" data-uid="${key}">
-        <button type="button" class="own-pick" data-act="cover" aria-label="Mostra ${label} nel Pokédex">${spritePh(label)}</button>
-        <button type="button" class="star${cvKey === key ? ' on' : ''}" data-act="cover" aria-pressed="${cvKey === key}" title="${cvKey === key ? 'Nel Pokédex vedi questo' : 'Mostra questo nel Pokédex'}">★</button>
-        <span class="own-meta">${sub}</span>
-      </div>`;
-    const sprTile = l.length ? opt('sprite', 'Sprite', 'Sprite a colori', false) + opt('sprite-bw', 'Come mancante', 'Sprite grigio, come se non avessi la carta', true) : '';
-    $('#mineList').innerHTML = l.length ? sprTile + l.map(x => `
+    $('#mineList').innerHTML = l.length ? l.map(x => `
       <div class="own${x.uid === selUid ? ' sel' : ''}" data-uid="${x.uid}">
         <button type="button" class="own-pick" data-act="select" aria-label="Modifica ${esc(x.set || 'carta')}">${thumb(x.img, x.set || 'Carta')}</button>
         <button type="button" class="star${x.uid === cv?.uid ? ' on' : ''}" data-act="cover" aria-pressed="${x.uid === cv?.uid}" title="${x.uid === cv?.uid ? 'Anteprima nel raccoglitore' : 'Usa come anteprima'}">★</button>
@@ -648,7 +670,7 @@
     persist(); fillPoke(); renderMine(); fillForm(); renderCatalog(); refreshAfterEdit();
     toast('Carta rimossa');
   }
-  function setCover(u) { col.cards[current.id].cover = u; persist(); renderMine(); refreshAfterEdit(); toast(u === 'sprite' ? 'Nel Pokédex vedrai lo sprite a colori' : u === 'sprite-bw' ? 'Nel Pokédex lo vedrai come se mancasse' : 'Anteprima aggiornata'); }
+  function setCover(u) { col.cards[current.id].cover = u; persist(); renderMine(); refreshAfterEdit(); toast('Anteprima aggiornata'); }
 
   function step(dir) {
     const list = ENTRIES.filter(e => e.group === current.group && matches(e));
@@ -690,7 +712,8 @@
   }
   function filteredCatalog() {
     const f = $('#catFilter').value.trim().toLowerCase(), rf = (RFILTERS.find(r => r[0] === ui.rf) || RFILTERS[0])[2];
-    return catalog.filter(c => (ui.src === 'all' || c.src === ui.src) && rf(c.rc) &&
+    const any = ui.tap === 'doppia' || photoMode;
+    return catalog.filter(c => (ui.src === 'all' || c.src === ui.src) && (any ? ui.rf === 'all' || rf(c.rc) : FA_RC.has(c.rc) && rf(c.rc)) &&
       (!f || `${c.set} ${c.setJa || ''} ${c.sid} ${c.no} ${c.r} ${c.n}`.toLowerCase().includes(f)));
   }
   function renderCatalog() {
@@ -699,8 +722,11 @@
     $('#rarityFilter').value = ui.rf;
     const list = filteredCatalog(), ownedC = new Set(mine(current.id).map(x => x.cid).filter(Boolean)), targC = new Set(targets().map(t => t.cid));
     document.querySelectorAll('#tapSeg button').forEach(b => b.setAttribute('aria-checked', b.dataset.tap === ui.tap));
-    const nInt = catalog.filter(c => c.src === 'int').length, nJp = catalog.length - nInt;
-    $('#catNote').textContent = catalog.length ? `${list.length} di ${catalog.length} carte (${nInt} internazionali, ${nJp} giapponesi), dalla più vecchia alla più nuova. Tocca una carta per aggiungerla.` : 'Nessuna carta in catalogo per questo Pokémon.';
+    const fa = catalog.filter(c => FA_RC.has(c.rc)), nInt = fa.filter(c => c.src === 'int').length, nJp = fa.length - nInt;
+    const ps = fa.map(c => priceCache[c.src + ':' + c.id]?.p).filter(p => p != null), any = ui.tap === 'doppia' || photoMode;
+    $('#catNote').textContent = any ? `${list.length} carte (tutte le rarità), dalla più vecchia alla più nuova.` : fa.length
+      ? `${fa.length} full art (${nInt} internazionali, ${nJp} giapponesi)${ps.length ? ` · da ${eur(Math.min(...ps))} a ${eur(Math.max(...ps))}` : ''}${list.length < fa.length ? ` · ${list.length} con questo filtro` : ''}. Tocca quella che hai comprato per aggiungerla.`
+      : 'Nessuna full art in catalogo per questo Pokémon.';
     $('#catGrid').innerHTML = list.slice(0, catLimit).map(c => {
       const cid = c.src + ':' + c.id, p = priceCache[cid];
       const tot = c.tot ? `/${c.tot}` : '';
@@ -786,7 +812,7 @@
     const lang = c.src === 'jp' ? ui.langJp : ui.langInt;
     const x = { uid: uid(), cid, src: c.src, tdx: c.tdx, set: c.set + (c.src === 'jp' && !/\(/.test(c.set) ? ` (${c.sid})` : ''), sid: c.sid,
       number: c.no + (c.tot ? '/' + c.tot : ''), rarity: c.r, rc: c.rc, lang, year: (c.date || '').slice(0, 4), img: c.img || null,
-      art: ART_RC.has(c.rc), price: priceCache[cid]?.p ?? null, priceAt: priceCache[cid] ? priceCache[cid].t : null };
+      art: FA_RC.has(c.rc), price: priceCache[cid]?.p ?? null, priceAt: priceCache[cid] ? priceCache[cid].t : null };
     addCard(x);
     toast(`✓ Aggiunta a “Le mie carte”: ${c.set} ${c.no} · ${lang}`);
     const tile = document.querySelector(`.cand[data-cid="${CSS.escape(cid)}"]`);
@@ -794,7 +820,7 @@
     if (!fresh(priceCache[cid])) priceFor(c).then(p => { x.price = p; x.priceAt = Date.now(); persist(); if (current && selUid === x.uid) fillForm(); renderMine(); refreshAfterEdit(); paintPrice(cid); });
   }
   function addManual() {
-    addCard({ uid: uid(), lang: ui.langInt, art: false });
+    addCard({ uid: uid(), lang: ui.langInt, art: true });
     form.elements.set.focus();
   }
 
@@ -913,7 +939,6 @@
 
   /* ---------------- events ---------------- */
   $('#tabs').addEventListener('click', ev => { const b = ev.target.closest('.tab'); if (!b) return; ui.group = b.dataset.group; renderTabs(); renderContent(); syncControls(); window.scrollTo({ top: 0 }); });
-  $('#filterSeg').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; ui.filter = b.dataset.filter; syncControls(); renderContent(); });
   $('#content').addEventListener('click', ev => { const b = ev.target.closest('.bcard'); if (b) toggleBubi(b.dataset.key); });
   $('#content').addEventListener('click', ev => {
     const pk = ev.target.closest('[data-pocket]'); if (pk) { openPocket(pk.dataset.pocket); return; }
@@ -978,22 +1003,24 @@
     const next = BUBI.cards.find(z => !badImg.has(z.img) && !bubiPick.includes(bubiKey(z)));
     bubiPick = bubiPick.map(k => k === key ? (next ? bubiKey(next) : null) : k).filter(Boolean); renderBubi(false);
   }, true);
-  $('#sectionHead').addEventListener('click', ev => { const tb = ev.target.closest('#tSeg button'); if (tb) { tFilter = tb.dataset.t; renderTargets(); } });
-  $('#faceSeg').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; ui.face = b.dataset.face; syncControls(); renderContent(); });
+  $('#sectionHead').addEventListener('click', ev => {
+    const tb = ev.target.closest('#tSeg button'); if (tb) { tFilter = tb.dataset.t; renderTargets(); }
+    const mg = ev.target.closest('#missGen button'); if (mg) { missGen = mg.dataset.mg; renderMissing(); }
+  });
   $('#viewSeg').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; ui.view = b.dataset.view; syncControls(); renderContent(); });
   let qT; $('#search').addEventListener('input', ev => {
     clearTimeout(qT); qT = setTimeout(() => {
       ui.q = ev.target.value.trim();
-      if (ui.q && ui.group !== 'target' && ui.group !== 'bubi' && !ENTRIES.some(e => e.group === ui.group && matches(e))) { const hit = ENTRIES.find(matches); if (hit) { ui.group = hit.group; renderTabs(); syncControls(); } }
+      if (ui.q && !['missing', 'bubi', 'pocket', 'doppie'].includes(ui.group) && !ENTRIES.some(e => e.group === ui.group && matches(e))) { const hit = ENTRIES.find(matches); if (hit) { ui.group = hit.group; renderTabs(); syncControls(); } }
       renderContent();
     }, 140);
   });
-  $('#content').addEventListener('click', ev => { const p = ev.target.closest('.pocket[data-id]'); if (p) openDetail(p.dataset.id); });
+  $('#content').addEventListener('click', ev => { const p = ev.target.closest('.pocket[data-id], .mrow[data-id]'); if (p) { ui.tap = 'col'; syncControls(); openDetail(p.dataset.id); } });
   $('#mineList').addEventListener('click', ev => {
     const own = ev.target.closest('.own'); if (!own) return;
     const act = ev.target.closest('[data-act]')?.dataset.act;
     if (act === 'cover') setCover(own.dataset.uid);
-    else if (!own.dataset.uid.startsWith('sprite')) { selUid = own.dataset.uid; renderMine(); fillForm(); }
+    else { selUid = own.dataset.uid; renderMine(); fillForm(); }
   });
   $('#removeCard').addEventListener('click', () => { if (selUid) removeCard(selUid); });
   $('#photoFrom').addEventListener('click', () => setPhotoMode(true));
@@ -1003,7 +1030,7 @@
     x.img = x.imgOwn ?? null; delete x.imgOwn; delete x.imgFrom;
     persist(); renderMine(); fillForm(); refreshAfterEdit(); toast('Foto originale ripristinata');
   });
-  dlg.addEventListener('close', () => { setPhotoMode(false); photoDoppia = null; if (tReplace || targetQuick) { tReplace = null; targetQuick = false; ui.tap = 'col'; syncControls(); if (ui.group === 'target') renderTargets(); if (ui.group === 'doppie') renderDoppie(); } });
+  dlg.addEventListener('close', () => { setPhotoMode(false); photoDoppia = null; if (tReplace || targetQuick) { tReplace = null; targetQuick = false; ui.tap = 'col'; syncControls(); if (ui.group === 'doppie') renderDoppie(); } if (ui.group === 'missing') refreshAfterEdit(); });
   form.addEventListener('change', readForm);
   form.addEventListener('submit', ev => ev.preventDefault());
   $('#catGrid').addEventListener('click', ev => { const b = ev.target.closest('.cand'); if (b) pickCatalog(b.dataset.cid); });
@@ -1109,7 +1136,13 @@
   }
   measureSafeArea();
   // freeze the page behind an open sheet so a swipe inside the sheet never drags the page
-  const syncModal = () => document.documentElement.classList.toggle('modal-open', !!document.querySelector('dialog[open]'));
+  // the page height where a sheet was opened: re-renders behind the sheet and closing it always come back here
+  const syncModal = () => {
+    const open = !!document.querySelector('dialog[open]'), was = document.documentElement.classList.contains('modal-open');
+    if (open && !was) openY = window.scrollY;
+    document.documentElement.classList.toggle('modal-open', open);
+    if (!open && was && openY != null) { const y = openY; openY = null; requestAnimationFrame(() => window.scrollTo(0, y)); }
+  };
   document.querySelectorAll('dialog').forEach(d => { d.addEventListener('close', syncModal); new MutationObserver(syncModal).observe(d, { attributes: true, attributeFilter: ['open'] }); });
   (async () => {
     try {
