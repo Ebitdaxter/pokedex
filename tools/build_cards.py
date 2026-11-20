@@ -17,6 +17,7 @@ def norm_r(r):
     return ''
 
 # ---------- International (pokemontcg data) ----------
+# Trainer Gallery / Galarian Gallery subsets are all full-art character cards (V and VMAX included) → CHR
 sets = {s['id']: s for s in json.load(open(SRC + '/ptcg/sets/en.json'))}
 by = collections.defaultdict(list)
 for f in glob.glob(SRC + '/ptcg/cards/en/*.json'):
@@ -27,7 +28,7 @@ for f in glob.glob(SRC + '/ptcg/cards/en/*.json'):
             if 1 <= d <= maxdex:
                 by[d].append({'src': 'int', 'id': c['id'], 'n': c['name'], 'set': s['name'], 'sid': sid, 'no': c['number'],
                               'tot': s.get('printedTotal'), 'date': s['releaseDate'][:10].replace('/', '-'), 'r': c.get('rarity') or '',
-                              'rc': norm_r(c.get('rarity')), 'img': c['images']['large'], 'sm': c['images']['small']})
+                              'rc': 'CHR' if re.search(r'(tg|gg)$', sid) else norm_r(c.get('rarity')), 'img': c['images']['large'], 'sm': c['images']['small']})
 # map international cards to TCGdex ids (for Cardmarket prices)
 tsets = {}
 for f in glob.glob(SRC + '/tcgdex/data/*/*.ts'):

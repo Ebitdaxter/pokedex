@@ -1,6 +1,6 @@
 {
  "version": 2,
- "updated": "2026-11-20T03:20:41.139Z",
+ "updated": "2026-11-20T03:25:45.684Z",
  "cards": {
   "n0002": {
    "cover": "828422d2",
@@ -5138,12 +5138,13 @@
    "list": [
     {
      "uid": "ba159351",
-     "set": "Mega Starter Set Diancie (mBD)",
+     "set": "Mega Starter Deck Diancie ex (MBD)",
      "number": "022/021",
      "rarity": "AR",
      "rc": "AR",
      "lang": "JPN",
-     "art": true
+     "art": true,
+     "img": "https://storage.googleapis.com/images.pricecharting.com/oyb5huynk5pu6xyi/1600.jpg"
     }
    ]
   },
@@ -5174,12 +5175,13 @@
    "list": [
     {
      "uid": "f8c3b8b2",
-     "set": "Mega Evolution Promo (MEP)",
-     "number": "80",
+     "set": "Mega Evolution Black Star Promo",
+     "number": "080",
      "rarity": "AR",
      "rc": "AR",
      "lang": "ITA",
-     "art": true
+     "art": true,
+     "img": "https://storage.googleapis.com/images.pricecharting.com/xnhkoy5psf7jqi2r/1600.jpg"
     },
     {
      "uid": "m6eosyqe",
@@ -6322,12 +6324,18 @@
    "list": [
     {
      "uid": "21266aff",
-     "set": "VMAX Climax (s8b)",
-     "number": "14/30",
-     "rarity": "SAR",
-     "rc": "SAR",
+     "set": "Lost Origin Trainer Gallery",
+     "number": "TG14/TG30",
+     "rarity": "Trainer Gallery",
+     "rc": "CHR",
      "lang": "ITA",
-     "art": true
+     "art": true,
+     "cid": "int:swsh11tg-TG14",
+     "src": "int",
+     "sid": "swsh11tg",
+     "img": "https://images.pokemontcg.io/swsh11tg/TG14_hires.png",
+     "year": "2022",
+     "tdx": "swsh11tg-TG14"
     }
    ]
   },
@@ -6397,27 +6405,21 @@
    ]
   },
   "n0868": {
-   "cover": "04d10392",
+   "cover": "vybua8ib",
    "list": [
-    {
-     "uid": "04d10392",
-     "set": "Twilight Masquerade",
-     "number": "2107-07-01 00:00:00",
-     "rarity": "AR",
-     "rc": "AR",
-     "lang": "CHN",
-     "art": true
-    },
     {
      "uid": "vybua8ib",
      "rc": "AR",
      "art": true,
      "rarity": "AR",
      "lang": "CHN",
-     "set": "Twilight Masquerade",
+     "set": "Stellar Crown (cinese)",
      "year": "2024",
-     "number": "2107",
-     "value": 3
+     "number": "152",
+     "value": 3,
+     "img": "https://images.pokemontcg.io/sv7/152_hires.png",
+     "imgFrom": "int:sv7-152",
+     "imgOwn": null
     }
    ]
   },
@@ -6703,7 +6705,10 @@
      "rc": "SAR",
      "lang": "CHN",
      "variant": "Blood Moon",
-     "art": true
+     "art": true,
+     "set": "CSV9.5C (cinese)",
+     "img": "https://storage.googleapis.com/images.pricecharting.com/vw3rfyqzvnlp37mp/1600.jpg",
+     "name": "Bloodmoon Ursaluna ex"
     }
    ]
   },
@@ -8279,12 +8284,13 @@
    "list": [
     {
      "uid": "64f77268",
-     "set": "Twilight Masquerade",
-     "number": "0207/07",
+     "set": "Gem Pack 5 (cinese)",
+     "number": "207",
      "rarity": "AR",
      "rc": "AR",
      "lang": "CHN",
-     "art": true
+     "art": true,
+     "img": "https://storage.googleapis.com/images.pricecharting.com/z5umdc7ld6ebe7iu/1600.jpg"
     }
    ]
   },
