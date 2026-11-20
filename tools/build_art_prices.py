@@ -13,10 +13,13 @@ MEGA = re.compile(r'^(M |Mega |メガ)'); REG = re.compile(r'Alolan|Galarian|His
 RK = {'Alola': r'Alolan|アローラ', 'Galar': r'Galarian|ガラル', 'Hisui': r'Hisuian|ヒスイ', 'Paldea': r'Paldean|パルデア'}
 def relevant(e, lst):   # same rule as relevant() in app.js
     if e['group'] == 'mega':
-        suf = re.search(r' (X|Y|Z)$', e['name']); m = [c for c in lst if MEGA.search(c['n']) and (not suf or suf.group(1) in c['n'])]
-        return m or [c for c in lst if MEGA.search(c['n'])] or lst
+        has = lambda c, l: re.search(rf'(?<![A-Za-z]){l}(?![A-Z])', re.sub(r'^M ', '', c['n']))
+        megas = [c for c in lst if MEGA.search(c['n'])]; suf = re.search(r' (X|Y|Z)$', e['name'])
+        if not suf: return megas
+        own = [c for c in megas if has(c, suf.group(1))]
+        return own or [c for c in megas if not any(has(c, l) for l in 'XYZ')]
     if e['group'] == 'regional':
-        return [c for c in lst if re.search(RK[e['region']], c['n'])] or lst
+        return [c for c in lst if re.search(RK[e['region']], c['n'])]
     return [c for c in lst if not MEGA.search(c['n']) and not REG.search(c['n'])] or lst
 
 cards, per = {}, {}

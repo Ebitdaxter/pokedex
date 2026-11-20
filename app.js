@@ -696,12 +696,16 @@
     const MEGA = /^(M |Mega |メガ)/, REG = /Alolan|Galarian|Hisuian|Paldean|アローラ|ガラル|ヒスイ|パルデア/;
     if (e.group === 'mega') {
       const suf = (e.name.match(/ (X|Y|Z)$/) || [])[1];
-      const m = list.filter(c => MEGA.test(c.n) && (!suf || c.n.includes(suf)));
-      return m.length ? m : list.filter(c => MEGA.test(c.n)).length ? list.filter(c => MEGA.test(c.n)) : list;
+      // only Mega cards, never the normal form; X / Y / Z must match as a letter on its own ("EX" is not X)
+      const has = (c, l) => new RegExp(`(?<![A-Za-z])${l}(?![A-Z])`).test(c.n.replace(/^M /, ''));
+      const megas = list.filter(c => MEGA.test(c.n));
+      if (!suf) return megas;
+      const own = megas.filter(c => has(c, suf));
+      return own.length ? own : megas.filter(c => !['X', 'Y', 'Z'].some(l => l !== suf && has(c, l)) && !has(c, suf));
     }
     if (e.group === 'regional') {
       const k = { Alola: /Alolan|アローラ/, Galar: /Galarian|ガラル/, Hisui: /Hisuian|ヒスイ/, Paldea: /Paldean|パルデア/ }[e.region];
-      const m = list.filter(c => k.test(c.n)); return m.length ? m : list;
+      return list.filter(c => k.test(c.n));   // only the regional form, never the normal one
     }
     const base = list.filter(c => !MEGA.test(c.n) && !REG.test(c.n));
     return base.length ? base : list;
