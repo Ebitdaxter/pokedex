@@ -1,6 +1,7 @@
 {
  "version": 2,
- "updated": "2026-11-20T03:25:45.684Z",
+ "updated": "2026-11-20T04:55:24.222Z",
+ "pricesUpdated": "2026-11-20T03:41:23Z",
  "cards": {
   "n0002": {
    "cover": "828422d2",
@@ -230,7 +231,7 @@
      "sid": "S10a",
      "img": "https://assets.tcgdex.net/ja/S/S10a/072/high.webp",
      "year": "2022",
-     "price": 2.0,
+     "price": 2,
      "priceAt": "2026-11-20T03:41:23Z"
     }
    ]
@@ -565,7 +566,8 @@
      "sid": "M6a",
      "year": "2026",
      "price": 1.63,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://images.scrydex.com/pokemon/me55-133/large"
     }
    ]
   },
@@ -1354,7 +1356,8 @@
      "sid": "M6",
      "year": "2026",
      "price": 2.74,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/M6/M6_86_R_JP_LG.png"
     }
    ]
   },
@@ -1546,16 +1549,23 @@
    ]
   },
   "n0329": {
-   "cover": "1c2f89b1",
+   "cover": "bfdwyp9r",
    "list": [
     {
-     "uid": "1c2f89b1",
-     "set": "Paradise Dragana (SV7a)",
-     "number": "088/080",
-     "rarity": "AR",
+     "uid": "bfdwyp9r",
+     "cid": "jp:SV7a-071",
+     "src": "jp",
+     "set": "Paradise Dragona (SV7a)",
+     "sid": "SV7a",
+     "number": "071/64",
+     "rarity": "",
      "rc": "AR",
      "lang": "JPN",
-     "art": true
+     "year": "2024",
+     "img": "https://assets.tcgdex.net/ja/SV/SV7a/071/high.webp",
+     "art": true,
+     "price": 1.57,
+     "priceAt": 1795145153000
     }
    ]
   },
@@ -1744,7 +1754,8 @@
      "sid": "M6",
      "year": "2026",
      "price": 5.63,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/M6/M6_88_R_JP_LG.png"
     }
    ]
   },
@@ -1932,7 +1943,8 @@
      "sid": "M6a",
      "year": "2026",
      "price": 5.14,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://images.scrydex.com/pokemon/me55-156/large"
     }
    ]
   },
@@ -1973,7 +1985,8 @@
      "sid": "M6",
      "year": "2026",
      "price": 6.73,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/M6/M6_80_R_JP_LG.png"
     }
    ]
   },
@@ -1993,7 +2006,8 @@
      "sid": "M6",
      "year": "2026",
      "price": 6.64,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/M6/M6_84_R_JP_LG.png"
     }
    ]
   },
@@ -2195,8 +2209,9 @@
      "src": "jp",
      "sid": "M6a",
      "year": "2026",
-     "price": 1.0,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "price": 1,
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://images.scrydex.com/pokemon/me55-136/large"
     }
    ]
   },
@@ -2301,7 +2316,8 @@
      "sid": "M1L",
      "year": "2025",
      "price": 3.13,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/M1L/M1L_68_R_JP_LG.png"
     }
    ]
   },
@@ -2384,7 +2400,8 @@
      "sid": "MC",
      "year": "2025",
      "price": 19.18,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/MC/MC_746_R_JP_LG.png"
     }
    ]
   },
@@ -2610,7 +2627,8 @@
      "sid": "SV11B",
      "year": "2025",
      "price": 11.16,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/SV11B/SV11B_97_R_JP_LG.png"
     },
     {
      "uid": "vcd74993",
@@ -2627,7 +2645,8 @@
      "sid": "SV11B",
      "tdx": null,
      "price": 11.16,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/SV11B/SV11B_97_R_JP_LG.png"
     }
    ]
   },
@@ -3561,7 +3580,8 @@
      "sid": "M6a",
      "year": "2026",
      "price": 0.67,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://images.scrydex.com/pokemon/me55-140/large"
     }
    ]
   },
@@ -3698,7 +3718,8 @@
      "sid": "SV11W",
      "year": "2025",
      "price": 4.13,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/SV11W/SV11W_129_R_JP_LG.png"
     },
     {
      "uid": "a00pa24a",
@@ -3715,7 +3736,8 @@
      "sid": "SV11W",
      "tdx": null,
      "price": 4.13,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/SV11W/SV11W_129_R_JP_LG.png"
     }
    ]
   },
@@ -3912,7 +3934,8 @@
      "sid": "SV11W",
      "year": "2025",
      "price": 3.77,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/SV11W/SV11W_123_R_JP_LG.png"
     },
     {
      "uid": "8e0otprt",
@@ -3929,7 +3952,8 @@
      "sid": "SV11W",
      "tdx": null,
      "price": 3.77,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/SV11W/SV11W_123_R_JP_LG.png"
     }
    ]
   },
@@ -3988,7 +4012,8 @@
      "sid": "SV11B",
      "year": "2025",
      "price": 2.68,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/SV11B/SV11B_125_R_JP_LG.png"
     },
     {
      "uid": "dug8wcsd",
@@ -4005,7 +4030,8 @@
      "sid": "SV11B",
      "tdx": null,
      "price": 2.68,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/SV11B/SV11B_125_R_JP_LG.png"
     }
    ]
   },
@@ -4265,7 +4291,8 @@
      "sid": "SV11W",
      "year": "2025",
      "price": 2.95,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/SV11W/SV11W_147_R_JP_LG.png"
     },
     {
      "uid": "cscslg5l",
@@ -4282,7 +4309,8 @@
      "sid": "SV11W",
      "tdx": null,
      "price": 2.95,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/SV11W/SV11W_147_R_JP_LG.png"
     }
    ]
   },
@@ -4362,7 +4390,8 @@
      "sid": "SV11B",
      "year": "2025",
      "price": 8.18,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/SV11B/SV11B_102_R_JP_LG.png"
     },
     {
      "uid": "ghi3wgmj",
@@ -4379,7 +4408,8 @@
      "sid": "SV11B",
      "tdx": null,
      "price": 8.18,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/SV11B/SV11B_102_R_JP_LG.png"
     }
    ]
   },
@@ -4760,7 +4790,8 @@
      "sid": "SV11W",
      "year": "2025",
      "price": 3.62,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/SV11W/SV11W_156_R_JP_LG.png"
     },
     {
      "uid": "737qeh40",
@@ -4777,7 +4808,8 @@
      "sid": "SV11W",
      "tdx": null,
      "price": 3.62,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/SV11W/SV11W_156_R_JP_LG.png"
     }
    ]
   },
@@ -4797,7 +4829,8 @@
      "sid": "SV11W",
      "year": "2025",
      "price": 3.84,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/SV11W/SV11W_157_R_JP_LG.png"
     }
    ]
   },
@@ -4817,7 +4850,8 @@
      "sid": "SV11B",
      "year": "2025",
      "price": 3.26,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/SV11B/SV11B_144_R_JP_LG.png"
     },
     {
      "uid": "oncy91hf",
@@ -4834,7 +4868,8 @@
      "sid": "SV11B",
      "tdx": null,
      "price": 3.26,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/SV11B/SV11B_144_R_JP_LG.png"
     }
    ]
   },
@@ -4854,7 +4889,8 @@
      "sid": "SV11B",
      "year": "2025",
      "price": 3.96,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/SV11B/SV11B_145_R_JP_LG.png"
     }
    ]
   },
@@ -5033,7 +5069,8 @@
      "sid": "SV11B",
      "year": "2025",
      "price": 2.47,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/SV11B/SV11B_120_R_JP_LG.png"
     },
     {
      "uid": "iuj2l629",
@@ -5050,7 +5087,8 @@
      "sid": "SV11B",
      "tdx": null,
      "price": 2.47,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/SV11B/SV11B_120_R_JP_LG.png"
     }
    ]
   },
@@ -5091,7 +5129,8 @@
      "sid": "M2a",
      "year": "2025",
      "price": 5.2,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/M2a/M2a_210_R_JP_LG.png"
     }
    ]
   },
@@ -5367,7 +5406,8 @@
      "year": "2025",
      "tdx": null,
      "price": 13.29,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/MC/MC_750_R_JP_LG.png"
     }
    ]
   },
@@ -5387,7 +5427,8 @@
      "sid": "M6",
      "year": "2026",
      "price": 1.97,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/M6/M6_85_R_JP_LG.png"
     }
    ]
   },
@@ -5491,7 +5532,8 @@
      "sid": "MC",
      "year": "2025",
      "price": 13.57,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/MC/MC_752_R_JP_LG.png"
     }
    ]
   },
@@ -5660,7 +5702,8 @@
      "sid": "MC",
      "year": "2025",
      "price": 5.49,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/MC/MC_747_R_JP_LG.png"
     }
    ]
   },
@@ -5976,7 +6019,8 @@
      "sid": "M6a",
      "year": "2026",
      "price": 0.81,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://images.scrydex.com/pokemon/me55-143/large"
     }
    ]
   },
@@ -6463,7 +6507,8 @@
      "sid": "M6",
      "year": "2026",
      "price": 1.67,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/M6/M6_82_R_JP_LG.png"
     }
    ]
   },
@@ -6652,7 +6697,8 @@
      "sid": "M5",
      "year": "2026",
      "price": 1.3,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/M5/M5_90_R_JP_LG.png"
     }
    ]
   },
@@ -6779,16 +6825,23 @@
    ]
   },
   "n0915": {
-   "cover": "3e9eae4c",
+   "cover": "86md9pew",
    "list": [
     {
-     "uid": "3e9eae4c",
+     "uid": "86md9pew",
+     "cid": "jp:SV3-120",
+     "src": "jp",
      "set": "Ruler of the Black Flame (SV3)",
-     "number": "126/108",
-     "rarity": "AR",
+     "sid": "SV3",
+     "number": "120/108",
+     "rarity": "",
      "rc": "AR",
      "lang": "JPN",
-     "art": true
+     "year": "2023",
+     "img": "https://assets.tcgdex.net/ja/SV/SV3/120/high.webp",
+     "art": true,
+     "price": 2.32,
+     "priceAt": 1795145153000
     }
    ]
   },
@@ -6873,7 +6926,8 @@
      "sid": "M6a",
      "year": "2026",
      "price": 2.5,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://images.scrydex.com/pokemon/me55-146/large"
     }
    ]
   },
@@ -6956,7 +7010,8 @@
      "sid": "M2",
      "year": "2025",
      "price": 1.31,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/M2/M2_83_R_JP_LG.png"
     }
    ]
   },
@@ -8031,7 +8086,8 @@
      "sid": "M2a",
      "year": "2025",
      "price": 23.42,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/M2a/M2a_223_R_JP_LG.png"
     }
    ]
   },
@@ -8051,7 +8107,8 @@
      "sid": "M2a",
      "year": "2025",
      "price": 17.12,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/M2a/M2a_230_R_JP_LG.png"
     }
    ]
   },
@@ -8093,7 +8150,8 @@
      "sid": "M2a",
      "year": "2025",
      "price": 4.57,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/M2a/M2a_226_R_JP_LG.png"
     }
    ]
   },
@@ -8134,7 +8192,8 @@
      "sid": "M2a",
      "year": "2025",
      "price": 2.18,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/M2a/M2a_231_R_JP_LG.png"
     }
    ]
   },
@@ -8154,7 +8213,8 @@
      "sid": "M2a",
      "year": "2025",
      "price": 1.94,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/M2a/M2a_225_R_JP_LG.png"
     }
    ]
   },
@@ -8196,7 +8256,8 @@
      "sid": "M2a",
      "year": "2025",
      "price": 2.32,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/M2a/M2a_229_R_JP_LG.png"
     }
    ]
   },
@@ -8216,7 +8277,8 @@
      "sid": "M2a",
      "year": "2025",
      "price": 1.87,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/M2a/M2a_227_R_JP_LG.png"
     }
    ]
   },
@@ -8236,7 +8298,8 @@
      "sid": "M6",
      "year": "2026",
      "price": 8.65,
-     "priceAt": "2026-11-20T03:41:23Z"
+     "priceAt": "2026-11-20T03:41:23Z",
+     "img": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc/M6/M6_107_R_JP_LG.png"
     }
    ]
   },
@@ -8382,116 +8445,6 @@
     }
    ]
   },
-  "n0001": {
-   "cover": "9kbvffe8",
-   "list": [
-    {
-     "uid": "9kbvffe8",
-     "cid": "int:sv3pt5-166",
-     "src": "int",
-     "tdx": "sv03.5-166",
-     "set": "151",
-     "sid": "sv3pt5",
-     "number": "166/165",
-     "rarity": "Illustration Rare",
-     "rc": "AR",
-     "lang": "ITA",
-     "year": "2023",
-     "img": "https://images.pokemontcg.io/sv3pt5/166_hires.png",
-     "art": true,
-     "price": 58.07,
-     "priceAt": "2026-11-20T03:41:23Z"
-    }
-   ]
-  },
-  "n0004": {
-   "cover": "21yvwpzb",
-   "list": [
-    {
-     "uid": "21yvwpzb",
-     "cid": "int:sv3pt5-168",
-     "src": "int",
-     "tdx": "sv03.5-168",
-     "set": "151",
-     "sid": "sv3pt5",
-     "number": "168/165",
-     "rarity": "Illustration Rare",
-     "rc": "AR",
-     "lang": "ITA",
-     "year": "2023",
-     "img": "https://images.pokemontcg.io/sv3pt5/168_hires.png",
-     "art": true,
-     "price": 79.33,
-     "priceAt": "2026-11-20T03:41:23Z"
-    }
-   ]
-  },
-  "n0005": {
-   "cover": "zoes6rx7",
-   "list": [
-    {
-     "uid": "zoes6rx7",
-     "cid": "int:sv3pt5-169",
-     "src": "int",
-     "tdx": "sv03.5-169",
-     "set": "151",
-     "sid": "sv3pt5",
-     "number": "169/165",
-     "rarity": "Illustration Rare",
-     "rc": "AR",
-     "lang": "ITA",
-     "year": "2023",
-     "img": "https://images.pokemontcg.io/sv3pt5/169_hires.png",
-     "art": true,
-     "price": 57.43,
-     "priceAt": "2026-11-20T03:41:23Z"
-    }
-   ]
-  },
-  "n0006": {
-   "cover": "grbvfojs",
-   "list": [
-    {
-     "uid": "grbvfojs",
-     "cid": "int:sv3pt5-199",
-     "src": "int",
-     "tdx": "sv03.5-199",
-     "set": "151",
-     "sid": "sv3pt5",
-     "number": "199/165",
-     "rarity": "Special Illustration Rare",
-     "rc": "SAR",
-     "lang": "ITA",
-     "year": "2023",
-     "img": "https://images.pokemontcg.io/sv3pt5/199_hires.png",
-     "art": true,
-     "price": 314.34,
-     "priceAt": "2026-11-20T03:41:23Z"
-    }
-   ]
-  },
-  "n0009": {
-   "cover": "bztmrtp1",
-   "list": [
-    {
-     "uid": "bztmrtp1",
-     "cid": "int:sv3pt5-200",
-     "src": "int",
-     "tdx": "sv03.5-200",
-     "set": "151",
-     "sid": "sv3pt5",
-     "number": "200/165",
-     "rarity": "Special Illustration Rare",
-     "rc": "SAR",
-     "lang": "ITA",
-     "year": "2023",
-     "img": "https://images.pokemontcg.io/sv3pt5/200_hires.png",
-     "art": true,
-     "price": 103.31,
-     "priceAt": "2026-11-20T03:41:23Z"
-    }
-   ]
-  },
   "n0242": {
    "cover": "rlk4xgfi",
    "list": [
@@ -8556,7 +8509,7 @@
      "src": "jp",
      "sid": "M2",
      "tdx": null,
-     "price": 1.0,
+     "price": 1,
      "priceAt": "2026-11-20T03:41:23Z"
     }
    ]
@@ -8739,72 +8692,6 @@
      "sid": "M5",
      "tdx": null,
      "price": 4.06,
-     "priceAt": "2026-11-20T03:41:23Z"
-    }
-   ]
-  },
-  "n0003": {
-   "cover": "olwibg0t",
-   "list": [
-    {
-     "uid": "olwibg0t",
-     "cid": "int:sv3pt5-198",
-     "src": "int",
-     "tdx": "sv03.5-198",
-     "set": "151",
-     "sid": "sv3pt5",
-     "number": "198/165",
-     "rarity": "Special Illustration Rare",
-     "rc": "SAR",
-     "lang": "ITA",
-     "year": "2023",
-     "img": "https://images.pokemontcg.io/sv3pt5/198_hires.png",
-     "art": true,
-     "price": 97.8,
-     "priceAt": "2026-11-20T03:41:23Z"
-    }
-   ]
-  },
-  "n0007": {
-   "cover": "v8zfdoqh",
-   "list": [
-    {
-     "uid": "v8zfdoqh",
-     "cid": "int:sv3pt5-170",
-     "src": "int",
-     "tdx": "sv03.5-170",
-     "set": "151",
-     "sid": "sv3pt5",
-     "number": "170/165",
-     "rarity": "Illustration Rare",
-     "rc": "AR",
-     "lang": "ITA",
-     "year": "2023",
-     "img": "https://images.pokemontcg.io/sv3pt5/170_hires.png",
-     "art": true,
-     "price": 69.35,
-     "priceAt": "2026-11-20T03:41:23Z"
-    }
-   ]
-  },
-  "n0008": {
-   "cover": "zv7163yb",
-   "list": [
-    {
-     "uid": "zv7163yb",
-     "cid": "int:sv3pt5-171",
-     "src": "int",
-     "tdx": "sv03.5-171",
-     "set": "151",
-     "sid": "sv3pt5",
-     "number": "171/165",
-     "rarity": "Illustration Rare",
-     "rc": "AR",
-     "lang": "ITA",
-     "year": "2023",
-     "img": "https://images.pokemontcg.io/sv3pt5/171_hires.png",
-     "art": true,
-     "price": 52.95,
      "priceAt": "2026-11-20T03:41:23Z"
     }
    ]
@@ -10786,6 +10673,9 @@
    "price": null
   }
  },
+ "pocketCover": {
+  "n0151": "A1a-083"
+ },
  "doppie": [
   {
    "uid": "4aa6cc33",
@@ -11921,6 +11811,5 @@
    "qty": 1,
    "eid": "n0508"
   }
- ],
- "pricesUpdated": "2026-11-20T03:41:23Z"
+ ]
 }
