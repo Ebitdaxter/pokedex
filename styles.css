@@ -669,3 +669,8 @@ body.on-doppie #filterSeg { display: none; }
 #missGen { flex-wrap: wrap; }
 .badge-art .rb { display: inline-block; width: 8px; height: 8px; margin-left: 3px; border-radius: 50%; vertical-align: 1px;
   background: conic-gradient(#ff4d4d, #ffb84d, #f7f74d, #4dff88, #4dc3ff, #a64dff, #ff4d4d); }
+
+/* catalog tiles: long set names wrap on two lines inside their own card instead of spilling onto the next one */
+.cand, .cwrap, .cand-info { min-width: 0; max-width: 100%; overflow: hidden; }
+.cand-info b { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+.cand-info > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
