@@ -1,6 +1,6 @@
 {
  "version": 2,
- "updated": "2026-11-19T16:23:17.000Z",
+ "updated": "2026-11-20T03:20:41.139Z",
  "cards": {
   "n0002": {
    "cover": "828422d2",
@@ -442,16 +442,6 @@
      "year": "2024",
      "price": 6.65,
      "priceAt": "2026-11-20T03:15:10Z"
-    },
-    {
-     "uid": "5hxxcirk",
-     "rc": "AR",
-     "art": true,
-     "rarity": "AR",
-     "lang": "JPN",
-     "imgOwn": null,
-     "img": "https://assets.tcgdex.net/ja/SV/SV6a/067/high.webp",
-     "imgFrom": "jp:SV6a-067"
     }
    ]
   },
@@ -2122,20 +2112,6 @@
      "year": "2022",
      "price": 2.45,
      "priceAt": "2026-11-20T03:15:10Z"
-    }
-   ]
-  },
-  "n0401": {
-   "cover": "f4ef0f1b",
-   "list": [
-    {
-     "uid": "f4ef0f1b",
-     "set": "VStar Univers (S12A)",
-     "number": "174/172",
-     "rarity": "AR",
-     "rc": "AR",
-     "lang": "JPN",
-     "art": true
     }
    ]
   },
@@ -5220,48 +5196,6 @@
      "art": true,
      "price": 2.12,
      "priceAt": "2026-11-20T03:15:10Z"
-    }
-   ]
-  },
-  "n0657": {
-   "cover": "98fa9360",
-   "list": [
-    {
-     "uid": "98fa9360",
-     "set": "Ninja Spinner (M4)",
-     "number": "086/083",
-     "rarity": "AR",
-     "rc": "AR",
-     "lang": "JPN",
-     "art": true
-    }
-   ]
-  },
-  "n0658": {
-   "cover": "2775b607",
-   "list": [
-    {
-     "uid": "2775b607",
-     "set": "Ninja Spinner (M4)",
-     "number": "087/083",
-     "rarity": "AR",
-     "rc": "AR",
-     "lang": "JPN",
-     "art": true
-    }
-   ]
-  },
-  "n0659": {
-   "cover": "3694a747",
-   "list": [
-    {
-     "uid": "3694a747",
-     "set": "30esimo J (m6a)",
-     "number": "125/103",
-     "rarity": "AR",
-     "rc": "AR",
-     "lang": "JPN",
-     "art": true
     }
    ]
   },
@@ -8863,6 +8797,86 @@
      "art": true,
      "price": 52.95,
      "priceAt": "2026-11-20T03:15:10Z"
+    }
+   ]
+  },
+  "n0656": {
+   "cover": "98fa9360",
+   "list": [
+    {
+     "uid": "98fa9360",
+     "set": "Ninja Spinner (M4)",
+     "number": "086/083",
+     "rarity": "AR",
+     "rc": "AR",
+     "lang": "JPN",
+     "art": true,
+     "cid": "jp:M4-086",
+     "src": "jp",
+     "sid": "M4",
+     "img": "https://assets.tcgdex.net/ja/M/M4/086/high.webp",
+     "year": "2026",
+     "tdx": null
+    }
+   ]
+  },
+  "n0657": {
+   "cover": "2775b607",
+   "list": [
+    {
+     "uid": "2775b607",
+     "set": "Ninja Spinner (M4)",
+     "number": "087/083",
+     "rarity": "AR",
+     "rc": "AR",
+     "lang": "JPN",
+     "art": true,
+     "cid": "jp:M4-087",
+     "src": "jp",
+     "sid": "M4",
+     "img": "https://assets.tcgdex.net/ja/M/M4/087/high.webp",
+     "year": "2026",
+     "tdx": null
+    }
+   ]
+  },
+  "n0658": {
+   "cover": "3694a747",
+   "list": [
+    {
+     "uid": "3694a747",
+     "set": "30esimo J (m6a)",
+     "number": "125/103",
+     "rarity": "SAR",
+     "rc": "SAR",
+     "lang": "JPN",
+     "art": true,
+     "cid": "jp:M6a-125",
+     "src": "jp",
+     "sid": "M6a",
+     "img": "https://images.scrydex.com/pokemon/me55-148/large",
+     "year": "2026",
+     "tdx": null
+    }
+   ]
+  },
+  "n0402": {
+   "cover": "f4ef0f1b",
+   "list": [
+    {
+     "uid": "f4ef0f1b",
+     "set": "VStar Univers (S12A)",
+     "number": "174/172",
+     "rarity": "AR",
+     "rc": "AR",
+     "lang": "JPN",
+     "art": true,
+     "cid": "jp:S12a-174",
+     "src": "jp",
+     "sid": "S12a",
+     "img": "https://assets.tcgdex.net/ja/S/S12a/174/high.webp",
+     "year": "2022",
+     "tdx": null
     }
    ]
   }
