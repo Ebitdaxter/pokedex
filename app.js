@@ -110,11 +110,16 @@
       fetch('data/sets.json').then(r => r.json()).catch(() => []),
     ]);
     // photos found outside TCGdex (tools/find_images.py): fill owned cards that have none, display only
-    fetch('data/extraimg.json').then(r => r.ok ? r.json() : {}).then(x => {
+    // imgfix.json: corrected photos (TCGdex shows the wrong card) – they replace the saved one unless you picked another photo
+    Promise.all(['data/extraimg.json', 'data/imgfix.json'].map(u => fetch(u, { cache: 'no-store' }).then(r => r.ok ? r.json() : {}).catch(() => ({})))).then(([x, fx]) => {
       let n = 0;
-      for (const e of Object.values(col.cards)) for (const c of e.list) if (!c.img && c.cid && x[c.cid]) { c.img = x[c.cid]; n++; }
+      for (const e of Object.values(col.cards)) for (const c of e.list) {
+        if (!c.cid) continue;
+        if (fx[c.cid] && !c.imgFrom && c.img !== fx[c.cid]) { c.img = fx[c.cid]; n++; }
+        else if (!c.img && x[c.cid]) { c.img = x[c.cid]; n++; }
+      }
       if (n) renderAll();
-    }).catch(() => {});
+    });
     ENTRIES = p; ENTRIES.forEach(e => BY_ID.set(e.id, e)); SETS = s;
     remote = migrate(c || {});
     const local = store.get(LS.col, null) || store.get('pdx.collection.v2', null);

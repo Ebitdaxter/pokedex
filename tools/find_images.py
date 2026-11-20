@@ -22,7 +22,14 @@ for v in col['cards'].values():
         if not x.get('img') and (x.get('cid') or '').startswith('jp:'): need.add(x['cid'])
 # retry a miss once a week: Limitless adds photos a few days after release
 todo = [k for k in need if k.startswith('jp:') and k not in found and misses.get(k, '0') < time.strftime('%Y-%m-%d', time.gmtime(time.time() - 7 * 86400))]
-print('cards without photo:', len(need), '· to look up:', len(todo))
+# sets where TCGdex shows the photo of a different card (Mega Symphonia: Gardevoir on Alakazam, Delibird, Litleo...):
+# every full art there takes its photo from Limitless; hits go to data/imgfix.json, which always wins over TCGdex
+WRONG = {'M1S'}
+try: fix = json.load(open('data/imgfix.json', encoding='utf-8'))
+except Exception: fix = {}
+wrong = sorted({c['src'] + ':' + c['id'] for lst in files.values() for c in lst
+                if c['src'] == 'jp' and c['sid'] in WRONG and c['rc'] in FA} - set(fix))
+print('cards without photo:', len(need), '· to look up:', len(todo), '· wrong photos to replace:', len(wrong))
 
 IMG = re.compile(r'https://limitlesstcg[^"\'\s]+?/tpc/[^"\'\s]+?\.(?:png|jpg|webp)')
 def page(url):
@@ -48,6 +55,9 @@ with concurrent.futures.ThreadPoolExecutor(4) as ex:
     for cid, url in zip(todo, ex.map(look, todo)):
         if url: found[cid] = url; misses.pop(cid, None)
         else: misses[cid] = today
+    if not os.environ.get('OFFLINE'):
+        for cid, url in zip(wrong, ex.map(look, wrong)):
+            if url: fix[cid] = url
 print('photos found:', sum(1 for k in todo if k in found), 'of', len(todo), '· total kept:', len(found))
 
 # still nothing: borrow the photo of the international print of the same card (same Pokémon, same rarity,
@@ -66,8 +76,10 @@ print('photos borrowed from the international print:', borrow)
 for f, lst in files.items():
     ch = False
     for c in lst:
-        u = found.get(c['src'] + ':' + c['id'])
-        if u and not c.get('img'): c['img'] = c['sm'] = u; ch = True
+        k = c['src'] + ':' + c['id']; u = found.get(k)
+        if k in fix and c.get('img') != fix[k]: c['img'] = c['sm'] = fix[k]; ch = True
+        elif u and not c.get('img'): c['img'] = c['sm'] = u; ch = True
     if ch: json.dump(lst, open(f, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
 json.dump(found, open('data/extraimg.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
+json.dump(fix, open('data/imgfix.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
 json.dump(misses, open('data/extraimg_miss.json', 'w', encoding='utf-8'), indent=0)
