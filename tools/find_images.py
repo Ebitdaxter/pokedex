@@ -43,11 +43,25 @@ def look(cid):
                 return big[0]
     return None
 
+if os.environ.get('OFFLINE'): todo = []
 with concurrent.futures.ThreadPoolExecutor(4) as ex:
     for cid, url in zip(todo, ex.map(look, todo)):
         if url: found[cid] = url; misses.pop(cid, None)
         else: misses[cid] = today
 print('photos found:', sum(1 for k in todo if k in found), 'of', len(todo), '· total kept:', len(found))
+
+# still nothing: borrow the photo of the international print of the same card (same Pokémon, same rarity,
+# released within two months), e.g. 30th CELEBRATION (M6a) → 30th Celebration (me55); used only when unambiguous
+import datetime
+dt = lambda c: datetime.date.fromisoformat(c['date']) if c.get('date') else None
+borrow = 0
+for f, lst in files.items():
+    for c in lst:
+        k = c['src'] + ':' + c['id']
+        if c['src'] != 'jp' or c['rc'] not in FA or c.get('img') or k in found or not dt(c): continue
+        en = [x for x in lst if x['src'] == 'int' and x.get('img') and x['rc'] == c['rc'] and dt(x) and abs((dt(x) - dt(c)).days) <= 62]
+        if len(en) == 1: found[k] = en[0]['img']; borrow += 1
+print('photos borrowed from the international print:', borrow)
 
 for f, lst in files.items():
     ch = False
