@@ -1,10 +1,10 @@
 """Full arts only: for every Pokédex entry (national dex, Mega, regional forms) count the full-art cards that exist
-(AR, SAR, SR, UR, MUR, MA, CHR, CSR, SSR, SEC) and their Cardmarket price range.
+(AR, SAR, MUR, MA, CHR, CSR, SSR, SEC; no SR/UR) and their Cardmarket price range.
 Writes data/artprices.json = {"updated": iso, "p": {cid: eur|null}} and data/artindex.json = {entryId: [n, min, max]}.
 OFFLINE=1 skips the price download and reuses the prices already saved."""
 import json, os, re, glob, time, datetime, urllib.request, urllib.parse, urllib.error, concurrent.futures
 
-FA = {'AR', 'SAR', 'SR', 'UR', 'MUR', 'MA', 'CHR', 'CSR', 'SSR', 'SEC'}
+FA = {'AR', 'SAR', 'MUR', 'MA', 'CHR', 'CSR', 'SSR', 'SEC'}   # SR and UR excluded by choice
 ents = json.load(open('data/pokedex.json', encoding='utf-8'))
 try: old = json.load(open('data/artprices.json', encoding='utf-8')).get('p', {})
 except Exception: old = {}

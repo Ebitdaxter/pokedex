@@ -1051,14 +1051,19 @@
     },
     {
      "uid": "iuk0pj8w",
-     "rc": "AR",
+     "rc": "CHR",
      "art": true,
      "rarity": "AR",
      "lang": "ITA",
      "set": "Silver Tempest",
      "year": "2022",
      "number": "10/30",
-     "value": 4
+     "value": 4,
+     "cid": "int:swsh12tg-TG10",
+     "src": "int",
+     "sid": "swsh12tg",
+     "tdx": "swsh12tg-TG10",
+     "img": "https://images.pokemontcg.io/swsh12tg/TG10_hires.png"
     }
    ]
   },
@@ -2637,7 +2642,11 @@
      "set": "Black Bolt",
      "year": "2025",
      "number": "097/086",
-     "value": 10.28
+     "value": 10.28,
+     "cid": "jp:SV11B-097",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -2670,7 +2679,11 @@
      "year": "2025",
      "number": "087/086",
      "value": 8.28,
-     "img": "https://images.pokemontcg.io/zsv10pt5/87_hires.png"
+     "img": "https://images.pokemontcg.io/zsv10pt5/87_hires.png",
+     "cid": "jp:SV11B-087",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -2703,7 +2716,11 @@
      "year": "2025",
      "number": "096/086",
      "value": 10.72,
-     "img": "https://images.pokemontcg.io/rsv10pt5/96_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/96_hires.png",
+     "cid": "jp:SV11W-096",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -2736,7 +2753,11 @@
      "year": "2025",
      "number": "098/086",
      "value": 4.51,
-     "img": "https://images.pokemontcg.io/rsv10pt5/98_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/98_hires.png",
+     "cid": "jp:SV11W-098",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -2750,7 +2771,13 @@
      "rarity": "AR",
      "rc": "AR",
      "lang": "JPN",
-     "art": true
+     "art": true,
+     "cid": "jp:SV11W-104",
+     "src": "jp",
+     "sid": "SV11W",
+     "year": "2025",
+     "tdx": null,
+     "img": "https://images.pokemontcg.io/rsv10pt5/107_hires.png"
     },
     {
      "uid": "2drvo782",
@@ -2762,7 +2789,11 @@
      "year": "2025",
      "number": "104/086",
      "value": 7.42,
-     "img": "https://images.pokemontcg.io/rsv10pt5/107_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/107_hires.png",
+     "cid": "jp:SV11W-104",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -2776,7 +2807,13 @@
      "rarity": "AR",
      "rc": "AR",
      "lang": "JPN",
-     "art": true
+     "art": true,
+     "cid": "jp:SV11W-151",
+     "src": "jp",
+     "sid": "SV11W",
+     "year": "2025",
+     "tdx": null,
+     "img": "https://images.pokemontcg.io/rsv10pt5/152_hires.png"
     },
     {
      "uid": "x9cso6xr",
@@ -2788,7 +2825,11 @@
      "year": "2025",
      "number": "151/086",
      "value": 3,
-     "img": "https://images.pokemontcg.io/rsv10pt5/152_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/152_hires.png",
+     "cid": "jp:SV11W-151",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -2842,7 +2883,11 @@
      "year": "2025",
      "number": "154/086",
      "value": 3.57,
-     "img": "https://images.pokemontcg.io/rsv10pt5/155_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/155_hires.png",
+     "cid": "jp:SV11W-154",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -2875,7 +2920,11 @@
      "year": "2025",
      "number": "155/086",
      "value": 3.78,
-     "img": "https://images.pokemontcg.io/rsv10pt5/156_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/156_hires.png",
+     "cid": "jp:SV11W-155",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -2908,7 +2957,11 @@
      "year": "2025",
      "number": "090/086",
      "value": 3,
-     "img": "https://images.pokemontcg.io/zsv10pt5/90_hires.png"
+     "img": "https://images.pokemontcg.io/zsv10pt5/90_hires.png",
+     "cid": "jp:SV11B-090",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -2962,7 +3015,11 @@
      "year": "2025",
      "number": "121/086",
      "value": 4.5,
-     "img": "https://images.pokemontcg.io/zsv10pt5/116_hires.png"
+     "img": "https://images.pokemontcg.io/zsv10pt5/116_hires.png",
+     "cid": "jp:SV11B-121",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -2995,7 +3052,11 @@
      "year": "2025",
      "number": "154/086",
      "value": 2.88,
-     "img": "https://images.pokemontcg.io/zsv10pt5/149_hires.png"
+     "img": "https://images.pokemontcg.io/zsv10pt5/149_hires.png",
+     "cid": "jp:SV11B-154",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -3070,7 +3131,11 @@
      "year": "2025",
      "number": "112/086",
      "value": 2.74,
-     "img": "https://images.pokemontcg.io/rsv10pt5/115_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/115_hires.png",
+     "cid": "jp:SV11W-112",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -3103,7 +3168,11 @@
      "year": "2025",
      "number": "126/086",
      "value": 2.58,
-     "img": "https://images.pokemontcg.io/rsv10pt5/128_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/128_hires.png",
+     "cid": "jp:SV11W-126",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -3136,7 +3205,11 @@
      "year": "2025",
      "number": "117/086",
      "value": 3.2,
-     "img": "https://images.pokemontcg.io/rsv10pt5/120_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/120_hires.png",
+     "cid": "jp:SV11W-117",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -3190,7 +3263,11 @@
      "year": "2025",
      "number": "133/086",
      "value": 3.85,
-     "img": "https://images.pokemontcg.io/zsv10pt5/127_hires.png"
+     "img": "https://images.pokemontcg.io/zsv10pt5/127_hires.png",
+     "cid": "jp:SV11B-133",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -3244,7 +3321,11 @@
      "year": "2025",
      "number": "108/086",
      "value": 3.62,
-     "img": "https://images.pokemontcg.io/zsv10pt5/104_hires.png"
+     "img": "https://images.pokemontcg.io/zsv10pt5/104_hires.png",
+     "cid": "jp:SV11B-108",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -3298,7 +3379,11 @@
      "year": "2025",
      "number": "128/086",
      "value": 2.37,
-     "img": "https://images.pokemontcg.io/rsv10pt5/130_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/130_hires.png",
+     "cid": "jp:SV11W-128",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -3331,7 +3416,11 @@
      "year": "2025",
      "number": "139/086",
      "value": 2.8,
-     "img": "https://images.pokemontcg.io/zsv10pt5/133_hires.png"
+     "img": "https://images.pokemontcg.io/zsv10pt5/133_hires.png",
+     "cid": "jp:SV11B-139",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -3427,7 +3516,11 @@
      "year": "2025",
      "number": "093/086",
      "value": 1,
-     "img": "https://images.pokemontcg.io/zsv10pt5/93_hires.png"
+     "img": "https://images.pokemontcg.io/zsv10pt5/93_hires.png",
+     "cid": "jp:SV11B-093",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -3480,7 +3573,11 @@
      "year": "2025",
      "number": "137/086",
      "value": 3.59,
-     "img": "https://images.pokemontcg.io/rsv10pt5/139_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/139_hires.png",
+     "cid": "jp:SV11W-137",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -3513,7 +3610,11 @@
      "year": "2025",
      "number": "118/086",
      "value": 3,
-     "img": "https://images.pokemontcg.io/rsv10pt5/121_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/121_hires.png",
+     "cid": "jp:SV11W-118",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -3546,7 +3647,11 @@
      "year": "2025",
      "number": "120/086",
      "value": 3,
-     "img": "https://images.pokemontcg.io/rsv10pt5/123_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/123_hires.png",
+     "cid": "jp:SV11W-120",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -3577,7 +3682,11 @@
      "set": "White Flare",
      "year": "2025",
      "number": "129/086",
-     "value": 3
+     "value": 3,
+     "cid": "jp:SV11W-129",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -3610,7 +3719,11 @@
      "year": "2025",
      "number": "130/086",
      "value": 3,
-     "img": "https://images.pokemontcg.io/rsv10pt5/132_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/132_hires.png",
+     "cid": "jp:SV11W-130",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -3643,7 +3756,11 @@
      "year": "2025",
      "number": "138/086",
      "value": 2.76,
-     "img": "https://images.pokemontcg.io/rsv10pt5/140_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/140_hires.png",
+     "cid": "jp:SV11W-138",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -3676,7 +3793,11 @@
      "year": "2025",
      "number": "139/086",
      "value": 2.42,
-     "img": "https://images.pokemontcg.io/rsv10pt5/141_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/141_hires.png",
+     "cid": "jp:SV11W-139",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -3709,7 +3830,11 @@
      "year": "2025",
      "number": "121/086",
      "value": 4.68,
-     "img": "https://images.pokemontcg.io/rsv10pt5/124_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/124_hires.png",
+     "cid": "jp:SV11W-121",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -3761,7 +3886,11 @@
      "set": "White Flare",
      "year": "2025",
      "number": "123/086",
-     "value": 2.95
+     "value": 2.95,
+     "cid": "jp:SV11W-123",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -3794,7 +3923,11 @@
      "year": "2025",
      "number": "123/086",
      "value": 11.65,
-     "img": "https://images.pokemontcg.io/zsv10pt5/118_hires.png"
+     "img": "https://images.pokemontcg.io/zsv10pt5/118_hires.png",
+     "cid": "jp:SV11B-123",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -3825,7 +3958,11 @@
      "set": "Black Bolt",
      "year": "2025",
      "number": "125/086",
-     "value": 2.35
+     "value": 2.35,
+     "cid": "jp:SV11B-125",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -3879,7 +4016,11 @@
      "year": "2025",
      "number": "091/086",
      "value": 4.52,
-     "img": "https://images.pokemontcg.io/rsv10pt5/91_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/91_hires.png",
+     "cid": "jp:SV11W-091",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -3933,7 +4074,11 @@
      "year": "2025",
      "number": "095/086",
      "value": 4.16,
-     "img": "https://images.pokemontcg.io/zsv10pt5/95_hires.png"
+     "img": "https://images.pokemontcg.io/zsv10pt5/95_hires.png",
+     "cid": "jp:SV11B-095",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -3966,7 +4111,11 @@
      "year": "2025",
      "number": "124/086",
      "value": 4.67,
-     "img": "https://images.pokemontcg.io/rsv10pt5/126_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/126_hires.png",
+     "cid": "jp:SV11W-124",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -4020,7 +4169,11 @@
      "year": "2025",
      "number": "114/086",
      "value": 3.5,
-     "img": "https://images.pokemontcg.io/rsv10pt5/117_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/117_hires.png",
+     "cid": "jp:SV11W-114",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -4072,7 +4225,11 @@
      "set": "White Flare",
      "year": "2025",
      "number": "147/086",
-     "value": 2.26
+     "value": 2.26,
+     "cid": "jp:SV11W-147",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -4105,7 +4262,11 @@
      "year": "2025",
      "number": "118/086",
      "value": 2.94,
-     "img": "https://images.pokemontcg.io/zsv10pt5/114_hires.png"
+     "img": "https://images.pokemontcg.io/zsv10pt5/114_hires.png",
+     "cid": "jp:SV11B-118",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -4157,7 +4318,11 @@
      "set": "Black Bolt",
      "year": "2025",
      "number": "102/086",
-     "value": 6.69
+     "value": 6.69,
+     "cid": "jp:SV11B-102",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -4253,7 +4418,11 @@
      "year": "2025",
      "number": "115/086",
      "value": 2.87,
-     "img": "https://images.pokemontcg.io/zsv10pt5/111_hires.png"
+     "img": "https://images.pokemontcg.io/zsv10pt5/111_hires.png",
+     "cid": "jp:SV11B-115",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -4286,7 +4455,11 @@
      "year": "2025",
      "number": "093/086",
      "value": 2.62,
-     "img": "https://images.pokemontcg.io/rsv10pt5/93_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/93_hires.png",
+     "cid": "jp:SV11W-093",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -4319,7 +4492,11 @@
      "year": "2025",
      "number": "115/086",
      "value": 2,
-     "img": "https://images.pokemontcg.io/rsv10pt5/118_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/118_hires.png",
+     "cid": "jp:SV11W-115",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -4352,7 +4529,11 @@
      "year": "2025",
      "number": "132/086",
      "value": 3.35,
-     "img": "https://images.pokemontcg.io/rsv10pt5/134_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/134_hires.png",
+     "cid": "jp:SV11W-132",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -4449,7 +4630,11 @@
      "year": "2025",
      "number": "148/086",
      "value": 3.02,
-     "img": "https://images.pokemontcg.io/zsv10pt5/143_hires.png"
+     "img": "https://images.pokemontcg.io/zsv10pt5/143_hires.png",
+     "cid": "jp:SV11B-148",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -4482,7 +4667,11 @@
      "year": "2025",
      "number": "172/086",
      "value": 8.88,
-     "img": "https://images.pokemontcg.io/rsv10pt5/170_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/170_hires.png",
+     "cid": "jp:SV11W-172",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -4513,7 +4702,11 @@
      "set": "White Flare",
      "year": "2025",
      "number": "156/086",
-     "value": 2.6
+     "value": 2.6,
+     "cid": "jp:SV11W-156",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -4564,7 +4757,11 @@
      "set": "Black Bolt",
      "year": "2025",
      "number": "144/086",
-     "value": 2.84
+     "value": 2.84,
+     "cid": "jp:SV11B-144",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -4638,7 +4835,11 @@
      "year": "2025",
      "number": "142/086",
      "value": 4,
-     "img": "https://images.pokemontcg.io/rsv10pt5/146_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/146_hires.png",
+     "cid": "jp:SV11W-142",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -4671,7 +4872,11 @@
      "year": "2025",
      "number": "143/086",
      "value": 3.43,
-     "img": "https://images.pokemontcg.io/rsv10pt5/147_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/147_hires.png",
+     "cid": "jp:SV11W-143",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -4725,7 +4930,11 @@
      "year": "2025",
      "number": "149/086",
      "value": 4.79,
-     "img": "https://images.pokemontcg.io/zsv10pt5/144_hires.png"
+     "img": "https://images.pokemontcg.io/zsv10pt5/144_hires.png",
+     "cid": "jp:SV11B-149",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -4756,7 +4965,11 @@
      "set": "Black Bolt",
      "year": "2025",
      "number": "120/086",
-     "value": 2.21
+     "value": 2.21,
+     "cid": "jp:SV11B-120",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -4830,7 +5043,11 @@
      "year": "2025",
      "number": "169/086",
      "value": 20.99,
-     "img": "https://images.pokemontcg.io/rsv10pt5/167_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/167_hires.png",
+     "cid": "jp:SV11W-169",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -5098,9 +5315,14 @@
      "set": "McDonald's Collection 2011",
      "number": "750/742",
      "rarity": "AR",
-     "rc": "AR",
+     "rc": "SEC",
      "lang": "JPN",
-     "art": true
+     "art": true,
+     "cid": "jp:MC-750",
+     "src": "jp",
+     "sid": "MC",
+     "year": "2025",
+     "tdx": null
     }
    ]
   },
@@ -5302,7 +5524,13 @@
      "rarity": "AR",
      "rc": "AR",
      "lang": "FRA",
-     "art": true
+     "art": true,
+     "cid": "int:me3-90",
+     "src": "int",
+     "sid": "me3",
+     "year": "2026",
+     "tdx": "me03-090",
+     "img": "https://images.scrydex.com/pokemon/me3-90/large"
     }
    ]
   },
@@ -7026,7 +7254,11 @@
      "year": "2024",
      "number": "225/091",
      "value": 2,
-     "img": "https://images.pokemontcg.io/sv4pt5/225_hires.png"
+     "img": "https://images.pokemontcg.io/sv4pt5/225_hires.png",
+     "cid": "int:sv4pt5-225",
+     "src": "int",
+     "sid": "sv4pt5",
+     "tdx": "sv04.5-225"
     }
    ]
   },
@@ -7717,7 +7949,13 @@
      "rarity": "SAR",
      "rc": "SAR",
      "lang": "ITA",
-     "art": true
+     "art": true,
+     "cid": "int:sv5-207",
+     "src": "int",
+     "sid": "sv5",
+     "year": "2024",
+     "tdx": "sv05-207",
+     "img": "https://images.pokemontcg.io/sv5/207_hires.png"
     }
    ]
   },
@@ -7771,7 +8009,13 @@
      "rarity": "SAR",
      "rc": "SAR",
      "lang": "ENG",
-     "art": true
+     "art": true,
+     "cid": "int:me3-118",
+     "src": "int",
+     "sid": "me3",
+     "year": "2026",
+     "tdx": "me03-118",
+     "img": "https://images.scrydex.com/pokemon/me3-118/large"
     }
    ]
   },
@@ -8195,14 +8439,18 @@
     {
      "uid": "rlk4xgfi",
      "rc": "SR",
-     "art": false,
+     "art": true,
      "rarity": "SR",
      "lang": "ITA",
      "set": "Twilight Masquerade",
      "year": "2024",
      "number": "201/167",
      "value": 1.4,
-     "img": "https://images.pokemontcg.io/sv6/201_hires.png"
+     "img": "https://images.pokemontcg.io/sv6/201_hires.png",
+     "cid": "int:sv6-201",
+     "src": "int",
+     "sid": "sv6",
+     "tdx": "sv06-201"
     }
    ]
   },
@@ -8212,14 +8460,18 @@
     {
      "uid": "nwlh4kr9",
      "rc": "SR",
-     "art": false,
+     "art": true,
      "rarity": "SR",
      "lang": "ITA",
      "set": "Scarlet & Violet",
      "year": "2023",
      "number": "228/198",
      "value": 3,
-     "img": "https://images.pokemontcg.io/sv1/228_hires.png"
+     "img": "https://images.pokemontcg.io/sv1/228_hires.png",
+     "cid": "int:sv1-228",
+     "src": "int",
+     "sid": "sv1",
+     "tdx": "sv01-228"
     }
    ]
   },
@@ -8229,14 +8481,18 @@
     {
      "uid": "98jsxdzq",
      "rc": "SR",
-     "art": false,
+     "art": true,
      "rarity": "SR",
      "lang": "JPN",
      "set": "Inferno X (M2)",
      "year": "2025",
      "number": "097/080",
      "value": 1.35,
-     "img": "https://images.pokemontcg.io/me2/112_hires.png"
+     "img": "https://images.pokemontcg.io/me2/112_hires.png",
+     "cid": "jp:M2-097",
+     "src": "jp",
+     "sid": "M2",
+     "tdx": null
     }
    ]
   },
@@ -8246,14 +8502,18 @@
     {
      "uid": "ibhejaiy",
      "rc": "SR",
-     "art": false,
+     "art": true,
      "rarity": "SR",
      "lang": "JPN",
      "set": "Black Bolt",
      "year": "2025",
      "number": "159/086",
      "value": 1,
-     "img": "https://images.pokemontcg.io/zsv10pt5/156_hires.png"
+     "img": "https://images.pokemontcg.io/zsv10pt5/156_hires.png",
+     "cid": "jp:SV11B-159",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -8263,14 +8523,18 @@
     {
      "uid": "tqo87s3f",
      "rc": "SR",
-     "art": false,
+     "art": true,
      "rarity": "SR",
      "lang": "JPN",
      "set": "Black Bolt",
      "year": "2025",
      "number": "163/086",
      "value": 0.69,
-     "img": "https://images.pokemontcg.io/zsv10pt5/160_hires.png"
+     "img": "https://images.pokemontcg.io/zsv10pt5/160_hires.png",
+     "cid": "jp:SV11B-163",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -8280,14 +8544,18 @@
     {
      "uid": "1e7m19h3",
      "rc": "SR",
-     "art": false,
+     "art": true,
      "rarity": "SR",
      "lang": "JPN",
      "set": "White Flare",
      "year": "2025",
      "number": "159/086",
      "value": 0.86,
-     "img": "https://images.pokemontcg.io/rsv10pt5/157_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/157_hires.png",
+     "cid": "jp:SV11W-159",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -8297,14 +8565,18 @@
     {
      "uid": "bm3bpvlr",
      "rc": "SR",
-     "art": false,
+     "art": true,
      "rarity": "SR",
      "lang": "JPN",
      "set": "White Flare",
      "year": "2025",
      "number": "162/086",
      "value": 0.62,
-     "img": "https://images.pokemontcg.io/rsv10pt5/160_hires.png"
+     "img": "https://images.pokemontcg.io/rsv10pt5/160_hires.png",
+     "cid": "jp:SV11W-162",
+     "src": "jp",
+     "sid": "SV11W",
+     "tdx": null
     }
    ]
   },
@@ -8314,14 +8586,18 @@
     {
      "uid": "5cqmw021",
      "rc": "SR",
-     "art": false,
+     "art": true,
      "rarity": "SR",
      "lang": "JPN",
      "set": "Black Bolt",
      "year": "2025",
      "number": "160/086",
      "value": 1.2,
-     "img": "https://images.pokemontcg.io/zsv10pt5/157_hires.png"
+     "img": "https://images.pokemontcg.io/zsv10pt5/157_hires.png",
+     "cid": "jp:SV11B-160",
+     "src": "jp",
+     "sid": "SV11B",
+     "tdx": null
     }
    ]
   },
@@ -8331,14 +8607,18 @@
     {
      "uid": "nz5j1rsk",
      "rc": "SR",
-     "art": false,
+     "art": true,
      "rarity": "SR",
      "lang": "ITA",
      "set": "Chaos Rising (CRI)",
      "year": "2026",
      "number": "102/086",
      "value": 1.5,
-     "img": "https://images.scrydex.com/pokemon/me4-102/large"
+     "img": "https://images.scrydex.com/pokemon/me4-102/large",
+     "cid": "int:me4-102",
+     "src": "int",
+     "sid": "me4",
+     "tdx": "me04-102"
     }
    ]
   },
@@ -8348,13 +8628,17 @@
     {
      "uid": "07a2noaz",
      "rc": "SR",
-     "art": false,
+     "art": true,
      "rarity": "SR",
      "lang": "JPN",
      "set": "Inferno X (M2)",
      "year": "2025",
      "number": "093/080",
-     "img": "https://images.pokemontcg.io/me2/108_hires.png"
+     "img": "https://images.pokemontcg.io/me2/108_hires.png",
+     "cid": "jp:M2-093",
+     "src": "jp",
+     "sid": "M2",
+     "tdx": null
     }
    ]
   },
@@ -8364,13 +8648,17 @@
     {
      "uid": "h54m8zr2",
      "rc": "SR",
-     "art": false,
+     "art": true,
      "rarity": "SR",
      "lang": "JPN",
      "set": "Abyss Eye (M5)",
      "year": "2026",
      "number": "097/081",
-     "img": "https://images.scrydex.com/pokemon/me5-99/large"
+     "img": "https://images.scrydex.com/pokemon/me5-99/large",
+     "cid": "jp:M5-097",
+     "src": "jp",
+     "sid": "M5",
+     "tdx": null
     }
    ]
   },

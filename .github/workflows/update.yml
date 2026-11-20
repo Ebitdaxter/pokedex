@@ -35,6 +35,7 @@ jobs:
           python tools/build_cards.py
           python tools/build_bubi.py
           python tools/build_pocketdex.py
+          python tools/find_images.py
       - name: Prezzi delle full art (lista Mancanti)
         run: python tools/build_art_prices.py
       - name: Aggiorna i prezzi della collezione

@@ -32,7 +32,7 @@
   const STAT_LABELS = ['PS', 'Attacco', 'Difesa', 'Att. Sp.', 'Dif. Sp.', 'Velocità'];
   const ART_RC = new Set(['AR', 'SAR', 'CHR', 'CSR', 'MA']);
   // full arts: the only cards that count towards completing the Pokédex
-  const FA_RC = new Set(['AR', 'SAR', 'SR', 'UR', 'MUR', 'MA', 'CHR', 'CSR', 'SSR', 'SEC']);
+  const FA_RC = new Set(['AR', 'SAR', 'MUR', 'MA', 'CHR', 'CSR', 'SSR', 'SEC']);   // no SR / UR
   const RC_LABEL = { Common: 'Comune', Uncommon: 'Non comune', Rare: 'Rara', RR: 'Doppia rara', RRR: 'Tripla rara', AR: 'Art rare', SAR: 'Special art rare',
     SR: 'Super rara', UR: 'Secret / Hyper rare', MUR: 'Mega hyper rare', MA: 'Mega attack rare', CHR: 'Character rare', CSR: 'Character super rare',
     S: 'Shiny', SSR: 'Shiny super rare', ACE: 'ACE SPEC', K: 'Radiante', PR: 'Promo', CC: 'Classic collection', AMZ: 'Amazing rare', SEC: 'Secret (numero oltre il totale del set)' };
@@ -40,7 +40,7 @@
     ['all', 'Tutte le full art', () => true],
     ['art', 'AR / CHR', r => ['AR', 'CHR'].includes(r)],
     ['sar', 'SAR / CSR', r => ['SAR', 'CSR'].includes(r)],
-    ['secret', 'SR / UR / MUR / MA', r => ['SR', 'UR', 'MUR', 'SSR', 'MA', 'SEC'].includes(r)],
+    ['secret', 'MA / MUR / SSR / SEC', r => ['MUR', 'SSR', 'MA', 'SEC'].includes(r)],
   ];
   const LANGS = { int: ['ITA', 'ENG', 'FRA', 'DEU', 'ESP', 'POR'], jp: ['JPN', 'KOR', 'CHN'] };
 
@@ -91,7 +91,7 @@
     if (ts(src.pricesUpdated) > ts(dst.pricesUpdated)) dst.pricesUpdated = src.pricesUpdated;
     return dst;
   }
-  const isArt = x => x.art ?? FA_RC.has(x.rc);
+  const isArt = x => x.rc ? FA_RC.has(x.rc) : !!x.art;   // rarity decides; manual cards without one use the flag
   const mine = id => (col.cards[id]?.list || []).filter(isArt);   // only full arts count
   const isOwned = id => mine(id).length > 0;
   const cover = id => { const e = col.cards[id], l = mine(id); return e && (l.find(x => x.uid === e.cover) || l[0]); };
@@ -109,6 +109,12 @@
       fetch('data/collection.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).catch(() => null),
       fetch('data/sets.json').then(r => r.json()).catch(() => []),
     ]);
+    // photos found outside TCGdex (tools/find_images.py): fill owned cards that have none, display only
+    fetch('data/extraimg.json').then(r => r.ok ? r.json() : {}).then(x => {
+      let n = 0;
+      for (const e of Object.values(col.cards)) for (const c of e.list) if (!c.img && c.cid && x[c.cid]) { c.img = x[c.cid]; n++; }
+      if (n) renderAll();
+    }).catch(() => {});
     ENTRIES = p; ENTRIES.forEach(e => BY_ID.set(e.id, e)); SETS = s;
     remote = migrate(c || {});
     const local = store.get(LS.col, null) || store.get('pdx.collection.v2', null);
